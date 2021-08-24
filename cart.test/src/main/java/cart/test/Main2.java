@@ -1,6 +1,5 @@
 package cart.test;
 
-import java.io.Console;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.ListIterator;
@@ -17,24 +16,24 @@ public class Main2 {
 		 * RuleBook<Boolean> caratteristicheRuleBook =
 		 * RuleBookBuilder.create(CaratteristicheRuleBook.class)
 		 * .withResultType(Boolean.class) .withDefaultResult(Boolean.FALSE)
-		 * 
+		 *
 		 * .build();
-		 * 
+		 *
 		 * NameValueReferableMap<String> facts = new FactMap<String>();
 		 * facts.setValue("CLSTATF", "H3"); facts.setValue("CLLEGA", "1A");
 		 * //facts.setValue("First Time Homebuyer", true);
-		 * 
+		 *
 		 * caratteristicheRuleBook.run(facts);
-		 * 
-		 * 
-		 * 
-		 * 
+		 *
+		 *
+		 *
+		 *
 		 * Auditor auditor = (Auditor)caratteristicheRuleBook;
 		 * System.out.println("Stato Rule1 " + auditor.getRuleStatus("Rule1")); //prints
 		 * EXECUTED System.out.println("Stato Rule2 " + auditor.getRuleStatus("Rule2"));
 		 * //prints SKIPPED System.out.println("Stato Rule3 " +
 		 * auditor.getRuleStatus("Rule3")); //prints SKIPPED
-		 * 
+		 *
 		 * caratteristicheRuleBook.getResult().ifPresent(result ->
 		 * System.out.println("stato fisico H00 ammesso per lega 1A : " + result));
 		 */
@@ -42,14 +41,14 @@ public class Main2 {
 		/*
 		 * Stream<String> stream = Stream.of("Geeks", "FOr", "GEEKSQUIZ",
 		 * "GeeksforGeeks");
-		 * 
+		 *
 		 * // Check if Character at 1st index is // UpperCase in any string or not using
 		 * // Stream anyMatch(Predicate predicate) boolean answer = stream.allMatch(str
 		 * -> Character.isUpperCase(str.charAt(0)));
-		 * 
+		 *
 		 * // Displaying the result System.out.println(answer); }
-		 * 
-		 * 
+		 *
+		 *
 		 */
 		// Predicate<String> libtest1 = s ->
 		// s.startsWith("cart.test.library.subrules1");
@@ -58,10 +57,10 @@ public class Main2 {
 		 * List<String> CLLEGAValues = Caratteristiche.getCLLEGAValues(); List<String>
 		 * CLSTATFValues = Caratteristiche.getCLSTATFValues(); List<String> CLFINIValues
 		 * = Caratteristiche.getCLFINIValues();
-		 * 
-		 * 
+		 *
+		 *
 		 * String CLLEGA; String CLSTATF;
-		 * 
+		 *
 		 */
 
 		/*
@@ -85,12 +84,12 @@ public class Main2 {
 		/*
 		 * ListIterator<String> litr = CLSTATFValues.listIterator();
 		 * while(litr.hasNext()){
-		 * 
+		 *
 		 * CLSTATF = litr.next(); CLSTATF = CLSTATF.substring(0, CLSTATF.indexOf("-") -
 		 * 1);
-		 * 
-		 * 
-		 * 
+		 *
+		 *
+		 *
 		 * RuleBookRunner ruleBook = new RuleBookRunner("cart.test", s ->
 		 * s.equalsIgnoreCase("cart.test") ||
 		 * s.equalsIgnoreCase("cart.test.library.subrules1") ||
@@ -99,23 +98,23 @@ public class Main2 {
 		 * CaratteristicaBean applicant1 = new CaratteristicaBean(new BigDecimal(650),
 		 * CLLEGA, CLSTATF, "B07187", "B07187"); // CaratteristicaBean applicant1 = new
 		 * CaratteristicaBean(new BigDecimal(650), "3A", "H14", "B07187", "B07187");
-		 * 
+		 *
 		 * facts.put(new Fact<>(applicant1));
-		 * 
-		 * 
+		 *
+		 *
 		 * ruleBook.setDefaultResult(Boolean.FALSE); ruleBook.run(facts);
-		 * 
+		 *
 		 * String clstatfRis = CLSTATF;
-		 * 
+		 *
 		 * ruleBook.getResult().ifPresent(result ->
 		 * System.out.println("Vincolo per Caratteristica stato fisico " + clstatfRis +
 		 * " validato " + result));
-		 * 
+		 *
 		 * boolean test = testVincolo("3A", clstatfRis, "B07187", "B07187");
 		 * System.out.println("TEST per " + clstatfRis + " " + test);
-		 * 
-		 * 
-		 * 
+		 *
+		 *
+		 *
 		 * }
 		 */
 
@@ -213,7 +212,7 @@ public class Main2 {
 		List<String> CLLEGAValues = Caratteristiche.getCLLEGAValues();
 		List<String> CLSTATFValues = Caratteristiche.getCLSTATFValues();
 		List<String> CLFINIValues = Caratteristiche.getCLFINIValues();
-		
+
 
 		String CLLEGA;
 		String CLSTATF;
