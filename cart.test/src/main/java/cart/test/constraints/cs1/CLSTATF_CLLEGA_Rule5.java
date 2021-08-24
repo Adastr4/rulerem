@@ -1,13 +1,15 @@
-package cart.test;
+package cart.test.constraints.cs1;
+
+import java.util.List;
 
 import com.deliveredtechnologies.rulebook.RuleState;
 import com.deliveredtechnologies.rulebook.annotation.Given;
+import com.deliveredtechnologies.rulebook.annotation.Result;
 import com.deliveredtechnologies.rulebook.annotation.Rule;
 import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
-import com.deliveredtechnologies.rulebook.annotation.Result;
 
-import java.util.List;
+import cart.test.CaratteristicaBean;
 
 @Rule(order = 1) // order specifies the order the rule should execute in; if not specified, any
 					// order may be used

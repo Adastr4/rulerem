@@ -186,11 +186,11 @@ public class Main2 {
 			CLSTATF = CLSTATF.substring(0, CLSTATF.indexOf("-") - 1);
 
 			RuleBookRunner ruleBook = new RuleBookRunner("cart.test",
-					s -> s.equalsIgnoreCase("cart.test") || s.equalsIgnoreCase("cart.test.library.subrules1")
+					s -> s.equalsIgnoreCase("cart.test.constraints.cs1") || s.equalsIgnoreCase("cart.test.library.subrules1")
 							|| s.equalsIgnoreCase("cart.test.library.subrules2"));
 			NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
 			CaratteristicaBean applicant1 = new CaratteristicaBean(new BigDecimal(650), CLLEGA, CLSTATF, "B07187",
-					"B07187");
+					"B07187", "");
 
 			facts.put(new Fact<>(applicant1));
 
@@ -213,6 +213,7 @@ public class Main2 {
 		List<String> CLLEGAValues = Caratteristiche.getCLLEGAValues();
 		List<String> CLSTATFValues = Caratteristiche.getCLSTATFValues();
 		List<String> CLFINIValues = Caratteristiche.getCLFINIValues();
+		
 
 		String CLLEGA;
 		String CLSTATF;
@@ -228,7 +229,7 @@ public class Main2 {
 		NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
 
 		CaratteristicaBean applicant1 = new CaratteristicaBean(new BigDecimal(650), CLLEGA, CLSTATF, "B07187",
-				"B07187");
+				"B07187", "");
 
 		facts.put(new Fact<>(applicant1));
 

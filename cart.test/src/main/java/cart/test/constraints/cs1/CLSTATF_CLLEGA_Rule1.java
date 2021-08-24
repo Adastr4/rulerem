@@ -1,17 +1,19 @@
-package cart.test;
-
-import com.deliveredtechnologies.rulebook.RuleState;
-import com.deliveredtechnologies.rulebook.annotation.Given;
-import com.deliveredtechnologies.rulebook.annotation.Rule;
-import com.deliveredtechnologies.rulebook.annotation.Then;
-import com.deliveredtechnologies.rulebook.annotation.When;
-import com.deliveredtechnologies.rulebook.annotation.Result;
+package cart.test.constraints.cs1;
 
 import java.util.List;
 
+import com.deliveredtechnologies.rulebook.RuleState;
+import com.deliveredtechnologies.rulebook.annotation.Given;
+import com.deliveredtechnologies.rulebook.annotation.Result;
+import com.deliveredtechnologies.rulebook.annotation.Rule;
+import com.deliveredtechnologies.rulebook.annotation.Then;
+import com.deliveredtechnologies.rulebook.annotation.When;
+
+import cart.test.CaratteristicaBean;
+
 @Rule(order = 1) // order specifies the order the rule should execute in; if not specified, any
 					// order may be used
-public class CLSTATF_CLLEGA_Rule3 {
+public class CLSTATF_CLLEGA_Rule1 {
 	private static final RuleState BREAK = null;
 
 	@Given
@@ -23,16 +25,16 @@ public class CLSTATF_CLLEGA_Rule3 {
 
 	@When
 	public boolean when() {
-		System.out.println("executing rule 3 no package");
+		System.out.println("executing rule 1 no package");
 		return caratteristiche.stream()
-				.anyMatch(caratteristica -> caratteristica.getCLLEGA().substring(0, 1).equalsIgnoreCase("8"))
+				.anyMatch(caratteristica -> caratteristica.getCLLEGA().substring(0, 1).equalsIgnoreCase("1"))
 				&& caratteristiche.stream()
 						.anyMatch(caratteristica -> caratteristica.getCLSTATF().substring(0, 2).equalsIgnoreCase("h3"));
 	}
 
 	@Then
 	public RuleState then() {
-		System.out.println("executed rule 3 no package");
+		System.out.println("executed rule 1 no package");
 		validate = Boolean.FALSE;
 		return RuleState.BREAK;
 	}

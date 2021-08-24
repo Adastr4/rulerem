@@ -59,5 +59,6 @@ public class Caratteristiche {
 		return clfiniValues;
 
 	}
+	
 
 }

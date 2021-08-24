@@ -8,13 +8,15 @@ public class CaratteristicaBean {
 	private String CLSTATF;
 	private String SLBPTE;
 	private String SLBP;
+	private String CLFINI;
 
-	public CaratteristicaBean(BigDecimal CLSPESS, String CLLEGA, String CLSTATF, String SLBPTE, String SLBP) {
+	public CaratteristicaBean(BigDecimal CLSPESS, String CLLEGA, String CLSTATF, String SLBPTE, String SLBP, String CLFINI) {
 		this.CLSPESS = CLSPESS;
 		this.CLLEGA = CLLEGA;
 		this.CLSTATF = CLSTATF;
 		this.SLBPTE = SLBPTE;
 		this.SLBP = SLBP;
+		this.CLFINI = CLFINI;
 	}
 
 	public BigDecimal getCLSPESS() {
@@ -55,6 +57,13 @@ public class CaratteristicaBean {
 
 	public void setSLBP(String SLBP) {
 		this.SLBP = SLBP;
+	}
+	public String getCLFINI() {
+		return CLFINI;
+	}
+
+	public void setCLFINI(String CLFINI) {
+		this.CLFINI = CLFINI;
 	}
 
 }

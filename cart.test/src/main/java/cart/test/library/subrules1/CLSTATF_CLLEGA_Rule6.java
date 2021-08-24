@@ -11,7 +11,7 @@ import java.util.List;
 
 import cart.test.CaratteristicaBean;
 
-@Rule(order = 1005) //order specifies the order the rule should execute in; if not specified, any order may be used
+//@Rule(order = 1005) //order specifies the order the rule should execute in; if not specified, any order may be used
 public class CLSTATF_CLLEGA_Rule6{
   
 	private static final RuleState BREAK = null;
