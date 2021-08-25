@@ -37,7 +37,8 @@ public class CLFINI_Rule2 {
 		return RuleState.BREAK;
 	}
 	private String getClasse() {
-		String classe = ReadDB.readClasse();
+		String classe;// = ReadDB.readClasse();
+		classe = "EDT";
 		return classe;
 	}
 

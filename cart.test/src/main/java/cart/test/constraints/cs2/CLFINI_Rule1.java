@@ -27,8 +27,8 @@ public class CLFINI_Rule1 {
 	@When
 	public boolean when() {
 		System.out.println("executing rule 1 no package");
-		return getClasse().equalsIgnoreCase("EDT") && 
-				( caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLFINI().equalsIgnoreCase("f")) ||
+		return ( caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLASSE().equalsIgnoreCase("EDT")) && 
+				 caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLFINI().equalsIgnoreCase("f")) ||
 						caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLFINI().equalsIgnoreCase("n")) );		
 	}
 
@@ -38,9 +38,6 @@ public class CLFINI_Rule1 {
 		validate = Boolean.TRUE;
 		return RuleState.BREAK;
 	}
-	private String getClasse() {
-		String classe = ReadDB.readClasse();
-		return classe;
-	}
+	
 
 }
