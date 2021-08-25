@@ -1,10 +1,11 @@
 package cart.test;
 
+import java.math.BigDecimal;
+
 import com.deliveredtechnologies.rulebook.FactMap;
 import com.deliveredtechnologies.rulebook.NameValueReferableMap;
 import com.deliveredtechnologies.rulebook.lang.RuleBookBuilder;
 import com.deliveredtechnologies.rulebook.model.RuleBook;
-import java.math.BigDecimal;
 
 public class StatoFisico {
 	public static void main(String[] args) {

@@ -169,8 +169,8 @@ public class Main2 {
 	}
 
 	/**
-	 * test con i dati clblati 
-	 * 
+	 * test con i dati clblati
+	 *
 	 */
 	private static void withLoop() {
 		List<String> CLLEGAValues = Caratteristiche.getCLLEGAValues();

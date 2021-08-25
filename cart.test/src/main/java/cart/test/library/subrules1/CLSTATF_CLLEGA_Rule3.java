@@ -1,13 +1,13 @@
 package cart.test.library.subrules1;
 
+import java.util.List;
+
 import com.deliveredtechnologies.rulebook.RuleState;
 import com.deliveredtechnologies.rulebook.annotation.Given;
+import com.deliveredtechnologies.rulebook.annotation.Result;
 import com.deliveredtechnologies.rulebook.annotation.Rule;
 import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
-import com.deliveredtechnologies.rulebook.annotation.Result;
-
-import java.util.List;
 
 import cart.test.CaratteristicaBean;
 
@@ -20,13 +20,13 @@ public class CLSTATF_CLLEGA_Rule3 {
 
  @Result
  private boolean validate = Boolean.FALSE;
-  
+
   @When
   public boolean when() {
 	  System.out.println("executing rule 3 package subrules1");
-	  return 
-			!caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLLEGA().equalsIgnoreCase("3a")) 
-    				;		
+	  return
+			!caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLLEGA().equalsIgnoreCase("3a"))
+    				;
   }
   @Then
   public RuleState then() {
@@ -34,5 +34,5 @@ public class CLSTATF_CLLEGA_Rule3 {
 	  validate = Boolean.TRUE;
 	  return BREAK;
   }
- 
+
 }

@@ -5,14 +5,12 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 
 public class ReadDB {
 
 	private static int counter;
 	private static Connection conn = null;
-	
+
 	public static String readClasse() {
 		Statement stmt = null;
 		ResultSet rs = null;

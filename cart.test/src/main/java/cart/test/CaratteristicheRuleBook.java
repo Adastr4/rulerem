@@ -1,6 +1,5 @@
 package cart.test;
 
-import com.deliveredtechnologies.rulebook.lang.RuleBookBuilder;
 import com.deliveredtechnologies.rulebook.lang.RuleBuilder;
 import com.deliveredtechnologies.rulebook.model.RuleBook;
 import com.deliveredtechnologies.rulebook.model.RuleBookAuditor;
@@ -32,7 +31,7 @@ public class CaratteristicheRuleBook extends RuleBookAuditor<Boolean> {
 				.then((facts, result) -> result.setValue(Boolean.FALSE))
 				.then((facts, result) -> System.out.println("Risultato Rule2 " + result.getValue())).stop().build());
 
-// **********************************************	    
+// **********************************************
 		// nested if togliamo lo stop()
 		// if CLLEGA(1:1) == '3
 		addRule(RuleBuilder.create().withResultType(Boolean.class).withName("Rule3")

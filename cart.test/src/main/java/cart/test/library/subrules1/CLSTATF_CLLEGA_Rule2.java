@@ -1,13 +1,13 @@
 package cart.test.library.subrules1;
 
+import java.util.List;
+
 import com.deliveredtechnologies.rulebook.RuleState;
 import com.deliveredtechnologies.rulebook.annotation.Given;
+import com.deliveredtechnologies.rulebook.annotation.Result;
 import com.deliveredtechnologies.rulebook.annotation.Rule;
 import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
-import com.deliveredtechnologies.rulebook.annotation.Result;
-
-import java.util.List;
 
 import cart.test.CaratteristicaBean;
 
@@ -20,18 +20,19 @@ public class CLSTATF_CLLEGA_Rule2 extends CLSTATF_CLLEGA_Rule4{
 
   @Result
   private boolean validate;
-  
-  @When
+
+  @Override
+@When
   public boolean when() {
     System.out.println("executing rule 2 package subrules1");
 	  boolean superRes = super.when();
-	  boolean res =  
+	  boolean res =
     		caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getSLBPTE().equalsIgnoreCase(
     				 caratteristica.getSLBP().toLowerCase()
     				)) &&
     		caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSTATF().equalsIgnoreCase("h14"))
 	  && !superRes;
-	  
+
 	  return res;
   }
   @Then
@@ -40,5 +41,5 @@ public class CLSTATF_CLLEGA_Rule2 extends CLSTATF_CLLEGA_Rule4{
 	  validate = Boolean.TRUE;
 	  return BREAK;
   }
- 
+
 }
