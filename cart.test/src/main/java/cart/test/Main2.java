@@ -168,6 +168,10 @@ public class Main2 {
 
 	}
 
+	/**
+	 * test con i dati clblati 
+	 * 
+	 */
 	private static void withLoop() {
 		List<String> CLLEGAValues = Caratteristiche.getCLLEGAValues();
 		List<String> CLSTATFValues = Caratteristiche.getCLSTATFValues();
