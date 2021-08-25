@@ -17,7 +17,8 @@ public class Main2 {
 //		noLoopCLSTATF();
 //		withLoopCLSTATF();
 		
-		noLoopCLFINI();
+//		noLoopCLFINI();
+		withLoopCLFINI();
 
 	}
 
@@ -113,8 +114,9 @@ public class Main2 {
 			CLSTATF = CLSTATF.substring(0, CLSTATF.indexOf("-") - 1);
 
 			RuleBookRunner ruleBook = new RuleBookRunner("cart.test",
-					s -> s.equalsIgnoreCase("cart.test.constraints.cs1") || s.equalsIgnoreCase("cart.test.library.subrules1")
-							|| s.equalsIgnoreCase("cart.test.library.subrules2"));
+					s ->  s.equalsIgnoreCase("cart.test.library.subrules1") ||
+							s.equalsIgnoreCase("cart.test.library.subrules1") || 
+							s.equalsIgnoreCase("cart.test.library.subrules2"));
 			NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
 			CaratteristicaBean applicant1 = new CaratteristicaBean(new BigDecimal(650), CLLEGA, CLSTATF, "B07187",
 					"B07187", "", "");
@@ -201,5 +203,45 @@ public class Main2 {
 		boolean test = testVincolo2(CLLEGA, CLSTATF, "EDT", CLFINI);
 		System.out.println("TEST per " + CLLEGA + " " + CLSTATF + " " + test);
 
+	}
+	private static void withLoopCLFINI() {
+		
+
+
+		String CLLEGA;
+		String CLSTATF;
+		String CLFINI;
+		String CLASSE;
+
+		CLLEGA = "3D";
+		CLSTATF = "H12";
+		
+		CLASSE = "EDT";
+
+		List<String> CLFINIValues = Caratteristiche.getCLFINIValues();	
+		
+		ListIterator<String> litr = CLFINIValues.listIterator();
+		while (litr.hasNext()) {
+
+			CLFINI = litr.next();
+			CLFINI = CLFINI.substring(0, CLFINI.indexOf("-") - 1);
+			
+		RuleBookRunner ruleBook = new RuleBookRunner("cart.test.constraints.cs2");
+				
+		NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
+
+		CaratteristicaBean applicant1 = new CaratteristicaBean(new BigDecimal(650), CLLEGA, CLSTATF,  "", "", CLFINI, CLASSE);
+
+		facts.put(new Fact<>(applicant1));
+
+		ruleBook.setDefaultResult(Boolean.FALSE);
+		ruleBook.run(facts);
+
+		ruleBook.getResult().ifPresent(
+				result -> System.out.println("Vincolo per Caratteristica finitura " + "validato " + result));
+
+		boolean test = testVincolo2(CLLEGA, CLSTATF, CLASSE, CLFINI);
+		System.out.println("TEST per " + CLLEGA + " " + CLSTATF + " " + CLASSE + " " + CLFINI + " " + test);
+		}
 	}
 }
