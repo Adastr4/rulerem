@@ -9,14 +9,16 @@ public class CaratteristicaBean {
 	private String SLBPTE;
 	private String SLBP;
 	private String CLFINI;
+	private String CLASSE;
 
-	public CaratteristicaBean(BigDecimal CLSPESS, String CLLEGA, String CLSTATF, String SLBPTE, String SLBP, String CLFINI) {
+	public CaratteristicaBean(BigDecimal CLSPESS, String CLLEGA, String CLSTATF, String SLBPTE, String SLBP, String CLFINI, String CLASSE) {
 		this.CLSPESS = CLSPESS;
 		this.CLLEGA = CLLEGA;
 		this.CLSTATF = CLSTATF;
 		this.SLBPTE = SLBPTE;
 		this.SLBP = SLBP;
 		this.CLFINI = CLFINI;
+		this.CLASSE = CLASSE;
 	}
 
 	public BigDecimal getCLSPESS() {
@@ -64,6 +66,16 @@ public class CaratteristicaBean {
 
 	public void setCLFINI(String CLFINI) {
 		this.CLFINI = CLFINI;
+	}
+	public String getCLASSE() {
+		if (CLASSE == null) {
+			CLASSE = ReadDB.readClasse();
+		}
+		return CLASSE;
+	}
+
+	public void setCLASSE(String CLASSE) {
+		this.CLASSE = CLASSE;
 	}
 
 }
