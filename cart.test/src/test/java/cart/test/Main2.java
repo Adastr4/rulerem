@@ -194,7 +194,8 @@ public class Main2 {
 				
 		NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
 
-		CaratteristicaBean applicant1 = new CaratteristicaBean(new BigDecimal(650), CLLEGA, CLSTATF,  "", "", CLFINI, CLASSE);
+		CaratteristicaBean applicant1 = new CaratteristicaBean(
+				new BigDecimal(650), CLLEGA, CLSTATF,  "", "", CLFINI, CLASSE);
 
 		facts.put(new Fact<>(applicant1));
 
