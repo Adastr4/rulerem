@@ -22,7 +22,7 @@ public class Main2 {
 
 	}
 
-	private static boolean testVincolo2(String CLLEGA, String CLSTATF, String CLASSE, String CLFINI) {
+	 static boolean testVincolo2(String CLLEGA, String CLSTATF, String CLASSE, String CLFINI) {
 		boolean validate = Boolean.FALSE;
 		if (!CLASSE.equalsIgnoreCase("EDT")) {
 			if (CLFINI.equalsIgnoreCase("i") || CLFINI.equalsIgnoreCase("t") || CLFINI.equalsIgnoreCase("u")
@@ -51,7 +51,7 @@ public class Main2 {
 		return validate;
 	}
 	
-	private static boolean testVincolo(String CLLEGA, String CLSTATF, String SLBPTE, String SLBP) {
+	static  boolean testVincolo(String CLLEGA, String CLSTATF, String SLBPTE, String SLBP) {
 		boolean validate = Boolean.TRUE;
 		if (CLSTATF.equalsIgnoreCase("t04") || CLSTATF.equalsIgnoreCase("t06") || CLSTATF.equalsIgnoreCase("t4p"))
 			validate = Boolean.FALSE;
