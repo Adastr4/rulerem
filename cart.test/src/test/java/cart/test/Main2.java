@@ -15,7 +15,7 @@ public class Main2 {
 
 
 //		noLoopCLSTATF();
-//		withLoopCLSTATF();
+	//	withLoopCLSTATF();
 		
 //		noLoopCLFINI();
 		withLoopCLFINI();
@@ -134,9 +134,10 @@ public class Main2 {
 
 			ruleBook.getResult().ifPresent(result -> System.out
 					.println("Vincolo per Caratteristica stato fisico " + clstatfRis + " validato " + result));
-
-			boolean test = testVincolo(CLLEGA, clstatfRis, "B07187", "B07187");
-			System.out.println("TEST per " + CLLEGA + " " + clstatfRis + " " + test);
+			System.out.println(CLLEGA + " " + clstatfRis);
+			
+			//boolean test = testVincolo(CLLEGA, clstatfRis, "B07187", "B07187");
+		//	System.out.println("TEST per " + CLLEGA + " " + clstatfRis + " " + test);
 
 		}
 

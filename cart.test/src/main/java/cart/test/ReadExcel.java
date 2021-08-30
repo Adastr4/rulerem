@@ -19,7 +19,7 @@ public class ReadExcel {
 		try {
 //			File directory = new File("./");
 //		    System.out.println(directory.getAbsolutePath());
-			File file = new File("c:\\temp\\Configuratore.xlsx"); // creating a new file instance
+			File file = new File("/tmp/Configuratore.xlsx"); // creating a new file instance
 //			InputStream in = getClass().getResourceAsStream("/file.txt");
 //			BufferedReader reader = new BufferedReader(new InputStreamReader(in));
 			FileInputStream fis = new FileInputStream(file); // obtaining bytes from the file
