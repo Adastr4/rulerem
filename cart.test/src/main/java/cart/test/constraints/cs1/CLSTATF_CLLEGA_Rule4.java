@@ -25,7 +25,7 @@ public class CLSTATF_CLLEGA_Rule4 {
 
 	@When
 	public boolean when() {
-		System.out.println("executing rule 4 no package");
+		System.out.println("executing rule 4 package cs1");
 		return caratteristiche.stream()
 				.anyMatch(caratteristica -> caratteristica.getCLLEGA().substring(0, 1).equalsIgnoreCase("6"))
 				&& caratteristiche.stream()
@@ -34,7 +34,7 @@ public class CLSTATF_CLLEGA_Rule4 {
 
 	@Then
 	public RuleState then() {
-		System.out.println("executed rule 4 no package");
+		System.out.println("executed rule 4 package cs1");
 		validate = Boolean.FALSE;
 		return RuleState.BREAK;
 	}

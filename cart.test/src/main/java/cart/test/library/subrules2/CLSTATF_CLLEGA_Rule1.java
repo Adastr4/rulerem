@@ -32,7 +32,7 @@ public class CLSTATF_CLLEGA_Rule1 {
   public RuleState then() {
 	  System.out.println("executed rule 1 package subrules2");
 	  validate = Boolean.FALSE;
-	  return RuleState.NEXT;
+	  return RuleState.BREAK;
   }
  
 }

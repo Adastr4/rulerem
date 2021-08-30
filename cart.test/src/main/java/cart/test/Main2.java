@@ -15,10 +15,10 @@ public class Main2 {
 
 
 //		noLoopCLSTATF();
-//		withLoopCLSTATF();
+		withLoopCLSTATF();
 		
 //		noLoopCLFINI();
-		withLoopCLFINI();
+//		withLoopCLFINI();
 
 	}
 
@@ -105,7 +105,7 @@ public class Main2 {
 		String CLLEGA;
 		String CLSTATF;
 
-		CLLEGA = "3A";
+		CLLEGA = "4A";
 
 		ListIterator<String> litr = CLSTATFValues.listIterator();
 		while (litr.hasNext()) {
@@ -114,9 +114,9 @@ public class Main2 {
 			CLSTATF = CLSTATF.substring(0, CLSTATF.indexOf("-") - 1);
 
 			RuleBookRunner ruleBook = new RuleBookRunner("cart.test",
-					s ->  s.equalsIgnoreCase("cart.test.library.subrules1") ||
-							s.equalsIgnoreCase("cart.test.library.subrules1") || 
-							s.equalsIgnoreCase("cart.test.library.subrules2"));
+					s ->  s.equalsIgnoreCase("cart.test.constraints.cs1") ||
+						  s.equalsIgnoreCase("cart.test.library.subrules1") ||
+						  s.equalsIgnoreCase("cart.test.library.subrules2"));
 			NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
 			CaratteristicaBean applicant1 = new CaratteristicaBean(new BigDecimal(650), CLLEGA, CLSTATF, "B07187",
 					"B07187", "", "");
@@ -145,14 +145,16 @@ public class Main2 {
 		String CLLEGA;
 		String CLSTATF;
 
-		CLLEGA = "3A";
-		CLSTATF = "H0F";
+		CLLEGA = "4A";
+		CLSTATF = "T04";
 
 		
 
 		RuleBookRunner ruleBook = new RuleBookRunner("cart.test",
-				s -> s.equalsIgnoreCase("cart.test") || s.equalsIgnoreCase("cart.test.library.subrules1")
-						|| s.equalsIgnoreCase("cart.test.library.subrules2"));
+				s -> s.equalsIgnoreCase("cart.test") || 
+				     s.equalsIgnoreCase("cart.test.constraints.cs1") ||
+				     s.equalsIgnoreCase("cart.test.library.subrules1") ||
+				     s.equalsIgnoreCase("cart.test.library.subrules2"));
 		NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
 
 		CaratteristicaBean applicant1 = new CaratteristicaBean(new BigDecimal(650), CLLEGA, CLSTATF, "B07187",
@@ -160,7 +162,7 @@ public class Main2 {
 
 		facts.put(new Fact<>(applicant1));
 
-		ruleBook.setDefaultResult(Boolean.FALSE);
+		ruleBook.setDefaultResult(Boolean.TRUE);
 		ruleBook.run(facts);
 
 		ruleBook.getResult().ifPresent(
