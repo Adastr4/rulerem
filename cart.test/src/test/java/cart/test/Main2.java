@@ -15,10 +15,10 @@ public class Main2 {
 
 
 //		noLoopCLSTATF();
-	//	withLoopCLSTATF();
+		withLoopCLSTATF();
 		
 //		noLoopCLFINI();
-		withLoopCLFINI();
+	//  withLoopCLFINI();
 
 	}
 
@@ -136,8 +136,8 @@ public class Main2 {
 					.println("Vincolo per Caratteristica stato fisico " + clstatfRis + " validato " + result));
 			System.out.println(CLLEGA + " " + clstatfRis);
 			
-			//boolean test = testVincolo(CLLEGA, clstatfRis, "B07187", "B07187");
-		//	System.out.println("TEST per " + CLLEGA + " " + clstatfRis + " " + test);
+			boolean test = testVincolo(CLLEGA, clstatfRis, "B07187", "B07187");
+			System.out.println("TEST per " + CLLEGA + " " + clstatfRis + " " + test);
 
 		}
 
