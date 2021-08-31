@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.deliveredtechnologies.rulebook.RuleState;
 import com.deliveredtechnologies.rulebook.annotation.Given;
+import com.deliveredtechnologies.rulebook.annotation.Result;
 import com.deliveredtechnologies.rulebook.annotation.Rule;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
@@ -17,7 +18,7 @@ public class CLSTATF_CLLEGA_Rule4 {
 @Given
   private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 
-<<<<<<< HEAD
+
   @Result
   private boolean validate = Boolean.FALSE;
   
@@ -42,7 +43,7 @@ public class CLSTATF_CLLEGA_Rule4 {
 	  return RuleState.BREAK;
   }
  
-=======
+/*
 //  @Result
 //  private boolean validate = Boolean.FALSE;
 
@@ -69,5 +70,5 @@ public class CLSTATF_CLLEGA_Rule4 {
 	  //	  return RuleState.NEXT;
 	  //  }
 
->>>>>>> 4c88be49c2250b23c05a5a4d2ebb60f1eb67f7d7
+*/
 }
