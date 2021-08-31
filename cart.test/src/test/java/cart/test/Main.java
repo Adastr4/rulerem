@@ -12,7 +12,6 @@ public class Main {
 		/**
 		 * Example Using RuleBook A HelloWorld Example
 		 */
-		
 		RuleBook ruleBook = RuleBookBuilder.create().addRule(rule -> rule.withNoSpecifiedFactType()
 				.then(f -> System.out.print("Hello ")).then(f -> System.out.println("World"))).build();
 

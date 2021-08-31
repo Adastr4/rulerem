@@ -1,11 +1,9 @@
 package cart.test;
 
-import com.deliveredtechnologies.rulebook.model.RuleBook;
 import com.deliveredtechnologies.rulebook.FactMap;
 import com.deliveredtechnologies.rulebook.NameValueReferableMap;
 import com.deliveredtechnologies.rulebook.lang.RuleBookBuilder;
-import com.deliveredtechnologies.rulebook.lang.RuleBuilder;
-import com.deliveredtechnologies.rulebook.model.rulechain.cor.CoRRuleBook;
+import com.deliveredtechnologies.rulebook.model.RuleBook;
 
 public class StatoFisicoRuleBookDSL {
 
@@ -28,7 +26,7 @@ public class StatoFisicoRuleBookDSL {
 		 * facts.getValue("pet owner")) .then((facts, result) ->
 		 * result.setValue("You're a pet owner. That's awesome!"))) .build();
 		 */
-		NameValueReferableMap<String> facts2 = new FactMap<String>();
+		NameValueReferableMap<String> facts2 = new FactMap<>();
 		facts2.setValue("sheds", "poodle");
 		facts2.setValue("color", "red");
 		RuleBook<String> ruleBook = RuleBookBuilder.create().withResultType(String.class)

@@ -14,15 +14,15 @@ public class Main2 {
 	public static void main(String[] args) {
 
 
-		noLoopCLSTATF();
-//		withLoopCLSTATF();
+//		noLoopCLSTATF();
+	//	withLoopCLSTATF();
 		
 //		noLoopCLFINI();
-//		withLoopCLFINI();
+		withLoopCLFINI();
 
 	}
 
-	private static boolean testVincolo2(String CLLEGA, String CLSTATF, String CLASSE, String CLFINI) {
+	 static boolean testVincolo2(String CLLEGA, String CLSTATF, String CLASSE, String CLFINI) {
 		boolean validate = Boolean.FALSE;
 		if (!CLASSE.equalsIgnoreCase("EDT")) {
 			if (CLFINI.equalsIgnoreCase("i") || CLFINI.equalsIgnoreCase("t") || CLFINI.equalsIgnoreCase("u")
@@ -51,7 +51,7 @@ public class Main2 {
 		return validate;
 	}
 	
-	private static boolean testVincolo(String CLLEGA, String CLSTATF, String SLBPTE, String SLBP) {
+	static  boolean testVincolo(String CLLEGA, String CLSTATF, String SLBPTE, String SLBP) {
 		boolean validate = Boolean.TRUE;
 		if (CLSTATF.equalsIgnoreCase("t04") || CLSTATF.equalsIgnoreCase("t06") || CLSTATF.equalsIgnoreCase("t4p"))
 			validate = Boolean.FALSE;
@@ -96,6 +96,10 @@ public class Main2 {
 
 	}
 
+	/**
+	 * test con i dati clblati
+	 *
+	 */
 	private static void withLoopCLSTATF() {
 		
 //		List<String> CLLEGAValues = Caratteristiche.getCLLEGAValues();
@@ -105,7 +109,7 @@ public class Main2 {
 		String CLLEGA;
 		String CLSTATF;
 
-		CLLEGA = "4A";
+		CLLEGA = "3A";
 
 		ListIterator<String> litr = CLSTATFValues.listIterator();
 		while (litr.hasNext()) {
@@ -114,9 +118,9 @@ public class Main2 {
 			CLSTATF = CLSTATF.substring(0, CLSTATF.indexOf("-") - 1);
 
 			RuleBookRunner ruleBook = new RuleBookRunner("cart.test",
-					s ->  s.equalsIgnoreCase("cart.test.constraints.cs1") ||
-						  s.equalsIgnoreCase("cart.test.library.subrules1") ||
-						  s.equalsIgnoreCase("cart.test.library.subrules2"));
+					s ->  s.equalsIgnoreCase("cart.test.library.subrules1") ||
+							s.equalsIgnoreCase("cart.test.library.subrules1") || 
+							s.equalsIgnoreCase("cart.test.library.subrules2"));
 			NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
 			CaratteristicaBean applicant1 = new CaratteristicaBean(new BigDecimal(650), CLLEGA, CLSTATF, "B07187",
 					"B07187", "", "");
@@ -130,9 +134,10 @@ public class Main2 {
 
 			ruleBook.getResult().ifPresent(result -> System.out
 					.println("Vincolo per Caratteristica stato fisico " + clstatfRis + " validato " + result));
-
-			boolean test = testVincolo(CLLEGA, clstatfRis, "B07187", "B07187");
-			System.out.println("TEST per " + CLLEGA + " " + clstatfRis + " " + test);
+			System.out.println(CLLEGA + " " + clstatfRis);
+			
+			//boolean test = testVincolo(CLLEGA, clstatfRis, "B07187", "B07187");
+		//	System.out.println("TEST per " + CLLEGA + " " + clstatfRis + " " + test);
 
 		}
 
@@ -145,24 +150,23 @@ public class Main2 {
 		String CLLEGA;
 		String CLSTATF;
 
-		CLLEGA = "4A";
-		CLSTATF = "T04";
+		CLLEGA = "3A";
+		CLSTATF = "H0F";
 
 		
 
 		RuleBookRunner ruleBook = new RuleBookRunner("cart.test",
-				s -> s.equalsIgnoreCase("cart.test") || 
-				     s.equalsIgnoreCase("cart.test.constraints.cs1") ||
-				     s.equalsIgnoreCase("cart.test.library.subrules1") ||
-				     s.equalsIgnoreCase("cart.test.library.subrules2"));
+				s -> s.equalsIgnoreCase("cart.test") || s.equalsIgnoreCase("cart.test.library.subrules1")
+						|| s.equalsIgnoreCase("cart.test.library.subrules2"));
 		NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
 
-		CaratteristicaBean applicant1 = new CaratteristicaBean(new BigDecimal(650), CLLEGA, CLSTATF, "B07187",
+		CaratteristicaBean applicant1 = new CaratteristicaBean(
+				new BigDecimal(650), CLLEGA, CLSTATF, "B07187",
 				"B07187", "", "");
 
 		facts.put(new Fact<>(applicant1));
 
-		ruleBook.setDefaultResult(Boolean.TRUE);
+		ruleBook.setDefaultResult(Boolean.FALSE);
 		ruleBook.run(facts);
 
 		ruleBook.getResult().ifPresent(
@@ -192,7 +196,8 @@ public class Main2 {
 				
 		NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
 
-		CaratteristicaBean applicant1 = new CaratteristicaBean(new BigDecimal(650), CLLEGA, CLSTATF,  "", "", CLFINI, CLASSE);
+		CaratteristicaBean applicant1 = new CaratteristicaBean(
+				new BigDecimal(650), CLLEGA, CLSTATF,  "", "", CLFINI, CLASSE);
 
 		facts.put(new Fact<>(applicant1));
 
