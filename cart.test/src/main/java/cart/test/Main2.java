@@ -14,8 +14,8 @@ public class Main2 {
 	public static void main(String[] args) {
 
 
-//		noLoopCLSTATF();
-		withLoopCLSTATF();
+		noLoopCLSTATF();
+//		withLoopCLSTATF();
 		
 //		noLoopCLFINI();
 //		withLoopCLFINI();
