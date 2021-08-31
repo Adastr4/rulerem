@@ -1,15 +1,13 @@
 package cart.test;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -21,12 +19,12 @@ public class ReadExcel {
 		try {
 //			File directory = new File("./");
 //		    System.out.println(directory.getAbsolutePath());
-			File file = new File("c:\\temp\\Configuratore.xlsx"); // creating a new file instance
-//			InputStream in = getClass().getResourceAsStream("/file.txt"); 
+			File file = new File("/tmp/Configuratore.xlsx"); // creating a new file instance
+//			InputStream in = getClass().getResourceAsStream("/file.txt");
 //			BufferedReader reader = new BufferedReader(new InputStreamReader(in));
 			FileInputStream fis = new FileInputStream(file); // obtaining bytes from the file
 			// creating Workbook instance that refers to .xlsx file
-			List<String> retList = new ArrayList<String>();
+			List<String> retList = new ArrayList<>();
 
 			XSSFWorkbook wb = new XSSFWorkbook(fis);
 			XSSFSheet sheet = wb.getSheetAt(index); // creating a Sheet object to retrieve object

@@ -5,9 +5,9 @@ import java.util.List;
 
 public class Caratteristiche {
 
-	private static List<String> cllegaValues = new ArrayList<String>();
-	private static List<String> clstatfValues = new ArrayList<String>();
-	private static List<String> clfiniValues = new ArrayList<String>();
+	private static List<String> cllegaValues = new ArrayList<>();
+	private static List<String> clstatfValues = new ArrayList<>();
+	private static List<String> clfiniValues = new ArrayList<>();
 
 	public static void readCLLEGAValues() {
 
@@ -59,6 +59,6 @@ public class Caratteristiche {
 		return clfiniValues;
 
 	}
-	
+
 
 }

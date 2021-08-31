@@ -10,7 +10,6 @@ import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
 import cart.test.CaratteristicaBean;
-import cart.test.ReadDB;
 
 @Rule(order = 7) // order specifies the order the rule should execute in; if not specified, any
 					// order may be used
@@ -37,14 +36,14 @@ public class CLFINI_Rule7 {
 				.anyMatch(caratteristica -> caratteristica.getCLFINI().equalsIgnoreCase("y")) ||
 				caratteristiche.stream()
 				.anyMatch(caratteristica -> caratteristica.getCLFINI().equalsIgnoreCase("o")) )
-				&& 
+				&&
 				(caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSTATF().substring(0, 2).equalsIgnoreCase("a1"))
 				|| caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSTATF().substring(0, 2).equalsIgnoreCase("00")) )
 				&&
 				(caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLLEGA().equalsIgnoreCase("3b")) ||
 						caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLLEGA().equalsIgnoreCase("3m")) ||
 						caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLLEGA().equalsIgnoreCase("3o"))
-						
+
 						);
 	}
 
@@ -54,6 +53,6 @@ public class CLFINI_Rule7 {
 		validate = Boolean.FALSE;
 		return RuleState.BREAK;
 	}
-	
+
 
 }

@@ -10,7 +10,6 @@ import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
 import cart.test.CaratteristicaBean;
-import cart.test.ReadDB;
 
 @Rule(order = 3) // order specifies the order the rule should execute in; if not specified, any
 					// order may be used
@@ -45,6 +44,6 @@ public class CLFINI_Rule3 {
 		validate = Boolean.TRUE;
 		return RuleState.BREAK;
 	}
-	
+
 
 }
