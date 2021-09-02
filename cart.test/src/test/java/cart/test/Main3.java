@@ -10,18 +10,114 @@ import com.deliveredtechnologies.rulebook.NameValueReferableMap;
 import com.deliveredtechnologies.rulebook.model.Auditor;
 import com.deliveredtechnologies.rulebook.model.runner.RuleBookRunner;
 
-public class Main2 {
+public class Main3 {
 
 	public static void main(String[] args) {
 
 
-		noLoopCLSTATF();
+//		noLoopCLSTATF();
 //		withLoopCLSTATF();
 		
 //		noLoopCLFINI();
 	//  withLoopCLFINI();
+		
+		
+//		withLoopSubVincolo1();
+		noLoopSubVincolo1();
 
 	}
+	static void withLoopSubVincolo1() {
+		List<String> CLSTATFValues = Caratteristiche.getCLSTATFValues();
+
+		String CLLEGA;
+		String CLSTATF;
+
+		CLLEGA = "3A";
+//		CLLEGA = "4A";
+//		CLLEGA = "6B";
+
+		ListIterator<String> litr = CLSTATFValues.listIterator();
+		while (litr.hasNext()) {
+
+			CLSTATF = litr.next();
+			CLSTATF = CLSTATF.substring(0, CLSTATF.indexOf("-") - 1);
+
+			RuleBookRunner ruleBook = new RuleBookRunner("it.profilglass.constraints.library.cs1"
+					
+							);
+			NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
+			CaratteristicaBean applicant1 = new CaratteristicaBean(new BigDecimal(650), CLLEGA, CLSTATF, "B07187",
+					"B07187", "", "");
+
+			facts.put(new Fact<>(applicant1));
+
+			ruleBook.setDefaultResult(Boolean.TRUE);
+			ruleBook.run(facts);
+
+			String clstatfRis = CLSTATF;
+
+			ruleBook.getResult().ifPresent(result -> System.out
+					.println("Vincolo per Caratteristica stato fisico " + clstatfRis + " validato " + result));
+			System.out.println(CLLEGA + " " + clstatfRis);
+			
+			boolean test = testSubvincolo1(CLLEGA, clstatfRis, "B07187", "B07187");
+			System.out.println("TEST per " + CLLEGA + " " + clstatfRis + " " + test);
+
+		}
+
+
+		
+	}
+	
+	static void noLoopSubVincolo1() {
+		List<String> CLSTATFValues = Caratteristiche.getCLSTATFValues();
+
+		String CLLEGA;
+		String CLSTATF;
+
+		CLLEGA = "3A";
+		CLSTATF = "H32";
+//		CLLEGA = "4A";
+//		CLLEGA = "6B";
+
+
+			
+
+			RuleBookRunner ruleBook = new RuleBookRunner("cart.test",
+					s ->  s.equalsIgnoreCase("it.profilglass.constraints.library.cs1") 
+							);
+			NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
+			CaratteristicaBean applicant1 = new CaratteristicaBean(new BigDecimal(650), CLLEGA, CLSTATF, "B07187",
+					"B07187", "", "");
+
+			facts.put(new Fact<>(applicant1));
+
+			ruleBook.setDefaultResult(Boolean.TRUE);
+			ruleBook.run(facts);
+
+			Auditor auditor = (Auditor)ruleBook;
+		    System.out.println("Library subrules1 - rule 1 status: " + auditor.getRuleStatus("CLSTATF_CLLEGA_Rule1"));
+		    System.out.println("Library subrules1 - rule 2 status: " + auditor.getRuleStatus("CLSTATF_CLLEGA_Rule2"));	    
+		    System.out.println("Library subrules1 - rule 3 status: " + auditor.getRuleStatus("CLSTATF_CLLEGA_Rule3"));
+		    System.out.println("Library subrules1 - rule 4 status: " + auditor.getRuleStatus("CLSTATF_CLLEGA_Rule4"));
+		    System.out.println("Library subrules1 - rule 5 status: " + auditor.getRuleStatus("CLSTATF_CLLEGA_Rule5"));
+		    System.out.println("Library subrules1 - rule 6 status: " + auditor.getRuleStatus("CLSTATF_CLLEGA_Rule6"));
+			
+			String clstatfRis = CLSTATF;
+
+			ruleBook.getResult().ifPresent(result -> System.out
+					.println("Vincolo per Caratteristica stato fisico " + clstatfRis + " validato " + result));
+			
+			
+			boolean test = testSubvincolo1(CLLEGA, clstatfRis, "B07187", "B07187");
+			System.out.println("TEST per " + CLLEGA + " " + clstatfRis + " " + test);
+
+		}
+
+
+		
+	
+	
 
 	 static boolean testVincolo2(String CLLEGA, String CLSTATF, String CLASSE, String CLFINI) {
 		boolean validate = Boolean.FALSE;
@@ -51,7 +147,32 @@ public class Main2 {
 		}
 		return validate;
 	}
-	
+	 static  boolean testSubvincolo1(String CLLEGA, String CLSTATF, String SLBPTE, String SLBP) {
+		 boolean validate = Boolean.TRUE;
+			if (CLLEGA.substring(0, 1).equalsIgnoreCase("3")) {
+				if (CLSTATF.substring(0, 2).equalsIgnoreCase("h3"))
+					validate = Boolean.FALSE;
+				else {
+					if (CLLEGA.equalsIgnoreCase("3a"))
+						if (CLSTATF.equalsIgnoreCase("h00") || CLSTATF.equalsIgnoreCase("ha1")
+								|| CLSTATF.equalsIgnoreCase("h12") || CLSTATF.equalsIgnoreCase("h15")
+								|| CLSTATF.equalsIgnoreCase("h16") || CLSTATF.equalsIgnoreCase("h17")) {
+							if (SLBPTE.equalsIgnoreCase("b07187") || SLBPTE.equalsIgnoreCase("b03835")
+									|| SLBPTE.equalsIgnoreCase("b07434")) {
+							}
+
+							else {
+								validate = Boolean.FALSE;
+								if (SLBPTE.equalsIgnoreCase(SLBP) && CLSTATF.equalsIgnoreCase("h14"))
+									validate = Boolean.TRUE;
+							}
+						}
+				}
+
+			}
+			return validate;
+		 
+	 }
 	static  boolean testVincolo(String CLLEGA, String CLSTATF, String SLBPTE, String SLBP) {
 		boolean validate = Boolean.TRUE;
 		if (CLSTATF.equalsIgnoreCase("t04") || CLSTATF.equalsIgnoreCase("t06") || CLSTATF.equalsIgnoreCase("t4p"))

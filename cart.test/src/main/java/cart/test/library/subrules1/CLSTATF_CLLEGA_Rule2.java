@@ -26,29 +26,22 @@ public class CLSTATF_CLLEGA_Rule2 extends CLSTATF_CLLEGA_Rule4{
   @Override
 @When
   public boolean when() {
-    System.out.println("executing rule 2 package subrules1");
+//    System.out.println("executing rule 2 package subrules1");
 
-//	  boolean superRes = super.when();
-/*
-	  boolean superRes = super.when();
-*/
+
 	  boolean res =
     		caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getSLBPTE().equalsIgnoreCase(
     				 caratteristica.getSLBP().toLowerCase()
     				)) &&
 
     		caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSTATF().equalsIgnoreCase("h14"));
-	  //&& !superRes;
-/*
-    		caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSTATF().equalsIgnoreCase("h14"))
-	  && !superRes;
-*/
 
-	  return res;
+
+	  return !res;
   }
   @Then
   public RuleState then() {
-	  System.out.println("executed rule 2 package subrules1");
+//	  System.out.println("executed rule 2 package subrules1");
 	  validate = Boolean.TRUE;
 	  return BREAK;
   }

@@ -7,6 +7,7 @@ import com.deliveredtechnologies.rulebook.annotation.Given;
 import com.deliveredtechnologies.rulebook.annotation.Result;
 import com.deliveredtechnologies.rulebook.annotation.Rule;
 import com.deliveredtechnologies.rulebook.annotation.When;
+import com.deliveredtechnologies.rulebook.annotation.Then;
 
 import cart.test.CaratteristicaBean;
 
@@ -24,7 +25,7 @@ public class CLSTATF_CLLEGA_Rule4 {
   
   @When
   public boolean when() {
-	System.out.println("Exceuting rule 4 package subrules1");  
+//	System.out.println("Exceuting rule 4 package subrules1");  
     boolean res = 
     		(
     		  caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getSLBPTE().equalsIgnoreCase("b07187")) ||
@@ -33,42 +34,18 @@ public class CLSTATF_CLLEGA_Rule4 {
     		);
 
 		
-//    return !res;	
+	
     return !res;
   }
-//	  @Then
+  
+ @Then
   public RuleState then() {
-	  System.out.println("Exceuted rule 4");  
+//	  System.out.println("Exceuted rule 4");  
 	  validate = Boolean.FALSE ;
 	  return RuleState.BREAK;
   }
  
-/*
-//  @Result
-//  private boolean validate = Boolean.FALSE;
 
-  @When
-  public boolean when() {
-	System.out.println("Exceuting rule 4 package subrules1");
 
-    boolean res =
-    		( caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSTATF().equalsIgnoreCase("h00")) ||
-    		  caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSTATF().equalsIgnoreCase("ha1")) ||
-    	      caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSTATF().equalsIgnoreCase("h12")) ||
-    	      caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSTATF().equalsIgnoreCase("h15")) ||
-    	      caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSTATF().equalsIgnoreCase("h16")) ||
-    	      caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSTATF().equalsIgnoreCase("h17")) ||
-    	      caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSTATF().equalsIgnoreCase("h14"))
-    				) ;
 
-    return res;
-  }
-//	  @Then
-//  public RuleState then() {
-	  //     System.out.println("Exceuted rule 4");
-//	  validate = Boolean.TRUE ;
-	  //	  return RuleState.NEXT;
-	  //  }
-
-*/
 }

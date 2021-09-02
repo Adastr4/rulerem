@@ -1,4 +1,4 @@
-package cart.test.library.subrules1;
+package it.profilglass.constraints.library.cs2;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ import com.deliveredtechnologies.rulebook.annotation.When;
 
 import cart.test.CaratteristicaBean;
 
-@Rule(order = 1000) //order specifies the order the rule should execute in; if not specified, any order may be used
+@Rule(order = 1010, name="SubRule7") //order specifies the order the rule should execute in; if not specified, any order may be used
 public class CLSTATF_CLLEGA_Rule1 {
   private static final RuleState BREAK = null;
 
@@ -23,14 +23,14 @@ public class CLSTATF_CLLEGA_Rule1 {
 
   @When
   public boolean when() {
-//	System.out.println("executing rule 1 package subrules1");
+//	System.out.println("executing rule 1 package subrules2");
     return
-    		caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLLEGA().substring(0, 1).equalsIgnoreCase("3")) &&
+    		caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLLEGA().substring(0, 1).equalsIgnoreCase("4")) &&
     		caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSTATF().substring(0, 2).equalsIgnoreCase("h3"));
   }
   @Then
   public RuleState then() {
-//	  System.out.println("executed rule 1 package subrules1");
+//	  System.out.println("executed rule 1 package subrules2");
 	  validate = Boolean.FALSE;
 	  return RuleState.BREAK;
   }

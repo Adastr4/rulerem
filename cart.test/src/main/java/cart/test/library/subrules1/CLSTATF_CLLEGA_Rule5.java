@@ -27,9 +27,9 @@ public class CLSTATF_CLLEGA_Rule5 extends CLSTATF_CLLEGA_Rule4{
   @Override
 @When
   public boolean when() {
-	  System.out.println("Exceuting rule 5 package subrules1");
+//	  System.out.println("Exceuting rule 5 package subrules1");
 
-//	  boolean superRes = super.when();
+
 	  
 	    boolean res =
 	    		( caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSTATF().equalsIgnoreCase("h00")) ||
@@ -42,24 +42,10 @@ public class CLSTATF_CLLEGA_Rule5 extends CLSTATF_CLLEGA_Rule4{
 	    				) ;
        
        return !res;
-/*
-	  boolean superRes = super.when();
-
-    boolean res =
-    		(
-    		  caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getSLBPTE().equalsIgnoreCase("b07187")) ||
-    		  caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getSLBPTE().equalsIgnoreCase("b03835")) ||
-    	      caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getSLBPTE().equalsIgnoreCase("b07434"))
-    		)
-
-    		&& superRes;
-
-       return res;
-*/
   }
   @Then
   public RuleState then() {
-	  System.out.println("executed rule 5 package subrules1");
+//	  System.out.println("executed rule 5 package subrules1");
 	  return RuleState.NEXT;
   }
 
