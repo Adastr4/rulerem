@@ -11,7 +11,7 @@ public class Caratteristiche {
 
 	public static void readCLLEGAValues() {
 
-		cllegaValues = ReadExcel.readValues(0);
+		cllegaValues = new ReadExcel().readValues(0);
 
 	}
 
@@ -28,7 +28,7 @@ public class Caratteristiche {
 
 	public static void readCLSTATFValues() {
 
-		clstatfValues = ReadExcel.readValues(2);
+		clstatfValues = new ReadExcel().readValues(2);
 
 	}
 
@@ -45,7 +45,7 @@ public class Caratteristiche {
 
 	public static void readCLFINIValues() {
 
-		clfiniValues = ReadExcel.readValues(3);
+		clfiniValues = new ReadExcel().readValues(3);
 
 	}
 

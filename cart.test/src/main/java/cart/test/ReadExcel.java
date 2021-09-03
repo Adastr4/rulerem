@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.apache.log4j.lf5.util.ResourceUtils;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -15,11 +16,14 @@ public class ReadExcel {
 
 	private static int counter;
 
-	public static List<String> readValues(int index) {
+	public  List<String> readValues(int index) {
 		try {
 //			File directory = new File("./");
 //		    System.out.println(directory.getAbsolutePath());
-			File file = new File("c:\\temp\\Configuratore.xlsx"); // creating a new file instance
+			//File file = new File("c:\\temp\\Configuratore.xlsx"); // creating a new file instance
+			ClassLoader classLoader = getClass().getClassLoader();
+			File file = new File(classLoader.getResource("Configuratore.xlsx").getFile());
+			
 //			InputStream in = getClass().getResourceAsStream("/file.txt");
 //			BufferedReader reader = new BufferedReader(new InputStreamReader(in));
 			FileInputStream fis = new FileInputStream(file); // obtaining bytes from the file
