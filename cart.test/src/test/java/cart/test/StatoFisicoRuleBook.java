@@ -11,6 +11,6 @@ public class StatoFisicoRuleBook extends CoRRuleBook<String> {
 				.when(facts -> facts.getOne().getCLLEGA() == "3A" && (facts.getOne().getCLSTATF() == "H00"
 						|| facts.getOne().getCLSTATF() == "HA1" || facts.getOne().getCLSTATF() == "H12"))
 				.then((facts, result) -> result.setValue("Caratterisitca fisica ammessa")).stop().build());
-
+ 
 	}
 }
