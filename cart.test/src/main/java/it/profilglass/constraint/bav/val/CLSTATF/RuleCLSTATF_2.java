@@ -1,4 +1,4 @@
-package it.profilglass.constraint.bav.val.CLLEGA;
+package it.profilglass.constraint.bav.val.CLSTATF;
 
 import java.util.List;
 
@@ -10,11 +10,10 @@ import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
 import test.test.CaratteristicaBean;
-import test.test.Caratteristiche;
 
-@Rule(order = 1, name = "ruleCLLEGA_1")
+@Rule(order = 3, name = "ruleCLSTATF_2")
 
-public class RuleCLLEGA_1 {
+public class RuleCLSTATF_2 {
 	@Given 
 	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 
@@ -24,13 +23,14 @@ public class RuleCLLEGA_1 {
 	@When
 	public boolean when()
 	{
-		return true; //Da implementare quando diverrà effettivo il legame tra la lega ed il codice ARTICOLO da configurare
+		
+		return !caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLLEGA().substring(0,2).equalsIgnoreCase("3A"));
 	}
 	
 	@Then
 	public RuleState then()
 	{
-		result = Boolean.TRUE;
 		return RuleState.BREAK;
 	}
+
 }
