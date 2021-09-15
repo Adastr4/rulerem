@@ -13,7 +13,7 @@ import test.test.CaratteristicaBean;
 
 @Rule(order = 2, name = "ruleCLSTATF_1")
 
-public class RuleCLSTATF_1 extends it.profilglass.constraint.bav.val.CLSTATF.RuleCLSTATF_0 {
+public class RuleCLSTATF_1 {
 	@Given 
 	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 
