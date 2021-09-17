@@ -5,12 +5,15 @@ import java.util.List;
 import com.deliveredtechnologies.rulebook.RuleState;
 import com.deliveredtechnologies.rulebook.annotation.Given;
 import com.deliveredtechnologies.rulebook.annotation.Result;
+import com.deliveredtechnologies.rulebook.annotation.Rule;
 import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
 import test.test.CaratteristicaBean;
 
-public class RuleCLSTATF_13 extends RuleCLSTATF_0{
+@Rule(order = 13, name = "ruleCLSTATF_13")
+
+public class RuleCLSTATF_13{
 	@Given 
 	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 
@@ -27,7 +30,6 @@ public class RuleCLSTATF_13 extends RuleCLSTATF_0{
 	@Then
 	public RuleState then()
 	{
-		result = super.result;
 		return RuleState.BREAK;
 	}
 }

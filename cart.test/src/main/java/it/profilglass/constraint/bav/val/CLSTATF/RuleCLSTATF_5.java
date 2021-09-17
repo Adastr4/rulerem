@@ -11,7 +11,7 @@ import com.deliveredtechnologies.rulebook.annotation.When;
 
 import test.test.CaratteristicaBean;
 
-@Rule(order = 6, name = "ruleCLSTATF_5")
+@Rule(order = 5, name = "ruleCLSTATF_5")
 
 public class RuleCLSTATF_5 {
 	

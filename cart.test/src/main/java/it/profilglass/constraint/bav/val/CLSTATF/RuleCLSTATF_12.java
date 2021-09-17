@@ -11,7 +11,7 @@ import com.deliveredtechnologies.rulebook.annotation.When;
 
 import test.test.CaratteristicaBean;
 
-@Rule(order = 13, name = "ruleCLSTATF_12")
+@Rule(order = 12, name = "ruleCLSTATF_12")
 
 public class RuleCLSTATF_12 extends it.profilglass.constraint.bav.val.sub1.CLSTATF.SubRuleCLSTATF_2{
 	@Given 
@@ -33,7 +33,6 @@ public class RuleCLSTATF_12 extends it.profilglass.constraint.bav.val.sub1.CLSTA
 	@Then
 	public RuleState then()
 	{
-		result = Boolean.FALSE;
 		return RuleState.BREAK;
 	}
 

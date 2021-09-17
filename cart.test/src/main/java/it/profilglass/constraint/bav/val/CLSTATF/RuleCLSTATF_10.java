@@ -11,7 +11,7 @@ import com.deliveredtechnologies.rulebook.annotation.When;
 
 import test.test.CaratteristicaBean;
 
-@Rule(order = 11, name = "ruleCLSTATF_10")
+@Rule(order = 10, name = "ruleCLSTATF_10")
 
 public class RuleCLSTATF_10 extends it.profilglass.constraint.bav.val.sub1.CLSTATF.SubRuleCLSTATF_2{
 	@Given 

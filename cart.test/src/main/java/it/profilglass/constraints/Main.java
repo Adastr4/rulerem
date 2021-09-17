@@ -24,8 +24,8 @@ public class Main {
 		//withLoopCLLARGSTOLLACLSPESSNew();
 		//withLoopTestCLLARGf092();
 		//Rulef092CLLARGExecutorList();
-		RuleSLLATOLPNoIterator(new BigDecimal(620),"500","F","0","BAF.0");
-		System.out.println(testRuleSLLATOLPStandard(new BigDecimal(620), "500", "F", "0", "BAF.0").toString());
+		RuleSLLATOLNNoIterator(new BigDecimal(620),"500","F","0","BAF.0.1");
+		System.out.println(testRuleSLLATOLNStandard(new BigDecimal(620), "500", "F", "0", "BAF.0.1").toString());
 		//RuleSLLATOLPIterator();
 
 	}
@@ -133,12 +133,22 @@ public class Main {
 		//List<String> CLLARGValues = Caratteristiche.getCLLARGValues("BAV");
 		List<String> CLLARGValues = new ArrayList<String>();
 		List<BigDecimal> CLSPESSValues = new ArrayList<BigDecimal>();
-		List<String> SLTOLLAValues = Caratteristiche.getSLTOLLAValues("BAV");
+		//List<String> SLTOLLAValues = Caratteristiche.getSLTOLLAValues("BAV");
+		List<String> SLTOLLAValues = new ArrayList<String>();
 		//List<BigDecimal> CLSPESSValues = Caratteristiche.getCLSPESSValues("BAV");
-		List<String> SLLATOLPValues = Caratteristiche.getSLLATOLPValues("BAV");
+		//List<String> SLLATOLPValues = Caratteristiche.getSLLATOLPValues("BAV");
+		List<String> SLLATOLPValues = new ArrayList<String>();
 		List<String> DLLATOLPValues = new ArrayList<String>();
+		List<String> CLLEGAValues = new ArrayList<String>();		
+		List<String> CLSTATFValues = new ArrayList<String>();
+		List<String> SLBPTEValues = new ArrayList<String>();
+		List<String> SLBPValues = new ArrayList<String>();
 		
 		List<CaratteristicaBean> returnCases = new ArrayList<CaratteristicaBean>();
+		
+		SLTOLLAValues.add("F");
+		
+		SLLATOLPValues.add("F");
 		
 		CLLARGValues.add("500");
 		CLLARGValues.add("1500");
@@ -173,14 +183,55 @@ public class Main {
 		DLLATOLPValues.add("0.3");
 		DLLATOLPValues.add("1.5");
 		
+		CLLEGAValues.add("1A");
+		CLLEGAValues.add("1B");
+		CLLEGAValues.add("1D");
+		CLLEGAValues.add("1K");
+		CLLEGAValues.add("1O");
+		CLLEGAValues.add("1Q");
+		CLLEGAValues.add("3A");
+		CLLEGAValues.add("3B");
+		CLLEGAValues.add("3C");
+		CLLEGAValues.add("3D");
+		CLLEGAValues.add("3G");
+		CLLEGAValues.add("5E");
+		CLLEGAValues.add("6B");
 		
+		CLSTATFValues.add("H00");
+		CLSTATFValues.add("H0F");
+		CLSTATFValues.add("H12");
+		CLSTATFValues.add("H14");
+		CLSTATFValues.add("H15");
+		CLSTATFValues.add("H16");
+		CLSTATFValues.add("H18");
+		CLSTATFValues.add("H27");
+		CLSTATFValues.add("HA1");
+		CLSTATFValues.add("H44");
+		CLSTATFValues.add("HD4");
+		CLSTATFValues.add("T00");
+		CLSTATFValues.add("T04");
+		CLSTATFValues.add("T06");
+		CLSTATFValues.add("T22");
+		CLSTATFValues.add("T24");
+		CLSTATFValues.add("T4P");
+		CLSTATFValues.add("TA1");
+		
+		SLBPTEValues.add("B07187");
+		SLBPTEValues.add("B03835");
+		SLBPTEValues.add("B07434");
+		SLBPTEValues.add("B01111");
+		SLBPTEValues.add("B01112");
+		
+		SLBPValues.add("B07187");
+		SLBPValues.add("B03835");
+		SLBPValues.add("B07434");
+		SLBPValues.add("B01111");
+		SLBPValues.add("B01112");
 		
 		String CLLEGA;
-		String CLSTATF;
 		BigDecimal CLSPESS;
 		String SLBP;
 		String CLFINI;
-		String SLBPTE;
 		String CLASSE;
 		String CLLARG;
 		String CLLUNG;
@@ -198,11 +249,10 @@ public class Main {
 		String DLLATOLN;
 		String SLLATOLP;
 		String SLLATOLN;
-		
-		
+		String CLSTATF;
+		String SLBPTE;
 
 		CLLEGA = "3A";
-		SLBPTE = "A";
 		SLBP = "B06789";
 		CLFINI = "C";
 		CLASSE = "2";
@@ -221,10 +271,6 @@ public class Main {
 		DLLATOLP = "K";
 		SLLATOLP = "AAP";
 		SLLATOLN = "AAP";
-		CLSTATF = "H00";
-		
-		
-		
 
 		ListIterator<String> litr = CLLARGValues.listIterator();			
 		while (litr.hasNext()) {
@@ -244,7 +290,28 @@ public class Main {
 						while (litr5.hasNext())
 						{
 							DLLATOLP = litr5.next();
-							returnCases.add(new CaratteristicaBean(CLSPESS, CLLEGA, CLSTATF, SLBPTE, SLBP, CLFINI, CLASSE, CLLARG, CLLUNG, CLRIVE, CLTOLLE, DLDEST, DLLAV, DLLUBRI, MLSTATF, PLACKG, PMETC, QSPEC, SLTOLLA, DLLATOLP, DLLATOLP, SLLATOLP, SLLATOLP,1,1));
+							ListIterator<String> litr6 = CLLEGAValues.listIterator();
+							while (litr6.hasNext())
+							{
+								CLLEGA = litr6.next();
+								ListIterator<String> litr7 = CLSTATFValues.listIterator();
+								while (litr7.hasNext())
+								{
+									CLSTATF = litr7.next();
+									ListIterator<String> litr8 = SLBPTEValues.listIterator();
+									while (litr8.hasNext())
+									{
+										SLBPTE = litr8.next();
+										ListIterator<String> litr9 = SLBPValues.listIterator();
+										while (litr9.hasNext())
+										{
+											SLBP = litr9.next();
+											returnCases.add(new CaratteristicaBean(CLSPESS, CLLEGA, CLSTATF, SLBPTE, SLBP, CLFINI, CLASSE, CLLARG, CLLUNG, CLRIVE, CLTOLLE, DLDEST, DLLAV, DLLUBRI, MLSTATF, PLACKG, PMETC, QSPEC, SLTOLLA, DLLATOLP, DLLATOLP, SLLATOLP, SLLATOLP,1,1));
+										}
+									}
+								}
+								
+							}
 						}	
 					}
 				}
@@ -527,7 +594,7 @@ public class Main {
 	
 	public static void RuleSLLATOLNNoIterator(BigDecimal CLSPESS, String CLLARG, String SLTOLLA, String DLLATOLN, String SLLATOLN)
 	{
-		RuleSLLATOLP(CLSPESS,CLLARG,SLTOLLA,DLLATOLN,SLLATOLN);
+		RuleSLLATOLN(CLSPESS,CLLARG,SLTOLLA,DLLATOLN,SLLATOLN);
 	}
 	
 	public static void RuleSLLATOLN(BigDecimal CLSPESS, String CLLARG, String SLTOLLA, String DLLATOLN, String SLLATOLN)
@@ -631,5 +698,77 @@ public class Main {
 		if(SLTOLLA.equalsIgnoreCase("f"))
 			return  DLLATOLN;
 		return "0";
+	}
+	
+	
+	
+	public static Boolean testCLSTATFRuleStandard(String CLLEGA, String CLSTATF, String SLBPTE, String SLBP)
+	{
+		Boolean validate = Boolean.TRUE;
+		if (CLSTATF.toString().equalsIgnoreCase("T04") || CLSTATF.toString().equalsIgnoreCase("T06") || CLSTATF.toString().equalsIgnoreCase("T4P"))
+		{
+			validate = Boolean.FALSE;
+		}
+		
+		if(CLLEGA.toString().substring(0, 1).equalsIgnoreCase("1"))
+		{
+			if(CLSTATF.toString().substring(0, 2).equalsIgnoreCase("H3"))
+			{
+				validate = Boolean.FALSE;
+			}
+		}
+		
+		if(CLLEGA.toString().substring(0, 1).equalsIgnoreCase("3"))
+		{
+			if(CLSTATF.toString().substring(0, 2).equalsIgnoreCase("H3"))
+			{
+				validate = Boolean.FALSE;
+			}
+			else
+			{
+				if(CLLEGA.toString().equalsIgnoreCase("3A"))
+					if(CLSTATF.toString().equalsIgnoreCase("H00") || CLSTATF.toString().equalsIgnoreCase("HA1") || CLSTATF.toString().equalsIgnoreCase("H12") || CLSTATF.toString().equalsIgnoreCase("H15") || CLSTATF.toString().equalsIgnoreCase("H16") || CLSTATF.toString().equalsIgnoreCase("H17"))
+					{
+						if(!(SLBPTE.toString().equalsIgnoreCase("B07187") || SLBPTE.toString().equalsIgnoreCase("B03835") || SLBPTE.toString().equalsIgnoreCase("B07434")))
+						{
+							validate = Boolean.FALSE;
+							if(SLBPTE.toString().equals(SLBPTE) && CLSTATF.toString().equalsIgnoreCase("H14"))
+							{
+								validate = Boolean.TRUE;
+							}
+						}
+					}
+			}
+		}
+
+		if(CLLEGA.toString().substring(0, 1).equalsIgnoreCase("4"))
+		{
+			if(CLSTATF.toString().substring(0, 2).equalsIgnoreCase("H3"))
+			{
+				validate = Boolean.FALSE;
+			}
+		}
+		
+		if(CLLEGA.toString().substring(0, 1).equalsIgnoreCase("6"))
+		{
+			if(CLSTATF.toString().substring(0, 2).equalsIgnoreCase("H3"))
+			{
+				validate = Boolean.FALSE;
+			}
+			if(CLSTATF.toString().equalsIgnoreCase("T04") || CLSTATF.toString().equalsIgnoreCase("T06") || CLSTATF.toString().equalsIgnoreCase("T4P") || CLSTATF.toString().equalsIgnoreCase("H00"))
+			{
+				validate = Boolean.TRUE;
+			}
+		}
+		
+		if(CLLEGA.toString().substring(0, 1).equalsIgnoreCase("8"))
+		{
+			if(CLSTATF.toString().substring(0, 2).equalsIgnoreCase("H3"))
+			{
+				validate = Boolean.FALSE;
+			}
+		}
+		
+		return validate;
 	}
 }
