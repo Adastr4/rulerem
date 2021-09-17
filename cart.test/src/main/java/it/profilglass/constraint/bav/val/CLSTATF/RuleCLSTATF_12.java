@@ -11,9 +11,9 @@ import com.deliveredtechnologies.rulebook.annotation.When;
 
 import test.test.CaratteristicaBean;
 
-@Rule(order = 2, name = "ruleCLSTATF_1")
+@Rule(order = 13, name = "ruleCLSTATF_12")
 
-public class RuleCLSTATF_1 extends it.profilglass.constraint.bav.val.sub1.CLSTATF.SubRuleCLSTATF_2{
+public class RuleCLSTATF_12 extends it.profilglass.constraint.bav.val.sub1.CLSTATF.SubRuleCLSTATF_2{
 	@Given 
 	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 
@@ -24,7 +24,10 @@ public class RuleCLSTATF_1 extends it.profilglass.constraint.bav.val.sub1.CLSTAT
 	public boolean when()
 	{
 		
-		return caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLLEGA().substring(0,1).equalsIgnoreCase("8")) && super.when();
+		return caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLLEGA().substring(0,1).equalsIgnoreCase("6") && !(caratteristica.getCLSTATF().equalsIgnoreCase("T04") ||
+																																	   caratteristica.getCLSTATF().equalsIgnoreCase("T06") ||
+																																	   caratteristica.getCLSTATF().equalsIgnoreCase("T4P") ||
+																																	   caratteristica.getCLSTATF().equalsIgnoreCase("H00"))) && !super.when();
 	}
 	
 	@Then

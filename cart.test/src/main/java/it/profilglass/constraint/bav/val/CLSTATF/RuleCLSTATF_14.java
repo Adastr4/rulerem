@@ -5,15 +5,12 @@ import java.util.List;
 import com.deliveredtechnologies.rulebook.RuleState;
 import com.deliveredtechnologies.rulebook.annotation.Given;
 import com.deliveredtechnologies.rulebook.annotation.Result;
-import com.deliveredtechnologies.rulebook.annotation.Rule;
 import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
 import test.test.CaratteristicaBean;
 
-@Rule(order = 2, name = "ruleCLSTATF_1")
-
-public class RuleCLSTATF_1 extends it.profilglass.constraint.bav.val.sub1.CLSTATF.SubRuleCLSTATF_2{
+public class RuleCLSTATF_14 extends it.profilglass.constraint.bav.val.sub1.CLSTATF.SubRuleCLSTATF_2{
 	@Given 
 	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 
