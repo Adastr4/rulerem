@@ -163,5 +163,56 @@ public class ReadDB {
 
 			}
 		}
+		
+		public static boolean getSLBPSpecial(String SLBP, String articolo)
+		{
+			Statement stmt = null;
+			String query = null;
+			boolean ret = Boolean.FALSE;
+			ResultSet rs = null;
+			try {
+				// The newInstance() call is a work around for some
+				// broken Java implementations
+
+				Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+				conn =  	       DriverManager.getConnection("jdbc:mysql://localhost/profilglass?" +
+						"user=root&password=root");
+				stmt = conn.createStatement();
+				query = "SELECT * FROM caratteristiche WHERE caratteristica ='SLBP' AND TRIM(articolo) = '" + articolo + "' AND opzione = '" + SLBP + "' LIMIT 1";
+				rs = stmt.executeQuery(query);
+				while(rs.next()) {
+					ret = Boolean.FALSE;
+				}
+
+				return ret;
+			} catch (Exception ex) {
+				// handle the error
+				ex.printStackTrace();
+				return ret;
+			}
+			finally {
+				// it is a good idea to release
+				// resources in a finally{} block
+				// in reverse-order of their creation
+				// if they are no-longer needed
+
+				if (rs != null) {
+					try {
+						rs.close();
+					} catch (SQLException sqlEx) { } // ignore
+
+					rs = null;
+				}
+
+				if (stmt != null) {
+					try {
+						stmt.close();
+					} catch (SQLException sqlEx) { } // ignore
+
+					stmt = null;
+				}
+
+			}
+		}
 }
 
