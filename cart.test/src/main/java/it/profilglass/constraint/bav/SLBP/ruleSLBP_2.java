@@ -22,7 +22,7 @@ public class ruleSLBP_2 {
 	@When
 	public boolean when()
 	{
-		return !ReadDB.getSLBPSpecial(caratteristica.getSLBPTE().toString(), "BAV");
+		return true;
 	}
 	
 	@Then
