@@ -7,14 +7,14 @@ import com.deliveredtechnologies.rulebook.annotation.When;
 
 import test.test.CaratteristicaBean;
 
-public class SubRuleMLSTATF_1 extends SubRuleMLSTATF_0 {
+public class SubRuleMLSTATF_2 extends SubRuleMLSTATF_1 {
 	@Given 
 	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 	
 	@When
 	public boolean when()
 	{
-		return super.when() && caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLRIVE().equalsIgnoreCase("B"));
-	}	
-
+		return super.when() && caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getDLDEST().substring(0, 3).equalsIgnoreCase("PEN") &&
+																				   caratteristica.getCLSTATF().toString().equalsIgnoreCase("H00"));
+	}																
 }
