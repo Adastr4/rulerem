@@ -11,9 +11,9 @@ import com.deliveredtechnologies.rulebook.annotation.When;
 
 import test.test.CaratteristicaBean;
 
-@Rule(order = 2, name = "ruleMLSTATF_2")
+@Rule(order = 19, name = "ruleMLSTATF_19")
 
-public class RuleMLSTATF_2 extends it.profilglass.constraint.bav.MLSTATF.sub1.SubRuleMLSTATF_3 {
+public class RuleMLSTATF_20_3D_3T {
 	@Given 
 	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 
@@ -23,14 +23,18 @@ public class RuleMLSTATF_2 extends it.profilglass.constraint.bav.MLSTATF.sub1.Su
 	@When
 	public boolean when()
 	{
-		return super.when() && caratteristiche.stream().anyMatch(caratteristica -> (caratteristica.getCLLEGA().equalsIgnoreCase("1O") && !caratteristica.getCLSPESS().toString().equalsIgnoreCase("4000")) ||
-				   																   (caratteristica.getCLLEGA().equalsIgnoreCase("1Q") && !caratteristica.getCLSPESS().toString().equalsIgnoreCase("2000")));
+		return caratteristiche.stream().anyMatch(caratteristica -> ((caratteristica.getCLLEGA().equalsIgnoreCase("3D") ||
+																	 caratteristica.getCLLEGA().equalsIgnoreCase("3T")) &&
+																    (caratteristica.getCLSTATF().equalsIgnoreCase("H16")) &&
+																     (caratteristica.getCLSPESS().intValue() <= 3000) &&
+																     (caratteristica.getCLSPESS().intValue() > 1000)
+																   ));
 	}
 	
 	@Then
 	public RuleState then()
 	{
-		result = "H24";
+		result = "H26";
 		return RuleState.NEXT;
 	}
 }
