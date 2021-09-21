@@ -1,6 +1,4 @@
-package it.profilglass.constraint.bav.SLCHMAX;
-
-import java.util.List;
+package it.profilglass.constraint.bav.SLCHMAX.val;
 
 import com.deliveredtechnologies.rulebook.RuleState;
 import com.deliveredtechnologies.rulebook.annotation.Given;
@@ -13,37 +11,24 @@ import test.test.CaratteristicaBean;
 
 @Rule(order = 1, name = "ruleSLTMAX1")
 
-public class RuleSLTMAX_1 extends it.profilglass.constraint.bav.SLCHMAX.val.RuleSLTMAX_1 {
-	
-	private Double hImballi;
+public class RuleSLTMAX_1 {
 	
 	@Given 
 	private CaratteristicaBean caratteristica; //Annotated Lists get injected with all Facts of the declared generic type
-	
-	@Given("pesoSpec")
-	private Double pesoSpec;
-	
-	@Given("hPallet")
-	private Double hPallet;
-	
-	@Given("quantKgImballi")
-	private Double quantKgImballi;
 
 	@Result
-	private Double result;
+	private double result;
 	
 	@When
 	public boolean when()
 	{
-		return !super.when();
+		return (caratteristica.getSBATIPO() != 1 && caratteristica.getSBATIPO() != 2 && caratteristica.getSLTMAX() == 2);
 	}
 	
 	@Then
 	public RuleState then()
 	{
-		hImballi = ((Double.parseDouble(caratteristica.getCLLARG())/10000)*(Double.parseDouble(caratteristica.getCLLUNG())/10000));
-		hImballi = (quantKgImballi/(hImballi*pesoSpec));
-		result = hImballi*1000 + hPallet;
+		result = 0;
 		return RuleState.BREAK;
 	}
 
