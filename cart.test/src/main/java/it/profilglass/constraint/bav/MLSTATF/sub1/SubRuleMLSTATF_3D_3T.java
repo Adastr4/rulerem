@@ -9,14 +9,13 @@ import test.test.CaratteristicaBean;
 
 public class SubRuleMLSTATF_3D_3T extends it.profilglass.constraint.bav.MLSTATF.sub1.SubRuleMLSTATF_4 {
 	@Given 
-	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
+	private CaratteristicaBean caratteristica; //Annotated Lists get injected with all Facts of the declared generic type
 	
 	@When
 	public boolean when()
 	{
-		return caratteristiche.stream().anyMatch(caratteristica -> ((caratteristica.getCLLEGA().equalsIgnoreCase("3D") ||
-																	 caratteristica.getCLLEGA().equalsIgnoreCase("3T"))
-																   )) && super.when();
+		return (caratteristica.getCLLEGA().equalsIgnoreCase("3D") ||
+				caratteristica.getCLLEGA().equalsIgnoreCase("3T")) && super.when();
 	}
 
 }

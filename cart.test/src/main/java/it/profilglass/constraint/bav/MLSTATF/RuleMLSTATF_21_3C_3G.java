@@ -15,7 +15,7 @@ import test.test.CaratteristicaBean;
 
 public class RuleMLSTATF_21_3C_3G {
 	@Given 
-	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
+	private CaratteristicaBean caratteristica; //Annotated Lists get injected with all Facts of the declared generic type
 
 	@Result
 	private String result;
@@ -23,12 +23,11 @@ public class RuleMLSTATF_21_3C_3G {
 	@When
 	public boolean when()
 	{
-		return caratteristiche.stream().anyMatch(caratteristica -> ((caratteristica.getCLLEGA().equalsIgnoreCase("3C") ||
-																	 caratteristica.getCLLEGA().equalsIgnoreCase("3G")) &&
-																    (caratteristica.getCLSTATF().equalsIgnoreCase("H22")) &&
-																     (caratteristica.getCLSPESS().intValue() <= 2000) &&
-																     (caratteristica.getCLSPESS().intValue() >= 600)
-																   ));
+		return ((caratteristica.getCLLEGA().equalsIgnoreCase("3C") ||
+				 caratteristica.getCLLEGA().equalsIgnoreCase("3G")) &&
+				   (caratteristica.getCLSTATF().equalsIgnoreCase("H22")) &&
+				   (caratteristica.getCLSPESS().intValue() <= 2000) &&
+				   (caratteristica.getCLSPESS().intValue() >= 600));
 	}
 	
 	@Then

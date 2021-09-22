@@ -15,7 +15,7 @@ import test.test.CaratteristicaBean;
 
 public class RuleMLSTATF_3_1 extends it.profilglass.constraint.bav.MLSTATF.sub1.SubRuleMLSTATF_3{
 	@Given 
-	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
+	private CaratteristicaBean caratteristica; //Annotated Lists get injected with all Facts of the declared generic type
 
 	@Result
 	private String result;
@@ -23,13 +23,11 @@ public class RuleMLSTATF_3_1 extends it.profilglass.constraint.bav.MLSTATF.sub1.
 	@When
 	public boolean when()
 	{
-		return super.when() && caratteristiche.stream().anyMatch(caratteristica -> (caratteristica.getCLLEGA().substring(0, 1).equalsIgnoreCase("1") &&
-																					 (!caratteristica.getCLLEGA().equalsIgnoreCase("1Q") && !caratteristica.getCLLEGA().equalsIgnoreCase("1O")) && 
-																					 (caratteristica.getCLSPESS().toString().equalsIgnoreCase("4000") ||
-																					  caratteristica.getCLSPESS().toString().equalsIgnoreCase("5000") ||
-																		              caratteristica.getCLSPESS().toString().equalsIgnoreCase("6000"))
-																				   )
-																);
+		return super.when() && (caratteristica.getCLLEGA().substring(0, 1).equalsIgnoreCase("1") &&
+							   (!caratteristica.getCLLEGA().equalsIgnoreCase("1Q") && !caratteristica.getCLLEGA().equalsIgnoreCase("1O")) && 
+									(caratteristica.getCLSPESS().toString().equalsIgnoreCase("4000") ||
+									 caratteristica.getCLSPESS().toString().equalsIgnoreCase("5000") ||
+								     caratteristica.getCLSPESS().toString().equalsIgnoreCase("6000")));
 	}
 	
 	@Then

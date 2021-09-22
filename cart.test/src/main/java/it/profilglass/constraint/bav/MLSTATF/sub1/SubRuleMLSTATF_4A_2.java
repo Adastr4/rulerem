@@ -1,4 +1,4 @@
-package it.profilglass.constraint.bav.MLSTATF;
+package it.profilglass.constraint.bav.MLSTATF.sub1;
 
 import java.util.List;
 
@@ -11,29 +11,17 @@ import com.deliveredtechnologies.rulebook.annotation.When;
 
 import test.test.CaratteristicaBean;
 
-@Rule(order = 19, name = "ruleMLSTATF_19")
 
-public class RuleMLSTATF_19_3D_3T {
+public class SubRuleMLSTATF_4A_2 extends it.profilglass.constraint.bav.MLSTATF.sub1.SubRuleMLSTATF_4A {
 	@Given 
 	private CaratteristicaBean caratteristica; //Annotated Lists get injected with all Facts of the declared generic type
-
-	@Result
-	private String result;
 	
 	@When
 	public boolean when()
 	{
-		return ((caratteristica.getCLLEGA().equalsIgnoreCase("3D") ||
-			     caratteristica.getCLLEGA().equalsIgnoreCase("3T")) &&
-					(caratteristica.getCLSTATF().equalsIgnoreCase("H14")) &&
-					(caratteristica.getCLSPESS().intValue() <= 4000) &&
-				(caratteristica.getCLSPESS().intValue() > 1000));
-	}
-	
-	@Then
-	public RuleState then()
-	{
-		result = "H24";
-		return RuleState.NEXT;
+		return super.when() && (Integer.parseInt(caratteristica.getCLLARG().toString()) <= 10000)
+							&& (Integer.parseInt(caratteristica.getCLLUNG().toString()) <= 10000)
+							&& (	   caratteristica.getCLSTATF().toString().equalsIgnoreCase("HA1")
+									|| caratteristica.getCLSTATF().toString().equalsIgnoreCase("H00"));
 	}
 }

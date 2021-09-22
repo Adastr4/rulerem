@@ -11,9 +11,9 @@ import com.deliveredtechnologies.rulebook.annotation.When;
 
 import test.test.CaratteristicaBean;
 
-@Rule(order = 19, name = "ruleMLSTATF_19")
+@Rule(order = 26, name = "ruleMLSTATF_26")
 
-public class RuleMLSTATF_19_3D_3T {
+public class RuleMLSTATF_26_4A extends it.profilglass.constraint.bav.MLSTATF.sub1.SubRuleMLSTATF_4A_2 {
 	@Given 
 	private CaratteristicaBean caratteristica; //Annotated Lists get injected with all Facts of the declared generic type
 
@@ -23,17 +23,13 @@ public class RuleMLSTATF_19_3D_3T {
 	@When
 	public boolean when()
 	{
-		return ((caratteristica.getCLLEGA().equalsIgnoreCase("3D") ||
-			     caratteristica.getCLLEGA().equalsIgnoreCase("3T")) &&
-					(caratteristica.getCLSTATF().equalsIgnoreCase("H14")) &&
-					(caratteristica.getCLSPESS().intValue() <= 4000) &&
-				(caratteristica.getCLSPESS().intValue() > 1000));
+		return super.when() && (caratteristica.getCLSPESS().intValue() >= 2500);
 	}
 	
 	@Then
 	public RuleState then()
 	{
-		result = "H24";
+		result = "H00";
 		return RuleState.NEXT;
 	}
 }

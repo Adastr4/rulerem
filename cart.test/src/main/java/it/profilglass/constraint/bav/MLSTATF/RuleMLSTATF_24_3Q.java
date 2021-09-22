@@ -15,30 +15,24 @@ import test.test.CaratteristicaBean;
 
 public class RuleMLSTATF_24_3Q {
 	@Given 
-	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
+	private CaratteristicaBean caratteristica; //Annotated Lists get injected with all Facts of the declared generic type
 
 	@Result
 	private String result;
 	
-	private CaratteristicaBean carRet;
 	
 	@When
 	public boolean when()
 	{
-		for (CaratteristicaBean caratteristica : caratteristiche) {
-			if(caratteristica.getCLLEGA().equalsIgnoreCase("3Q") &&
-			   caratteristica.getCLSPESS().intValue() >= 2000)
-			{
-				carRet = caratteristica;
-			}
-		}
-		return false;
+			return  caratteristica.getCLLEGA().equalsIgnoreCase("3Q") &&
+				   (caratteristica.getCLSPESS().intValue() >= 2000);
+			
 	}
 	
 	@Then
 	public RuleState then()
 	{
-		result = carRet.getCLSTATF().toString();
+		result = caratteristica.getCLSTATF();
 		return RuleState.BREAK;
 	}
 }

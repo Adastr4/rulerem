@@ -11,11 +11,11 @@ import com.deliveredtechnologies.rulebook.annotation.When;
 
 import test.test.CaratteristicaBean;
 
-@Rule(order = 24, name = "ruleMLSTATF_24")
+@Rule(order = 25, name = "ruleMLSTATF_25")
 
-public class RuleMLSTATF_25_4A {
+public class RuleMLSTATF_25_4A extends it.profilglass.constraint.bav.MLSTATF.sub1.SubRuleMLSTATF_4A {
 	@Given 
-	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
+	private CaratteristicaBean caratteristica; //Annotated Lists get injected with all Facts of the declared generic type
 
 	@Result
 	private String result;
@@ -25,13 +25,16 @@ public class RuleMLSTATF_25_4A {
 	@When
 	public boolean when()
 	{
-		return caratteristiche.stream().anyMatch(caratteristica -> (caratteristica.getCLLEGA().substring(0,1).equalsIgnoreCase("4A")));
+		return super.when() && (Integer.parseInt(caratteristica.getCLLARG().toString()) <= 6500)
+							&& (Integer.parseInt(caratteristica.getCLLUNG().toString()) <= 6500)
+							&& (caratteristica.getCLRIVE().toString().equalsIgnoreCase("B"))
+							&& (caratteristica.getCLSTATF().toString().equalsIgnoreCase("H00"));
 	}
 	
 	@Then
 	public RuleState then()
 	{
-		result = carRet.getCLSTATF().toString();
-		return RuleState.BREAK;
+		result = "H18";
+		return RuleState.NEXT;
 	}
 }

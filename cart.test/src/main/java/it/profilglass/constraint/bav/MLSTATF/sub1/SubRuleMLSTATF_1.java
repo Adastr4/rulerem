@@ -9,12 +9,12 @@ import test.test.CaratteristicaBean;
 
 public class SubRuleMLSTATF_1 extends SubRuleMLSTATF_0 {
 	@Given 
-	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
+	private CaratteristicaBean caratteristica; //Annotated Lists get injected with all Facts of the declared generic type
 	
 	@When
 	public boolean when()
 	{
-		return super.when() && caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLRIVE().equalsIgnoreCase("B"));
+		return super.when() && caratteristica.getCLRIVE().equalsIgnoreCase("B");
 	}	
 
 }

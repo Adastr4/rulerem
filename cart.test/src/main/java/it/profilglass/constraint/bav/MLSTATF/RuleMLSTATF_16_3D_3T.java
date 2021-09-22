@@ -15,7 +15,7 @@ import test.test.CaratteristicaBean;
 
 public class RuleMLSTATF_16_3D_3T extends it.profilglass.constraint.bav.MLSTATF.sub1.SubRuleMLSTATF_3D_3T {
 	@Given 
-	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
+	private CaratteristicaBean caratteristica; //Annotated Lists get injected with all Facts of the declared generic type
 
 	@Result
 	private String result;
@@ -23,7 +23,7 @@ public class RuleMLSTATF_16_3D_3T extends it.profilglass.constraint.bav.MLSTATF.
 	@When
 	public boolean when()
 	{
-		return caratteristiche.stream().anyMatch(caratteristica -> (caratteristica.getCLSTATF().equalsIgnoreCase("H16"))) && super.when();
+		return (caratteristica.getCLSTATF().equalsIgnoreCase("H16")) && super.when();
 	}
 	
 	@Then

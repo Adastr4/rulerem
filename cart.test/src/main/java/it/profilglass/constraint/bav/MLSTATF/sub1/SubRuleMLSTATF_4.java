@@ -10,13 +10,12 @@ import test.test.CaratteristicaBean;
 
 public class SubRuleMLSTATF_4 {
 	@Given 
-	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
+	private CaratteristicaBean caratteristica; //Annotated Lists get injected with all Facts of the declared generic type
 	
 	@When
 	public boolean when()
 	{
-		return caratteristiche.stream().anyMatch(caratteristica -> (caratteristica.getCLSPESS().intValue() <= 1000) &&
-																   (caratteristica.getCLSPESS().intValue() >= 400)
-												);
+		return (caratteristica.getCLSPESS().intValue() <= 1000) &&
+			   (caratteristica.getCLSPESS().intValue() >= 400);
 	}
 }

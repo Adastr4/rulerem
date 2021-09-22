@@ -15,7 +15,7 @@ import test.test.CaratteristicaBean;
 
 public class RuleMLSTATF_1_1O_1Q extends it.profilglass.constraint.bav.MLSTATF.sub1.SubRuleMLSTATF_3 {
 	@Given 
-	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
+	private CaratteristicaBean caratteristica; //Annotated Lists get injected with all Facts of the declared generic type
 
 	@Result
 	private String result;
@@ -23,8 +23,8 @@ public class RuleMLSTATF_1_1O_1Q extends it.profilglass.constraint.bav.MLSTATF.s
 	@When
 	public boolean when()
 	{
-		return super.when() && caratteristiche.stream().anyMatch(caratteristica -> (caratteristica.getCLLEGA().equalsIgnoreCase("1O") && caratteristica.getCLSPESS().toString().equalsIgnoreCase("4000")) ||
-																				   (caratteristica.getCLLEGA().equalsIgnoreCase("1Q") && caratteristica.getCLSPESS().toString().equalsIgnoreCase("2000")));
+		return super.when() && (caratteristica.getCLLEGA().equalsIgnoreCase("1O") && caratteristica.getCLSPESS().toString().equalsIgnoreCase("4000")) ||
+							   (caratteristica.getCLLEGA().equalsIgnoreCase("1Q") && caratteristica.getCLSPESS().toString().equalsIgnoreCase("2000"));
 	}
 	
 	@Then
