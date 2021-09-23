@@ -447,7 +447,7 @@ class MainTest {
 	//@Test
 	public void ruleSLLATOLPSingleTest()
 	{
-		CaratteristicaBean caratteristica = new CaratteristicaBean(new BigDecimal(620), "", "", "", "", "", "", "500", "", "", "", "", "", "", "", "", "", "", "F", "0", "", "BAF.0.1", "",1,1);
+		CaratteristicaBean caratteristica = new CaratteristicaBean(new BigDecimal(620), "", "", "", "", "", "", "500", "", "", "", "", "", "", "", "", "", "", "F", "0", "", "BAF.0.1", "",1,1,"3CJ1240");
 		RuleBookRunner ruleBookCLLARG = new RuleBookRunner("it.profilglass.constraint.bav.val.SLLATOLP");
 		NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
 			
@@ -484,7 +484,7 @@ class MainTest {
 	//@Test
 	public void ruleSLLATOLNSingleTest()
 	{
-		CaratteristicaBean caratteristica = new CaratteristicaBean(new BigDecimal(620), "", "", "", "", "", "", "500", "", "", "", "", "", "", "", "", "", "", "F", "", "0", "", "BAF.0.1",1,1);
+		CaratteristicaBean caratteristica = new CaratteristicaBean(new BigDecimal(620), "", "", "", "", "", "", "500", "", "", "", "", "", "", "", "", "", "", "F", "", "0", "", "BAF.0.1",1,1,"3CJ1240");
 		RuleBookRunner ruleBookCLLARG = new RuleBookRunner("it.profilglass.constraint.bav.val.SLLATOLN");
 		NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
 			

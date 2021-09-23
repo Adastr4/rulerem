@@ -26,10 +26,11 @@ public class CaratteristicaBean {
 	private String DLLATOLN;
 	private String SLLATOLP;
 	private String SLLATOLN;
+	private String SLLANAS;
 	private int SLTMAX;
 	private int SBATIPO;
 
-	public CaratteristicaBean(BigDecimal CLSPESS, String CLLEGA, String CLSTATF, String SLBPTE, String SLBP, String CLFINI, String CLASSE, String CLLARG, String CLLUNG, String CLRIVE, String CLTOLLE, String DLDEST, String DLLAV, String DLLUBRI, String MLSTATF, String PLACKG, String PMETC, String QSPEC, String SLTOLLA, String DLLATOLP, String DLLATOLN, String SLLATOLP, String SLLATOLN, int SLTMAX, int SBATIPO) {
+	public CaratteristicaBean(BigDecimal CLSPESS, String CLLEGA, String CLSTATF, String SLBPTE, String SLBP, String CLFINI, String CLASSE, String CLLARG, String CLLUNG, String CLRIVE, String CLTOLLE, String DLDEST, String DLLAV, String DLLUBRI, String MLSTATF, String PLACKG, String PMETC, String QSPEC, String SLTOLLA, String DLLATOLP, String DLLATOLN, String SLLATOLP, String SLLATOLN, int SLTMAX, int SBATIPO, String SLLANAS) {
 		this.CLSPESS = CLSPESS;
 		this.CLLEGA = CLLEGA;
 		this.CLSTATF = CLSTATF;
@@ -55,6 +56,15 @@ public class CaratteristicaBean {
 		this.SLLATOLN = SLLATOLN;
 		this.SLTMAX = SLTMAX;
 		this.SBATIPO = SBATIPO;
+		this.SLLANAS = SLLANAS;
+	}
+	
+	public String getSLLANAS() {
+		return SLLANAS;
+	}
+
+	public void setSLLANAS(String sLLANAS) {
+		SLLANAS = sLLANAS;
 	}
 	
 	public int getSLTMAX() {
