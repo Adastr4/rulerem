@@ -13,9 +13,9 @@ import test.test.Attivita;
 import test.test.CaratteristicaBean;
 import test.test.ReadDB;
 
-@Rule(order = 6, name = "ruleSG21_1")
+@Rule(order = 16, name = "ruleSL5_1")
 
-public class RuleSG21_1 extends it.profilglass.constraint.bav.attivita.subrules.SubRuleSG_1 {
+public class RuleSL5_16 extends it.profilglass.constraint.bav.attivita.subrules.SubRuleSL_2{
 	@Given 
 	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 
@@ -25,15 +25,14 @@ public class RuleSG21_1 extends it.profilglass.constraint.bav.attivita.subrules.
 	@When
 	public boolean when()
 	{
-		return super.when() && caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getSLMOD().equalsIgnoreCase("BP")
-																			    && caratteristica.getCLSPESS().intValue() > 400
-																			    && caratteristica.getQLLAV().equalsIgnoreCase("N"));
+		return super.when() && caratteristiche.stream().anyMatch(caratteristica -> !caratteristica.getSLMOD().toString().equalsIgnoreCase("BP")
+																				 && caratteristica.getQLLAVDET().toString().equalsIgnoreCase("E01"));
 	}
 	
 	@Then
 	public RuleState then()
 	{
-		result.add(ReadDB.getAttivitaFromId("SG21"));
+		result.add(ReadDB.getAttivitaFromId("SL5"));
 		return RuleState.NEXT;
 	}
 }

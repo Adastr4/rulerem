@@ -15,7 +15,7 @@ import test.test.ReadDB;
 
 @Rule(order = 8, name = "ruleTN4_1")
 
-public class RuleTN4_1 extends it.profilglass.constraint.bav.attivita.subrules.SubRuleTN_1 {
+public class RuleTN4_8 extends it.profilglass.constraint.bav.attivita.subrules.SubRuleTN_1 {
 	@Given 
 	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 
