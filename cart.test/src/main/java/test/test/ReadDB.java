@@ -267,6 +267,57 @@ public class ReadDB {
 			}
 		}
 		
+		public static Attivita getAttivitaFromId(String idAttivita)
+		{
+			Statement stmt = null;
+			String query = null;
+			Attivita ret = null;
+			ResultSet rs = null;
+			try {
+				// The newInstance() call is a work around for some
+				// broken Java implementations
+
+				Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+				conn =  	       DriverManager.getConnection("jdbc:mysql://localhost/profilglass?" +
+						"user=root&password=root");
+				stmt = conn.createStatement();
+				query = "SELECT * FROM attivita WHERE idAttivita ='" + idAttivita + "' LIMIT 1";
+				rs = stmt.executeQuery(query);
+				while(rs.next()) {
+					ret = new Attivita(rs.getString("idAttivita"),rs.getString("Descrizione"),getMacchinaFromId(rs.getString("idMacchinaPred")),rs.getString("idCentroLavPred"));
+				}
+
+				return ret;
+			} catch (Exception ex) {
+				// handle the error
+				ex.printStackTrace();
+				return ret;
+			}
+			finally {
+				// it is a good idea to release
+				// resources in a finally{} block
+				// in reverse-order of their creation
+				// if they are no-longer needed
+
+				if (rs != null) {
+					try {
+						rs.close();
+					} catch (SQLException sqlEx) { } // ignore
+
+					rs = null;
+				}
+
+				if (stmt != null) {
+					try {
+						stmt.close();
+					} catch (SQLException sqlEx) { } // ignore
+
+					stmt = null;
+				}
+
+			}
+		}
+		
 		public static String getMacchineListFromCharacteristics(String CLLARG, String CLLUNG, String CLSPESS, String SLLANAS, String CLFINI, String CLRIVE, String idMacchina)
 		{
 			Statement stmt = null;
