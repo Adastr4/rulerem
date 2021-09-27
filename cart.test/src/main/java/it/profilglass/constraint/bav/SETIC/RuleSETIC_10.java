@@ -1,4 +1,4 @@
-package it.profilglass.constraint.bav.MLSTATF;
+package it.profilglass.constraint.bav.SETIC;
 
 import java.util.List;
 
@@ -11,25 +11,26 @@ import com.deliveredtechnologies.rulebook.annotation.When;
 
 import test.test.CaratteristicaBean;
 
-@Rule(order = 12, name = "ruleMLSTATF_12")
+@Rule(order = 10, name = "ruleSETIC_10")
 
-public class RuleMLSTATF_12_1 extends it.profilglass.constraint.bav.MLSTATF.sub1.SubRuleMLSTATF_2 {
+public class RuleSETIC_10 {
 	@Given 
-	private CaratteristicaBean caratteristica; //Annotated Lists get injected with all Facts of the declared generic type
+	private List<CaratteristicaBean> caratteristiche;
 
 	@Result
 	private String result;
 	
 	@When
 	public boolean when()
-	{
-		return caratteristica.getCLLEGA().substring(0, 1).equalsIgnoreCase("1") && super.when();
+	{		
+		return (caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getSETICC() == 1));
 	}
 	
 	@Then
 	public RuleState then()
 	{
-		result = "H18";
-		return RuleState.NEXT;
+		System.out.println("Rule SETIC 1 entered");
+		result = "Con Logo";
+		return RuleState.BREAK;
 	}
 }

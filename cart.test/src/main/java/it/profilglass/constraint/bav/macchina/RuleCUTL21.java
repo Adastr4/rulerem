@@ -17,7 +17,7 @@ import test.test.ReadDB;
 @Rule(order = 1, name = "ruleCUTL21")
 
 public class RuleCUTL21 {
-	@Given 
+	@Given("caratteristica") 
 	CaratteristicaBean caratteristica; //Annotated Lists get injected with all Facts of the declared generic type
 
 	@Result

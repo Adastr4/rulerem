@@ -12,7 +12,7 @@ import test.test.CaratteristicaBean;
 @Rule(order = 1, name = "ruleDLLATOLP1")
 
 public class RuleDLLATOLP_1 extends it.profilglass.constraint.bav.DLLATOLP.RuleDLLATOLP_1 {
-	@Given 
+	@Given("caratteristica") 
 	private CaratteristicaBean caratteristica; //Annotated Lists get injected with all Facts of the declared generic type
 
 	@Result

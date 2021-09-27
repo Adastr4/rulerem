@@ -12,7 +12,7 @@ import test.test.CaratteristicaBean;
 @Rule(order = 2, name = "ruleSLLARG_2")
 
 public class RuleSLLARG_2 extends RuleSLLARG_1 {
-	@Given 
+	@Given("caratteristica") 
 	private CaratteristicaBean caratteristica; //Annotated Lists get injected with all Facts of the declared generic type
 	
 	@Result

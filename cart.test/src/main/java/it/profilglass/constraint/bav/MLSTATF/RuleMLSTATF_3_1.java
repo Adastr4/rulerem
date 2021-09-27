@@ -14,7 +14,7 @@ import test.test.CaratteristicaBean;
 @Rule(order = 3, name = "ruleMLSTATF_3")
 
 public class RuleMLSTATF_3_1 extends it.profilglass.constraint.bav.MLSTATF.sub1.SubRuleMLSTATF_3{
-	@Given 
+	@Given("caratteristica") 
 	private CaratteristicaBean caratteristica; //Annotated Lists get injected with all Facts of the declared generic type
 
 	@Result
@@ -33,6 +33,7 @@ public class RuleMLSTATF_3_1 extends it.profilglass.constraint.bav.MLSTATF.sub1.
 	@Then
 	public RuleState then()
 	{
+		System.out.println("Rule 3 entered");
 		result = "H14";
 		return RuleState.NEXT;
 	}

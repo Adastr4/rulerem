@@ -14,7 +14,7 @@ import test.test.CaratteristicaBean;
 @Rule(order = 31, name = "ruleMLSTATF_31")
 
 public class RuleMLSTATF_31_5A_5O {
-	@Given 
+	@Given("caratteristica") 
 	private CaratteristicaBean caratteristica; //Annotated Lists get injected with all Facts of the declared generic type
 
 	@Result
@@ -33,6 +33,7 @@ public class RuleMLSTATF_31_5A_5O {
 	@Then
 	public RuleState then()
 	{
+		System.out.println("Rule 30 entered");
 		result = "H14";
 		return RuleState.NEXT;
 	}

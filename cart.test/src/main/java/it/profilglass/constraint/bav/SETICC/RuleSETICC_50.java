@@ -1,6 +1,4 @@
-package it.profilglass.constraint.bav.MLSTATF;
-
-import java.util.List;
+package it.profilglass.constraint.bav.SETICC;
 
 import com.deliveredtechnologies.rulebook.RuleState;
 import com.deliveredtechnologies.rulebook.annotation.Given;
@@ -11,26 +9,26 @@ import com.deliveredtechnologies.rulebook.annotation.When;
 
 import test.test.CaratteristicaBean;
 
-@Rule(order = 14, name = "ruleMLSTATF_14")
 
-public class RuleMLSTATF_14_3A {
-	@Given 
-	private CaratteristicaBean caratteristica; //Annotated Lists get injected with all Facts of the declared generic type
+@Rule(order = 50, name = "ruleSETICC_50")
+public class RuleSETICC_50 {
+	@Given("descEtichetta") 
+	private String descEtichetta;
 
 	@Result
-	private String result;
+	private Integer result;
 	
 	@When
 	public boolean when()
-	{
-		return (caratteristica.getCLLEGA().equalsIgnoreCase("3A") && 
-				caratteristica.getCLSTATF().equalsIgnoreCase("H14"));
+	{		
+		return (descEtichetta.equalsIgnoreCase("Con logo + VDA"));
 	}
 	
 	@Then
 	public RuleState then()
 	{
-		result = "H24";
-		return RuleState.NEXT;
+		System.out.println("Rule SETICC 5 entered");
+		result = 5;
+		return RuleState.BREAK;
 	}
 }

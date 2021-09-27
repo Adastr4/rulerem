@@ -13,8 +13,8 @@ import test.test.CaratteristicaBean;
 
 @Rule(order = 8, name = "ruleMLSTATF_8")
 
-public class RuleMLSTATF_8_1 {
-	@Given 
+public class RuleMLSTATF_8_1 extends it.profilglass.constraint.bav.MLSTATF.sub1.SubRuleMLSTATF_1 {
+	@Given("caratteristica") 
 	private CaratteristicaBean caratteristica; //Annotated Lists get injected with all Facts of the declared generic type
 
 	@Result
@@ -23,16 +23,17 @@ public class RuleMLSTATF_8_1 {
 	@When
 	public boolean when()
 	{
-		return (caratteristica.getCLLEGA().substring(0, 1).equalsIgnoreCase("1") &&
-				caratteristica.getCLSTATF().toString().equalsIgnoreCase("H22") &&
-				Integer.parseInt(caratteristica.getCLSPESS().toString()) >= 900 &&
-				Integer.parseInt(caratteristica.getCLSPESS().toString()) <= 1500);
+		return super.when() && (caratteristica.getCLLEGA().substring(0, 1).equalsIgnoreCase("1") &&
+							   		(caratteristica.getCLSTATF().toString().equalsIgnoreCase("H00") ||
+							   		 caratteristica.getCLSTATF().toString().equalsIgnoreCase("HA1")) &&
+								caratteristica.getCLSPESS().intValue() >= 2500);
 	}
 	
 	@Then
 	public RuleState then()
 	{
-		result = "H12";
+		System.out.println("Rule 8 entered");
+		result = "H00";
 		return RuleState.NEXT;
 	}
 }

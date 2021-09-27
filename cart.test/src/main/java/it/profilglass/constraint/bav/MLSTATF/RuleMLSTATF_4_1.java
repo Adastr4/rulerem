@@ -11,10 +11,10 @@ import com.deliveredtechnologies.rulebook.annotation.When;
 
 import test.test.CaratteristicaBean;
 
-@Rule(order = 4, name = "ruleMLSTATF_5")
+@Rule(order = 4, name = "ruleMLSTATF_4")
 
-public class RuleMLSTATF_5_1 extends it.profilglass.constraint.bav.MLSTATF.sub1.SubRuleMLSTATF_3 {
-	@Given 
+public class RuleMLSTATF_4_1 extends it.profilglass.constraint.bav.MLSTATF.sub1.SubRuleMLSTATF_3 {
+	@Given("caratteristica") 
 	private CaratteristicaBean caratteristica; //Annotated Lists get injected with all Facts of the declared generic type
 
 	@Result
@@ -33,6 +33,7 @@ public class RuleMLSTATF_5_1 extends it.profilglass.constraint.bav.MLSTATF.sub1.
 	@Then
 	public RuleState then()
 	{
+		System.out.println("Rule 4 entered");
 		result = "H24";
 		return RuleState.NEXT;
 	}

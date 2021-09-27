@@ -14,7 +14,7 @@ import test.test.CaratteristicaBean;
 @Rule(order = 7, name = "ruleMLSTATF_7")
 
 public class RuleMLSTATF_7_1 {
-	@Given 
+	@Given("caratteristica") 
 	private CaratteristicaBean caratteristica; //Annotated Lists get injected with all Facts of the declared generic type
 
 	@Result
@@ -24,15 +24,16 @@ public class RuleMLSTATF_7_1 {
 	public boolean when()
 	{
 		return (caratteristica.getCLLEGA().substring(0, 1).equalsIgnoreCase("1") &&
-				caratteristica.getCLSTATF().toString().equalsIgnoreCase("H12") &&
-				Integer.parseInt(caratteristica.getCLSPESS().toString()) < 900);
+				caratteristica.getCLSTATF().toString().equalsIgnoreCase("H22") &&
+				caratteristica.getCLSPESS().intValue() >= 900 &&
+				caratteristica.getCLSPESS().intValue() <= 1500);
 	}
 	
 	@Then
 	public RuleState then()
 	{
-		result = "H18";
+		System.out.println("Rule 7 entered");
+		result = "H12";
 		return RuleState.NEXT;
 	}
-
 }

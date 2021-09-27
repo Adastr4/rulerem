@@ -8,7 +8,7 @@ import com.deliveredtechnologies.rulebook.annotation.When;
 import test.test.CaratteristicaBean;
 
 public class SubRuleMLSTATF_0 {
-	@Given 
+	@Given("caratteristica") 
 	private CaratteristicaBean caratteristica; //Annotated Lists get injected with all Facts of the declared generic type
 	
 	@When
