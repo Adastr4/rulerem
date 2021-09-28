@@ -297,5 +297,52 @@ public class CaratteristicaBean {
 	public void setCLASSE(String CLASSE) {
 		this.CLASSE = CLASSE;
 	}
+	
+	public int getSLLANASLarg()
+	{
+		String SLLANASletter = "";
+		String SLLANASDim = "";
+		
+		try
+		{
+			SLLANASletter = this.getSLLANAS().substring(2,3);
+			SLLANASDim = this.getSLLANAS().substring(3,this.getSLLANAS().length());
+			return (Integer.parseInt(SLLANASDim) + this.convertSLLANASIndex(SLLANASletter));
+		}
+		catch(Exception ex)
+		{
+			return 0;
+		}
+	}
+	
+	private int convertSLLANASIndex(String index)
+	{
+		int returnValue = 0;
+		switch(index)
+		{
+			case "A":
+			case "C":
+			case "K":
+			case "G":
+			case "J":
+				returnValue = 40;
+				break;
+			case "I":
+			case "L":
+				returnValue = 80;
+				break;
+			case "W":
+				returnValue = 30;
+				break;
+			case "Z":
+			case "Y":
+				returnValue = 70;
+				break;
+			default:
+				returnValue = 0;	
+		}
+		
+		return returnValue;
+	}
 
 }
