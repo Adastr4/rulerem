@@ -24,8 +24,7 @@ class CicloTest {
 	 */
 	@Test
 	void cicloTest() {
-//		CaratteristicaBean applicant1 = new CaratteristicaBean(new BigDecimal(650), CLLEGA, CLSTATF, "B07187",
-//				"B07187", "", "");
+
 
 		CaratteristicaBean applicant1= getCaratteristiche();
 		RuleBookRunner ruleBook=creaRoleBook("");
