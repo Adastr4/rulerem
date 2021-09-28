@@ -318,13 +318,12 @@ public class ReadDB {
 			}
 		}
 		
-		public static String getMacchineListFromCharacteristics(String CLLARG, String CLLUNG, String CLSPESS, String SLLANAS, String CLFINI, String CLRIVE, String idMacchina)
+		public static String getMacchineListFromCharacteristics(String CLLARG, String CLLUNG, String CLSPESS, int rifilo, String CLFINI, String CLRIVE, String idMacchina)
 		{
 			Statement stmt = null;
 			String query = null;
 			String ret = "";
 			ResultSet rs = null;
-			int rifilo = Integer.parseInt(SLLANAS) - Integer.parseInt(CLLARG);
 			try {
 				// The newInstance() call is a work around for some
 				// broken Java implementations
@@ -377,13 +376,12 @@ public class ReadDB {
 			}
 		}
 		
-		public static Boolean isMacchineListFromCharacteristicsValid(String CLLARG, String CLLUNG, String CLSPESS, String SLLANAS, String CLFINI, String CLRIVE, String idMacchina)
+		public static Boolean isMacchineListFromCharacteristicsValid(String CLLARG, String CLLUNG, String CLSPESS, int rifilo, String CLFINI, String CLRIVE, String idMacchina)
 		{
 			Statement stmt = null;
 			String query = null;
 			Boolean ret = Boolean.FALSE;
 			ResultSet rs = null;
-			int rifilo = Integer.parseInt(SLLANAS) - Integer.parseInt(CLLARG);
 			try {
 				// The newInstance() call is a work around for some
 				// broken Java implementations
@@ -393,12 +391,13 @@ public class ReadDB {
 						"user=root&password=root");
 				stmt = conn.createStatement();
 				query = "SELECT idMacchina FROM ciclo_macchina_rules WHERE LargMin <=" + Integer.parseInt(CLLARG) + " AND LargMax >=" + Integer.parseInt(CLLARG) +
-						 										" LungMin <=" + Integer.parseInt(CLLUNG) + " AND LungMax >= " + Integer.parseInt(CLLUNG) + 
-						 										" SpessMin <=" + Integer.parseInt(CLSPESS) + " AND SpessMax >= " + Integer.parseInt(CLSPESS) + 
-						 										" RifiloMin <=" + rifilo + " AND RifiloMin >=" + rifilo + 
+						 										" AND LungMin <=" + Integer.parseInt(CLLUNG) + " AND LungMax >= " + Integer.parseInt(CLLUNG) + 
+						 										" AND SpessMin <=" + Integer.parseInt(CLSPESS) + " AND SpessMax >= " + Integer.parseInt(CLSPESS) + 
+						 										" AND RifiloMin <=" + rifilo + " AND RifiloMax >=" + rifilo + 
 						 										" AND FinituraList LIKE '%" + CLFINI + "%' AND" +
-						 										" (RivestimentoList = 'TUTTI' OR (RivestimentoList = 'NESSUNO' AND " + CLRIVE + " = '') OR RivestimentoList LIKE '%" + CLRIVE + "%') " +
+						 										" (RivestimentoList = 'TUTTI' OR (RivestimentoList = 'NESSUNO' AND '" + CLRIVE + "' = '') OR RivestimentoList LIKE '%" + CLRIVE + "%') " +
 						 										" AND idMacchina = '" + idMacchina + "'LIMIT 1";
+				System.out.println(query);
 				rs = stmt.executeQuery(query);
 				while(rs.next()) {
 					//ret = new Macchina(rs.getString("idMacchina"),rs.getString("Descrizione"),rs.getString("idCentroLavoro"),rs.getInt("capacitaBaseGiorn"),rs.getInt("capacitaBaseSett"));

@@ -16,21 +16,24 @@ import com.deliveredtechnologies.rulebook.model.runner.RuleBookRunner;
 
 import test.test.CaratteristicaBean;
 import test.test.Caratteristiche;
+import test.test.Macchina;
 
 public class Main {
 
 	public static void main(String[] args) {
 
-		System.out.println("substring(2,3) " + "CBF.0.5".substring(2,3).toString());
-		System.out.println("substring(2,3) " + "CBF.0.5".substring(4, "CBF.0.5".length()));
+		//System.out.println("substring(2,3) " + "CBF.0.5".substring(2,3).toString());
+		//System.out.println("substring(2,3) " + "CBF.0.5".substring(4, "CBF.0.5".length()));
 		//withLoopCLLARGSTOLLACLSPESSNew();
 		//withLoopTestCLLARGf092();
 		//Rulef092CLLARGExecutorList();
 		//RuleSLLATOLNNoIterator(new BigDecimal(620),"500","F","0","BAF.0.1");
 		//System.out.println(testRuleSLLATOLNStandard(new BigDecimal(620), "500", "F", "0", "BAF.0.1").toString());
-		ruleMLSTATFTest();
+		//ruleMLSTATFTest();
 		//RuleSLLATOLPIterator();
-
+		CaratteristicaBean cara = new CaratteristicaBean(new BigDecimal(3000),"1O","H22","B00084","B00084","MF","C","10000","10000", "C", "N","N" , "", "N", "H22", "1", "005", "2", "P", "0", "0", "+1,00", "-0,00",1,1, "1AA1050", "", "BA", "N");
+		System.out.println("Valore visualizzato: " + cara.getSLLANASLarg());
+		RuleMacchina(cara);
 	}
 	
 	private static void withLoopCLLARGSTOLLACLSPESSNew() {
@@ -768,6 +771,24 @@ public class Main {
 		System.out.println("Vincolo per DLLATOLP. Valore per SLTOLLA " + SLTOLLA.toString() + " -> DLLATOLN " + totalString.toString());
 		
 		return totalString.toString();
+	}
+	
+	public static void RuleMacchina(CaratteristicaBean caratteristica)
+	{
+		Object macchine;
+		RuleBookRunner ruleBookMacchina = new RuleBookRunner("it.profilglass.constraint.bav.macchina");
+		NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
+		
+		facts.setValue("caratteristica", caratteristica);
+		ruleBookMacchina.setDefaultResult(new ArrayList<Macchina>());
+		ruleBookMacchina.run(facts);
+		
+		
+		ruleBookMacchina.getResult().ifPresent(result -> macchine=result;));
+		
+		System.out.println("Lista Macchine:");
+		for(Macchina macch : macchine)
+			System.out.println(macch.getIdMacchina());
 	}
 	
 	public static String testRulef089Standard(String SLTOLLA, String DLLATOLN)
