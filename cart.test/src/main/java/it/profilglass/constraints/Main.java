@@ -1,5 +1,7 @@
 package it.profilglass.constraints;
 
+import static org.junit.Assert.assertEquals;
+
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.ArrayList;
@@ -24,8 +26,9 @@ public class Main {
 		//withLoopCLLARGSTOLLACLSPESSNew();
 		//withLoopTestCLLARGf092();
 		//Rulef092CLLARGExecutorList();
-		RuleSLLATOLNNoIterator(new BigDecimal(620),"500","F","0","BAF.0.1");
-		System.out.println(testRuleSLLATOLNStandard(new BigDecimal(620), "500", "F", "0", "BAF.0.1").toString());
+		//RuleSLLATOLNNoIterator(new BigDecimal(620),"500","F","0","BAF.0.1");
+		//System.out.println(testRuleSLLATOLNStandard(new BigDecimal(620), "500", "F", "0", "BAF.0.1").toString());
+		ruleMLSTATFTest();
 		//RuleSLLATOLPIterator();
 
 	}
@@ -59,6 +62,10 @@ public class Main {
 		String DLLATOLN;
 		String SLLATOLP;
 		String SLLATOLN;
+		String SLLANAS;
+		String QLLAVDET;
+		String SLMOD;
+		String QLLAV;
 		
 		
 
@@ -82,7 +89,10 @@ public class Main {
 		SLLATOLP = "AAP";
 		SLLATOLN = "AAP";
 		CLSTATF = "H00";
-		
+		SLLANAS = "3CJ1240";
+		QLLAVDET = "A01";
+		SLMOD = "BA";
+		QLLAV = "N";
 		
 
 		ListIterator<String> litr = CLLARGValues.listIterator();			
@@ -95,18 +105,18 @@ public class Main {
 				while (litr3.hasNext())
 				{
 					CLSPESS = litr3.next();
-					Rulef092Executor(CLSPESS, CLLEGA, CLSTATF, SLBPTE, SLBP, CLFINI, CLASSE, CLLARG, CLLUNG, CLRIVE, CLTOLLE, DLDEST, DLLAV, DLLUBRI, MLSTATF, PLACKG, PMETC, QSPEC, SLTOLLA, DLLATOLP, DLLATOLN, SLLATOLP, SLLATOLN);
+					Rulef092Executor(CLSPESS, CLLEGA, CLSTATF, SLBPTE, SLBP, CLFINI, CLASSE, CLLARG, CLLUNG, CLRIVE, CLTOLLE, DLDEST, DLLAV, DLLUBRI, MLSTATF, PLACKG, PMETC, QSPEC, SLTOLLA, DLLATOLP, DLLATOLN, SLLATOLP, SLLATOLN, SLLANAS, QLLAVDET, SLMOD, QLLAV);
 				}
 			}			
 		}
 	}
 	
-	static String Rulef092Executor(BigDecimal CLSPESS, String CLLEGA, String CLSTATF, String SLBPTE, String SLBP, String CLFINI, String CLASSE, String CLLARG, String CLLUNG, String CLRIVE, String CLTOLLE, String DLDEST, String DLLAV, String DLLUBRI, String MLSTATF, String PLACKG, String PMETC, String QSPEC, String SLTOLLA, String DLLATOLP, String DLLATOLN, String SLLATOLP, String SLLATOLN) {
+	static String Rulef092Executor(BigDecimal CLSPESS, String CLLEGA, String CLSTATF, String SLBPTE, String SLBP, String CLFINI, String CLASSE, String CLLARG, String CLLUNG, String CLRIVE, String CLTOLLE, String DLDEST, String DLLAV, String DLLUBRI, String MLSTATF, String PLACKG, String PMETC, String QSPEC, String SLTOLLA, String DLLATOLP, String DLLATOLN, String SLLATOLP, String SLLATOLN, String SLLANAS, String QLLAVDET, String SLMOD, String QLLAV) {
 		RuleBookRunner ruleBookCLLARG = new RuleBookRunner("it.profilglass.constraint.bav.f092.CLLARG");
 		RuleBookRunner ruleBookCLSPESS = new RuleBookRunner("it.profilglass.constraint.bav.f092.CLSPESS");
 		RuleBookRunner ruleBookSLTOLLA = new RuleBookRunner("it.profilglass.constraint.bav.f092.SLTOLLA");
 		NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
-		CaratteristicaBean applicant1 = new CaratteristicaBean(CLSPESS, CLLEGA, CLSTATF, SLBPTE, SLBP, CLFINI, CLASSE, CLLARG, CLLUNG, CLRIVE, CLTOLLE, DLDEST, DLLAV, DLLUBRI, MLSTATF, PLACKG, PMETC, QSPEC, SLTOLLA, DLLATOLP, DLLATOLN, SLLATOLP, SLLATOLN,1,1);
+		CaratteristicaBean applicant1 = new CaratteristicaBean(CLSPESS, CLLEGA, CLSTATF, SLBPTE, SLBP, CLFINI, CLASSE, CLLARG, CLLUNG, CLRIVE, CLTOLLE, DLDEST, DLLAV, DLLUBRI, MLSTATF, PLACKG, PMETC, QSPEC, SLTOLLA, DLLATOLP, DLLATOLN, SLLATOLP, SLLATOLN,1,1, SLLANAS, QLLAVDET, SLMOD, QLLAV);
 
 		facts.put(new Fact<>(applicant1));
 
@@ -143,6 +153,10 @@ public class Main {
 		List<String> CLSTATFValues = new ArrayList<String>();
 		List<String> SLBPTEValues = new ArrayList<String>();
 		List<String> SLBPValues = new ArrayList<String>();
+		List<String> SLLANASValues = new ArrayList<String>();
+		List<String> QLLAVDETValues = new ArrayList<String>();
+		List<String> SLMODValues = new ArrayList<String>();
+		List<String> QLLAVValues = new ArrayList<String>();
 		
 		List<CaratteristicaBean> returnCases = new ArrayList<CaratteristicaBean>();
 		
@@ -228,6 +242,15 @@ public class Main {
 		SLBPValues.add("B01111");
 		SLBPValues.add("B01112");
 		
+		SLLANASValues.add("3CJ1240");
+		
+		QLLAVDETValues.add("A01");
+		
+		SLMODValues.add("BA");
+		
+		QLLAVValues.add("N");
+		QLLAVValues.add("C");
+		
 		String CLLEGA;
 		BigDecimal CLSPESS;
 		String SLBP;
@@ -251,6 +274,10 @@ public class Main {
 		String SLLATOLN;
 		String CLSTATF;
 		String SLBPTE;
+		String SLLANAS;
+		String QLLAVDET;
+		String SLMOD;
+		String QLLAV;
 
 		CLLEGA = "3A";
 		SLBP = "B06789";
@@ -260,7 +287,7 @@ public class Main {
 		CLLUNG = "01280";
 		CLRIVE = "A";
 		CLTOLLE = "C";
-		DLDEST = "B";
+		DLDEST = "PERC";
 		DLLAV = "000";
 		DLLUBRI = "B";
 		MLSTATF = "H28";
@@ -306,8 +333,28 @@ public class Main {
 										while (litr9.hasNext())
 										{
 											SLBP = litr9.next();
-											returnCases.add(new CaratteristicaBean(CLSPESS, CLLEGA, CLSTATF, SLBPTE, SLBP, CLFINI, CLASSE, CLLARG, CLLUNG, CLRIVE, CLTOLLE, DLDEST, DLLAV, DLLUBRI, MLSTATF, PLACKG, PMETC, QSPEC, SLTOLLA, DLLATOLP, DLLATOLP, SLLATOLP, SLLATOLP,1,1));
-										}
+											ListIterator<String> litr10 = SLLANASValues.listIterator();
+											while (litr10.hasNext())
+											{
+												SLLANAS = litr10.next();
+												ListIterator<String> litr11 = QLLAVDETValues.listIterator();
+												while (litr11.hasNext())
+												{
+													QLLAVDET = litr11.next();
+													ListIterator<String> litr12 = SLMODValues.listIterator();
+													while (litr12.hasNext())
+													{
+														SLMOD = litr12.next();
+														ListIterator<String> litr13 = QLLAVValues.listIterator();
+														while (litr13.hasNext())
+														{
+															QLLAV = litr13.next();
+															returnCases.add(new CaratteristicaBean(CLSPESS, CLLEGA, CLSTATF, SLBPTE, SLBP, CLFINI, CLASSE, CLLARG, CLLUNG, CLRIVE, CLTOLLE, DLDEST, DLLAV, DLLUBRI, MLSTATF, PLACKG, PMETC, QSPEC, SLTOLLA, DLLATOLP, DLLATOLP, SLLATOLP, SLLATOLP,1,1, SLLANAS, QLLAVDET, SLMOD, QLLAV));
+														}
+													}
+												}
+											}
+										}	
 									}
 								}
 								
@@ -321,11 +368,11 @@ public class Main {
 		return returnCases;
 	}
 	
-	private static String Rulef092CLLARGExecutor(BigDecimal CLSPESS, String CLLEGA, String CLSTATF, String SLBPTE, String SLBP, String CLFINI, String CLASSE, String CLLARG, String CLLUNG, String CLRIVE, String CLTOLLE, String DLDEST, String DLLAV, String DLLUBRI, String MLSTATF, String PLACKG, String PMETC, String QSPEC, String SLTOLLA, String DLLATOLP, String DLLATOLN, String SLLATOLP, String SLLATOLN)
+	private static String Rulef092CLLARGExecutor(BigDecimal CLSPESS, String CLLEGA, String CLSTATF, String SLBPTE, String SLBP, String CLFINI, String CLASSE, String CLLARG, String CLLUNG, String CLRIVE, String CLTOLLE, String DLDEST, String DLLAV, String DLLUBRI, String MLSTATF, String PLACKG, String PMETC, String QSPEC, String SLTOLLA, String DLLATOLP, String DLLATOLN, String SLLATOLP, String SLLATOLN, String SLLANAS, String QLLAVDET, String SLMOD, String QLLAV)
 	{
 		RuleBookRunner ruleBookCLLARG = new RuleBookRunner("it.profilglass.constraint.bav.f092.CLLARG");
 		NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
-		CaratteristicaBean applicant1 = new CaratteristicaBean(CLSPESS, CLLEGA, CLSTATF, SLBPTE, SLBP, CLFINI, CLASSE, CLLARG, CLLUNG, CLRIVE, CLTOLLE, DLDEST, DLLAV, DLLUBRI, MLSTATF, PLACKG, PMETC, QSPEC, SLTOLLA, DLLATOLP, DLLATOLN, SLLATOLP, SLLATOLN,1,1);
+		CaratteristicaBean applicant1 = new CaratteristicaBean(CLSPESS, CLLEGA, CLSTATF, SLBPTE, SLBP, CLFINI, CLASSE, CLLARG, CLLUNG, CLRIVE, CLTOLLE, DLDEST, DLLAV, DLLUBRI, MLSTATF, PLACKG, PMETC, QSPEC, SLTOLLA, DLLATOLP, DLLATOLN, SLLATOLP, SLLATOLN,1,1, SLLANAS, QLLAVDET, SLMOD, QLLAV);
 		
 		facts.put(new Fact<>(applicant1));
 		ruleBookCLLARG.run(facts);
@@ -336,6 +383,28 @@ public class Main {
 		System.out.println("Vincolo per Caratteristica larghezza " + CLLARG.toString() + " valore " + totalString.toString());
 		
 		return totalString.toString();
+	}
+	
+	private static void ruleMLSTATFTest()
+	{
+		List<CaratteristicaBean> returnCases = new ArrayList<CaratteristicaBean>();
+		
+		returnCases = Main.buildCases();
+
+		for (CaratteristicaBean caratteristica : returnCases) {
+			
+			testMLSTATFRuleStandard(caratteristica.getCLLEGA(), caratteristica.getCLSTATF(), caratteristica.getCLLARG(), caratteristica.getCLLUNG(), caratteristica.getCLSPESS(), caratteristica.getCLRIVE(), caratteristica.getDLDEST(), caratteristica.getSLBP());
+			/*RuleBookRunner ruleBookMLSTATF = new RuleBookRunner("it.profilglass.constraint.bav.val.MLSTATF");
+			NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
+			ruleBookMLSTATF.setDefaultResult(caratteristica.getCLSTATF());
+			facts.put(new Fact<>(caratteristica));
+			ruleBookMLSTATF.run(facts);
+			
+			ruleBookMLSTATF.getResult().ifPresent(result -> {System.out.println("Vincolo per MLSTATF con valore " + caratteristica.getMLSTATF().toString() + " Valore per CLLEGA " + caratteristica.getCLLEGA().toString() + "; per CLLARG " + caratteristica.getCLLARG().toString() + "; per SLBP " + caratteristica.getSLBP().toString() + "; per CLLUNG " + caratteristica.getCLLUNG().toString() + "; per CLSPESS " + caratteristica.getCLSPESS().toString() + "; per CLRIVE " + caratteristica.getCLRIVE().toString() + " validato " + result.toString());
+															assertEquals((String) result.getValue(), Main.testMLSTATFRuleStandard(caratteristica.getCLLEGA().toString(), caratteristica.getCLSTATF().toString(), caratteristica.getCLLARG().toString(), caratteristica.getCLLUNG().toString(), caratteristica.getCLSPESS(), caratteristica.getCLRIVE().toString(), caratteristica.getDLDEST().toString(), caratteristica.getSLBP().toString()));
+												});	*/
+			
+		}
 	}
 	
 	private static void Rulef092CLLARGExecutorList()
@@ -386,6 +455,10 @@ public class Main {
 		String DLLATOLN;
 		String SLLATOLP;
 		String SLLATOLN;
+		String SLLANAS;
+		String QLLAVDET;
+		String SLMOD;
+		String QLLAV;
 
 		CLLEGA = "3A";
 		SLBPTE = "A";
@@ -409,12 +482,16 @@ public class Main {
 		SLLATOLN = "AAP";
 		CLSTATF = "H00";
 		SLTOLLA = "F";
+		SLLANAS = "3CJ1240";
+		QLLAVDET = "B11";
+		SLMOD = "BA";
+		QLLAV = "N";
 		CLSPESS = new BigDecimal(500);
 		
 		ListIterator<String> litr = CLLARGValues.listIterator();			
 		while (litr.hasNext()) {
 			CLLARG = litr.next();
-			Rulef092CLLARGExecutor(CLSPESS, CLLEGA, CLSTATF, SLBPTE, SLBP, CLFINI, CLASSE, CLLARG, CLLUNG, CLRIVE, CLTOLLE, DLDEST, DLLAV, DLLUBRI, MLSTATF, PLACKG, PMETC, QSPEC, SLTOLLA, DLLATOLP, DLLATOLN, SLLATOLP, SLLATOLN);
+			Rulef092CLLARGExecutor(CLSPESS, CLLEGA, CLSTATF, SLBPTE, SLBP, CLFINI, CLASSE, CLLARG, CLLUNG, CLRIVE, CLTOLLE, DLDEST, DLLAV, DLLUBRI, MLSTATF, PLACKG, PMETC, QSPEC, SLTOLLA, DLLATOLP, DLLATOLN, SLLATOLP, SLLATOLN, SLLANAS, QLLAVDET, SLMOD, QLLAV);
 		}
 	}
 	
@@ -505,7 +582,7 @@ public class Main {
 	{
 		RuleBookRunner ruleBookCLLARG = new RuleBookRunner("it.profilglass.constraint.bav.val.SLLATOLP");
 		NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
-		CaratteristicaBean applicant1 = new CaratteristicaBean(CLSPESS, "A3", "H00", "A", "", "", "", CLLARG, "", "", "", "", "", "", "", "", "", "", SLTOLLA, DLLATOLP, "", SLLATOLP, "",1,1);
+		CaratteristicaBean applicant1 = new CaratteristicaBean(CLSPESS, "A3", "H00", "A", "", "", "", CLLARG, "", "", "", "", "", "", "", "", "", "", SLTOLLA, DLLATOLP, "", SLLATOLP, "",1,1,"3CJ1240","B11","BA","N");
 		
 		ruleBookCLLARG.setDefaultResult(Boolean.TRUE);
 		facts.put(new Fact<>(applicant1));
@@ -601,7 +678,7 @@ public class Main {
 	{
 		RuleBookRunner ruleBookCLLARG = new RuleBookRunner("it.profilglass.constraint.bav.val.SLLATOLN");
 		NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
-		CaratteristicaBean applicant1 = new CaratteristicaBean(CLSPESS, "A3", "H00", "A", "", "", "", CLLARG, "", "", "", "", "", "", "", "", "", "", SLTOLLA, "" , DLLATOLN, "" , SLLATOLN,1,1);
+		CaratteristicaBean applicant1 = new CaratteristicaBean(CLSPESS, "A3", "H00", "A", "", "", "", CLLARG, "", "", "", "", "", "", "", "", "", "", SLTOLLA, "" , DLLATOLN, "" , SLLATOLN,1,1,"3CJ1240","B11","BA","N");
 		
 		ruleBookCLLARG.setDefaultResult(Boolean.TRUE);
 		facts.put(new Fact<>(applicant1));
@@ -652,11 +729,11 @@ public class Main {
 		return retValue.equalsIgnoreCase(SLLATOLN);
 	}
 	
-	public static String Rulef088(BigDecimal CLSPESS, String CLLEGA, String CLSTATF, String SLBPTE, String SLBP, String CLFINI, String CLASSE, String CLLARG, String CLLUNG, String CLRIVE, String CLTOLLE, String DLDEST, String DLLAV, String DLLUBRI, String MLSTATF, String PLACKG, String PMETC, String QSPEC, String SLTOLLA, String DLLATOLP, String DLLATOLN, String SLLATOLP, String SLLATOLN)
+	public static String Rulef088(BigDecimal CLSPESS, String CLLEGA, String CLSTATF, String SLBPTE, String SLBP, String CLFINI, String CLASSE, String CLLARG, String CLLUNG, String CLRIVE, String CLTOLLE, String DLDEST, String DLLAV, String DLLUBRI, String MLSTATF, String PLACKG, String PMETC, String QSPEC, String SLTOLLA, String DLLATOLP, String DLLATOLN, String SLLATOLP, String SLLATOLN, String QLLAVDET, String SLMOD, String QLLAV)
 	{
 		RuleBookRunner ruleBookCLLARG = new RuleBookRunner("it.profilglass.constraint.bav.f088");
 		NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
-		CaratteristicaBean applicant1 = new CaratteristicaBean(CLSPESS, CLLEGA, CLSTATF, SLBPTE, SLBP, CLFINI, CLASSE, CLLARG, CLLUNG, CLRIVE, CLTOLLE, DLDEST, DLLAV, DLLUBRI, MLSTATF, PLACKG, PMETC, QSPEC, SLTOLLA, DLLATOLP, DLLATOLN, SLLATOLP, SLLATOLN, 1, 1);
+		CaratteristicaBean applicant1 = new CaratteristicaBean(CLSPESS, CLLEGA, CLSTATF, SLBPTE, SLBP, CLFINI, CLASSE, CLLARG, CLLUNG, CLRIVE, CLTOLLE, DLDEST, DLLAV, DLLUBRI, MLSTATF, PLACKG, PMETC, QSPEC, SLTOLLA, DLLATOLP, DLLATOLN, SLLATOLP, SLLATOLN, 1, 1, "3CJ1240", QLLAVDET, SLMOD, QLLAV);
 		
 		facts.put(new Fact<>(applicant1));
 		ruleBookCLLARG.run(facts);
@@ -676,11 +753,11 @@ public class Main {
 		return "0";
 	}
 	
-	public static String Rulef089(BigDecimal CLSPESS, String CLLEGA, String CLSTATF, String SLBPTE, String SLBP, String CLFINI, String CLASSE, String CLLARG, String CLLUNG, String CLRIVE, String CLTOLLE, String DLDEST, String DLLAV, String DLLUBRI, String MLSTATF, String PLACKG, String PMETC, String QSPEC, String SLTOLLA, String DLLATOLP, String DLLATOLN, String SLLATOLP, String SLLATOLN)
+	public static String Rulef089(BigDecimal CLSPESS, String CLLEGA, String CLSTATF, String SLBPTE, String SLBP, String CLFINI, String CLASSE, String CLLARG, String CLLUNG, String CLRIVE, String CLTOLLE, String DLDEST, String DLLAV, String DLLUBRI, String MLSTATF, String PLACKG, String PMETC, String QSPEC, String SLTOLLA, String DLLATOLP, String DLLATOLN, String SLLATOLP, String SLLATOLN, String SLLANAS, String QLLAVDET, String SLMOD, String QLLAV)
 	{
 		RuleBookRunner ruleBookCLLARG = new RuleBookRunner("it.profilglass.constraint.bav.f089");
 		NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
-		CaratteristicaBean applicant1 = new CaratteristicaBean(CLSPESS, CLLEGA, CLSTATF, SLBPTE, SLBP, CLFINI, CLASSE, CLLARG, CLLUNG, CLRIVE, CLTOLLE, DLDEST, DLLAV, DLLUBRI, MLSTATF, PLACKG, PMETC, QSPEC, SLTOLLA, DLLATOLP, DLLATOLN, SLLATOLP, SLLATOLN, 1, 1);
+		CaratteristicaBean applicant1 = new CaratteristicaBean(CLSPESS, CLLEGA, CLSTATF, SLBPTE, SLBP, CLFINI, CLASSE, CLLARG, CLLUNG, CLRIVE, CLTOLLE, DLDEST, DLLAV, DLLUBRI, MLSTATF, PLACKG, PMETC, QSPEC, SLTOLLA, DLLATOLP, DLLATOLN, SLLATOLP, SLLATOLN, 1, 1, SLLANAS, QLLAVDET, SLMOD, QLLAV);
 		
 		facts.put(new Fact<>(applicant1));
 		ruleBookCLLARG.run(facts);
@@ -700,7 +777,257 @@ public class Main {
 		return "0";
 	}
 	
+	public static String testMLSTATFRuleStandard(String CLLEGA, String CLSTATF, String CLLARG, String CLLUNG, BigDecimal CLSPESS, String CLRIVE, String DLDEST, String SLBP)
+	{
+		String MLSTATF = CLSTATF;
+		
+		System.out.println(CLLEGA.substring(0, 1));
+		
+		switch(CLLEGA.substring(0,1))
+		{
+			case "1":
+				if(CLSTATF == "H24" || CLSTATF == "H14")
+				{
+					if(CLSPESS.intValue() == 4000 || CLSPESS.intValue() == 5000 || CLSPESS.intValue() == 6000)
+						MLSTATF = "H14";
+					else
+						MLSTATF = "H24";
+				}
+				if(CLLEGA == "1O")
+				{
+					if(CLSTATF == "H24" || CLSTATF == "H14")
+					{
+						if(CLSPESS.intValue() == 4000)
+							MLSTATF = "H14";
+						else
+							MLSTATF = "H24";
+					}
+				}
+				if(CLLEGA == "1Q")
+				{
+					if(CLSTATF == "H24" || CLSTATF == "H14")
+					{
+						if(CLSPESS.intValue() == 2000)
+							MLSTATF = "H14";
+						else
+							MLSTATF = "H24";
+					}
+					
+				}
+				if( CLLEGA == "1A" && CLRIVE == "B" && CLSTATF == "H00")
+				{
+					if(Integer.parseInt(CLLARG) <= 6500 && Integer.parseInt(CLLUNG) <= 6500)
+							MLSTATF = "H18";
+				}
+				if(CLSTATF == "H12" && CLSPESS.intValue() < 900)
+				{
+					 MLSTATF = "H22";
+				}
+			    if(CLSTATF == "H22")
+			    {
+				   if(CLSPESS.intValue() >= 900 && CLSPESS.intValue() <= 1500)
+					  MLSTATF = "H12";
+			    }
+			    if(CLSTATF == "H00" || CLSTATF == "HA1")
+			    {
+				   if(Integer.parseInt(CLLARG) <= 10000 && Integer.parseInt(CLLUNG) <= 10000)
+				   {
+					  if(CLRIVE== "B")
+					  {
+					     if(CLSPESS.intValue() >= 2500)
+						    MLSTATF = "H00";
+					     else
+						    MLSTATF = "H18";
+					  }
+				   }
+			    }
+			    if(CLSTATF == "H26" && CLSPESS.intValue() == 3000)
+			    {
+				   MLSTATF = "H16";
+			    }
+			    if(Integer.parseInt(CLLARG) <= 10000 && Integer.parseInt(CLLUNG) <= 10000)
+			    {
+				  if(DLDEST.substring(0,3) == "PEN" && CLRIVE == "B" && CLSTATF == "H00")
+				  {
+					  MLSTATF = "H18";
+				  }
+			    }
+			    break;
+			case "3":
+				if(CLLEGA == "3A")
+				{
+					if(CLSTATF == "H00" || CLSTATF == "HA1")
+					{
+						if(Integer.parseInt(CLLARG) <= 10000 && Integer.parseInt(CLLUNG) <= 10000)
+						{
+								MLSTATF = "H18";
+						}
+					}
+					if(CLSTATF == "H14")
+					{
+						MLSTATF = "H24";
+					}
+				}
+				if(CLLEGA == "3D" || CLLEGA == "3T")
+				{
+					 if(CLSPESS.intValue() <= 1000 && CLSPESS.intValue() >= 400)
+					 {
+						if(CLSTATF == "H14")
+						{
+						   MLSTATF = "H24";
+						}
+						if(CLSTATF == "H16")
+						{
+						   MLSTATF = "H26";
+						}
+						if(CLSTATF == "H18")
+						{
+						   if(CLSPESS.intValue() <= 2000 && CLSPESS.intValue() >= 400)
+						   {
+							  MLSTATF = "H28";
+						   }
+						} 
+						if(CLSTATF == "H19")
+						{
+						   MLSTATF = "H29";
+						}
+					}
+					if(CLSTATF == "H22" || CLSTATF == "H23" || CLSTATF == "H24")
+					{
+						MLSTATF = "H24";
+					}
 	
+					 if(CLSPESS.intValue() <= 4000 && CLSPESS.intValue() > 1000)
+					 {
+						if(CLSTATF == "H14")
+						{
+						   MLSTATF = "H24";
+						}
+					 }
+					 if(CLSPESS.intValue() <= 3000 && CLSPESS.intValue() > 1000)
+					 {
+						if(CLSTATF == "H16")
+						{
+						   MLSTATF = "H26";
+						}
+					 }
+				}
+				if(CLLEGA == "3C" || CLLEGA == "3G")
+				{
+					if(CLSPESS.intValue() <= 2000 && CLSPESS.intValue() >= 600)
+					{
+						if(CLSTATF == "H22")
+						{
+						   MLSTATF = "H12";
+						}
+					}
+				}
+				if(CLLEGA == "3Q" && CLRIVE == "B" && CLSTATF == "H00")
+				{
+					 if(Integer.parseInt(CLLARG) <= 6500 && Integer.parseInt(CLLUNG) <= 6500)
+					 {
+						MLSTATF = "H18";
+					 }
+				}
+				if(Integer.parseInt(CLLARG) <= 10000 && Integer.parseInt(CLLUNG) <= 10000)
+				{
+					if(DLDEST.substring(0,3) == "PEN" && CLRIVE == "B" && CLSTATF == "H00")
+					{
+						MLSTATF = "H18";
+					}
+				}
+				if(CLLEGA == "3Q" && CLSPESS.intValue() >= 2000)
+				{
+					MLSTATF = CLSTATF;
+				}
+			break;
+			case "4":
+				if(CLLEGA == "4A")
+				{
+					if(Integer.parseInt(CLLARG) <=6500 && Integer.parseInt(CLLUNG) <=6500)
+					{
+						if(CLRIVE == "B")
+						{
+							if(CLSTATF == "H00")
+							{
+									MLSTATF = "H18";
+							}
+						}
+					}
+				
+				 if(CLSTATF == "H00" || CLSTATF == "HA1")
+				 {
+					if(Integer.parseInt(CLLARG) <= 10000 && Integer.parseInt(CLLUNG) <= 10000)
+					{
+					   if(CLSPESS.intValue() >= 2500)
+					   {
+						  MLSTATF = "H00";
+					   }
+					   else
+					   {
+						  MLSTATF = "H18";
+					   }
+					}
+				 }
+				}
+			    if(Integer.parseInt(CLLARG) <= 10000 && Integer.parseInt(CLLUNG) <= 10000)
+			    {
+			    	if(DLDEST.substring(0,3) == "PEN" && CLRIVE == "B" && CLSTATF == "H00")
+			    	{
+			    			MLSTATF = "H18";
+			    	}
+			    }
+			break;
+			case "5":
+				if(CLLEGA == "5G")
+				{
+				 	if(CLSTATF == "H22")
+				 	{
+				 		if(CLSPESS.intValue() >= 600 && CLSPESS.intValue() <= 3000)
+				 		{
+				 			MLSTATF = "H12";
+				 		}
+				 	}
+				 	if(CLSTATF == "H12" && CLSPESS.intValue() < 600)
+				 	{
+				 		MLSTATF = "H22";
+				 	} 
+				}
+
+			  if(CLLEGA == "5A" || CLLEGA == "5O")
+			  {
+				 if(CLSPESS.intValue() == 5000 || CLSPESS.intValue() == 6000)
+				 {
+					if(CLSTATF == "H24")
+					{
+					   MLSTATF = "H14";
+					}
+				 }
+			  }
+
+			  if(CLLEGA == "5F")
+			  {
+				 if(SLBP == "B06468")
+				 {
+					if(CLSPESS.intValue() >= 1000)
+					{
+					   if(CLSTATF == "H22")
+					   {
+						  MLSTATF = "H52";
+					   }
+					}
+			  	 }
+			  }
+
+			  if(CLSTATF.substring(0,2) == "H3")
+			  {
+				 MLSTATF = "H2" + CLSTATF.substring(2,1);
+			  }
+			break;
+		}
+		
+		return MLSTATF;
+	}
 	
 	public static Boolean testCLSTATFRuleStandard(String CLLEGA, String CLSTATF, String SLBPTE, String SLBP)
 	{

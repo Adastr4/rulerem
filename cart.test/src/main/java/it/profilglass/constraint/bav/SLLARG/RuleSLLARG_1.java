@@ -14,7 +14,7 @@ import test.test.CaratteristicaBean;
 @Rule(order = 1, name = "ruleSLLARG_1")
 
 public class RuleSLLARG_1 {
-	@Given 
+	@Given("caratteristica") 
 	private CaratteristicaBean caratteristica; //Annotated Lists get injected with all Facts of the declared generic type
 	
 	@Result

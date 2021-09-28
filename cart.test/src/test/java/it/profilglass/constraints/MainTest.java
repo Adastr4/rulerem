@@ -447,7 +447,7 @@ class MainTest {
 	//@Test
 	public void ruleSLLATOLPSingleTest()
 	{
-		CaratteristicaBean caratteristica = new CaratteristicaBean(new BigDecimal(620), "", "", "", "", "", "", "500", "", "", "", "", "", "", "", "", "", "", "F", "0", "", "BAF.0.1", "",1,1);
+		CaratteristicaBean caratteristica = new CaratteristicaBean(new BigDecimal(620), "", "", "", "", "", "", "500", "", "", "", "", "", "", "", "", "", "", "F", "0", "", "BAF.0.1", "",1,1,"3CJ1240","B11","BA","N");
 		RuleBookRunner ruleBookCLLARG = new RuleBookRunner("it.profilglass.constraint.bav.val.SLLATOLP");
 		NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
 			
@@ -484,7 +484,7 @@ class MainTest {
 	//@Test
 	public void ruleSLLATOLNSingleTest()
 	{
-		CaratteristicaBean caratteristica = new CaratteristicaBean(new BigDecimal(620), "", "", "", "", "", "", "500", "", "", "", "", "", "", "", "", "", "", "F", "", "0", "", "BAF.0.1",1,1);
+		CaratteristicaBean caratteristica = new CaratteristicaBean(new BigDecimal(620), "", "", "", "", "", "", "500", "", "", "", "", "", "", "", "", "", "", "F", "", "0", "", "BAF.0.1",1,1,"3CJ1240","B11","BA","N");
 		RuleBookRunner ruleBookCLLARG = new RuleBookRunner("it.profilglass.constraint.bav.val.SLLATOLN");
 		NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
 			
@@ -497,7 +497,7 @@ class MainTest {
 											});
 	}
 	
-	@Test
+	//@Test
 	public void ruleCLSTATFTest()
 	{
 		List<CaratteristicaBean> returnCases = new ArrayList<CaratteristicaBean>();
@@ -514,6 +514,27 @@ class MainTest {
 			
 			ruleBookCLLARG.getResult().ifPresent(result -> {System.out.println("Vincolo per CLSTATF con valore " + caratteristica.getCLSTATF().toString() + " Valore per CLLEGA " + caratteristica.getCLLEGA().toString() + "; per SLBPTE " + caratteristica.getSLBPTE().toString() + "; per SLBP " + caratteristica.getSLBP().toString() + " validato " + result.toString());
 															assertEquals((Boolean) result.getValue(), Main.testCLSTATFRuleStandard(caratteristica.getCLLEGA().toString(),caratteristica.getCLSTATF().toString(),caratteristica.getSLBPTE().toString(), caratteristica.getSLBP().toString()));
+												});	
+		}
+	}
+	
+	@Test
+	public void ruleMLSTATFTest()
+	{
+		List<CaratteristicaBean> returnCases = new ArrayList<CaratteristicaBean>();
+		
+		returnCases = Main.buildCases();
+
+		for (CaratteristicaBean caratteristica : returnCases) {
+			
+			RuleBookRunner ruleBookMLSTATF = new RuleBookRunner("it.profilglass.constraint.bav.MLSTATF");
+			NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
+			ruleBookMLSTATF.setDefaultResult(caratteristica.getCLSTATF());
+			facts.setValue("caratteristica", caratteristica);
+			ruleBookMLSTATF.run(facts);
+			
+			ruleBookMLSTATF.getResult().ifPresent(result -> {System.out.println("Vincolo per CLSTATF con valore " + caratteristica.getCLSTATF().toString() + " Valore per CLLEGA " + caratteristica.getCLLEGA().toString() + "; per CLLARG " + caratteristica.getCLLARG().toString() + "; per SLBP " + caratteristica.getSLBP().toString() + "; per CLLUNG " + caratteristica.getCLLUNG().toString() + "; per CLSPESS " + caratteristica.getCLSPESS().toString() + "; per CLRIVE " + caratteristica.getCLRIVE().toString() + ";  validato " + result.toString());
+															assertEquals((String) result.getValue(), Main.testMLSTATFRuleStandard(caratteristica.getCLLEGA().toString(), caratteristica.getCLSTATF().toString(), caratteristica.getCLLARG().toString(), caratteristica.getCLLUNG().toString(), caratteristica.getCLSPESS(), caratteristica.getCLRIVE().toString(), caratteristica.getDLDEST().toString(), caratteristica.getSLBP().toString()));
 												});	
 		}
 	}

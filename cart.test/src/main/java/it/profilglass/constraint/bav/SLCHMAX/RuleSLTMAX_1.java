@@ -17,7 +17,7 @@ public class RuleSLTMAX_1 extends it.profilglass.constraint.bav.SLCHMAX.val.Rule
 	
 	private Double hImballi;
 	
-	@Given 
+	@Given("caratteristica") 
 	private CaratteristicaBean caratteristica; //Annotated Lists get injected with all Facts of the declared generic type
 	
 	@Given("pesoSpec")
