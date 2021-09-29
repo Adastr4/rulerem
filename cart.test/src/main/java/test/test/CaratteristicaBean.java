@@ -32,6 +32,15 @@ public class CaratteristicaBean {
 	private String QLLAV;
 	private int SLTMAX;
 	private int SBATIPO;
+	int SETICC;
+
+	public int getSETICC() {
+		return SETICC;
+	}
+
+	public void setSETICC(int sETICC) {
+		SETICC = sETICC;
+	}
 
 	public CaratteristicaBean(BigDecimal CLSPESS, String CLLEGA, String CLSTATF, String SLBPTE, String SLBP, String CLFINI, String CLASSE, String CLLARG, String CLLUNG, String CLRIVE, String CLTOLLE, String DLDEST, String DLLAV, String DLLUBRI, String MLSTATF, String PLACKG, String PMETC, String QSPEC, String SLTOLLA, String DLLATOLP, String DLLATOLN, String SLLATOLP, String SLLATOLN, int SLTMAX, int SBATIPO, String SLLANAS, String QLLAVDET, String SLMOD, String QLLAV) {
 		this.CLSPESS = CLSPESS;
