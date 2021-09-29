@@ -390,9 +390,9 @@ public class ReadDB {
 				conn =  	       DriverManager.getConnection("jdbc:mysql://localhost/profilglass?" +
 						"user=root&password=root");
 				stmt = conn.createStatement();
-				query = "SELECT idMacchina FROM ciclo_macchina_rules WHERE LargMin <=" + Integer.parseInt(CLLARG) + " AND LargMax >=" + Integer.parseInt(CLLARG) +
-						 										" AND LungMin <=" + Integer.parseInt(CLLUNG) + " AND LungMax >= " + Integer.parseInt(CLLUNG) + 
-						 										" AND SpessMin <=" + Integer.parseInt(CLSPESS) + " AND SpessMax >= " + Integer.parseInt(CLSPESS) + 
+				query = "SELECT idMacchina FROM ciclo_macchina_rules WHERE LargMin <=" + Integer.parseInt(CLLARG)/10 + " AND LargMax >=" + Integer.parseInt(CLLARG)/10 +
+						 										" AND LungMin <=" + Integer.parseInt(CLLUNG)/10 + " AND LungMax >= " + Integer.parseInt(CLLUNG)/10 + 
+						 										" AND SpessMin <=" + Double.parseDouble(CLSPESS)/1000 + " AND SpessMax >= " + Double.parseDouble(CLSPESS)/1000 + 
 						 										" AND RifiloMin <=" + rifilo + " AND RifiloMax >=" + rifilo + 
 						 										" AND FinituraList LIKE '%" + CLFINI + "%' AND" +
 						 										" (RivestimentoList = 'TUTTI' OR (RivestimentoList = 'NESSUNO' AND '" + CLRIVE + "' = '') OR RivestimentoList LIKE '%" + CLRIVE + "%') " +
@@ -400,6 +400,7 @@ public class ReadDB {
 				System.out.println(query);
 				rs = stmt.executeQuery(query);
 				while(rs.next()) {
+					System.out.println("true " + idMacchina.toString());
 					//ret = new Macchina(rs.getString("idMacchina"),rs.getString("Descrizione"),rs.getString("idCentroLavoro"),rs.getInt("capacitaBaseGiorn"),rs.getInt("capacitaBaseSett"));
 					ret = Boolean.TRUE;
 				}
