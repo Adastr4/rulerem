@@ -1,25 +1,18 @@
 package cart.test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.ListIterator;
 
 import org.junit.jupiter.api.Test;
 
 import com.deliveredtechnologies.rulebook.Fact;
 import com.deliveredtechnologies.rulebook.FactMap;
 import com.deliveredtechnologies.rulebook.NameValueReferableMap;
-import com.deliveredtechnologies.rulebook.Result;
-import com.deliveredtechnologies.rulebook.lang.RuleBookBuilder;
-import com.deliveredtechnologies.rulebook.model.RuleBook;
 import com.deliveredtechnologies.rulebook.model.runner.RuleBookRunner;
 
 class CicloTest {
 
-	
+
 
 	@Test
 	void machinaTest() {
