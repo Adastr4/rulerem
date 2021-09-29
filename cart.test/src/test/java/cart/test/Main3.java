@@ -1,6 +1,7 @@
 package cart.test;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 
@@ -23,8 +24,10 @@ public class Main3 {
 		
 		
 //		withLoopSubVincolo1();
-		noLoopSubVincolo1();
+//		noLoopSubVincolo1();
 
+		testReturnArray();
+		
 	}
 	static void withLoopSubVincolo1() {
 		List<String> CLSTATFValues = Caratteristiche.getCLSTATFValues();
@@ -344,6 +347,20 @@ public class Main3 {
 		System.out.println("TEST per " + CLLEGA + " " + CLSTATF + " " + test);
 
 	}
+	
+	private static void testReturnArray() {
+		System.out.println("AAA");
+		RuleBookRunner ruleBook = new RuleBookRunner("pippo.test");
+		CaratteristicaBean applicant1 = new CaratteristicaBean(
+				new BigDecimal(650), "", "",  "", "", "", "");
+		NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
+		facts.put(new Fact<>(applicant1));
+		ruleBook.setDefaultResult(new ArrayList<Macchina>());
+		ruleBook.run(facts);
+		ruleBook.getResult().ifPresent(result -> result.toString());
+		
+	}
+	
 	private static void withLoopCLFINI() {
 		
 
