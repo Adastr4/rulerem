@@ -591,5 +591,56 @@ public class ReadDB {
 
 			}
 		}
+		
+		public static ArrayList<it.profilglass.classmodel.Caratteristica> getCaratteristicheFromConfigurator(String articolo)
+		{
+			Statement stmt = null;
+			String query = null;
+			ArrayList<it.profilglass.classmodel.Caratteristica> ret = new ArrayList<it.profilglass.classmodel.Caratteristica>();
+			ResultSet rs = null;
+			try {
+				// The newInstance() call is a work around for some
+				// broken Java implementations
+
+				Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+				conn =  	       DriverManager.getConnection("jdbc:mysql://localhost/profilglass?" +
+						"user=root&password=root");
+				stmt = conn.createStatement();
+				query = "SELECT Caratteristica, Descrizione, Sequenza FROM caratteristicaconfiguratore WHERE trim(articolo) ='" + articolo + "' AND ExpireDate >= current_date'";
+				rs = stmt.executeQuery(query);
+				while(rs.next()) {
+					ret.add(new it.profilglass.classmodel.Caratteristica(rs.getString("Caratteristica"),rs.getString("Descrizione"),rs.getInt("Sequenza"), articolo));
+				}
+
+				return ret;
+			} catch (Exception ex) {
+				// handle the error
+				ex.printStackTrace();
+				return ret;
+			}
+			finally {
+				// it is a good idea to release
+				// resources in a finally{} block
+				// in reverse-order of their creation
+				// if they are no-longer needed
+
+				if (rs != null) {
+					try {
+						rs.close();
+					} catch (SQLException sqlEx) { } // ignore
+
+					rs = null;
+				}
+
+				if (stmt != null) {
+					try {
+						stmt.close();
+					} catch (SQLException sqlEx) { } // ignore
+
+					stmt = null;
+				}
+
+			}
+		}
 }
 

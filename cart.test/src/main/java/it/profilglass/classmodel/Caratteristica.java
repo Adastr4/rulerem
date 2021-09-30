@@ -7,6 +7,7 @@ import test.test.ReadDB;
 public class Caratteristica {
 	
 	private String caratteristicaId;
+	private String descrizioneCaratteristica;
 	private int caratteristicaOrder;
 	private String classe;
 	private ArrayList<Opzione> valori;
@@ -14,31 +15,34 @@ public class Caratteristica {
 	private boolean enabled = false;
 	private boolean visible = false;
 	
-	public Caratteristica(String caratteristicaId, int caratteristicaOrder, String classe, ArrayList<Opzione> valori, String selectedValue)
+	public Caratteristica(String caratteristicaId, String descrizioneCaratteristica, int caratteristicaOrder, String classe, ArrayList<Opzione> valori, String selectedValue)
 	{
 		this.caratteristicaId = caratteristicaId;
 		this.caratteristicaOrder = caratteristicaOrder;
 		this.classe = classe;
 		this.valori = valori;
 		this.selectedValue = selectedValue;
+		this.descrizioneCaratteristica = descrizioneCaratteristica;
 	}
 	
-	public Caratteristica(String caratteristicaId, int caratteristicaOrder, String classe, String selectedValue)
+	public Caratteristica(String caratteristicaId, String descrizioneCaratteristica, int caratteristicaOrder, String classe, String selectedValue)
 	{
 		this.caratteristicaId = caratteristicaId;
 		this.caratteristicaOrder = caratteristicaOrder;
 		this.classe = classe;
 		this.valori = this.setListOfValues();
 		this.selectedValue = selectedValue;
+		this.descrizioneCaratteristica = descrizioneCaratteristica;
 	}
 	
-	public Caratteristica(String caratteristicaId, int caratteristicaOrder, String classe)
+	public Caratteristica(String caratteristicaId, String descrizioneCaratteristica, int caratteristicaOrder, String classe)
 	{
 		this.caratteristicaId = caratteristicaId;
 		this.caratteristicaOrder = caratteristicaOrder;
 		this.classe = classe;
 		this.valori = this.setListOfValues();
 		this.selectedValue = "";
+		this.descrizioneCaratteristica = descrizioneCaratteristica;
 	}
 
 	public int getCaratteristicaOrder() {
@@ -78,6 +82,10 @@ public class Caratteristica {
 		this.selectedValue = selectedValue;
 	}
 
+	public String getDescrizioneCaratteristica() {
+		return descrizioneCaratteristica;
+	}
+
 	public boolean isEnabled() {
 		return enabled;
 	}
@@ -92,7 +100,5 @@ public class Caratteristica {
 
 	public void setVisible(boolean visible) {
 		this.visible = visible;
-	}
-	
-	
+	}	
 }
