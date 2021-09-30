@@ -74,6 +74,12 @@ public class CaratteristicaBean {
 		this.QLLAV = QLLAV;
 	}
 	
+
+	public CaratteristicaBean(BigDecimal bigDecimal, String string, String string2, String string3, String string4,
+			String string5, String string6) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getQLLAV() {
 		return QLLAV;
 	}

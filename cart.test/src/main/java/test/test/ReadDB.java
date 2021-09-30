@@ -387,8 +387,8 @@ public class ReadDB {
 				// broken Java implementations
 
 				Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-				conn =  	       DriverManager.getConnection("jdbc:mysql://localhost/profilglass?" +
-						"user=root&password=root");
+				conn =  	       DriverManager.getConnection("jdbc:mysql://212.237.47.99:3306/profilglass?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true&"+
+						"user=profilglass&password=Qc89d9a~");
 				stmt = conn.createStatement();
 				query = "SELECT idMacchina FROM ciclo_macchina_rules WHERE LargMin <=" + Integer.parseInt(CLLARG) + " AND LargMax >=" + Integer.parseInt(CLLARG) +
 						 										" AND LungMin <=" + Integer.parseInt(CLLUNG) + " AND LungMax >= " + Integer.parseInt(CLLUNG) + 
