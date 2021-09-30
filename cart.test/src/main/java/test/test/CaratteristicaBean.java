@@ -362,5 +362,21 @@ public class CaratteristicaBean {
 
 		return returnValue;
 	}
+	
+	public int getBandellineNumInSLLANAS()
+	{
+		int numBandelline = 1;
+		
+		try
+		{
+			numBandelline = Integer.parseInt(this.getSLLANAS().substring(3,this.getSLLANAS().length())) / (Integer.parseInt(this.getCLLARG().toString())/10);
+		}
+		catch(Exception ex)
+		{
+			numBandelline = 1;
+		}
+		
+		return numBandelline;
+	}
 
 }

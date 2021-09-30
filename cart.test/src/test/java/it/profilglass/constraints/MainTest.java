@@ -431,6 +431,7 @@ class MainTest {
 
 		for (CaratteristicaBean caratteristica : returnCases) {
 
+			
 			RuleBookRunner ruleBookCLLARG = new RuleBookRunner("it.profilglass.constraint.bav.SLLATOLP.val");
 			NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
 			ruleBookCLLARG.setDefaultResult(Boolean.TRUE);
@@ -484,7 +485,7 @@ class MainTest {
 	public void ruleSLLATOLNSingleTest()
 	{
 		CaratteristicaBean caratteristica = new CaratteristicaBean(new BigDecimal(620), "", "", "", "", "", "", "500", "", "", "", "", "", "", "", "", "", "", "F", "", "0", "", "BAF.0.1",1,1,"3CJ1240","B11","BA","N");
-		RuleBookRunner ruleBookCLLARG = new RuleBookRunner("it.profilglass.constraint.bav.val.SLLATOLN");
+		RuleBookRunner ruleBookCLLARG = new RuleBookRunner("it.profilglass.constraint.bav.SLLATOLN.val");
 		NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
 
 		ruleBookCLLARG.setDefaultResult(Boolean.TRUE);

@@ -25,7 +25,7 @@ public class RuleCUTL02 {
 	@When
 	public boolean when()
 	{
-		return ReadDB.isMacchineListFromCharacteristicsValid(caratteristica.getCLLARG(),caratteristica.getCLLUNG(),caratteristica.getCLSPESS().toString(),caratteristica.getSLLANASLarg() - (Integer.parseInt(caratteristica.getCLLARG())/10),caratteristica.getCLFINI(),caratteristica.getCLRIVE(),"CUTL02");
+		return ReadDB.isMacchineListFromCharacteristicsValid(caratteristica.getCLLARG(),caratteristica.getCLLUNG(),caratteristica.getCLSPESS().toString(),caratteristica.getSLLANASLarg() - ((Integer.parseInt(caratteristica.getCLLARG())/10) * caratteristica.getBandellineNumInSLLANAS()),caratteristica.getCLFINI(),caratteristica.getCLRIVE(),"CUTL02");
 	}
 
 	@Then
