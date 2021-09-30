@@ -19,6 +19,7 @@ import test.test.ReadDB;
 public class RuleCUTL21 {
 	@Given("caratteristica") 
 	CaratteristicaBean caratteristica; //Annotated Lists get injected with all Facts of the declared generic type
+	
 
 	@Result
 	private ArrayList<Macchina> result;

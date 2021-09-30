@@ -7,9 +7,20 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class ReadDB {
+	private static Connection conn =null;
+	{
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+			conn =  	       DriverManager.getConnection("jdbc:mysql://212.237.47.99:3306/profilglass?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true&"+
+					"user=profilglass&password=Qc89d9a~");
+		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 	private static int counter;
-	private static Connection conn = null;
+
 
 	public static String readClasse() {
 		Statement stmt = null;
@@ -19,9 +30,7 @@ public class ReadDB {
 			// The newInstance() call is a work around for some
 			// broken Java implementations
 
-			Class.forName("com.mysql.jdbc.Driver").newInstance();
-			conn =  	       DriverManager.getConnection("jdbc:mysql://localhost/profilglass?" +
-					"user=root&password=45ds700z");
+			
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery("SELECT * FROM CAR_CLFINI where classe = 'PROVA'");
 			while(rs.next()) {

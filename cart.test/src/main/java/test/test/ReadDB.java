@@ -10,9 +10,20 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ReadDB {
+	private static Connection conn =null;
+	static {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+			conn =  	       DriverManager.getConnection("jdbc:mysql://212.237.47.99:3306/profilglass?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true&"+
+					"user=profilglass&password=Qc89d9a~");
+		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 		private static int counter;
-		private static Connection conn = null;
+	
 
 		public static String readClasse() {
 			Statement stmt = null;
@@ -22,9 +33,7 @@ public class ReadDB {
 				// The newInstance() call is a work around for some
 				// broken Java implementations
 
-				Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-				conn =  	       DriverManager.getConnection("jdbc:mysql://localhost/profilglass?" +
-						"user=root&password=root");
+				
 				stmt = conn.createStatement();
 				rs = stmt.executeQuery("SELECT * FROM CAR_CLFINI where classe = 'PROVA'");
 				while(rs.next()) {
@@ -72,9 +81,7 @@ public class ReadDB {
 				// The newInstance() call is a work around for some
 				// broken Java implementations
 
-				Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-				conn =  	       DriverManager.getConnection("jdbc:mysql://localhost/profilglass?" +
-						"user=root&password=root");
+				
 				stmt = conn.createStatement();
 				query = "SELECT * FROM caratteristiche WHERE caratteristica ='" + caratteristica + "' AND TRIM(articolo) = '" + articolo + "'";
 				rs = stmt.executeQuery(query);
@@ -123,9 +130,7 @@ public class ReadDB {
 				// The newInstance() call is a work around for some
 				// broken Java implementations
 
-				Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-				conn =  	       DriverManager.getConnection("jdbc:mysql://localhost/profilglass?" +
-						"user=root&password=root");
+			
 				stmt = conn.createStatement();
 				query = "SELECT * FROM caratteristiche WHERE caratteristica ='" + caratteristica + "' AND TRIM(articolo) = '" + articolo + "'";
 				rs = stmt.executeQuery(query);
@@ -174,9 +179,7 @@ public class ReadDB {
 				// The newInstance() call is a work around for some
 				// broken Java implementations
 
-				Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-				conn =  	       DriverManager.getConnection("jdbc:mysql://localhost/profilglass?" +
-						"user=root&password=root");
+				
 				stmt = conn.createStatement();
 				query = "SELECT * FROM caratteristiche WHERE caratteristica ='SLBP' AND TRIM(articolo) = '" + articolo + "' AND opzione = '" + SLBP + "' LIMIT 1";
 				rs = stmt.executeQuery(query);
@@ -226,9 +229,7 @@ public class ReadDB {
 				// The newInstance() call is a work around for some
 				// broken Java implementations
 
-				Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-				conn =  	       DriverManager.getConnection("jdbc:mysql://localhost/profilglass?" +
-						"user=root&password=root");
+			
 				stmt = conn.createStatement();
 				query = "SELECT * FROM macchine WHERE idMacchina ='" + idMacchina + "' LIMIT 1";
 				rs = stmt.executeQuery(query);
@@ -277,9 +278,7 @@ public class ReadDB {
 				// The newInstance() call is a work around for some
 				// broken Java implementations
 
-				Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-				conn =  	       DriverManager.getConnection("jdbc:mysql://localhost/profilglass?" +
-						"user=root&password=root");
+				
 				stmt = conn.createStatement();
 				query = "SELECT * FROM attivita WHERE idAttivita ='" + idAttivita + "' LIMIT 1";
 				rs = stmt.executeQuery(query);
@@ -328,9 +327,7 @@ public class ReadDB {
 				// The newInstance() call is a work around for some
 				// broken Java implementations
 
-				Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-				conn =  	       DriverManager.getConnection("jdbc:mysql://localhost/profilglass?" +
-						"user=root&password=root");
+				
 				stmt = conn.createStatement();
 				query = "SELECT idMacchina FROM ciclo_macchina_rules WHERE LargMin <=" + Integer.parseInt(CLLARG) + " AND LargMax >=" + Integer.parseInt(CLLARG) +
 						 										" LungMin <=" + Integer.parseInt(CLLUNG) + " AND LungMax >= " + Integer.parseInt(CLLUNG) + 
@@ -386,9 +383,7 @@ public class ReadDB {
 				// The newInstance() call is a work around for some
 				// broken Java implementations
 
-				Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-				conn =  	       DriverManager.getConnection("jdbc:mysql://212.237.47.99:3306/profilglass?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true&"+
-						"user=profilglass&password=Qc89d9a~");
+			
 				stmt = conn.createStatement();
 				query = "SELECT idMacchina FROM ciclo_macchina_rules WHERE LargMin <=" + Integer.parseInt(CLLARG) + " AND LargMax >=" + Integer.parseInt(CLLARG) +
 						 										" AND LungMin <=" + Integer.parseInt(CLLUNG) + " AND LungMax >= " + Integer.parseInt(CLLUNG) + 

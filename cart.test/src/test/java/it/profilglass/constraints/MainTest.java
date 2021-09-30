@@ -423,7 +423,7 @@ class MainTest {
 		}
 	}*/
 	
-	//@Test
+	@Test
 	public void ruleSLLATOLPTest()
 	{
 		List<CaratteristicaBean> returnCases = new ArrayList<CaratteristicaBean>();
@@ -432,7 +432,7 @@ class MainTest {
 		
 		for (CaratteristicaBean caratteristica : returnCases) {
 			
-			RuleBookRunner ruleBookCLLARG = new RuleBookRunner("it.profilglass.constraint.bav.val.SLLATOLP");
+			RuleBookRunner ruleBookCLLARG = new RuleBookRunner("it.profilglass.constraint.bav.SLLATOLP.val");
 			NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
 			ruleBookCLLARG.setDefaultResult(Boolean.TRUE);
 			facts.put(new Fact<>(caratteristica));
