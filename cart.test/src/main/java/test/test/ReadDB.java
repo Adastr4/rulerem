@@ -3,6 +3,9 @@ package test.test;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
+import it.profilglass.classmodel.Opzione;
+
 import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -267,6 +270,57 @@ public class ReadDB {
 			}
 		}
 		
+		public static it.profilglass.classmodel.Macchina getClassmodelMacchinaFromId(String idMacchina)
+		{
+			Statement stmt = null;
+			String query = null;
+			it.profilglass.classmodel.Macchina ret = null;
+			ResultSet rs = null;
+			try {
+				// The newInstance() call is a work around for some
+				// broken Java implementations
+
+				Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+				conn =  	       DriverManager.getConnection("jdbc:mysql://localhost/profilglass?" +
+						"user=root&password=root");
+				stmt = conn.createStatement();
+				query = "SELECT * FROM macchine WHERE idMacchina ='" + idMacchina + "' LIMIT 1";
+				rs = stmt.executeQuery(query);
+				while(rs.next()) {
+					ret = new it.profilglass.classmodel.Macchina(rs.getString("idMacchina"),rs.getString("Descrizione"),rs.getString("idCentroLavoro"),rs.getInt("capacitaBaseGiorn"),rs.getInt("capacitaBaseSett"));
+				}
+
+				return ret;
+			} catch (Exception ex) {
+				// handle the error
+				ex.printStackTrace();
+				return ret;
+			}
+			finally {
+				// it is a good idea to release
+				// resources in a finally{} block
+				// in reverse-order of their creation
+				// if they are no-longer needed
+
+				if (rs != null) {
+					try {
+						rs.close();
+					} catch (SQLException sqlEx) { } // ignore
+
+					rs = null;
+				}
+
+				if (stmt != null) {
+					try {
+						stmt.close();
+					} catch (SQLException sqlEx) { } // ignore
+
+					stmt = null;
+				}
+
+			}
+		}
+		
 		public static Attivita getAttivitaFromId(String idAttivita)
 		{
 			Statement stmt = null;
@@ -285,6 +339,57 @@ public class ReadDB {
 				rs = stmt.executeQuery(query);
 				while(rs.next()) {
 					ret = new Attivita(rs.getString("idAttivita"),rs.getString("Descrizione"),getMacchinaFromId(rs.getString("idMacchinaPred")),rs.getString("idCentroLavPred"));
+				}
+
+				return ret;
+			} catch (Exception ex) {
+				// handle the error
+				ex.printStackTrace();
+				return ret;
+			}
+			finally {
+				// it is a good idea to release
+				// resources in a finally{} block
+				// in reverse-order of their creation
+				// if they are no-longer needed
+
+				if (rs != null) {
+					try {
+						rs.close();
+					} catch (SQLException sqlEx) { } // ignore
+
+					rs = null;
+				}
+
+				if (stmt != null) {
+					try {
+						stmt.close();
+					} catch (SQLException sqlEx) { } // ignore
+
+					stmt = null;
+				}
+
+			}
+		}
+		
+		public static it.profilglass.classmodel.Attivita getClassmodelAttivitaFromId(String idAttivita)
+		{
+			Statement stmt = null;
+			String query = null;
+			it.profilglass.classmodel.Attivita ret = null;
+			ResultSet rs = null;
+			try {
+				// The newInstance() call is a work around for some
+				// broken Java implementations
+
+				Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+				conn =  	       DriverManager.getConnection("jdbc:mysql://localhost/profilglass?" +
+						"user=root&password=root");
+				stmt = conn.createStatement();
+				query = "SELECT * FROM attivita WHERE idAttivita ='" + idAttivita + "' LIMIT 1";
+				rs = stmt.executeQuery(query);
+				while(rs.next()) {
+					ret = new it.profilglass.classmodel.Attivita(rs.getString("idAttivita"),rs.getString("Descrizione"),getClassmodelMacchinaFromId(rs.getString("idMacchinaPred")),rs.getString("idCentroLavPred"));
 				}
 
 				return ret;
@@ -403,6 +508,57 @@ public class ReadDB {
 					System.out.println("true " + idMacchina.toString());
 					//ret = new Macchina(rs.getString("idMacchina"),rs.getString("Descrizione"),rs.getString("idCentroLavoro"),rs.getInt("capacitaBaseGiorn"),rs.getInt("capacitaBaseSett"));
 					ret = Boolean.TRUE;
+				}
+
+				return ret;
+			} catch (Exception ex) {
+				// handle the error
+				ex.printStackTrace();
+				return ret;
+			}
+			finally {
+				// it is a good idea to release
+				// resources in a finally{} block
+				// in reverse-order of their creation
+				// if they are no-longer needed
+
+				if (rs != null) {
+					try {
+						rs.close();
+					} catch (SQLException sqlEx) { } // ignore
+
+					rs = null;
+				}
+
+				if (stmt != null) {
+					try {
+						stmt.close();
+					} catch (SQLException sqlEx) { } // ignore
+
+					stmt = null;
+				}
+
+			}
+		}
+		
+		public static ArrayList<Opzione> getOpzioniList(String configuratore, String caratteristica)
+		{
+			Statement stmt = null;
+			String query = null;
+			ArrayList<Opzione> ret = new ArrayList<Opzione>();
+			ResultSet rs = null;
+			try {
+				// The newInstance() call is a work around for some
+				// broken Java implementations
+
+				Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+				conn =  	       DriverManager.getConnection("jdbc:mysql://localhost/profilglass?" +
+						"user=root&password=root");
+				stmt = conn.createStatement();
+				query = "SELECT opzione, descrizione FROM caratteristiche WHERE trim(articolo) ='" + configuratore + "' AND caratteristica ='" + caratteristica + "'";
+				rs = stmt.executeQuery(query);
+				while(rs.next()) {
+					ret.add(new Opzione(rs.getString("opzione"),rs.getString("descrizione")));
 				}
 
 				return ret;
