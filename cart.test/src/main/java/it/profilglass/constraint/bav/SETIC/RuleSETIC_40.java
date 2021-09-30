@@ -14,18 +14,18 @@ import test.test.CaratteristicaBean;
 @Rule(order = 40, name = "ruleSETIC_40")
 
 public class RuleSETIC_40 {
-	@Given 
+	@Given
 	private List<CaratteristicaBean> caratteristiche;
 
 	@Result
 	private String result;
-	
+
 	@When
 	public boolean when()
-	{		
+	{
 		return (caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getSETICC() == 4));
 	}
-	
+
 	@Then
 	public RuleState then()
 	{

@@ -14,21 +14,21 @@ import test.test.CaratteristicaBean;
 @Rule(order = 1, name = "ruleCLSTATF_0")
 
 public class RuleCLSTATF_0 {
-	
-	@Given 
+
+	@Given
 	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 
 	@Result
 	protected boolean result;
-	
+
 	@When
 	public boolean when()
 	{
-		return caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSTATF().substring(0,3).equalsIgnoreCase("T04") || 
+		return caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSTATF().substring(0,3).equalsIgnoreCase("T04") ||
 																   caratteristica.getCLSTATF().substring(0,3).equalsIgnoreCase("T06") ||
 																   caratteristica.getCLSTATF().substring(0,3).equalsIgnoreCase("T4P"));
 	}
-	
+
 	@Then
 	public RuleState then()
 	{

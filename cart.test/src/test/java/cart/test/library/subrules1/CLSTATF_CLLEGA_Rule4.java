@@ -6,10 +6,10 @@ import com.deliveredtechnologies.rulebook.RuleState;
 import com.deliveredtechnologies.rulebook.annotation.Given;
 import com.deliveredtechnologies.rulebook.annotation.Result;
 import com.deliveredtechnologies.rulebook.annotation.Rule;
-import com.deliveredtechnologies.rulebook.annotation.When;
 import com.deliveredtechnologies.rulebook.annotation.Then;
+import com.deliveredtechnologies.rulebook.annotation.When;
 
-import cart.test.CaratteristicaBean;
+import test.test.CaratteristicaBean;
 
 @Rule(order = 9999) //order specifies the order the rule should execute in; if not specified, any order may be used
 public class CLSTATF_CLLEGA_Rule4 {

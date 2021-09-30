@@ -15,22 +15,22 @@ import test.test.CaratteristicaBean;
 
 public class RuleCLSTATF_4{
 
-	@Given 
+	@Given
 	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 
 	@Result
 	private boolean result;
-	
+
 	@When
 	public boolean when()
 	{
-		
+
 		return caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLLEGA().substring(0,1).equalsIgnoreCase("3")
 																 && (caratteristica.getSLBPTE().equalsIgnoreCase("B07187") ||
 																	 caratteristica.getSLBPTE().equalsIgnoreCase("B03835") ||
 																	 caratteristica.getSLBPTE().equalsIgnoreCase("B07434")));
 	}
-	
+
 	@Then
 	public RuleState then()
 	{

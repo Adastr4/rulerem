@@ -9,7 +9,7 @@ import com.deliveredtechnologies.rulebook.annotation.Rule;
 import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
-import cart.test.CaratteristicaBean;
+import test.test.CaratteristicaBean;
 
 @Rule(order = 1005, name="SubRule6") //order specifies the order the rule should execute in; if not specified, any order may be used
 public class CLSTATF_CLLEGA_Rule6 {
@@ -28,7 +28,7 @@ public class CLSTATF_CLLEGA_Rule6 {
     		caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getSLBPTE().equalsIgnoreCase(caratteristica.getSLBP())) &&
     		caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSTATF().equalsIgnoreCase("H14"));
   }
-  
+
   @Then
   public RuleState then() {
 	  validate = Boolean.TRUE;

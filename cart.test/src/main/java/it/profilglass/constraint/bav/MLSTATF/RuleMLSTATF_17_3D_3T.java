@@ -1,7 +1,5 @@
 package it.profilglass.constraint.bav.MLSTATF;
 
-import java.util.List;
-
 import com.deliveredtechnologies.rulebook.RuleState;
 import com.deliveredtechnologies.rulebook.annotation.Given;
 import com.deliveredtechnologies.rulebook.annotation.Result;
@@ -14,18 +12,19 @@ import test.test.CaratteristicaBean;
 @Rule(order = 17, name = "ruleMLSTATF_17")
 
 public class RuleMLSTATF_17_3D_3T extends it.profilglass.constraint.bav.MLSTATF.sub1.SubRuleMLSTATF_3D_3T {
-	@Given("caratteristica") 
+	@Given("caratteristica")
 	private CaratteristicaBean caratteristica; //Annotated Lists get injected with all Facts of the declared generic type
 
 	@Result
 	private String result;
-	
+
+	@Override
 	@When
 	public boolean when()
 	{
 		return (caratteristica.getCLSTATF().equalsIgnoreCase("H19")) && super.when();
 	}
-	
+
 	@Then
 	public RuleState then()
 	{

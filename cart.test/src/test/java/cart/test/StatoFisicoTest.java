@@ -1,6 +1,6 @@
 package cart.test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -14,6 +14,9 @@ import com.deliveredtechnologies.rulebook.NameValueReferableMap;
 import com.deliveredtechnologies.rulebook.lang.RuleBookBuilder;
 import com.deliveredtechnologies.rulebook.model.RuleBook;
 import com.deliveredtechnologies.rulebook.model.runner.RuleBookRunner;
+
+import test.test.CaratteristicaBean;
+import test.test.Caratteristiche;
 
 class StatoFisicoTest {
 

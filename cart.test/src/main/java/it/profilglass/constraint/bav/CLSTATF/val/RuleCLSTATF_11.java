@@ -14,22 +14,23 @@ import test.test.CaratteristicaBean;
 @Rule(order = 11, name = "ruleCLSTATF_11")
 
 public class RuleCLSTATF_11 extends it.profilglass.constraint.bav.CLSTATF.val.sub1.SubRuleCLSTATF_2{
-	@Given 
+	@Given
 	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 
 	@Result
 	private boolean result;
-	
+
+	@Override
 	@When
 	public boolean when()
 	{
-		
+
 		return caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLLEGA().substring(0,1).equalsIgnoreCase("6") && (caratteristica.getCLSTATF().equalsIgnoreCase("T04") ||
 																																	   caratteristica.getCLSTATF().equalsIgnoreCase("T06") ||
 																																	   caratteristica.getCLSTATF().equalsIgnoreCase("T4P") ||
 																																	   caratteristica.getCLSTATF().equalsIgnoreCase("H00"))) && !super.when();
 	}
-	
+
 	@Then
 	public RuleState then()
 	{

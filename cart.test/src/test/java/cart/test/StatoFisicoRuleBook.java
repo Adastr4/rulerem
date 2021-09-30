@@ -3,6 +3,8 @@ package cart.test;
 import com.deliveredtechnologies.rulebook.lang.RuleBuilder;
 import com.deliveredtechnologies.rulebook.model.rulechain.cor.CoRRuleBook;
 
+import test.test.CaratteristicaBean;
+
 public class StatoFisicoRuleBook extends CoRRuleBook<String> {
 	@Override
 	public void defineRules() {

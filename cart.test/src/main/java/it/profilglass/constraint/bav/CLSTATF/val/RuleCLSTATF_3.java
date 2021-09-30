@@ -14,16 +14,16 @@ import test.test.CaratteristicaBean;
 @Rule(order = 3, name = "ruleCLSTATF_3")
 
 public class RuleCLSTATF_3 {
-	@Given 
+	@Given
 	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 
 	@Result
 	private boolean result;
-	
+
 	@When
 	public boolean when()
 	{
-		
+
 		return caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLLEGA().substring(0,1).equalsIgnoreCase("3")
 																 && !(caratteristica.getCLSTATF().substring(0, 3).equalsIgnoreCase("H00") ||
 																	 caratteristica.getCLSTATF().substring(0, 3).equalsIgnoreCase("HA1") ||
@@ -32,7 +32,7 @@ public class RuleCLSTATF_3 {
 																	 caratteristica.getCLSTATF().substring(0, 3).equalsIgnoreCase("H16") ||
 																	 caratteristica.getCLSTATF().substring(0, 3).equalsIgnoreCase("H17")));
 	}
-	
+
 	@Then
 	public RuleState then()
 	{

@@ -14,13 +14,13 @@ import test.test.CaratteristicaBean;
 @Rule(order = 2, name = "ruleCLLARG2")
 
 public class RuleCLLARG_2 {
-	
+
 	@Given
 	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 
 	@Result
 	private boolean result;
-	
+
 	@When
 	public boolean when()
 	{
@@ -33,7 +33,7 @@ public class RuleCLLARG_2 {
 																|| (Integer.parseInt(caratteristica.getCLLARG()) > 12500 && Integer.parseInt(caratteristica.getCLLARG()) <= 16500 && caratteristica.getSLLATOLP().substring(1, 2).equalsIgnoreCase("g"))
 												)));
 	}
-	
+
 	@Then
 	public RuleState then()
 	{

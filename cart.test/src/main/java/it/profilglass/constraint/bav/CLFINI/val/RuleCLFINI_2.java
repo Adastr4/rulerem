@@ -14,19 +14,20 @@ import test.test.CaratteristicaBean;
 @Rule(order = 2, name = "ruleCLFINI_2")
 
 public class RuleCLFINI_2 extends it.profilglass.constraint.bav.CLFINI.val.sub1.RuleCLFINI_0{
-	@Given 
+	@Given
 	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 
 	@Result
 	private boolean result;
-	
+
+	@Override
 	@When
 	public boolean when()
 	{
 		return super.when() && caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLLEGA().toString().equalsIgnoreCase("3D")
 																				&& caratteristica.getCLSTATF().toString().equalsIgnoreCase("H12"));
 	}
-	
+
 	@Then
 	public RuleState then()
 	{

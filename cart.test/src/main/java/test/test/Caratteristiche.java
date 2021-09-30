@@ -44,7 +44,7 @@ public class Caratteristiche {
 		return cllegaValues;
 
 	}
-	
+
 	public static void readCLSPESSValues(String articolo) {
 
 		clspessValues = ReadDB.readCaratteristicaDecimal("CLSPESS",articolo);
@@ -95,7 +95,7 @@ public class Caratteristiche {
 		return clfiniValues;
 
 	}
-	
+
 	public static void readSLBPTEValues(String articolo) {
 
 		slbpteValues = ReadDB.readCaratteristica("SLBPTE",articolo);
@@ -112,7 +112,7 @@ public class Caratteristiche {
 		return slbpteValues;
 
 	}
-	
+
 	public static void readCLLARGValues(String articolo) {
 
 		cllargValues = ReadDB.readCaratteristica("CLLARG",articolo);
@@ -127,7 +127,7 @@ public class Caratteristiche {
 		}
 		return cllargValues;
 	}
-	
+
 	public static void readSLBPValues(String articolo) {
 
 		slbpValues = ReadDB.readCaratteristica("SLBP",articolo);
@@ -142,7 +142,7 @@ public class Caratteristiche {
 		}
 		return slbpValues;
 	}
-	
+
 	public static void readCLLUNGValues(String articolo) {
 
 		cllungValues = ReadDB.readCaratteristica("CLLUNG",articolo);
@@ -157,7 +157,7 @@ public class Caratteristiche {
 		}
 		return cllungValues;
 	}
-	
+
 	public static void readCLRIVEValues(String articolo) {
 
 		clriveValues = ReadDB.readCaratteristica("CLRIVE",articolo);
@@ -172,7 +172,7 @@ public class Caratteristiche {
 		}
 		return clriveValues;
 	}
-	
+
 	public static void readCLTOLLEValues(String articolo) {
 
 		cltolleValues = ReadDB.readCaratteristica("CLTOLLE",articolo);
@@ -187,7 +187,7 @@ public class Caratteristiche {
 		}
 		return cltolleValues;
 	}
-	
+
 	public static void readDLDESTValues(String articolo) {
 
 		dldestValues = ReadDB.readCaratteristica("DLDEST",articolo);
@@ -202,7 +202,7 @@ public class Caratteristiche {
 		}
 		return dldestValues;
 	}
-	
+
 	public static void readDLLAVValues(String articolo) {
 
 		dllavValues = ReadDB.readCaratteristica("DLLAV",articolo);
@@ -217,7 +217,7 @@ public class Caratteristiche {
 		}
 		return dllavValues;
 	}
-	
+
 	public static void readDLLUBRIValues(String articolo) {
 
 		dllubriValues = ReadDB.readCaratteristica("DLLUBRI",articolo);
@@ -232,7 +232,7 @@ public class Caratteristiche {
 		}
 		return dllubriValues;
 	}
-	
+
 	public static void readMLSTATFValues(String articolo) {
 
 		mlstatfValues = ReadDB.readCaratteristica("MLSTATF",articolo);
@@ -247,7 +247,7 @@ public class Caratteristiche {
 		}
 		return mlstatfValues;
 	}
-	
+
 	public static void readPLACKGValues(String articolo) {
 
 		plackgValues = ReadDB.readCaratteristica("PLACKG",articolo);
@@ -262,7 +262,7 @@ public class Caratteristiche {
 		}
 		return plackgValues;
 	}
-	
+
 	public static void readPMETCGValues(String articolo) {
 
 		pmetcValues = ReadDB.readCaratteristica("PMETC",articolo);
@@ -277,7 +277,7 @@ public class Caratteristiche {
 		}
 		return pmetcValues;
 	}
-	
+
 	public static void readQSPECValues(String articolo) {
 
 		qspecValues = ReadDB.readCaratteristica("QSPEC",articolo);
@@ -292,7 +292,7 @@ public class Caratteristiche {
 		}
 		return qspecValues;
 	}
-	
+
 	public static void readSLTOLLAValues(String articolo) {
 
 		sltollaValues = ReadDB.readCaratteristica("SLTOLLA",articolo);
@@ -307,7 +307,7 @@ public class Caratteristiche {
 		}
 		return sltollaValues;
 	}
-	
+
 	public static void readDLLATOLPValues(String articolo) {
 
 		dllatolpValues = ReadDB.readCaratteristica("DLLATOLP",articolo);
@@ -322,7 +322,7 @@ public class Caratteristiche {
 		}
 		return dllatolpValues;
 	}
-	
+
 	public static void readDLLATOLNValues(String articolo) {
 
 		dllatolnValues = ReadDB.readCaratteristica("DLLATOLN",articolo);
@@ -337,7 +337,7 @@ public class Caratteristiche {
 		}
 		return dllatolnValues;
 	}
-	
+
 	public static void readSLLATOLPValues(String articolo) {
 
 		sllatolpValues = ReadDB.readCaratteristica("SLLATOLP",articolo);
@@ -352,7 +352,7 @@ public class Caratteristiche {
 		}
 		return sllatolpValues;
 	}
-	
+
 	public static void readSLLATOLNValues(String articolo) {
 
 		sllatolnValues = ReadDB.readCaratteristica("SLLATOLN",articolo);

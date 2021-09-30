@@ -9,7 +9,7 @@ import com.deliveredtechnologies.rulebook.annotation.Rule;
 import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
-import cart.test.CaratteristicaBean;
+import test.test.CaratteristicaBean;
 
 @Rule(order = 1002, name="SubRule3") //order specifies the order the rule should execute in; if not specified, any order may be used
 public class CLSTATF_CLLEGA_Rule3 {
@@ -27,10 +27,10 @@ public class CLSTATF_CLLEGA_Rule3 {
     return
     		caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLLEGA().equalsIgnoreCase("3A"));
   }
-  
+
   @Then
   public RuleState then() {
-	  
+
 	  return RuleState.NEXT;
   }
 

@@ -16,19 +16,20 @@ import test.test.ReadDB;
 @Rule(order = 15, name = "ruleSL4_1")
 
 public class RuleSL4_15 extends it.profilglass.constraint.bav.attivita.subrules.SubRuleSL_2{
-	@Given 
+	@Given
 	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 
 	@Result
 	private List<Attivita> result;
-	
+
+	@Override
 	@When
 	public boolean when()
 	{
 		return super.when() && caratteristiche.stream().anyMatch(caratteristica -> !caratteristica.getSLMOD().toString().equalsIgnoreCase("BP")
 																				 && caratteristica.getQLLAVDET().toString().equalsIgnoreCase("G01"));
 	}
-	
+
 	@Then
 	public RuleState then()
 	{

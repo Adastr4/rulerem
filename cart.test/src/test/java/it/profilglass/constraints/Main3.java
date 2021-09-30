@@ -10,8 +10,8 @@ import com.deliveredtechnologies.rulebook.NameValueReferableMap;
 import com.deliveredtechnologies.rulebook.model.Auditor;
 import com.deliveredtechnologies.rulebook.model.runner.RuleBookRunner;
 
-import cart.test.CaratteristicaBean;
-import cart.test.Caratteristiche;
+import test.test.CaratteristicaBean;
+import test.test.Caratteristiche;
 
 public class Main3 {
 

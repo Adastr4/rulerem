@@ -14,18 +14,18 @@ import test.test.CaratteristicaBean;
 @Rule(order = 60, name = "ruleSBATIPO_60")
 
 public class RuleSBATIPO_60 {
-	@Given 
+	@Given
 	private List<CaratteristicaBean> caratteristiche;
-	
+
 	@Result
 	private Boolean result;
-	
+
 	@When
 	public boolean when()
-	{		
+	{
 		return caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getSBATIPO() == 4);
 	}
-	
+
 	@Then
 	public RuleState then()
 	{

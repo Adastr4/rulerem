@@ -1,13 +1,13 @@
 package test.test;
 
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ReadDB {
 	private static Connection conn =null;
@@ -23,7 +23,7 @@ public class ReadDB {
 	}
 
 		private static int counter;
-	
+
 
 		public static String readClasse() {
 			Statement stmt = null;
@@ -33,7 +33,7 @@ public class ReadDB {
 				// The newInstance() call is a work around for some
 				// broken Java implementations
 
-				
+
 				stmt = conn.createStatement();
 				rs = stmt.executeQuery("SELECT * FROM CAR_CLFINI where classe = 'PROVA'");
 				while(rs.next()) {
@@ -71,17 +71,17 @@ public class ReadDB {
 
 			}
 		}
-		
+
 		public static List<String> readCaratteristica(String caratteristica, String articolo) {
 			Statement stmt = null;
 			String query = null;
 			ResultSet rs = null;
-			List<String> res = new ArrayList<String>();
+			List<String> res = new ArrayList<>();
 			try {
 				// The newInstance() call is a work around for some
 				// broken Java implementations
 
-				
+
 				stmt = conn.createStatement();
 				query = "SELECT * FROM caratteristiche WHERE caratteristica ='" + caratteristica + "' AND TRIM(articolo) = '" + articolo + "'";
 				rs = stmt.executeQuery(query);
@@ -120,17 +120,17 @@ public class ReadDB {
 
 			}
 		}
-		
+
 		public static List<BigDecimal> readCaratteristicaDecimal(String caratteristica, String articolo) {
 			Statement stmt = null;
 			String query = null;
 			ResultSet rs = null;
-			List<BigDecimal> res = new ArrayList<BigDecimal>();
+			List<BigDecimal> res = new ArrayList<>();
 			try {
 				// The newInstance() call is a work around for some
 				// broken Java implementations
 
-			
+
 				stmt = conn.createStatement();
 				query = "SELECT * FROM caratteristiche WHERE caratteristica ='" + caratteristica + "' AND TRIM(articolo) = '" + articolo + "'";
 				rs = stmt.executeQuery(query);
@@ -168,7 +168,7 @@ public class ReadDB {
 
 			}
 		}
-		
+
 		public static boolean getSLBPSpecial(String SLBP, String articolo)
 		{
 			Statement stmt = null;
@@ -179,7 +179,7 @@ public class ReadDB {
 				// The newInstance() call is a work around for some
 				// broken Java implementations
 
-				
+
 				stmt = conn.createStatement();
 				query = "SELECT * FROM caratteristiche WHERE caratteristica ='SLBP' AND TRIM(articolo) = '" + articolo + "' AND opzione = '" + SLBP + "' LIMIT 1";
 				rs = stmt.executeQuery(query);
@@ -217,7 +217,7 @@ public class ReadDB {
 
 			}
 		}
-		
+
 		//public static ArrayList<Macchina> getMacchinaFromId(String CLLARG, String CLLUNG, String CLSPESS, String SLLANAS, String CLFINI, String CLRIVE)
 		public static Macchina getMacchinaFromId(String idMacchina)
 		{
@@ -229,7 +229,7 @@ public class ReadDB {
 				// The newInstance() call is a work around for some
 				// broken Java implementations
 
-			
+
 				stmt = conn.createStatement();
 				query = "SELECT * FROM macchine WHERE idMacchina ='" + idMacchina + "' LIMIT 1";
 				rs = stmt.executeQuery(query);
@@ -267,7 +267,7 @@ public class ReadDB {
 
 			}
 		}
-		
+
 		public static Attivita getAttivitaFromId(String idAttivita)
 		{
 			Statement stmt = null;
@@ -278,7 +278,7 @@ public class ReadDB {
 				// The newInstance() call is a work around for some
 				// broken Java implementations
 
-				
+
 				stmt = conn.createStatement();
 				query = "SELECT * FROM attivita WHERE idAttivita ='" + idAttivita + "' LIMIT 1";
 				rs = stmt.executeQuery(query);
@@ -316,7 +316,7 @@ public class ReadDB {
 
 			}
 		}
-		
+
 		public static String getMacchineListFromCharacteristics(String CLLARG, String CLLUNG, String CLSPESS, int rifilo, String CLFINI, String CLRIVE, String idMacchina)
 		{
 			Statement stmt = null;
@@ -327,12 +327,12 @@ public class ReadDB {
 				// The newInstance() call is a work around for some
 				// broken Java implementations
 
-				
+
 				stmt = conn.createStatement();
 				query = "SELECT idMacchina FROM ciclo_macchina_rules WHERE LargMin <=" + Integer.parseInt(CLLARG) + " AND LargMax >=" + Integer.parseInt(CLLARG) +
-						 										" LungMin <=" + Integer.parseInt(CLLUNG) + " AND LungMax >= " + Integer.parseInt(CLLUNG) + 
-						 										" SpessMin <=" + Integer.parseInt(CLSPESS) + " AND SpessMax >= " + Integer.parseInt(CLSPESS) + 
-						 										" RifiloMin <=" + rifilo + " AND RifiloMin >=" + rifilo + 
+						 										" LungMin <=" + Integer.parseInt(CLLUNG) + " AND LungMax >= " + Integer.parseInt(CLLUNG) +
+						 										" SpessMin <=" + Integer.parseInt(CLSPESS) + " AND SpessMax >= " + Integer.parseInt(CLSPESS) +
+						 										" RifiloMin <=" + rifilo + " AND RifiloMin >=" + rifilo +
 						 										" AND FinituraList LIKE '%" + CLFINI + "%' AND" +
 						 										" (RivestimentoList = 'TUTTI' OR (RivestimentoList = 'NESSUNO' AND " + CLRIVE + " = '') OR RivestimentoList LIKE '%" + CLRIVE + "%') " +
 						 										" AND idMacchina = '" + idMacchina + "'";
@@ -372,7 +372,7 @@ public class ReadDB {
 
 			}
 		}
-		
+
 		public static Boolean isMacchineListFromCharacteristicsValid(String CLLARG, String CLLUNG, String CLSPESS, int rifilo, String CLFINI, String CLRIVE, String idMacchina)
 		{
 			Statement stmt = null;
@@ -383,12 +383,12 @@ public class ReadDB {
 				// The newInstance() call is a work around for some
 				// broken Java implementations
 
-			
+
 				stmt = conn.createStatement();
 				query = "SELECT idMacchina FROM ciclo_macchina_rules WHERE LargMin <=" + Integer.parseInt(CLLARG) + " AND LargMax >=" + Integer.parseInt(CLLARG) +
-						 										" AND LungMin <=" + Integer.parseInt(CLLUNG) + " AND LungMax >= " + Integer.parseInt(CLLUNG) + 
-						 										" AND SpessMin <=" + Integer.parseInt(CLSPESS) + " AND SpessMax >= " + Integer.parseInt(CLSPESS) + 
-						 										" AND RifiloMin <=" + rifilo + " AND RifiloMax >=" + rifilo + 
+						 										" AND LungMin <=" + Integer.parseInt(CLLUNG) + " AND LungMax >= " + Integer.parseInt(CLLUNG) +
+						 										" AND SpessMin <=" + Integer.parseInt(CLSPESS) + " AND SpessMax >= " + Integer.parseInt(CLSPESS) +
+						 										" AND RifiloMin <=" + rifilo + " AND RifiloMax >=" + rifilo +
 						 										" AND FinituraList LIKE '%" + CLFINI + "%' AND" +
 						 										" (RivestimentoList = 'TUTTI' OR (RivestimentoList = 'NESSUNO' AND '" + CLRIVE + "' = '') OR RivestimentoList LIKE '%" + CLRIVE + "%') " +
 						 										" AND idMacchina = '" + idMacchina + "'LIMIT 1";

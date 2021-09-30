@@ -1,15 +1,14 @@
 package cart.test.RuleTest;
 
-import com.deliveredtechnologies.rulebook.RuleState;
-import com.deliveredtechnologies.rulebook.annotation.Given;
-import com.deliveredtechnologies.rulebook.annotation.Rule;
-import com.deliveredtechnologies.rulebook.annotation.Then;
-import com.deliveredtechnologies.rulebook.annotation.When;
-import com.deliveredtechnologies.rulebook.annotation.Result;
-
 import java.util.List;
 
-import cart.test.CaratteristicaBean;
+import com.deliveredtechnologies.rulebook.RuleState;
+import com.deliveredtechnologies.rulebook.annotation.Given;
+import com.deliveredtechnologies.rulebook.annotation.Result;
+import com.deliveredtechnologies.rulebook.annotation.Then;
+import com.deliveredtechnologies.rulebook.annotation.When;
+
+import test.test.CaratteristicaBean;
 
 //@SubRuleAnnotation //order specifies the order the rule should execute in; if not specified, any order may be used
 public class CLSTATF_CLLEGA_Rule5 extends CLSTATF_CLLEGA_Rule4{

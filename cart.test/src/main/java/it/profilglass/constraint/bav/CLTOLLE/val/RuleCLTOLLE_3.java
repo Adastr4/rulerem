@@ -14,18 +14,18 @@ import test.test.CaratteristicaBean;
 @Rule(order = 3, name = "ruleCLTOLLE_3")
 
 public class RuleCLTOLLE_3 {
-	@Given 
+	@Given
 	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 
 	@Result
 	private boolean result;
-	
+
 	@When
 	public boolean when()
 	{
 		return !caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLTOLLE().toString().equalsIgnoreCase("P"));
 	}
-	
+
 	@Then
 	public RuleState then()
 	{

@@ -10,23 +10,22 @@ import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
 import test.test.CaratteristicaBean;
-import test.test.Caratteristiche;
 
 @Rule(order = 1, name = "ruleCLLEGA_1")
 
 public class RuleCLLEGA_1 {
-	@Given 
+	@Given
 	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 
 	@Result
 	private boolean result;
-	
+
 	@When
 	public boolean when()
 	{
-		return true; //Da implementare quando diverrà effettivo il legame tra la lega ed il codice ARTICOLO da configurare
+		return true; //Da implementare quando diverrï¿½ effettivo il legame tra la lega ed il codice ARTICOLO da configurare
 	}
-	
+
 	@Then
 	public RuleState then()
 	{

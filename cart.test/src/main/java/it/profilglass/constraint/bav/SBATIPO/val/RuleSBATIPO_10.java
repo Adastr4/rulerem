@@ -14,20 +14,20 @@ import test.test.CaratteristicaBean;
 @Rule(order = 10, name = "ruleSBATIPO_10")
 
 public class RuleSBATIPO_10 {
-	@Given 
+	@Given
 	private List<CaratteristicaBean> caratteristiche;
-	
+
 	@Result
 	private Boolean result;
-	
+
 	@When
 	public boolean when()
-	{		
+	{
 		return caratteristiche.stream().anyMatch(caratteristica -> Integer.parseInt(caratteristica.getCLLARG()) <= 10000 &&
 																   Integer.parseInt(caratteristica.getCLLUNG()) <= 10000 &&
 																   caratteristica.getSBATIPO() != 2);
 	}
-	
+
 	@Then
 	public RuleState then()
 	{

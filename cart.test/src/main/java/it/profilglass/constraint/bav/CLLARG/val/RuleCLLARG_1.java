@@ -14,18 +14,18 @@ import test.test.CaratteristicaBean;
 @Rule(order = 1, name = "ruleCLLARG_1")
 
 public class RuleCLLARG_1 {
-	@Given 
+	@Given
 	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 
 	@Result
 	private boolean result;
-	
+
 	@When
 	public boolean when()
 	{
 		return true; //Da implementare quando diverranno effettive le nuove regole da applicare
 	}
-	
+
 	@Then
 	public RuleState then()
 	{

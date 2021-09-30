@@ -13,15 +13,15 @@ import test.test.CaratteristicaBean;
 @Rule(order = 1001, name = "SubRuleCLSTATF_2")
 
 public class SubRuleCLSTATF_2 {
-	@Given 
+	@Given
 	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
-	
+
 	@When
 	public boolean when()
 	{
 		return caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSTATF().substring(1,2).equalsIgnoreCase("H3"));
 	}
-	
+
 	@Then
 	public RuleState When()
 	{

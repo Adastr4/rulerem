@@ -2,19 +2,19 @@ package cart.test.RuleTest;
 
 
 
-import com.deliveredtechnologies.rulebook.Fact;
-import com.deliveredtechnologies.rulebook.FactMap;
-import com.deliveredtechnologies.rulebook.RuleState;
-import com.deliveredtechnologies.rulebook.annotation.Rule;
-import com.deliveredtechnologies.rulebook.annotation.Given;
-import com.deliveredtechnologies.rulebook.annotation.When;
-import com.deliveredtechnologies.rulebook.annotation.Then;
-import com.deliveredtechnologies.rulebook.annotation.Result;
-
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
+
+import com.deliveredtechnologies.rulebook.Fact;
+import com.deliveredtechnologies.rulebook.FactMap;
+import com.deliveredtechnologies.rulebook.RuleState;
+import com.deliveredtechnologies.rulebook.annotation.Given;
+import com.deliveredtechnologies.rulebook.annotation.Result;
+import com.deliveredtechnologies.rulebook.annotation.Rule;
+import com.deliveredtechnologies.rulebook.annotation.Then;
+import com.deliveredtechnologies.rulebook.annotation.When;
 
 /**
  * Sample POJO rule with facts and a result.

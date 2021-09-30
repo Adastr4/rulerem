@@ -14,15 +14,15 @@ import test.test.CaratteristicaBean;
 @Rule(order = 90, name = "ruleSBATIPO_90")
 
 public class RuleSBATIPO_80 {
-	@Given 
+	@Given
 	private List<CaratteristicaBean> caratteristiche;
-	
+
 	@Result
 	private Boolean result;
-	
+
 	@When
 	public boolean when()
-	{		
+	{
 		return caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getSBATIPO() == 5 && !(
 																		caratteristica.getSLBP().equalsIgnoreCase("B05603") ||
 																		caratteristica.getSLBP().equalsIgnoreCase("B03644") ||
@@ -38,7 +38,7 @@ public class RuleSBATIPO_80 {
 																		caratteristica.getSLBP().equalsIgnoreCase("B06468")
 																		));
 	}
-	
+
 	@Then
 	public RuleState then()
 	{

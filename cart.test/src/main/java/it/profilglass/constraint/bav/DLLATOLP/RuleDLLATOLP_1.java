@@ -1,7 +1,5 @@
 package it.profilglass.constraint.bav.DLLATOLP;
 
-import java.util.List;
-
 import com.deliveredtechnologies.rulebook.RuleState;
 import com.deliveredtechnologies.rulebook.annotation.Given;
 import com.deliveredtechnologies.rulebook.annotation.Result;
@@ -19,13 +17,13 @@ public class RuleDLLATOLP_1 {
 
 	@Result
 	private String result;
-	
+
 	@When
 	public boolean when()
 	{
 		return caratteristica.getSLTOLLA().equalsIgnoreCase("P"); //Da implementare quando diverranno effettive le nuove regole da applicare
 	}
-	
+
 	@Then
 	public RuleState then()
 	{

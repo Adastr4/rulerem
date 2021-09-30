@@ -16,18 +16,19 @@ import test.test.ReadDB;
 @Rule(order = 25, name = "ruleLA6_1")
 
 public class RuleLA6_25 extends it.profilglass.constraint.bav.attivita.subrules.SubRuleLA_3 {
-	@Given 
+	@Given
 	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 
 	@Result
 	private List<Attivita> result;
-	
+
+	@Override
 	@When
 	public boolean when()
 	{
 		return super.when() && caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getQLLAVDET().equalsIgnoreCase("G01"));
 	}
-	
+
 	@Then
 	public RuleState then()
 	{

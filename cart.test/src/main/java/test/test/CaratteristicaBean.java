@@ -73,7 +73,7 @@ public class CaratteristicaBean {
 		this.SLMOD = SLMOD;
 		this.QLLAV = QLLAV;
 	}
-	
+
 
 	public CaratteristicaBean(BigDecimal bigDecimal, String string, String string2, String string3, String string4,
 			String string5, String string6) {
@@ -103,7 +103,7 @@ public class CaratteristicaBean {
 	public void setSLMOD(String sLMOD) {
 		SLMOD = sLMOD;
 	}
-	
+
 	public String getSLLANAS() {
 		return SLLANAS;
 	}
@@ -111,7 +111,7 @@ public class CaratteristicaBean {
 	public void setSLLANAS(String sLLANAS) {
 		SLLANAS = sLLANAS;
 	}
-	
+
 	public int getSLTMAX() {
 		return SLTMAX;
 	}
@@ -312,12 +312,12 @@ public class CaratteristicaBean {
 	public void setCLASSE(String CLASSE) {
 		this.CLASSE = CLASSE;
 	}
-	
+
 	public int getSLLANASLarg()
 	{
 		String SLLANASletter = "";
 		String SLLANASDim = "";
-		
+
 		try
 		{
 			SLLANASletter = this.getSLLANAS().substring(2,3);
@@ -329,7 +329,7 @@ public class CaratteristicaBean {
 			return 0;
 		}
 	}
-	
+
 	private int convertSLLANASIndex(String index)
 	{
 		int returnValue = 0;
@@ -354,9 +354,9 @@ public class CaratteristicaBean {
 				returnValue = 70;
 				break;
 			default:
-				returnValue = 0;	
+				returnValue = 0;
 		}
-		
+
 		return returnValue;
 	}
 

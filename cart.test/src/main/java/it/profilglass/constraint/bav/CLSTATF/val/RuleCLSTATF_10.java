@@ -14,19 +14,20 @@ import test.test.CaratteristicaBean;
 @Rule(order = 10, name = "ruleCLSTATF_10")
 
 public class RuleCLSTATF_10 extends it.profilglass.constraint.bav.CLSTATF.val.sub1.SubRuleCLSTATF_2{
-	@Given 
+	@Given
 	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 
 	@Result
 	private boolean result;
-	
+
+	@Override
 	@When
 	public boolean when()
 	{
-		
+
 		return caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLLEGA().substring(0,1).equalsIgnoreCase("6")) && super.when();
 	}
-	
+
 	@Then
 	public RuleState then()
 	{
