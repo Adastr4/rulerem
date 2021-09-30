@@ -31,7 +31,7 @@ public class CLSTATF_CLLEGA_Rule5 extends CLSTATF_CLLEGA_Rule4{
 //	  System.out.println("Exceuting rule 5 package subrules1");
 
 
-	  
+
 	    boolean res =
 	    		( caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSTATF().equalsIgnoreCase("h00")) ||
 	    		  caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSTATF().equalsIgnoreCase("ha1")) ||
@@ -41,10 +41,11 @@ public class CLSTATF_CLLEGA_Rule5 extends CLSTATF_CLLEGA_Rule4{
 	    	      caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSTATF().equalsIgnoreCase("h17")) ||
 	    	      caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSTATF().equalsIgnoreCase("h14"))
 	    				) ;
-       
+
        return !res;
   }
-  @Then
+  @Override
+@Then
   public RuleState then() {
 //	  System.out.println("executed rule 5 package subrules1");
 	  return RuleState.NEXT;

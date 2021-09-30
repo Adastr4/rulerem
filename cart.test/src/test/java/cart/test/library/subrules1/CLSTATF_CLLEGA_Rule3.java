@@ -25,9 +25,9 @@ public class CLSTATF_CLLEGA_Rule3 {
   public boolean when() {
 //	  System.out.println("executing rule 3 package subrules1");
 
-	  return 
-			caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLLEGA().equalsIgnoreCase("3a")) 
-    				;		
+	  return
+			caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLLEGA().equalsIgnoreCase("3a"))
+    				;
 
   }
   @Then

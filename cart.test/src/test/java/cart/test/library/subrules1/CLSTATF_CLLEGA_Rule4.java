@@ -22,29 +22,29 @@ public class CLSTATF_CLLEGA_Rule4 {
 
   @Result
   private boolean validate = Boolean.FALSE;
-  
+
   @When
   public boolean when() {
-//	System.out.println("Exceuting rule 4 package subrules1");  
-    boolean res = 
+//	System.out.println("Exceuting rule 4 package subrules1");
+    boolean res =
     		(
     		  caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getSLBPTE().equalsIgnoreCase("b07187")) ||
-    		  caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getSLBPTE().equalsIgnoreCase("b03835")) ||		  
-    	      caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getSLBPTE().equalsIgnoreCase("b07434"))	
+    		  caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getSLBPTE().equalsIgnoreCase("b03835")) ||
+    	      caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getSLBPTE().equalsIgnoreCase("b07434"))
     		);
 
-		
-	
+
+
     return !res;
   }
-  
+
  @Then
   public RuleState then() {
-//	  System.out.println("Exceuted rule 4");  
+//	  System.out.println("Exceuted rule 4");
 	  validate = Boolean.FALSE ;
 	  return RuleState.BREAK;
   }
- 
+
 
 
 

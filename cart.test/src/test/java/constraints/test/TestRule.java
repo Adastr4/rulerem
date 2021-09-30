@@ -23,7 +23,7 @@ public class TestRule {
 
 	@Given
 	private List<Macchina> macchine;
-	
+
 	@Result
 	private List<Macchina> macchineRes;
 

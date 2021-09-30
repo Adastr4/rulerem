@@ -12,7 +12,7 @@ import test.test.CaratteristicaBean;
 
 //@SubRuleAnnotation //order specifies the order the rule should execute in; if not specified, any order may be used
 public class CLSTATF_CLLEGA_Rule5 extends CLSTATF_CLLEGA_Rule4{
-  
+
 	private static final RuleState BREAK = null;
 
 @Given
@@ -20,29 +20,31 @@ public class CLSTATF_CLLEGA_Rule5 extends CLSTATF_CLLEGA_Rule4{
 
   @Result
   private boolean validate = Boolean.FALSE;
-  
-  @When
+
+  @Override
+@When
   public boolean when() {
 	  System.out.println("Exceuting rule 5 package subrules1");
 	  //boolean superRes = super.when();
-	  
-    boolean res = 
+
+    boolean res =
     		(
     		  caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getSLBPTE().equalsIgnoreCase("b07187")) ||
-    		  caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getSLBPTE().equalsIgnoreCase("b03835")) ||		  
-    	      caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getSLBPTE().equalsIgnoreCase("b07434"))	
+    		  caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getSLBPTE().equalsIgnoreCase("b03835")) ||
+    	      caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getSLBPTE().equalsIgnoreCase("b07434"))
     		);
-    		
-    			
-       
+
+
+
        return true;
   }
-  @Then
+  @Override
+@Then
   public RuleState then() {
 	  System.out.println("executed rule 5 package subrules1");
 //	  super.then();
 	  validate = Boolean.TRUE ;
 	  return RuleState.NEXT;
   }
- 
+
 }

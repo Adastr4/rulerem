@@ -22,7 +22,7 @@ public class ReadExcel {
 			//File file = new File("c:\\temp\\Configuratore.xlsx"); // creating a new file instance
 			ClassLoader classLoader = getClass().getClassLoader();
 			File file = new File(classLoader.getResource("Configuratore.xlsx").getFile());
-			
+
 //			InputStream in = getClass().getResourceAsStream("/file.txt");
 //			BufferedReader reader = new BufferedReader(new InputStreamReader(in));
 			FileInputStream fis = new FileInputStream(file); // obtaining bytes from the file

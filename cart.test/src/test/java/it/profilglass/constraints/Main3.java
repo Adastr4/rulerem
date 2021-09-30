@@ -11,7 +11,6 @@ import com.deliveredtechnologies.rulebook.model.Auditor;
 import com.deliveredtechnologies.rulebook.model.runner.RuleBookRunner;
 
 import test.test.CaratteristicaBean;
-import test.test.Caratteristiche;
 
 public class Main3 {
 
@@ -20,21 +19,21 @@ public class Main3 {
 
 //		noLoopCLSTATF();
 //		withLoopCLSTATF();
-		
+
 //		noLoopCLFINI();
 	//  withLoopCLFINI();
-		
-		
+
+
 //		withLoopSubVincolo1();
 //		noLoopSubVincolo1();
-		
-		
+
+
 //		noLoopCLSTAFNew();
 		withLoopCLSTATFNew();
 
 	}
 	static void withLoopSubVincolo1() {
-		List<String> CLSTATFValues = Caratteristiche.getCLSTATFValues();
+	//	List<String> CLSTATFValues = Caratteristiche.getCLSTATFValues();
 
 		String CLLEGA;
 		String CLSTATF;
@@ -43,14 +42,14 @@ public class Main3 {
 //		CLLEGA = "4A";
 //		CLLEGA = "6B";
 
-		ListIterator<String> litr = CLSTATFValues.listIterator();
+		ListIterator<String> litr=null;// = CLSTATFValues.listIterator();
 		while (litr.hasNext()) {
 
 			CLSTATF = litr.next();
 			CLSTATF = CLSTATF.substring(0, CLSTATF.indexOf("-") - 1);
 
 			RuleBookRunner ruleBook = new RuleBookRunner("cart.test",
-					s ->  s.equalsIgnoreCase("it.profilglass.constraints.library.cs1") 
+					s ->  s.equalsIgnoreCase("it.profilglass.constraints.library.cs1")
 							);
 			NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
 			CaratteristicaBean applicant1 = new CaratteristicaBean(new BigDecimal(650), CLLEGA, CLSTATF, "B07187",
@@ -66,16 +65,16 @@ public class Main3 {
 			ruleBook.getResult().ifPresent(result -> System.out
 					.println("Vincolo per Caratteristica stato fisico " + clstatfRis + " validato " + result));
 			System.out.println(CLLEGA + " " + clstatfRis);
-			
+
 			boolean test = testSubvincolo1(CLLEGA, clstatfRis, "B07187", "B07187");
 			System.out.println("TEST per " + CLLEGA + " " + clstatfRis + " " + test);
 
 		}
 
 
-		
+
 	}
-	
+
 	static void noLoopSubVincolo1() {
 //		List<String> CLSTATFValues = Caratteristiche.getCLSTATFValues();
 
@@ -85,14 +84,14 @@ public class Main3 {
 		String SLBP;
 
 
-if(1 == 2) {		
-		
+if(1 == 2) {
+
 //***** false *******
 		CLLEGA = "3A";
 		CLSTATF = "H32";
 }
 else if( 1 == 2) {
-//****** false		
+//****** false
 		CLLEGA = "3A";
 		CLSTATF = "H00";
 		SLBPTE  = "B07188";
@@ -100,21 +99,21 @@ else if( 1 == 2) {
 //******
 }
 else if( 1 == 1){
-//****** true		
+//****** true
 				CLLEGA = "3A";
 				CLSTATF = "H14";
 				SLBPTE  = "B07188";
 				SLBP    = "B07188";
-//******		
+//******
 }
-		
+
 //		CLLEGA = "6B";
 
 
-			
+
 
 			RuleBookRunner ruleBook = new RuleBookRunner("it.profilglass.constraints.library.cs1"
-				//,	s ->  s.equalsIgnoreCase("it.profilglass.constraints.library.cs1") 
+				//,	s ->  s.equalsIgnoreCase("it.profilglass.constraints.library.cs1")
 							);
 			NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
 			CaratteristicaBean applicant1 = new CaratteristicaBean(new BigDecimal(650), CLLEGA, CLSTATF, SLBPTE,
@@ -125,28 +124,28 @@ else if( 1 == 1){
 			ruleBook.setDefaultResult(Boolean.TRUE);
 			ruleBook.run(facts);
 
-			Auditor auditor = (Auditor)ruleBook;
+			Auditor auditor = ruleBook;
 		    System.out.println("Library subrules1 - rule 1 status: " + auditor.getRuleStatus("SubRule1"));
-		    System.out.println("Library subrules1 - rule 2 status: " + auditor.getRuleStatus("SubRule2"));	    
+		    System.out.println("Library subrules1 - rule 2 status: " + auditor.getRuleStatus("SubRule2"));
 		    System.out.println("Library subrules1 - rule 3 status: " + auditor.getRuleStatus("SubRule3"));
 		    System.out.println("Library subrules1 - rule 4 status: " + auditor.getRuleStatus("SubRule4"));
 		    System.out.println("Library subrules1 - rule 5 status: " + auditor.getRuleStatus("SubRule5"));
 		    System.out.println("Library subrules1 - rule 6 status: " + auditor.getRuleStatus("SubRule6"));
-			
+
 			String clstatfRis = CLSTATF;
 
 			ruleBook.getResult().ifPresent(result -> System.out
 					.println("Vincolo per Caratteristica stato fisico " + clstatfRis + " validato " + result));
-			
-			
+
+
 			boolean test = testSubvincolo1(CLLEGA, clstatfRis, "B07187", "B07187");
 			System.out.println("TEST per " + CLLEGA + " " + clstatfRis + " " + test);
 
 		}
-	
+
 	private static void withLoopCLSTATFNew() {
-		
-		List<String> CLSTATFValues = Caratteristiche.getCLSTATFValues();
+
+		List<String> CLSTATFValues = null;//Caratteristiche.getCLSTATFValues();
 
 		String CLLEGA;
 		String CLSTATF;
@@ -164,7 +163,7 @@ else if( 1 == 1){
 			CLSTATF = CLSTATF.substring(0, CLSTATF.indexOf("-") - 1);
 
 			RuleBookRunner ruleBook = new RuleBookRunner("it.profilglass.constraints"
-					, s ->  s.equalsIgnoreCase("it.profilglass.constraints.library.cs1") 
+					, s ->  s.equalsIgnoreCase("it.profilglass.constraints.library.cs1")
 					 || s.equalsIgnoreCase("it.profilglass.constraints.library.cs2")
 					 || s.equalsIgnoreCase("it.profilglass.constraints.cs1")
 							);
@@ -177,30 +176,30 @@ else if( 1 == 1){
 			ruleBook.setDefaultResult(Boolean.TRUE);
 			ruleBook.run(facts);
 
-			
-			Auditor auditor = (Auditor)ruleBook;
+
+			Auditor auditor = ruleBook;
 			System.out.println("Library subrules1 - rule 1 status: " + auditor.getRuleStatus("SubRule1"));
-		    System.out.println("Library subrules1 - rule 2 status: " + auditor.getRuleStatus("SubRule2"));	    
+		    System.out.println("Library subrules1 - rule 2 status: " + auditor.getRuleStatus("SubRule2"));
 		    System.out.println("Library subrules1 - rule 3 status: " + auditor.getRuleStatus("SubRule3"));
 		    System.out.println("Library subrules1 - rule 4 status: " + auditor.getRuleStatus("SubRule4"));
 		    System.out.println("Library subrules1 - rule 5 status: " + auditor.getRuleStatus("SubRule5"));
 		    System.out.println("Library subrules1 - rule 6 status: " + auditor.getRuleStatus("SubRule6"));
-		    
+
 		    System.out.println("Library rules1 - rule 1 status: " + auditor.getRuleStatus("Rule1"));
-		    System.out.println("Library rules1 - rule 2 status: " + auditor.getRuleStatus("Rule2"));	    
+		    System.out.println("Library rules1 - rule 2 status: " + auditor.getRuleStatus("Rule2"));
 		    System.out.println("Library rules1 - rule 3 status: " + auditor.getRuleStatus("Rule3"));
 		    System.out.println("Library rules1 - rule 4 status: " + auditor.getRuleStatus("Rule4"));
 		    System.out.println("Library rules1 - rule 5 status: " + auditor.getRuleStatus("Rule5"));
 		    System.out.println("Library rules1 - rule 6 status: " + auditor.getRuleStatus("Rule6"));
-		    
+
 		    System.out.println("Library subrules2 - rule 1 status: " + auditor.getRuleStatus("SubRule7"));
-			
+
 			String clstatfRis = CLSTATF;
 
 			ruleBook.getResult().ifPresent(result -> System.out
 					.println("Vincolo per Caratteristica stato fisico " + clstatfRis + " validato " + result));
 			System.out.println(CLLEGA + " " + clstatfRis);
-			
+
 			boolean test = testVincolo(CLLEGA, clstatfRis, SLBPTE, SLBP);
 			System.out.println("TEST per " + CLLEGA + " " + clstatfRis + " " + test);
 
@@ -208,7 +207,7 @@ else if( 1 == 1){
 
 	}
 
-	
+
 	static void noLoopCLSTAFNew() {
 
 		String CLLEGA;
@@ -218,16 +217,16 @@ else if( 1 == 1){
 
 
 
-		
+
 		CLLEGA  = "3A";
 		CLSTATF = "H0F";
 		SLBPTE  = "B07187";
 		SLBP    = "B07187";
 
-			
+
 
 			RuleBookRunner ruleBook = new RuleBookRunner("it.profilglass.constraints"
-					, s ->  s.equalsIgnoreCase("it.profilglass.constraints.library.cs1") 
+					, s ->  s.equalsIgnoreCase("it.profilglass.constraints.library.cs1")
 					 || s.equalsIgnoreCase("it.profilglass.constraints.library.cs2")
 					 || s.equalsIgnoreCase("it.profilglass.constraints.cs1")
 							);
@@ -240,29 +239,29 @@ else if( 1 == 1){
 			ruleBook.setDefaultResult(Boolean.TRUE);
 			ruleBook.run(facts);
 
-			Auditor auditor = (Auditor)ruleBook;
+			Auditor auditor = ruleBook;
 		    System.out.println("Library subrules1 - rule 1 status: " + auditor.getRuleStatus("SubRule1"));
-		    System.out.println("Library subrules1 - rule 2 status: " + auditor.getRuleStatus("SubRule2"));	    
+		    System.out.println("Library subrules1 - rule 2 status: " + auditor.getRuleStatus("SubRule2"));
 		    System.out.println("Library subrules1 - rule 3 status: " + auditor.getRuleStatus("SubRule3"));
 		    System.out.println("Library subrules1 - rule 4 status: " + auditor.getRuleStatus("SubRule4"));
 		    System.out.println("Library subrules1 - rule 5 status: " + auditor.getRuleStatus("SubRule5"));
 		    System.out.println("Library subrules1 - rule 6 status: " + auditor.getRuleStatus("SubRule6"));
-		    
+
 		    System.out.println("Library rules1 - rule 1 status: " + auditor.getRuleStatus("Rule1"));
-		    System.out.println("Library rules1 - rule 2 status: " + auditor.getRuleStatus("Rule2"));	    
+		    System.out.println("Library rules1 - rule 2 status: " + auditor.getRuleStatus("Rule2"));
 		    System.out.println("Library rules1 - rule 3 status: " + auditor.getRuleStatus("Rule3"));
 		    System.out.println("Library rules1 - rule 4 status: " + auditor.getRuleStatus("Rule4"));
 		    System.out.println("Library rules1 - rule 5 status: " + auditor.getRuleStatus("Rule5"));
 		    System.out.println("Library rules1 - rule 6 status: " + auditor.getRuleStatus("Rule6"));
-		    
+
 		    System.out.println("Library subrules2 - rule 1 status: " + auditor.getRuleStatus("SubRule7"));
-			
+
 			String clstatfRis = CLSTATF;
 
 			ruleBook.getResult().ifPresent(result -> System.out
 					.println("Vincolo per Caratteristica stato fisico " + clstatfRis + " validato " + result));
-			
-			
+
+
 			boolean test = testVincolo(CLLEGA, clstatfRis, SLBPTE, SLBP);
 			System.out.println("TEST per " + CLLEGA + " " + clstatfRis + " " + test);
 
@@ -270,9 +269,9 @@ else if( 1 == 1){
 
 
 
-		
-	
-	
+
+
+
 
 	 static boolean testVincolo2(String CLLEGA, String CLSTATF, String CLASSE, String CLFINI) {
 		boolean validate = Boolean.FALSE;
@@ -298,7 +297,7 @@ else if( 1 == 1){
 			validate = Boolean.FALSE;
 			if(CLFINI.equalsIgnoreCase("f") || CLFINI.equalsIgnoreCase("n"))
 				validate = Boolean.TRUE;
-			
+
 		}
 		return validate;
 	}
@@ -326,7 +325,7 @@ else if( 1 == 1){
 
 			}
 			return validate;
-		 
+
 	 }
 	static  boolean testVincolo(String CLLEGA, String CLSTATF, String SLBPTE, String SLBP) {
 		boolean validate = Boolean.TRUE;
@@ -378,9 +377,9 @@ else if( 1 == 1){
 	 *
 	 */
 	private static void withLoopCLSTATF() {
-		
+
 //		List<String> CLLEGAValues = Caratteristiche.getCLLEGAValues();
-		List<String> CLSTATFValues = Caratteristiche.getCLSTATFValues();
+		List<String> CLSTATFValues = null;//Caratteristiche.getCLSTATFValues();
 //		List<String> CLFINIValues = Caratteristiche.getCLFINIValues();
 
 		String CLLEGA;
@@ -396,7 +395,7 @@ else if( 1 == 1){
 
 			RuleBookRunner ruleBook = new RuleBookRunner("cart.test",
 					s ->  s.equalsIgnoreCase("cart.test.library.subrules1") ||
-							s.equalsIgnoreCase("cart.test.library.subrules1") || 
+							s.equalsIgnoreCase("cart.test.library.subrules1") ||
 							s.equalsIgnoreCase("cart.test.library.subrules2"));
 			NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
 			CaratteristicaBean applicant1 = new CaratteristicaBean(new BigDecimal(650), CLLEGA, CLSTATF, "B07187",
@@ -412,7 +411,7 @@ else if( 1 == 1){
 			ruleBook.getResult().ifPresent(result -> System.out
 					.println("Vincolo per Caratteristica stato fisico " + clstatfRis + " validato " + result));
 			System.out.println(CLLEGA + " " + clstatfRis);
-			
+
 			boolean test = testVincolo(CLLEGA, clstatfRis, "B07187", "B07187");
 			System.out.println("TEST per " + CLLEGA + " " + clstatfRis + " " + test);
 
@@ -421,7 +420,7 @@ else if( 1 == 1){
 	}
 
 	private static void noLoopCLSTATF() {
-		
+
 
 
 		String CLLEGA;
@@ -430,7 +429,7 @@ else if( 1 == 1){
 		CLLEGA = "3A";
 		CLSTATF = "H0F";
 
-		
+
 
 		RuleBookRunner ruleBook = new RuleBookRunner("cart.test",
 				s -> s.equalsIgnoreCase("cart.test") || s.equalsIgnoreCase("cart.test.library.subrules1")
@@ -446,26 +445,26 @@ else if( 1 == 1){
 		ruleBook.setDefaultResult(Boolean.FALSE);
 		ruleBook.run(facts);
 
-		Auditor auditor = (Auditor)ruleBook;
+		Auditor auditor = ruleBook;
 	    System.out.println("Library subrules1 - rule 1 status: " + auditor.getRuleStatus("CLSTATF_CLLEGA_Rule1"));
-	    System.out.println("Library subrules1 - rule 3 status: " + auditor.getRuleStatus("CLSTATF_CLLEGA_Rule3"));	    
+	    System.out.println("Library subrules1 - rule 3 status: " + auditor.getRuleStatus("CLSTATF_CLLEGA_Rule3"));
 	    System.out.println("Library subrules1 - rule 5 status: " + auditor.getRuleStatus("CLSTATF_CLLEGA_Rule5"));
 	    System.out.println("Library subrules1 - rule 2 status: " + auditor.getRuleStatus("CLSTATF_CLLEGA_Rule2"));
 	    System.out.println("Library subrules1 - rule 6 status: " + auditor.getRuleStatus("CLSTATF_CLLEGA_Rule6"));
 	    System.out.println("Library subrules1 - rule 4 status: " + auditor.getRuleStatus("CLSTATF_CLLEGA_Rule4"));
-		
+
 		ruleBook.getResult().ifPresent(
 				result -> System.out.println("Vincolo per Caratteristica stato fisico " + " validato " + result));
 
 		boolean test = testVincolo(CLLEGA, CLSTATF, "B07187", "B07187");
 		System.out.println("TEST per " + CLLEGA + " " + CLSTATF + " " + test);
-		
-	    
+
+
 
 
 	}
 	private static void noLoopCLFINI() {
-		
+
 
 
 		String CLLEGA;
@@ -478,10 +477,10 @@ else if( 1 == 1){
 		CLFINI = "M";
 		CLASSE = "EDT";
 
-		
+
 
 		RuleBookRunner ruleBook = new RuleBookRunner("cart.test.constraints.cs2");
-				
+
 		NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
 
 		CaratteristicaBean applicant1 = new CaratteristicaBean(
@@ -500,7 +499,7 @@ else if( 1 == 1){
 
 	}
 	private static void withLoopCLFINI() {
-		
+
 
 
 		String CLLEGA;
@@ -510,19 +509,19 @@ else if( 1 == 1){
 
 		CLLEGA = "3D";
 		CLSTATF = "H12";
-		
+
 		CLASSE = "EDT";
 
-		List<String> CLFINIValues = Caratteristiche.getCLFINIValues();	
-		
+		List<String> CLFINIValues = null;//Caratteristiche.getCLFINIValues();
+
 		ListIterator<String> litr = CLFINIValues.listIterator();
 		while (litr.hasNext()) {
 
 			CLFINI = litr.next();
 			CLFINI = CLFINI.substring(0, CLFINI.indexOf("-") - 1);
-			
+
 		RuleBookRunner ruleBook = new RuleBookRunner("cart.test.constraints.cs2");
-				
+
 		NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
 
 		CaratteristicaBean applicant1 = new CaratteristicaBean(new BigDecimal(650), CLLEGA, CLSTATF,  "", "", CLFINI, CLASSE);

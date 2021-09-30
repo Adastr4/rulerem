@@ -20,9 +20,9 @@ import test.test.Macchina;
  * per la generazione del ciclo A partire da una serie di caratteristiche viene
  * restituito l'elenco delle macchine che possono lavorare il materiale
  * descritto dalle caratteristiche
- * 
+ *
  * @author nodejs
- * 
+ *
  */
 
 class CicloTest {
@@ -55,10 +55,10 @@ class CicloTest {
 
 		NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
 		facts.setValue("caratteristica", caratteristica);
-	
+
 		ruleBook.setDefaultResult(new ArrayList<Macchina>());
 		ruleBook.run(facts);
-	
+
 		ruleBook.getResult().ifPresent(result -> {
 			ArrayList res = (ArrayList) result.getValue();
 			assertTrue(res.size()==0);
@@ -68,16 +68,16 @@ class CicloTest {
 
 	@Test
 	void Macchina_3000_1O_H22_B00084_B00084_1000_1000_Test() {
-		
+
 		CaratteristicaBean cara = new CaratteristicaBean(new BigDecimal(3000),"1O","H22","B00084","B00084","MF","C","1000","1000", "C", "N","N" , "", "N", "H22", "1", "005", "2", "P", "0", "0", "+1,00", "-0,00",1,1, "1AA1050", "", "BA", "N");
 		System.out.println("Valore visualizzato: " + cara.getSLLANASLarg());
 		it.profilglass.constraints.Main.RuleMacchina(cara);
-		
+
 	}
 	/**
 	 * dato un elenco di caratteristiche mi restituisce la lisat delle macchine che
 	 * possono lavorare quell'articolo
-	 * 
+	 *
 	 */
 	@Test
 	void cicloTest() {
@@ -94,7 +94,7 @@ class CicloTest {
 
 		ruleBook.setDefaultResult(Boolean.TRUE);
 		ruleBook.run(facts);
-		
+
 
 	}
 

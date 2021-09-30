@@ -40,7 +40,8 @@ public class CLSTATF_CLLEGA_Rule2 extends CLSTATF_CLLEGA_Rule4{
 
 	  return !res;
   }
-  @Then
+  @Override
+@Then
   public RuleState then() {
 //	  System.out.println("executed rule 2 package subrules1");
 	  validate = Boolean.TRUE;
