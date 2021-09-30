@@ -1,4 +1,4 @@
-package cart.test.test;
+package cart.test.RuleTest;
 
 
 

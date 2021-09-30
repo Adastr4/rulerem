@@ -1,4 +1,4 @@
-package cart.test.test;
+package cart.test.RuleTest;
 
 import com.deliveredtechnologies.rulebook.RuleState;
 import com.deliveredtechnologies.rulebook.annotation.Given;
