@@ -42,7 +42,12 @@ public class CaratteristicaBean {
 		SETICC = sETICC;
 	}
 
-	public CaratteristicaBean(BigDecimal CLSPESS, String CLLEGA, String CLSTATF, String SLBPTE, String SLBP, String CLFINI, String CLASSE, String CLLARG, String CLLUNG, String CLRIVE, String CLTOLLE, String DLDEST, String DLLAV, String DLLUBRI, String MLSTATF, String PLACKG, String PMETC, String QSPEC, String SLTOLLA, String DLLATOLP, String DLLATOLN, String SLLATOLP, String SLLATOLN, int SLTMAX, int SBATIPO, String SLLANAS, String QLLAVDET, String SLMOD, String QLLAV) {
+	public CaratteristicaBean(BigDecimal CLSPESS, 
+			String CLLEGA, String CLSTATF, String SLBPTE, String SLBP,
+			String CLFINI, String CLASSE, String CLLARG, String CLLUNG, String CLRIVE, String CLTOLLE, String DLDEST,
+			String DLLAV, String DLLUBRI, String MLSTATF, String PLACKG, String PMETC, String QSPEC, String SLTOLLA,
+			String DLLATOLP, String DLLATOLN, String SLLATOLP, String SLLATOLN, int SLTMAX, int SBATIPO, String SLLANAS,
+			String QLLAVDET, String SLMOD, String QLLAV) {
 		this.CLSPESS = CLSPESS;
 		this.CLLEGA = CLLEGA;
 		this.CLSTATF = CLSTATF;
@@ -74,10 +79,12 @@ public class CaratteristicaBean {
 		this.QLLAV = QLLAV;
 	}
 
-
 	public CaratteristicaBean(BigDecimal bigDecimal, String string, String string2, String string3, String string4,
 			String string5, String string6) {
-		// TODO Auto-generated constructor stub
+		this(bigDecimal,string,string2, string3,string4, string5,string6,
+				null,null,null,null,null,null,null,null,
+				null,null,null,null,null,null,null,
+				null,0,0,null,null,null,null);
 	}
 
 	public String getQLLAV() {
@@ -295,6 +302,7 @@ public class CaratteristicaBean {
 	public void setSLBP(String SLBP) {
 		this.SLBP = SLBP;
 	}
+
 	public String getCLFINI() {
 		return CLFINI;
 	}
@@ -302,6 +310,7 @@ public class CaratteristicaBean {
 	public void setCLFINI(String CLFINI) {
 		this.CLFINI = CLFINI;
 	}
+
 	public String getCLASSE() {
 		if (CLASSE == null) {
 			CLASSE = ReadDB.readClasse();
@@ -313,48 +322,42 @@ public class CaratteristicaBean {
 		this.CLASSE = CLASSE;
 	}
 
-	public int getSLLANASLarg()
-	{
+	public int getSLLANASLarg() {
 		String SLLANASletter = "";
 		String SLLANASDim = "";
 
-		try
-		{
-			SLLANASletter = this.getSLLANAS().substring(2,3);
-			SLLANASDim = this.getSLLANAS().substring(3,this.getSLLANAS().length());
+		try {
+			SLLANASletter = this.getSLLANAS().substring(2, 3);
+			SLLANASDim = this.getSLLANAS().substring(3, this.getSLLANAS().length());
 			return (Integer.parseInt(SLLANASDim) + this.convertSLLANASIndex(SLLANASletter));
-		}
-		catch(Exception ex)
-		{
+		} catch (Exception ex) {
 			return 0;
 		}
 	}
 
-	private int convertSLLANASIndex(String index)
-	{
+	private int convertSLLANASIndex(String index) {
 		int returnValue = 0;
-		switch(index)
-		{
-			case "A":
-			case "C":
-			case "K":
-			case "G":
-			case "J":
-				returnValue = 40;
-				break;
-			case "I":
-			case "L":
-				returnValue = 80;
-				break;
-			case "W":
-				returnValue = 30;
-				break;
-			case "Z":
-			case "Y":
-				returnValue = 70;
-				break;
-			default:
-				returnValue = 0;
+		switch (index) {
+		case "A":
+		case "C":
+		case "K":
+		case "G":
+		case "J":
+			returnValue = 40;
+			break;
+		case "I":
+		case "L":
+			returnValue = 80;
+			break;
+		case "W":
+			returnValue = 30;
+			break;
+		case "Z":
+		case "Y":
+			returnValue = 70;
+			break;
+		default:
+			returnValue = 0;
 		}
 
 		return returnValue;

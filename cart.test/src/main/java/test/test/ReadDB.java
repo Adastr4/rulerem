@@ -28,14 +28,14 @@ public class ReadDB {
 		public static String readClasse() {
 			Statement stmt = null;
 			ResultSet rs = null;
-			String res = null;
+			String res = "prova";
 			try {
 				// The newInstance() call is a work around for some
 				// broken Java implementations
 
 
 				stmt = conn.createStatement();
-				rs = stmt.executeQuery("SELECT * FROM CAR_CLFINI where classe = 'PROVA'");
+				rs = stmt.executeQuery("SELECT * FROM carclfini");  //where classe = 'PROVA'
 				while(rs.next()) {
 					String classe = rs.getString("classe");
 					res = classe;
