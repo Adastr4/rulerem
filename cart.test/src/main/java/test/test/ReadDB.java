@@ -606,7 +606,7 @@ public class ReadDB {
 				conn =  	       DriverManager.getConnection("jdbc:mysql://localhost/profilglass?" +
 						"user=root&password=root");
 				stmt = conn.createStatement();
-				query = "SELECT Caratteristica, Descrizione, Sequenza FROM caratteristicaconfiguratore WHERE trim(articolo) ='" + articolo + "' AND ExpireDate >= current_date'";
+				query = "SELECT Caratteristica, Descrizione, Sequenza FROM caratteristicaconfiguratore WHERE trim(articolo) ='" + articolo + "' AND ExpireDate >= current_date";
 				rs = stmt.executeQuery(query);
 				while(rs.next()) {
 					ret.add(new it.profilglass.classmodel.Caratteristica(rs.getString("Caratteristica"),rs.getString("Descrizione"),rs.getInt("Sequenza"), articolo));

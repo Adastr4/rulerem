@@ -1,5 +1,6 @@
 package it.profilglass.classmodel;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
@@ -9,6 +10,7 @@ import com.deliveredtechnologies.rulebook.NameValueReferableMap;
 import com.deliveredtechnologies.rulebook.model.runner.RuleBookRunner;
 
 import test.test.CaratteristicaBean;
+import test.test.Macchina;
 import test.test.ReadDB;
 
 public class ConfiguratoreBAV extends Configuratore {
@@ -21,35 +23,7 @@ public class ConfiguratoreBAV extends Configuratore {
 		this.caratteristiche.sort(Comparator.comparingInt(Caratteristica::getCaratteristicaOrder));
 	}
 	
-	public List<Caratteristica> getOrderedCaratteristicheBAV()
-	{
-		return this.caratteristiche;
-	}
-	
-	public void setCaratteristicaValue(String idCaratteristica, String value)
-	{
-		this.getCaratteristicaById(idCaratteristica).setSelectedValue(value);
-	}
-	
-	public List<Opzione> getCaratteristicaOpzioni(String idCaratteristica)
-	{
-		return this.getCaratteristicaById(idCaratteristica).getValori();
-	}
-	
-	private Caratteristica getCaratteristicaById(String Id)
-	{
-		for(Caratteristica cara : this.caratteristiche)
-		{
-			if(cara.getCaratteristicaId().equalsIgnoreCase(Id))
-			{
-				return cara;
-			}
-		}
-		
-		return null;
-	}
-	
-	public void runCaratteristicaValidationRuleByIndex(int index)
+	public boolean runCaratteristicaValidationRuleByIndex(int index)
 	{
 		try
 		{
@@ -57,27 +31,120 @@ public class ConfiguratoreBAV extends Configuratore {
 			NameValueReferableMap<List<Caratteristica>> facts = new FactMap<>();
 			facts.put(new Fact<>(this.caratteristiche));
 			ruleBook.run(facts);
-		
-			//ruleBook.getResult().ifPresent(result -> totalString.append(result.toString()));
+			
+			if(ruleBook.getResult().isPresent())
+			{
+				return (boolean) ruleBook.getResult().get().getValue();
+			}
+			
+			return false;
 		}
 		catch(Exception ex)
 		{
-			System.out.println("No Rule defined!");
+			System.out.println("No Validation Rule defined for caratteristica: " + this.caratteristiche.get(index).getCaratteristicaId().toUpperCase() + " !");
+			return false;
 		}
 	}
 	
-	public void runCaratteristicaValidationRuleByName(String name)
+	public boolean runCaratteristicaValidationRuleByName(String name)
 	{
-		
+		try
+		{
+			RuleBookRunner ruleBook = new RuleBookRunner("it.profilglass.constraint.bav." + name.toUpperCase() + ".val");
+			NameValueReferableMap<Caratteristica> facts = new FactMap<>();
+			for(Caratteristica cara : this.caratteristiche)
+				facts.put(new Fact<>(cara));
+			
+			ruleBook.run(facts);
+			
+			if(ruleBook.getResult().isPresent())
+			{
+				return (boolean) ruleBook.getResult().get().getValue();
+			}
+			
+			return false;
+		}
+		catch(Exception ex)
+		{
+			System.out.println("No Validation Rule defined for caratteristica: " + name.toUpperCase() + " !");
+			return false;
+		}
 	}
 	
-	public void runCaratteristicaDefaultValueRuleByIndex(int index)
+	public boolean runCaratteristicaDefaultValueRuleByIndex(int index)
 	{
-		
+		try
+		{
+			RuleBookRunner ruleBook = new RuleBookRunner("it.profilglass.constraint.bav." + this.caratteristiche.get(index).getCaratteristicaId().toUpperCase());
+			NameValueReferableMap<Caratteristica> facts = new FactMap<>();
+			for(Caratteristica cara : this.caratteristiche)
+				facts.put(new Fact<>(cara));
+			
+			ruleBook.run(facts);
+			
+			if(ruleBook.getResult().isPresent())
+			{
+				this.caratteristiche.get(index).setSelectedValue(ruleBook.getResult().get().getValue().toString());
+				return true;
+			}
+			
+			return false;
+		}
+		catch(Exception ex)
+		{
+			System.out.println("No Default Rule defined for caratteristica: " + this.caratteristiche.get(index).getCaratteristicaId().toUpperCase().toUpperCase() + " !");
+			return false;
+		}
 	}
 	
-	public void runCaratteristicaDefaultValueRuleByName(String name)
+	public boolean runCaratteristicaDefaultValueRuleByName(String name)
 	{
-		
+		try
+		{
+			RuleBookRunner ruleBook = new RuleBookRunner("it.profilglass.constraint.bav." + name.toUpperCase());
+			NameValueReferableMap<Caratteristica> facts = new FactMap<>();
+			for(Caratteristica cara : this.caratteristiche)
+				facts.put(new Fact<>(cara));
+			
+			ruleBook.run(facts);
+			
+			if(ruleBook.getResult().isPresent())
+			{
+				this.getCaratteristicaById(name).setSelectedValue(ruleBook.getResult().get().getValue().toString());
+				return true;
+			}
+			
+			return false;
+		}
+		catch(Exception ex)
+		{
+			System.out.println("No Default Rule defined for caratteristica: " + name.toUpperCase() + " !");
+			return false;
+		}
+	}
+	
+	public List<LivelloDistinta> buildDistinta()
+	{
+		try
+		{
+			RuleBookRunner ruleBook = new RuleBookRunner("it.profilglass.constraint.bav.distinta");
+			NameValueReferableMap<Caratteristica> facts = new FactMap<>();
+			for(Caratteristica cara : this.caratteristiche)
+				facts.put(new Fact<>(cara));
+			
+			ruleBook.run(facts);
+			
+			if(ruleBook.getResult().isPresent())
+			{
+				return (List<LivelloDistinta>) ruleBook.getResult().get().getValue();
+			}
+			
+			return null;
+		}
+		catch(Exception ex)
+		{
+			System.out.println("No Distinta defined for BAV Object !");
+			return null;
+		}
 	}
 }
