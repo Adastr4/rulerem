@@ -8,11 +8,14 @@ import com.deliveredtechnologies.rulebook.annotation.Result;
 import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
-import test.test.CaratteristicaBean;
+//import test.test.CaratteristicaBean;
+import it.profilglass.classmodel.Caratteristica;
 
 public class RuleCLFINI_5 extends it.profilglass.constraint.bav.CLFINI.val.sub1.RuleCLFINI_0 {
-	@Given
-	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
+
+	@Given 
+	//private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
+	private List<Caratteristica> caratteristiche;
 
 	@Result
 	private boolean result;
@@ -21,8 +24,10 @@ public class RuleCLFINI_5 extends it.profilglass.constraint.bav.CLFINI.val.sub1.
 	@When
 	public boolean when()
 	{
-		return super.when() && caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLFINI().toString().equalsIgnoreCase("F")
-																				|| caratteristica.getCLFINI().toString().equalsIgnoreCase("N"));
+		//return super.when() && caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLFINI().toString().equalsIgnoreCase("F")
+		//																		|| caratteristica.getCLFINI().toString().equalsIgnoreCase("N"));
+		return super.when() && (caratteristiche.stream().filter(caratteristica -> "CLFINI".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().equalsIgnoreCase("F")
+								|| caratteristiche.stream().filter(caratteristica -> "CLFINI".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().equalsIgnoreCase("N"));
 	}
 
 	@Then

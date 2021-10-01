@@ -1,13 +1,16 @@
 package it.profilglass.classmodel;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class GenericConfItem {
 	
 	private Configuratore conf;
-	private Distinta distinta;
+	private List<LivelloDistinta> distinta;
 	private String classe;
 	
 	
-	public GenericConfItem(Configuratore conf, Distinta distinta, String classe)
+	public GenericConfItem(Configuratore conf, List<LivelloDistinta> distinta, String classe)
 	{
 		this.conf = conf;
 		this.distinta = distinta;
@@ -18,7 +21,7 @@ public class GenericConfItem {
 	{
 		this.conf = conf;
 		this.classe = classe;
-		this.distinta = new Distinta();
+		this.distinta = new ArrayList<LivelloDistinta>();
 	}
 
 
@@ -32,12 +35,12 @@ public class GenericConfItem {
 	}
 
 
-	public Distinta getDistinta() {
+	public List<LivelloDistinta> getDistinta() {
 		return distinta;
 	}
 
 
-	public void setDistinta(Distinta distinta) {
+	public void setDistinta(List<LivelloDistinta> distinta) {
 		this.distinta = distinta;
 	}
 

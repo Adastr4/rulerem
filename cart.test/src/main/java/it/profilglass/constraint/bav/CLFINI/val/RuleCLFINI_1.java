@@ -9,13 +9,17 @@ import com.deliveredtechnologies.rulebook.annotation.Rule;
 import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
-import test.test.CaratteristicaBean;
+//import test.test.CaratteristicaBean;
+import it.profilglass.classmodel.Caratteristica;
 
 @Rule(order = 1, name = "ruleCLFINI_1")
 
 public class RuleCLFINI_1 extends it.profilglass.constraint.bav.CLFINI.val.sub1.RuleCLFINI_0{
-	@Given
-	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
+
+	@Given 
+	//private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
+	private List<Caratteristica> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
+
 
 	@Result
 	private boolean result;
@@ -24,11 +28,17 @@ public class RuleCLFINI_1 extends it.profilglass.constraint.bav.CLFINI.val.sub1.
 	@When
 	public boolean when()
 	{
-		return super.when() && !caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLFINI().toString().equalsIgnoreCase("I")
-																				 || caratteristica.getCLFINI().toString().equalsIgnoreCase("T")
-																				 || caratteristica.getCLFINI().toString().equalsIgnoreCase("U")
-																				 || caratteristica.getCLFINI().toString().equalsIgnoreCase("Y")
-																				 || caratteristica.getCLFINI().toString().equalsIgnoreCase("O"));
+		//return super.when() && !caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLFINI().toString().equalsIgnoreCase("I")
+		//																		 || caratteristica.getCLFINI().toString().equalsIgnoreCase("T")
+		//																		 || caratteristica.getCLFINI().toString().equalsIgnoreCase("U")
+		//																		 || caratteristica.getCLFINI().toString().equalsIgnoreCase("Y")
+		//																		 || caratteristica.getCLFINI().toString().equalsIgnoreCase("O"));
+		
+		return super.when() && !(caratteristiche.stream().filter(caratteristica -> "CLFINI".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().equalsIgnoreCase("I")
+								|| caratteristiche.stream().filter(caratteristica -> "CLFINI".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().equalsIgnoreCase("T")
+								|| caratteristiche.stream().filter(caratteristica -> "CLFINI".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().equalsIgnoreCase("U")
+								|| caratteristiche.stream().filter(caratteristica -> "CLFINI".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().equalsIgnoreCase("Y")
+								|| caratteristiche.stream().filter(caratteristica -> "CLFINI".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().equalsIgnoreCase("O"));
 	}
 
 	@Then

@@ -73,6 +73,27 @@ public class Caratteristica {
 	{
 		return ReadDB.getOpzioniList(this.classe, this.caratteristicaId);
 	}
+	
+	private Opzione deleteElementAt(int index)
+	{
+		return this.valori.remove(index);
+	}
+	
+	private boolean deleteElementByValue(String value)
+	{
+		for(Opzione valore : valori)
+		{
+			if(valore.getOpzione().toString().equalsIgnoreCase(value))
+				return this.valori.remove(valore);
+		}
+		
+		return false;
+	}
+	
+	private boolean deleteElementByObject(Opzione opz)
+	{
+		return this.valori.remove(opz);
+	}
 
 	public String getSelectedValue() {
 		return selectedValue;
