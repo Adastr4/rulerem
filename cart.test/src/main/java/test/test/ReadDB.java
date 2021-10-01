@@ -590,9 +590,7 @@ public class ReadDB {
 				// The newInstance() call is a work around for some
 				// broken Java implementations
 
-				Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-				conn =  	       DriverManager.getConnection("jdbc:mysql://localhost/profilglass?" +
-						"user=root&password=root");
+			
 				stmt = conn.createStatement();
 				query = "SELECT Caratteristica, Descrizione, Sequenza FROM caratteristicaconfiguratore WHERE trim(articolo) ='" + articolo + "' AND ExpireDate >= current_date'";
 				rs = stmt.executeQuery(query);
