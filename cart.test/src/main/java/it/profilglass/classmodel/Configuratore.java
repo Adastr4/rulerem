@@ -9,6 +9,22 @@ import com.deliveredtechnologies.rulebook.NameValueReferableMap;
 import com.deliveredtechnologies.rulebook.model.runner.RuleBookRunner;
 
 public abstract class Configuratore {
+	public List<Ciclo> getCicli() {
+		return cicli;
+	}
+
+	public void setCicli(List<Ciclo> cicli) {
+		this.cicli = cicli;
+	}
+
+	public List<Distinta> getDistinte() {
+		return distinte;
+	}
+
+	public void setDistinte(List<Distinta> distinte) {
+		this.distinte = distinte;
+	}
+
 	protected List<Ciclo> cicli;
 	protected List<Distinta> distinte;
 	// LISTA CARATTERISTICHE VALIDE PER TUTTI I CONFIGURATORI

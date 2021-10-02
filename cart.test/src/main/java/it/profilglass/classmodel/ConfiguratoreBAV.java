@@ -17,10 +17,15 @@ public class ConfiguratoreBAV extends Configuratore {
 	
 	public ConfiguratoreBAV()
 	{
-		//INIZIALIZZO TUTTI I VALORI DI CARATTERISTICA
-		this.caratteristiche = ReadDB.getCaratteristicheFromConfigurator("BAV");
-		//ORDINO PER INDICE DI CONFIGURAZZOONE
-		this.caratteristiche.sort(Comparator.comparingInt(Caratteristica::getCaratteristicaOrder));
+		try {
+			//INIZIALIZZO TUTTI I VALORI DI CARATTERISTICA
+			this.caratteristiche = ReadDB.getCaratteristicheFromConfigurator("BAV");
+			//ORDINO PER INDICE DI CONFIGURAZZOONE
+			this.caratteristiche.sort(Comparator.comparingInt(Caratteristica::getCaratteristicaOrder));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public boolean runCaratteristicaValidationRuleByIndex(int index)
