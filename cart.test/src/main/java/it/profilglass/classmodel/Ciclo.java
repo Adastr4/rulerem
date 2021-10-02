@@ -14,13 +14,7 @@ public class Ciclo {
 		this.isStandard = isStandard;
 	}
 
-	public List<Operazione> getOperazioni() {
-		return operazioni;
-	}
-
-	public void setOperazioni(List<Operazione> operazioni) {
-		this.operazioni = operazioni;
-	}
+	
 
 	public String getIdCiclo() {
 		return idCiclo;

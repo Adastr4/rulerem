@@ -26,6 +26,8 @@ public class ConfiguratoreBAV extends Configuratore {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		cicli=new ArrayList<Ciclo>() ;
+		distinte= new ArrayList<Distinta>() ;
 	}
 	
 	public boolean runCaratteristicaValidationRuleByIndex(int index)

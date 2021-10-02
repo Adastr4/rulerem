@@ -14,6 +14,11 @@ import com.deliveredtechnologies.rulebook.NameValueReferableMap;
 import com.deliveredtechnologies.rulebook.model.Auditor;
 import com.deliveredtechnologies.rulebook.model.runner.RuleBookRunner;
 
+import it.profilglass.classmodel.ConfiguratoreBAV;
+import it.profilglass.classmodel.Distinta;
+import it.profilglass.classmodel.GenericConfItem;
+import it.profilglass.classmodel.GenericItem;
+import it.profilglass.classmodel.LivelloDistinta;
 import test.test.CaratteristicaBean;
 import test.test.Caratteristiche;
 import test.test.Macchina;
@@ -31,9 +36,21 @@ public class Main {
 		//System.out.println(testRuleSLLATOLNStandard(new BigDecimal(620), "500", "F", "0", "BAF.0.1").toString());
 		//ruleMLSTATFTest();
 		//RuleSLLATOLPIterator();
-		CaratteristicaBean cara = new CaratteristicaBean(new BigDecimal(600),"1K","H18","B00957","000000","L","","03450","03750","B","N","N"," ","N","H18","1","002","","P","0","0","ACP","ACP",1,2,"1KB1420","H01","BL","N");
-		System.out.println("Valore visualizzato: " + cara.getSLLANASLarg());
-		RuleMacchina(cara);
+		//CaratteristicaBean cara = new CaratteristicaBean(new BigDecimal(600),"1K","H18","B00957","000000","L","","03450","03750","B","N","N"," ","N","H18","1","002","","P","0","0","ACP","ACP",1,2,"1KB1420","H01","BL","N");
+		//System.out.println("Valore visualizzato: " + cara.getSLLANASLarg());
+		//RuleMacchina(cara);
+		GenericConfItem item = new GenericConfItem(new ConfiguratoreBAV(), "BAV");
+		item.getConf().getCaratteristicaById("CLFINI").setSelectedValue("M");
+		item.getConf().getCaratteristicaById("CLLEGA").setSelectedValue("5F");
+		item.getConf().getCaratteristicaById("CLSPESS").setSelectedValue("3000");
+		item.getConf().getCaratteristicaById("CLSTATF").setSelectedValue("HA1");
+		item.getConf().getCaratteristicaById("MLSTATF").setSelectedValue("HA1");
+		item.getConf().getCaratteristicaById("CLLARG").setSelectedValue("10000");
+		item.getConf().getCaratteristicaById("CLLUNG").setSelectedValue("20000");
+		item.getConf().getCaratteristicaById("CLTOLLE").setSelectedValue("N");
+		item.getConf().getCaratteristicaById("CLRIVE").setSelectedValue("A");
+		item.getConf().getCaratteristicaById("SLLANAS").setSelectedValue("FAB1040");
+		RunDistintaNew(item);
 	}
 	
 	private static void withLoopCLLARGSTOLLACLSPESSNew() {
@@ -1125,5 +1142,28 @@ public class Main {
 		}
 		
 		return validate;
+	}
+	
+	public static void RunCLFININew(GenericConfItem conf)
+	{
+		if(conf.getConf().runCaratteristicaValidationRuleByName("CLFINI"))
+			System.out.println("Validated");
+		else
+			System.out.println("Not Validated");
+	}
+	
+	public static List<LivelloDistinta> RunDistintaNew(GenericConfItem conf)
+	{
+		List<LivelloDistinta> distinta = conf.getConf().buildDistinta();
+		return distinta;
+	}
+	
+	public static List<LivelloDistinta> distintaDefault()
+	{
+		List<LivelloDistinta> distinta = new ArrayList<LivelloDistinta>();
+		distinta.add(new LivelloDistinta(new GenericItem("BA5F3000HA11000020000MNA","BA",null),1,1));
+		distinta.add(new LivelloDistinta(new GenericItem("LB5F3000HA1MN","LB",null),2,1));
+		distinta.add(new LivelloDistinta(new GenericItem("IMCARG90L1000","IMCAR",null),2,2));
+		return distinta;
 	}
 }
