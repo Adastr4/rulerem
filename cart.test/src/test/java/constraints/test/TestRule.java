@@ -9,8 +9,8 @@ import com.deliveredtechnologies.rulebook.annotation.Rule;
 import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
-import cart.test.Macchina;
 import it.profilglass.classmodel.ICaratteristica;
+import it.profilglass.classmodel.Macchina;
 
 @Rule(order = 1, name="Rule5") // order specifies the order the rule should execute in; if not specified, any
 					// order may be used
