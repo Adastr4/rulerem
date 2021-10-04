@@ -22,6 +22,14 @@ public class CLSTATF_CLLEGA_Rule5 extends CLSTATF_CLLEGA_Rule4{
   private boolean validate = Boolean.FALSE;
 
   @Override
+@Then
+  public RuleState then() {
+	  System.out.println("executed rule 5 package subrules1");
+//	  super.then();
+	  validate = Boolean.TRUE ;
+	  return RuleState.NEXT;
+  }
+  @Override
 @When
   public boolean when() {
 	  System.out.println("Exceuting rule 5 package subrules1");
@@ -37,14 +45,6 @@ public class CLSTATF_CLLEGA_Rule5 extends CLSTATF_CLLEGA_Rule4{
 
 
        return true;
-  }
-  @Override
-@Then
-  public RuleState then() {
-	  System.out.println("executed rule 5 package subrules1");
-//	  super.then();
-	  validate = Boolean.TRUE ;
-	  return RuleState.NEXT;
   }
 
 }

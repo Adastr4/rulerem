@@ -27,18 +27,18 @@ public class TestRule {
 	@Result
 	private List<Macchina> macchineRes;
 
-	@When
-	public boolean when() {
-
-		return true;
-	}
-
 	@Then
 	public RuleState then() {
 		macchine.add(new Macchina("123"));
 		System.out.println("pippo");
 		macchineRes = macchine;
 		return RuleState.BREAK;
+	}
+
+	@When
+	public boolean when() {
+
+		return true;
 	}
 
 }

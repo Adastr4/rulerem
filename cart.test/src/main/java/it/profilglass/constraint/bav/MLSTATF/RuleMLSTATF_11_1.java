@@ -18,18 +18,18 @@ public class RuleMLSTATF_11_1 extends it.profilglass.constraint.bav.MLSTATF.sub1
 	@Result
 	private String result;
 
-	@Override
-	@When
-	public boolean when()
-	{
-		return caratteristica.getCLLEGA().substring(0, 1).equalsIgnoreCase("1") && super.when();
-	}
-
 	@Then
 	public RuleState then()
 	{
 		System.out.println("Rule 11 entered");
 		result = "H18";
 		return RuleState.NEXT;
+	}
+
+	@Override
+	@When
+	public boolean when()
+	{
+		return caratteristica.getCLLEGA().substring(0, 1).equalsIgnoreCase("1") && super.when();
 	}
 }

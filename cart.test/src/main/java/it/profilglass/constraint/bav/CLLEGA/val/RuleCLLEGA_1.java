@@ -20,16 +20,16 @@ public class RuleCLLEGA_1 {
 	@Result
 	private boolean result;
 
-	@When
-	public boolean when()
-	{
-		return true; //Da implementare quando diverr� effettivo il legame tra la lega ed il codice ARTICOLO da configurare
-	}
-
 	@Then
 	public RuleState then()
 	{
 		result = Boolean.TRUE;
 		return RuleState.BREAK;
+	}
+
+	@When
+	public boolean when()
+	{
+		return true; //Da implementare quando diverr� effettivo il legame tra la lega ed il codice ARTICOLO da configurare
 	}
 }

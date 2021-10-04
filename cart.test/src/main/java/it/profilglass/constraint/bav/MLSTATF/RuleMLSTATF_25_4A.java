@@ -20,6 +20,14 @@ public class RuleMLSTATF_25_4A extends it.profilglass.constraint.bav.MLSTATF.sub
 
 	private ICaratteristica carRet;
 
+	@Then
+	public RuleState then()
+	{
+		System.out.println("Rule 24 entered");
+		result = "H18";
+		return RuleState.NEXT;
+	}
+
 	@Override
 	@When
 	public boolean when()
@@ -28,13 +36,5 @@ public class RuleMLSTATF_25_4A extends it.profilglass.constraint.bav.MLSTATF.sub
 							&& (Integer.parseInt(caratteristica.getCLLUNG().toString()) <= 6500)
 							&& (caratteristica.getCLRIVE().toString().equalsIgnoreCase("B"))
 							&& (caratteristica.getCLSTATF().toString().equalsIgnoreCase("H00"));
-	}
-
-	@Then
-	public RuleState then()
-	{
-		System.out.println("Rule 24 entered");
-		result = "H18";
-		return RuleState.NEXT;
 	}
 }

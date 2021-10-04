@@ -16,17 +16,17 @@ public class RuleSETICC_60 {
 	@Result
 	private Integer result;
 
-	@When
-	public boolean when()
-	{
-		return true;
-	}
-
 	@Then
 	public RuleState then()
 	{
 		System.out.println("Rule SETICC 6 entered");
 		result = 1;
 		return RuleState.BREAK;
+	}
+
+	@When
+	public boolean when()
+	{
+		return true;
 	}
 }

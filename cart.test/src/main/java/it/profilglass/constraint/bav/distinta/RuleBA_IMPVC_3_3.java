@@ -22,14 +22,6 @@ public class RuleBA_IMPVC_3_3 {
 	@Result
 	private List<LivelloDistinta> result;
 
-	@When
-	public boolean when()
-	{
-		return !caratteristiche.stream().filter(caratteristica -> "CLRIVE".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().equalsIgnoreCase("S") &&
-			   !caratteristiche.stream().filter(caratteristica -> "CLRIVE".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().equalsIgnoreCase("A") &&
-			   !caratteristiche.stream().filter(caratteristica -> "CLRIVE".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().equalsIgnoreCase("B");
-	}
-
 	@Then
 	public RuleState then()
 	{
@@ -37,6 +29,14 @@ public class RuleBA_IMPVC_3_3 {
 		result.get(0).getDistinta().add(new LivelloDistinta(new GenericItem("IMPVC" + "050"  + caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().substring(0,caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().length()-1) +
 																							caratteristiche.stream().filter(caratteristica -> "SLMOD".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue() ,"IMPVC",null), 2, 2));
 		return RuleState.BREAK;
+	}
+
+	@When
+	public boolean when()
+	{
+		return !caratteristiche.stream().filter(caratteristica -> "CLRIVE".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().equalsIgnoreCase("S") &&
+			   !caratteristiche.stream().filter(caratteristica -> "CLRIVE".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().equalsIgnoreCase("A") &&
+			   !caratteristiche.stream().filter(caratteristica -> "CLRIVE".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().equalsIgnoreCase("B");
 	}
 
 }

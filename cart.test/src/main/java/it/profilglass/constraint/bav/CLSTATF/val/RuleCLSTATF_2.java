@@ -20,18 +20,18 @@ public class RuleCLSTATF_2{
 	@Result
 	private boolean result;
 
+	@Then
+	public RuleState then()
+	{
+		return RuleState.BREAK;
+	}
+
 	@When
 	public boolean when()
 	{
 
 		return caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLLEGA().substring(0,1).equalsIgnoreCase("3") &&
 																	!caratteristica.getCLLEGA().substring(0,2).equalsIgnoreCase("3A"));
-	}
-
-	@Then
-	public RuleState then()
-	{
-		return RuleState.BREAK;
 	}
 
 }

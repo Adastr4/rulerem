@@ -21,19 +21,19 @@ public class RuleCLSTATF_0 {
 	@Result
 	protected boolean result;
 
+	@Then
+	public RuleState then()
+	{
+		result = Boolean.FALSE;
+		return RuleState.NEXT;
+	}
+
 	@When
 	public boolean when()
 	{
 		return caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSTATF().substring(0,3).equalsIgnoreCase("T04") ||
 																   caratteristica.getCLSTATF().substring(0,3).equalsIgnoreCase("T06") ||
 																   caratteristica.getCLSTATF().substring(0,3).equalsIgnoreCase("T4P"));
-	}
-
-	@Then
-	public RuleState then()
-	{
-		result = Boolean.FALSE;
-		return RuleState.NEXT;
 	}
 
 }

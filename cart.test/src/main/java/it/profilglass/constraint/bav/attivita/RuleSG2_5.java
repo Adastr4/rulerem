@@ -23,6 +23,13 @@ public class RuleSG2_5 extends it.profilglass.constraint.bav.attivita.subrules.S
 	@Result
 	private List<Attivita> result;
 
+	@Then
+	public RuleState then()
+	{
+		result.add(ReadDB.getAttivitaFromId("SG2"));
+		return RuleState.NEXT;
+	}
+
 	@Override
 	@When
 	public boolean when()
@@ -30,12 +37,5 @@ public class RuleSG2_5 extends it.profilglass.constraint.bav.attivita.subrules.S
 		return super.when() && caratteristiche.stream().anyMatch(caratteristica -> !caratteristica.getSLMOD().equalsIgnoreCase("BP")
 																			    && caratteristica.getCLSPESS().intValue() <= 400
 																			    && caratteristica.getQLLAV().equalsIgnoreCase("N"));
-	}
-
-	@Then
-	public RuleState then()
-	{
-		result.add(ReadDB.getAttivitaFromId("SG2"));
-		return RuleState.NEXT;
 	}
 }

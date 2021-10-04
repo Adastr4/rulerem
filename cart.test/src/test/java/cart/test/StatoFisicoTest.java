@@ -21,17 +21,6 @@ import it.profilglass.classmodel.ICaratteristica;
 class StatoFisicoTest {
 
 	@Test
-	void testMain() {
-		RuleBook statoFisicoRuleBook = RuleBookBuilder.create(StatoFisicoRuleBook.class).withResultType(String.class)
-				.withDefaultResult("Caratteristica fisica  NON ammessa").build();
-		NameValueReferableMap facts = new FactMap();
-		facts.setValue("Caratteristica", new Caratteristica(new BigDecimal(19.8), "3A", "H00", "", "", "", ""));
-		statoFisicoRuleBook.run(facts);
-
-		statoFisicoRuleBook.getResult().ifPresent(result -> System.out.println(result));
-	}
-
-	@Test
 	void prova3DH12MTest() {
 
 		String CLLEGA;
@@ -63,6 +52,17 @@ class StatoFisicoTest {
 
 		});
 
+	}
+
+	@Test
+	void testMain() {
+		RuleBook statoFisicoRuleBook = RuleBookBuilder.create(StatoFisicoRuleBook.class).withResultType(String.class)
+				.withDefaultResult("Caratteristica fisica  NON ammessa").build();
+		NameValueReferableMap facts = new FactMap();
+		facts.setValue("Caratteristica", new Caratteristica(new BigDecimal(19.8), "3A", "H00", "", "", "", ""));
+		statoFisicoRuleBook.run(facts);
+
+		statoFisicoRuleBook.getResult().ifPresent(result -> System.out.println(result));
 	}
 
 	@Test

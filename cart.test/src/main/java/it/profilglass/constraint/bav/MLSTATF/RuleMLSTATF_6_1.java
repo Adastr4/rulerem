@@ -18,20 +18,20 @@ public class RuleMLSTATF_6_1 {
 	@Result
 	private String result;
 
-	@When
-	public boolean when()
-	{
-		return (caratteristica.getCLLEGA().substring(0, 1).equalsIgnoreCase("1") &&
-				caratteristica.getCLSTATF().toString().equalsIgnoreCase("H12") &&
-				caratteristica.getCLSPESS().intValue() < 900);
-	}
-
 	@Then
 	public RuleState then()
 	{
 		System.out.println("Rule 6 entered");
 		result = "H22";
 		return RuleState.NEXT;
+	}
+
+	@When
+	public boolean when()
+	{
+		return (caratteristica.getCLLEGA().substring(0, 1).equalsIgnoreCase("1") &&
+				caratteristica.getCLSTATF().toString().equalsIgnoreCase("H12") &&
+				caratteristica.getCLSPESS().intValue() < 900);
 	}
 
 }

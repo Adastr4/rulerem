@@ -22,6 +22,13 @@ public class RuleCLFINI_3 extends it.profilglass.constraint.bav.CLFINI.val.sub1.
 	@Result
 	private boolean result;
 
+	@Then
+	public RuleState then()
+	{
+		result = Boolean.TRUE;
+		return RuleState.BREAK;
+	}
+
 	@Override
 	@When
 	public boolean when()
@@ -31,13 +38,6 @@ public class RuleCLFINI_3 extends it.profilglass.constraint.bav.CLFINI.val.sub1.
 		return super.when() && !(     caratteristiche.stream().filter(caratteristica -> "CLSTATF".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().equalsIgnoreCase("00")
 							     ||   caratteristiche.stream().filter(caratteristica -> "CLSTATF".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().equalsIgnoreCase("A1")
 							    );
-	}
-
-	@Then
-	public RuleState then()
-	{
-		result = Boolean.TRUE;
-		return RuleState.BREAK;
 	}
 
 }

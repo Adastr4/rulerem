@@ -20,6 +20,13 @@ public class RuleSLTOLLA_3 {
 	@Result
 	private boolean result;
 
+	@Then
+	public RuleState then()
+	{
+		result = Boolean.FALSE;
+		return RuleState.BREAK;
+	}
+
 	@When
 	public boolean when()
 	{
@@ -33,13 +40,6 @@ public class RuleSLTOLLA_3 {
 															    	 &&  !caratteristica.getSLLATOLP().substring(2, 3).equalsIgnoreCase("f")
 															    	))
 												);
-	}
-
-	@Then
-	public RuleState then()
-	{
-		result = Boolean.FALSE;
-		return RuleState.BREAK;
 	}
 
 }

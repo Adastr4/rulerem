@@ -23,6 +23,13 @@ public class RuleRF9_29 {
 	@Result
 	private List<Attivita> result;
 
+	@Then
+	public RuleState then()
+	{
+		result.add(ReadDB.getAttivitaFromId("RF9"));
+		return RuleState.NEXT;
+	}
+
 	@When
 	public boolean when()
 	{
@@ -33,12 +40,5 @@ public class RuleRF9_29 {
 																&& Integer.parseInt(caratteristica.getCLLARG()) >= 8500
 																&& caratteristica.getCLSPESS().intValue() >= 500
 																&& caratteristica.getCLSPESS().intValue() < 1000);
-	}
-
-	@Then
-	public RuleState then()
-	{
-		result.add(ReadDB.getAttivitaFromId("RF9"));
-		return RuleState.NEXT;
 	}
 }

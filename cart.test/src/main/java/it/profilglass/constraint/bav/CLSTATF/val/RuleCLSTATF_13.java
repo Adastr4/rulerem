@@ -20,16 +20,16 @@ public class RuleCLSTATF_13{
 	@Result
 	private boolean result;
 
+	@Then
+	public RuleState then()
+	{
+		return RuleState.BREAK;
+	}
+
 	@When
 	public boolean when()
 	{
 
 		return !caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLLEGA().substring(0,1).equalsIgnoreCase("8"));
-	}
-
-	@Then
-	public RuleState then()
-	{
-		return RuleState.BREAK;
 	}
 }

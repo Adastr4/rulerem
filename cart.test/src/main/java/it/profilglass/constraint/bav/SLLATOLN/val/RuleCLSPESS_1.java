@@ -21,18 +21,18 @@ public class RuleCLSPESS_1 extends it.profilglass.constraint.bav.SLLATOLP.val.Ru
 	private boolean result;
 
 	@Override
-	@When
-	public boolean when()
-	{
-		return super.when();
-	}
-
-	@Override
 	@Then
 	public RuleState then()
 	{
 		result = Boolean.FALSE;
 		return RuleState.BREAK;
+	}
+
+	@Override
+	@When
+	public boolean when()
+	{
+		return super.when();
 	}
 
 }

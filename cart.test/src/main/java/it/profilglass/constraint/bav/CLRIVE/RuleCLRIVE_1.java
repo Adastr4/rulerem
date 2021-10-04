@@ -15,17 +15,17 @@ public class RuleCLRIVE_1 {
 	@Result
 	private String result = "A";
 
-	@When
-	public boolean when()
-	{
-		return caratteristica.getCLFINI().equalsIgnoreCase("K") || caratteristica.getCLFINI().equalsIgnoreCase("Q") || caratteristica.getCLFINI().equalsIgnoreCase("W");
-	}
-
 	@Then
 	public RuleState then()
 	{
 		result = "B";
 		return RuleState.BREAK;
+	}
+
+	@When
+	public boolean when()
+	{
+		return caratteristica.getCLFINI().equalsIgnoreCase("K") || caratteristica.getCLFINI().equalsIgnoreCase("Q") || caratteristica.getCLFINI().equalsIgnoreCase("W");
 	}
 
 }

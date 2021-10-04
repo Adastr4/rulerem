@@ -21,17 +21,17 @@ public class CLSTATF_CLLEGA_Rule5 {
   @Result
   private boolean validate;
 
+  @Then
+  public RuleState then() {
+
+	  return RuleState.BREAK;
+  }
+
   @When
   public boolean when() {
 
     return
     		caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getSLBPTE().equalsIgnoreCase("b07187"));
-  }
-
-  @Then
-  public RuleState then() {
-
-	  return RuleState.BREAK;
   }
 
 }

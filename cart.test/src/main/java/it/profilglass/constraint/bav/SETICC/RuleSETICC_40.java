@@ -16,17 +16,17 @@ public class RuleSETICC_40 {
 	@Result
 	private Integer result;
 
-	@When
-	public boolean when()
-	{
-		return (descEtichetta.equalsIgnoreCase("Personalizzata"));
-	}
-
 	@Then
 	public RuleState then()
 	{
 		System.out.println("Rule SETICC 4 entered");
 		result = 4;
 		return RuleState.BREAK;
+	}
+
+	@When
+	public boolean when()
+	{
+		return (descEtichetta.equalsIgnoreCase("Personalizzata"));
 	}
 }

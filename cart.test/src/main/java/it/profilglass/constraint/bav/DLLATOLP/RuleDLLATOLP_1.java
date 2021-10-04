@@ -18,16 +18,16 @@ public class RuleDLLATOLP_1 {
 	@Result
 	private String result;
 
-	@When
-	public boolean when()
-	{
-		return caratteristica.getSLTOLLA().equalsIgnoreCase("P"); //Da implementare quando diverranno effettive le nuove regole da applicare
-	}
-
 	@Then
 	public RuleState then()
 	{
 		result = "0";
 		return RuleState.BREAK;
+	}
+
+	@When
+	public boolean when()
+	{
+		return caratteristica.getSLTOLLA().equalsIgnoreCase("P"); //Da implementare quando diverranno effettive le nuove regole da applicare
 	}
 }

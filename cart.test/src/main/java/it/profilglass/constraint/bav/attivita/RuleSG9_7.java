@@ -23,18 +23,18 @@ public class RuleSG9_7 extends it.profilglass.constraint.bav.attivita.subrules.S
 	@Result
 	private List<Attivita> result;
 
+	@Then
+	public RuleState then()
+	{
+		result.add(ReadDB.getAttivitaFromId("SG9"));
+		return RuleState.NEXT;
+	}
+
 	@Override
 	@When
 	public boolean when()
 	{
 		return super.when() && caratteristiche.stream().anyMatch(caratteristica -> !caratteristica.getSLMOD().equalsIgnoreCase("BP")
 																			    && caratteristica.getQLLAV().equalsIgnoreCase("C"));
-	}
-
-	@Then
-	public RuleState then()
-	{
-		result.add(ReadDB.getAttivitaFromId("SG9"));
-		return RuleState.NEXT;
 	}
 }

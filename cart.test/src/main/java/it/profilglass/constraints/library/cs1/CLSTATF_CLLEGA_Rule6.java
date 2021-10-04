@@ -21,18 +21,18 @@ public class CLSTATF_CLLEGA_Rule6 {
   @Result
   private boolean validate;
 
+  @Then
+  public RuleState then() {
+	  validate = Boolean.TRUE;
+	  return RuleState.BREAK;
+  }
+
   @When
   public boolean when() {
 
     return
     		caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getSLBPTE().equalsIgnoreCase(caratteristica.getSLBP())) &&
     		caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSTATF().equalsIgnoreCase("H14"));
-  }
-
-  @Then
-  public RuleState then() {
-	  validate = Boolean.TRUE;
-	  return RuleState.BREAK;
   }
 
 }

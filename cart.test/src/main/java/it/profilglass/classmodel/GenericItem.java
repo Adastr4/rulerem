@@ -23,6 +23,14 @@ public class GenericItem {
 		return ciclo.get(index);
 	}
 
+	public String getClasse() {
+		return classe;
+	}
+
+	public String getCodiceArticolo() {
+		return codiceArticolo;
+	}
+
 	public Ciclo getStandardCiclo()
 	{
 		Ciclo retValue = null;
@@ -36,23 +44,15 @@ public class GenericItem {
 		return retValue;
 	}
 
-	public String getCodiceArticolo() {
-		return codiceArticolo;
-	}
-
-	public void setCodiceArticolo(String codiceArticolo) {
-		this.codiceArticolo = codiceArticolo;
-	}
-
-	public String getClasse() {
-		return classe;
+	public void setCiclo(List<Ciclo> ciclo) {
+		this.ciclo = ciclo;
 	}
 
 	public void setClasse(String classe) {
 		this.classe = classe;
 	}
 
-	public void setCiclo(List<Ciclo> ciclo) {
-		this.ciclo = ciclo;
+	public void setCodiceArticolo(String codiceArticolo) {
+		this.codiceArticolo = codiceArticolo;
 	}
 }

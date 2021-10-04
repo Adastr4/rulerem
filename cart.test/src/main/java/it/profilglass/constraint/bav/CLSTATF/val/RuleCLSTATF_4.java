@@ -21,6 +21,12 @@ public class RuleCLSTATF_4{
 	@Result
 	private boolean result;
 
+	@Then
+	public RuleState then()
+	{
+		return RuleState.BREAK;
+	}
+
 	@When
 	public boolean when()
 	{
@@ -29,11 +35,5 @@ public class RuleCLSTATF_4{
 																 && (caratteristica.getSLBPTE().equalsIgnoreCase("B07187") ||
 																	 caratteristica.getSLBPTE().equalsIgnoreCase("B03835") ||
 																	 caratteristica.getSLBPTE().equalsIgnoreCase("B07434")));
-	}
-
-	@Then
-	public RuleState then()
-	{
-		return RuleState.BREAK;
 	}
 }

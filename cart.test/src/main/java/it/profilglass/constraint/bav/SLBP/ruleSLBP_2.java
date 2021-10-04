@@ -18,17 +18,17 @@ public class ruleSLBP_2 {
 	@Result
 	private String result;
 
-	@When
-	public boolean when()
-	{
-		return true;
-	}
-
 	@Then
 	public RuleState then()
 	{
 		result = "000000";
 		return RuleState.BREAK;
+	}
+
+	@When
+	public boolean when()
+	{
+		return true;
 	}
 
 }

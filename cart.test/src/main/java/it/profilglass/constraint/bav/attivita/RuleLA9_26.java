@@ -23,17 +23,17 @@ public class RuleLA9_26 {
 	@Result
 	private List<Attivita> result;
 
-	@When
-	public boolean when()
-	{
-		return caratteristiche.stream().anyMatch(caratteristica ->  caratteristica.getQLLAVDET().equalsIgnoreCase("I01")
-																&& !caratteristica.getSLMOD().equalsIgnoreCase("BP"));
-	}
-
 	@Then
 	public RuleState then()
 	{
 		result.add(ReadDB.getAttivitaFromId("LA9"));
 		return RuleState.NEXT;
+	}
+
+	@When
+	public boolean when()
+	{
+		return caratteristiche.stream().anyMatch(caratteristica ->  caratteristica.getQLLAVDET().equalsIgnoreCase("I01")
+																&& !caratteristica.getSLMOD().equalsIgnoreCase("BP"));
 	}
 }

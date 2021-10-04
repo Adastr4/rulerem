@@ -20,19 +20,19 @@ public class RuleSBATIPO_10 {
 	@Result
 	private Boolean result;
 
-	@When
-	public boolean when()
-	{
-		return caratteristiche.stream().anyMatch(caratteristica -> Integer.parseInt(caratteristica.getCLLARG()) <= 10000 &&
-																   Integer.parseInt(caratteristica.getCLLUNG()) <= 10000 &&
-																   caratteristica.getSBATIPO() != 2);
-	}
-
 	@Then
 	public RuleState then()
 	{
 		System.out.println("Rule SBATIPO 1 entered");
 		result = Boolean.FALSE;
 		return RuleState.BREAK;
+	}
+
+	@When
+	public boolean when()
+	{
+		return caratteristiche.stream().anyMatch(caratteristica -> Integer.parseInt(caratteristica.getCLLARG()) <= 10000 &&
+																   Integer.parseInt(caratteristica.getCLLUNG()) <= 10000 &&
+																   caratteristica.getSBATIPO() != 2);
 	}
 }

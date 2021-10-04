@@ -18,18 +18,18 @@ public class RuleMLSTATF_27_4A extends it.profilglass.constraint.bav.MLSTATF.sub
 	@Result
 	private String result;
 
-	@Override
-	@When
-	public boolean when()
-	{
-		return super.when() && !(caratteristica.getCLSPESS().intValue() >= 2500);
-	}
-
 	@Then
 	public RuleState then()
 	{
 		System.out.println("Rule 26 entered");
 		result = "H18";
 		return RuleState.NEXT;
+	}
+
+	@Override
+	@When
+	public boolean when()
+	{
+		return super.when() && !(caratteristica.getCLSPESS().intValue() >= 2500);
 	}
 }

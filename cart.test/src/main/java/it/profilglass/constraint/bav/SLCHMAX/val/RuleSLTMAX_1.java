@@ -19,17 +19,17 @@ public class RuleSLTMAX_1 {
 	@Result
 	private double result;
 
-	@When
-	public boolean when()
-	{
-		return (caratteristica.getSBATIPO() != 1 && caratteristica.getSBATIPO() != 2 && caratteristica.getSLTMAX() == 2);
-	}
-
 	@Then
 	public RuleState then()
 	{
 		result = 0;
 		return RuleState.BREAK;
+	}
+
+	@When
+	public boolean when()
+	{
+		return (caratteristica.getSBATIPO() != 1 && caratteristica.getSBATIPO() != 2 && caratteristica.getSLTMAX() == 2);
 	}
 
 }

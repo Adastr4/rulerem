@@ -23,18 +23,18 @@ public class RuleBA12_18 extends it.profilglass.constraint.bav.attivita.subrules
 	@Result
 	private List<Attivita> result;
 
+	@Then
+	public RuleState then()
+	{
+		result.add(ReadDB.getAttivitaFromId("BA12"));
+		return RuleState.NEXT;
+	}
+
 	@Override
 	@When
 	public boolean when()
 	{
 		return super.when() && caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSPESS().intValue() >= 1500
 																				&& caratteristica.getCLSPESS().intValue() < 3000);
-	}
-
-	@Then
-	public RuleState then()
-	{
-		result.add(ReadDB.getAttivitaFromId("BA12"));
-		return RuleState.NEXT;
 	}
 }

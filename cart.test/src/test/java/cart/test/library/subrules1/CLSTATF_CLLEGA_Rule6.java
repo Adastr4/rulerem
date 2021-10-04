@@ -21,16 +21,16 @@ public class CLSTATF_CLLEGA_Rule6{
   @Result
   private boolean validate = Boolean.FALSE;
 
-  @When
-  public boolean when() {
-//	  System.out.println("Executing rule 6 package subrules1");
-	  return Boolean.TRUE;
-  }
   @Then
   public RuleState then() {
 //	  System.out.println("Executed rule 6 package subrules1");
 	  validate = Boolean.FALSE ;
 	  return BREAK;
+  }
+  @When
+  public boolean when() {
+//	  System.out.println("Executing rule 6 package subrules1");
+	  return Boolean.TRUE;
   }
 
 }

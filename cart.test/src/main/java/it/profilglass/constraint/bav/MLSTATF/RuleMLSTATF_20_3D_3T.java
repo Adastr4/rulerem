@@ -18,6 +18,14 @@ public class RuleMLSTATF_20_3D_3T {
 	@Result
 	private String result;
 
+	@Then
+	public RuleState then()
+	{
+		System.out.println("Rule 19 entered");
+		result = "H26";
+		return RuleState.NEXT;
+	}
+
 	@When
 	public boolean when()
 	{
@@ -26,13 +34,5 @@ public class RuleMLSTATF_20_3D_3T {
 					(caratteristica.getCLSTATF().equalsIgnoreCase("H16")) &&
 					(caratteristica.getCLSPESS().intValue() <= 3000) &&
 					(caratteristica.getCLSPESS().intValue() > 1000));
-	}
-
-	@Then
-	public RuleState then()
-	{
-		System.out.println("Rule 19 entered");
-		result = "H26";
-		return RuleState.NEXT;
 	}
 }

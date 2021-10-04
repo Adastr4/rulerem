@@ -20,16 +20,16 @@ public class RuleSLMOD_1 {
 	@Result
 	private String result;
 
-	@When
-	public boolean when()
-	{
-		return caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getSBATIPO() == 2); //Da implementare quando diverranno effettive le nuove regole da applicare
-	}
-
 	@Then
 	public RuleState then()
 	{
 		result = "BA";
 		return RuleState.BREAK;
+	}
+
+	@When
+	public boolean when()
+	{
+		return caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getSBATIPO() == 2); //Da implementare quando diverranno effettive le nuove regole da applicare
 	}
 }

@@ -31,13 +31,6 @@ public class RuleSLTMAX_1 extends it.profilglass.constraint.bav.SLCHMAX.val.Rule
 	private Double result;
 
 	@Override
-	@When
-	public boolean when()
-	{
-		return !super.when();
-	}
-
-	@Override
 	@Then
 	public RuleState then()
 	{
@@ -45,6 +38,13 @@ public class RuleSLTMAX_1 extends it.profilglass.constraint.bav.SLCHMAX.val.Rule
 		hImballi = (quantKgImballi/(hImballi*pesoSpec));
 		result = hImballi*1000 + hPallet;
 		return RuleState.BREAK;
+	}
+
+	@Override
+	@When
+	public boolean when()
+	{
+		return !super.when();
 	}
 
 }

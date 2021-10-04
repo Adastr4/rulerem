@@ -23,10 +23,10 @@ public class CLFINI_Rule2 {
 	@Result
 	private boolean validate;
 
-	@When
-	public boolean when() {
-		System.out.println("executing rule 2 no package");
-		return getClasse().equalsIgnoreCase("EDT");
+	private String getClasse() {
+		String classe;// = ReadDB.readClasse();
+		classe = "EDT";
+		return classe;
 	}
 
 	@Then
@@ -35,10 +35,10 @@ public class CLFINI_Rule2 {
 		validate = Boolean.FALSE;
 		return RuleState.BREAK;
 	}
-	private String getClasse() {
-		String classe;// = ReadDB.readClasse();
-		classe = "EDT";
-		return classe;
+	@When
+	public boolean when() {
+		System.out.println("executing rule 2 no package");
+		return getClasse().equalsIgnoreCase("EDT");
 	}
 
 }

@@ -27,35 +27,11 @@ public class ConfiguratoreBAV extends Configuratore {
 	}
 
 	@Override
-	public boolean runCaratteristicaValidationRuleByIndex(int index)
+	public List<LivelloDistinta> buildDistinta()
 	{
 		try
 		{
-			RuleBookRunner ruleBook = new RuleBookRunner("it.profilglass.constraint.bav." + this.caratteristiche.get(index).getCaratteristicaId().toUpperCase() + ".val");
-			NameValueReferableMap<List<ICaratteristica>> facts = new FactMap<>();
-			facts.put(new Fact<>(this.caratteristiche));
-			ruleBook.run(facts);
-
-			if(ruleBook.getResult().isPresent())
-			{
-				return (boolean) ruleBook.getResult().get().getValue();
-			}
-
-			return false;
-		}
-		catch(Exception ex)
-		{
-			System.out.println("No Validation Rule defined for caratteristica: " + this.caratteristiche.get(index).getCaratteristicaId().toUpperCase() + " !");
-			return false;
-		}
-	}
-
-	@Override
-	public boolean runCaratteristicaValidationRuleByName(String name)
-	{
-		try
-		{
-			RuleBookRunner ruleBook = new RuleBookRunner("it.profilglass.constraint.bav." + name.toUpperCase() + ".val");
+			RuleBookRunner ruleBook = new RuleBookRunner("it.profilglass.constraint.bav.distinta");
 			NameValueReferableMap<Caratteristica> facts = new FactMap<>();
 			for(ICaratteristica cara : this.caratteristiche)
 				facts.put(new Fact<>((Caratteristica)cara));
@@ -64,15 +40,15 @@ public class ConfiguratoreBAV extends Configuratore {
 
 			if(ruleBook.getResult().isPresent())
 			{
-				return (boolean) ruleBook.getResult().get().getValue();
+				return (ArrayList<LivelloDistinta>) ruleBook.getResult().get().getValue();
 			}
 
-			return false;
+			return null;
 		}
 		catch(Exception ex)
 		{
-			System.out.println("No Validation Rule defined for caratteristica: " + name.toUpperCase() + " !");
-			return false;
+			System.out.println("No Distinta defined for BAV Object !");
+			return null;
 		}
 	}
 
@@ -131,11 +107,35 @@ public class ConfiguratoreBAV extends Configuratore {
 	}
 
 	@Override
-	public List<LivelloDistinta> buildDistinta()
+	public boolean runCaratteristicaValidationRuleByIndex(int index)
 	{
 		try
 		{
-			RuleBookRunner ruleBook = new RuleBookRunner("it.profilglass.constraint.bav.distinta");
+			RuleBookRunner ruleBook = new RuleBookRunner("it.profilglass.constraint.bav." + this.caratteristiche.get(index).getCaratteristicaId().toUpperCase() + ".val");
+			NameValueReferableMap<List<ICaratteristica>> facts = new FactMap<>();
+			facts.put(new Fact<>(this.caratteristiche));
+			ruleBook.run(facts);
+
+			if(ruleBook.getResult().isPresent())
+			{
+				return (boolean) ruleBook.getResult().get().getValue();
+			}
+
+			return false;
+		}
+		catch(Exception ex)
+		{
+			System.out.println("No Validation Rule defined for caratteristica: " + this.caratteristiche.get(index).getCaratteristicaId().toUpperCase() + " !");
+			return false;
+		}
+	}
+
+	@Override
+	public boolean runCaratteristicaValidationRuleByName(String name)
+	{
+		try
+		{
+			RuleBookRunner ruleBook = new RuleBookRunner("it.profilglass.constraint.bav." + name.toUpperCase() + ".val");
 			NameValueReferableMap<Caratteristica> facts = new FactMap<>();
 			for(ICaratteristica cara : this.caratteristiche)
 				facts.put(new Fact<>((Caratteristica)cara));
@@ -144,15 +144,15 @@ public class ConfiguratoreBAV extends Configuratore {
 
 			if(ruleBook.getResult().isPresent())
 			{
-				return (ArrayList<LivelloDistinta>) ruleBook.getResult().get().getValue();
+				return (boolean) ruleBook.getResult().get().getValue();
 			}
 
-			return null;
+			return false;
 		}
 		catch(Exception ex)
 		{
-			System.out.println("No Distinta defined for BAV Object !");
-			return null;
+			System.out.println("No Validation Rule defined for caratteristica: " + name.toUpperCase() + " !");
+			return false;
 		}
 	}
 }

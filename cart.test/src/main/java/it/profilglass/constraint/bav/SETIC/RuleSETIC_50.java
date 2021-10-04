@@ -20,17 +20,17 @@ public class RuleSETIC_50 {
 	@Result
 	private String result;
 
-	@When
-	public boolean when()
-	{
-		return (caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getSETICC() == 5));
-	}
-
 	@Then
 	public RuleState then()
 	{
 		System.out.println("Rule SETIC 5 entered");
 		result = "Con Logo + VDA";
 		return RuleState.BREAK;
+	}
+
+	@When
+	public boolean when()
+	{
+		return (caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getSETICC() == 5));
 	}
 }

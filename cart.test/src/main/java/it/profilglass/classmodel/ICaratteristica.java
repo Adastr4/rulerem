@@ -4,82 +4,82 @@ import java.util.ArrayList;
 
 public interface ICaratteristica {
 
-	int getCaratteristicaOrder();
-
-	void setCaratteristicaOrder(int caratteristicaOrder);
-
-	ArrayList<Opzione> getValori();
-
-	void setValori(ArrayList<Opzione> valori);
+	int getBandellineNumInSLLANAS();
 
 	String getCaratteristicaId();
 
+	int getCaratteristicaOrder();
+
 	String getClasse();
 
-	String getSelectedValue();
-
-	void setSelectedValue(String selectedValue);
-
-	String getDescrizioneCaratteristica();
-
-	boolean isEnabled();
-
-	void setEnabled(boolean enabled);
-
-	boolean isVisible();
-
-	void setVisible(boolean visible);
-
-	String getSLTOLLA();
+	String getCLASSE();
 
 	String getCLFINI();
 
-	String getCLLEGA();
-
-	String getQLLAVDET();
-
-	Integer getCLSPESS();
-
-	String getSLMOD();
-
-	String getCLSTATF();
-
 	String getCLLARG();
 
-	String getCLTOLLE();
-
-	String getCLRIVE();
-
-	int getBandellineNumInSLLANAS();
-
-	String getSLBP();
-
-	String getQLLAV();
-
-	String getSLBPTE();
+	String getCLLEGA();
 
 	String getCLLUNG();
 
-	int getSLLANASLarg();
+	String getCLRIVE();
+
+	Integer getCLSPESS();
+
+	String getCLSTATF();
+
+	String getCLTOLLE();
+
+	String getDescrizioneCaratteristica();
 
 	String getDLDEST();
 
-	int getSBATIPO();
-
 	String getDLLATOLN();
-
-	String getSLLATOLP();
-
-	String getSLLATOLN();
 
 	String getDLLATOLP();
 
+	String getMLSTATF();
+
+	String getQLLAV();
+
+	String getQLLAVDET();
+
+	int getSBATIPO();
+
+	String getSelectedValue();
+
 	int getSETICC();
+
+	String getSLBP();
+
+	String getSLBPTE();
+
+	int getSLLANASLarg();
+
+	String getSLLATOLN();
+
+	String getSLLATOLP();
+
+	String getSLMOD();
 
 	int getSLTMAX();
 
-	String getMLSTATF();
+	String getSLTOLLA();
 
-	String getCLASSE();
+	ArrayList<Opzione> getValori();
+
+	boolean isEnabled();
+
+	boolean isVisible();
+
+	void setCaratteristicaOrder(int caratteristicaOrder);
+
+	void setEnabled(boolean enabled);
+
+	void setSelectedValue(String selectedValue);
+
+	void setValori(ArrayList<Opzione> valori);
+
+	void setVisible(boolean visible);
 
 }

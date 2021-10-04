@@ -18,18 +18,18 @@ public class RuleMLSTATF_13_3A {
 	@Result
 	private String result;
 
-	@When
-	public boolean when()
-	{
-		return (caratteristica.getCLLEGA().equalsIgnoreCase("3A") &&
-				caratteristica.getCLSTATF().equalsIgnoreCase("H14"));
-	}
-
 	@Then
 	public RuleState then()
 	{
 		System.out.println("Rule 13 entered");
 		result = "H24";
 		return RuleState.NEXT;
+	}
+
+	@When
+	public boolean when()
+	{
+		return (caratteristica.getCLLEGA().equalsIgnoreCase("3A") &&
+				caratteristica.getCLSTATF().equalsIgnoreCase("H14"));
 	}
 }

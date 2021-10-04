@@ -17,44 +17,44 @@ public class Macchina {
 		this.capacitaBaseSettimanale = capacitaBaseSettimanale;
 	}
 
-	public String getIdMacchina() {
-		return idMacchina;
-	}
-
-	public void setIdMacchina(String idMacchina) {
-		this.idMacchina = idMacchina;
-	}
-
-	public String getDescMacchina() {
-		return descMacchina;
-	}
-
-	public void setDescMacchina(String descMacchina) {
-		this.descMacchina = descMacchina;
-	}
-
-	public String getIdCentroLavoro() {
-		return idCentroLavoro;
-	}
-
-	public void setIdCentroLavoro(String idCentroLavoro) {
-		this.idCentroLavoro = idCentroLavoro;
-	}
-
 	public int getCapacitaBaseGiornaliera() {
 		return capacitaBaseGiornaliera;
-	}
-
-	public void setCapacitaBaseGiornaliera(int capacitaBaseGiornaliera) {
-		this.capacitaBaseGiornaliera = capacitaBaseGiornaliera;
 	}
 
 	public int getCapacitaBaseSettimanale() {
 		return capacitaBaseSettimanale;
 	}
 
+	public String getDescMacchina() {
+		return descMacchina;
+	}
+
+	public String getIdCentroLavoro() {
+		return idCentroLavoro;
+	}
+
+	public String getIdMacchina() {
+		return idMacchina;
+	}
+
+	public void setCapacitaBaseGiornaliera(int capacitaBaseGiornaliera) {
+		this.capacitaBaseGiornaliera = capacitaBaseGiornaliera;
+	}
+
 	public void setCapacitaBaseSettimanale(int capacitaBaseSettimanale) {
 		this.capacitaBaseSettimanale = capacitaBaseSettimanale;
+	}
+
+	public void setDescMacchina(String descMacchina) {
+		this.descMacchina = descMacchina;
+	}
+
+	public void setIdCentroLavoro(String idCentroLavoro) {
+		this.idCentroLavoro = idCentroLavoro;
+	}
+
+	public void setIdMacchina(String idMacchina) {
+		this.idMacchina = idMacchina;
 	}
 
 }

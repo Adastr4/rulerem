@@ -23,7 +23,14 @@ public class CLSTATF_CLLEGA_Rule4 {
   @Result
   private boolean validate = Boolean.FALSE;
 
-  @When
+  @Then
+  public RuleState then() {
+//	  System.out.println("Exceuted rule 4");
+	  validate = Boolean.FALSE ;
+	  return RuleState.BREAK;
+  }
+
+ @When
   public boolean when() {
 //	System.out.println("Exceuting rule 4 package subrules1");
     boolean res =
@@ -36,13 +43,6 @@ public class CLSTATF_CLLEGA_Rule4 {
 
 
     return !res;
-  }
-
- @Then
-  public RuleState then() {
-//	  System.out.println("Exceuted rule 4");
-	  validate = Boolean.FALSE ;
-	  return RuleState.BREAK;
   }
 
 

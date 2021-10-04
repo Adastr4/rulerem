@@ -23,17 +23,17 @@ public class RuleIS1_28 extends it.profilglass.constraint.bav.attivita.subrules.
 	@Result
 	private List<Attivita> result;
 
-	@Override
-	@When
-	public boolean when()
-	{
-		return super.when();
-	}
-
 	@Then
 	public RuleState then()
 	{
 		result.add(ReadDB.getAttivitaFromId("IS1"));
 		return RuleState.NEXT;
+	}
+
+	@Override
+	@When
+	public boolean when()
+	{
+		return super.when();
 	}
 }

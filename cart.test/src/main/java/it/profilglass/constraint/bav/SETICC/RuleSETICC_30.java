@@ -16,17 +16,17 @@ public class RuleSETICC_30 {
 	@Result
 	private Integer result;
 
-	@When
-	public boolean when()
-	{
-		return (descEtichetta.equalsIgnoreCase("Anonima"));
-	}
-
 	@Then
 	public RuleState then()
 	{
 		System.out.println("Rule SETICC 3 entered");
 		result = 3;
 		return RuleState.BREAK;
+	}
+
+	@When
+	public boolean when()
+	{
+		return (descEtichetta.equalsIgnoreCase("Anonima"));
 	}
 }

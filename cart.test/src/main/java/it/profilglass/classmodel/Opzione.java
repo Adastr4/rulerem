@@ -10,20 +10,20 @@ public class Opzione {
 		this.descrizione = descrizione;
 	}
 
-	public String getOpzione() {
-		return opzione;
-	}
-
-	public void setOpzione(String opzione) {
-		this.opzione = opzione;
-	}
-
 	public String getDescrizione() {
 		return descrizione;
 	}
 
+	public String getOpzione() {
+		return opzione;
+	}
+
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
+	}
+
+	public void setOpzione(String opzione) {
+		this.opzione = opzione;
 	}
 
 

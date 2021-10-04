@@ -23,16 +23,16 @@ public class RuleTT5_27 {
 	@Result
 	private List<Attivita> result;
 
-	@When
-	public boolean when()
-	{
-		return caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getSLMOD().equalsIgnoreCase("BP"));
-	}
-
 	@Then
 	public RuleState then()
 	{
 		result.add(ReadDB.getAttivitaFromId("TT5"));
 		return RuleState.NEXT;
+	}
+
+	@When
+	public boolean when()
+	{
+		return caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getSLMOD().equalsIgnoreCase("BP"));
 	}
 }

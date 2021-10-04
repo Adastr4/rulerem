@@ -21,6 +21,13 @@ public class RuleCLSPESS_1 {
 	@Result
 	private boolean result;
 
+	@Then
+	public RuleState then()
+	{
+		result = Boolean.FALSE;
+		return RuleState.BREAK;
+	}
+
 	@When
 	public boolean when()
 	{
@@ -29,12 +36,5 @@ public class RuleCLSPESS_1 {
 																|| (caratteristica.getCLSPESS().intValue() > 2000 && caratteristica.getCLSPESS().intValue() <= 6000 && caratteristica.getSLLATOLP().substring(0, 1).equalsIgnoreCase("c"))
 																|| (caratteristica.getCLSPESS().intValue() > 6000 && caratteristica.getSLLATOLP().substring(0, 1).equalsIgnoreCase("d")))
 												));
-	}
-
-	@Then
-	public RuleState then()
-	{
-		result = Boolean.FALSE;
-		return RuleState.BREAK;
 	}
 }

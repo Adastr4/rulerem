@@ -167,108 +167,6 @@ class MainTest {
 	 * QSPEC, SLTOLLA, DLLATOLP, DLLATOLN, SLLATOLP, SLLATOLN)); } }
 	 */
 
-	@Test
-	public void ruleSLLATOLPTest() {
-		List<ICaratteristica> returnCases = new ArrayList<>();
-
-		returnCases = Main.buildCases();
-
-		for (ICaratteristica caratteristica : returnCases) {
-
-			RuleBookRunner ruleBookCLLARG = new RuleBookRunner("it.profilglass.constraint.bav.SLLATOLP.val");
-			NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
-			ruleBookCLLARG.setDefaultResult(Boolean.TRUE);
-			facts.put(new Fact<>(caratteristica));
-			ruleBookCLLARG.run(facts);
-
-			ruleBookCLLARG.getResult().ifPresent(result -> {
-				System.out.println("Vincolo per SLLATOLP con valore " + caratteristica.getSLLATOLP().toString()
-						+ " Valore per SLTOLLA " + caratteristica.getSLTOLLA().toString() + "; per CLLARG "
-						+ caratteristica.getCLLARG().toString() + "; per CLSPESS "
-						+ caratteristica.getCLSPESS().toString() + "; per DLLATOLP "
-						+ caratteristica.getDLLATOLP().toString() + " validato " + result.toString());
-				assertEquals(result.getValue(),
-						Main.testRuleSLLATOLPStandard(caratteristica.getCLSPESS(),
-								caratteristica.getCLLARG().toString(), caratteristica.getSLTOLLA().toString(),
-								caratteristica.getDLLATOLP().toString(), caratteristica.getSLLATOLP().toString()));
-			});
-		}
-	}
-
-	// @Test
-	public void ruleSLLATOLPSingleTest() {
-		ICaratteristica caratteristica = new Caratteristica(new BigDecimal(620), "", "", "", "", "", "", "500", "", "",
-				"", "", "", "", "", "", "", "", "F", "0", "", "BAF.0.1", "", 1, 1, "3CJ1240", "B11", "BA", "N");
-		RuleBookRunner ruleBookCLLARG = new RuleBookRunner("it.profilglass.constraint.bav.val.SLLATOLP");
-		NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
-
-		ruleBookCLLARG.setDefaultResult(Boolean.TRUE);
-		facts.put(new Fact<>(caratteristica));
-		ruleBookCLLARG.run(facts);
-
-		ruleBookCLLARG.getResult().ifPresent(result -> {
-			System.out.println("Vincolo per SLLATOLP con valore " + caratteristica.getSLLATOLP().toString()
-					+ " Valore per SLTOLLA " + caratteristica.getSLTOLLA().toString() + "; per CLLARG "
-					+ caratteristica.getCLLARG().toString() + "; per CLSPESS " + caratteristica.getCLSPESS().toString()
-					+ "; per DLLATOLP " + caratteristica.getDLLATOLP().toString() + " validato " + result.toString());
-			assertEquals(result.getValue(),
-					Main.testRuleSLLATOLPStandard(caratteristica.getCLSPESS(), caratteristica.getCLLARG().toString(),
-							caratteristica.getSLTOLLA().toString(), caratteristica.getDLLATOLP().toString(),
-							caratteristica.getSLLATOLP().toString()));
-		});
-	}
-
-	// @Test
-	public void ruleSLLATOLNTest() {
-		List<ICaratteristica> returnCases = new ArrayList<>();
-
-		returnCases = Main.buildCases();
-
-		for (ICaratteristica caratteristica : returnCases) {
-
-			RuleBookRunner ruleBookCLLARG = new RuleBookRunner("it.profilglass.constraint.bav.val.SLLATOLN");
-			NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
-			ruleBookCLLARG.setDefaultResult(Boolean.TRUE);
-			facts.put(new Fact<>(caratteristica));
-			ruleBookCLLARG.run(facts);
-
-			ruleBookCLLARG.getResult().ifPresent(result -> {
-				System.out.println("Vincolo per SLLATOLN con valore " + caratteristica.getSLLATOLN().toString()
-						+ " Valore per SLTOLLA " + caratteristica.getSLTOLLA().toString() + "; per CLLARG "
-						+ caratteristica.getCLLARG().toString() + "; per CLSPESS "
-						+ caratteristica.getCLSPESS().toString() + "; per DLLATOLN "
-						+ caratteristica.getDLLATOLN().toString() + " validato " + result.toString());
-				assertEquals(result.getValue(),
-						Main.testRuleSLLATOLNStandard(caratteristica.getCLSPESS(),
-								caratteristica.getCLLARG().toString(), caratteristica.getSLTOLLA().toString(),
-								caratteristica.getDLLATOLN().toString(), caratteristica.getSLLATOLN().toString()));
-			});
-		}
-	}
-
-	// @Test
-	public void ruleSLLATOLNSingleTest() {
-		ICaratteristica caratteristica = new Caratteristica(new BigDecimal(620), "", "", "", "", "", "", "500", "", "",
-				"", "", "", "", "", "", "", "", "F", "", "0", "", "BAF.0.1", 1, 1, "3CJ1240", "B11", "BA", "N");
-		RuleBookRunner ruleBookCLLARG = new RuleBookRunner("it.profilglass.constraint.bav.SLLATOLN.val");
-		NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
-
-		ruleBookCLLARG.setDefaultResult(Boolean.TRUE);
-		facts.put(new Fact<>(caratteristica));
-		ruleBookCLLARG.run(facts);
-
-		ruleBookCLLARG.getResult().ifPresent(result -> {
-			System.out.println("Vincolo per SLLATOLN con valore " + caratteristica.getSLLATOLN().toString()
-					+ " Valore per SLTOLLA " + caratteristica.getSLTOLLA().toString() + "; per CLLARG "
-					+ caratteristica.getCLLARG().toString() + "; per CLSPESS " + caratteristica.getCLSPESS().toString()
-					+ "; per DLLATOLN " + caratteristica.getDLLATOLN().toString() + " validato " + result.toString());
-			assertEquals(result.getValue(),
-					Main.testRuleSLLATOLNStandard(caratteristica.getCLSPESS(), caratteristica.getCLLARG().toString(),
-							caratteristica.getSLTOLLA().toString(), caratteristica.getDLLATOLN().toString(),
-							caratteristica.getSLLATOLN().toString()));
-		});
-	}
-
 	// @Test
 	public void ruleCLSTATFTest() {
 		List<ICaratteristica> returnCases = new ArrayList<>();
@@ -324,6 +222,108 @@ class MainTest {
 								caratteristica.getCLLUNG().toString(), caratteristica.getCLSPESS(),
 								caratteristica.getCLRIVE().toString(), caratteristica.getDLDEST().toString(),
 								caratteristica.getSLBP().toString()));
+			});
+		}
+	}
+
+	// @Test
+	public void ruleSLLATOLNSingleTest() {
+		ICaratteristica caratteristica = new Caratteristica(new BigDecimal(620), "", "", "", "", "", "", "500", "", "",
+				"", "", "", "", "", "", "", "", "F", "", "0", "", "BAF.0.1", 1, 1, "3CJ1240", "B11", "BA", "N");
+		RuleBookRunner ruleBookCLLARG = new RuleBookRunner("it.profilglass.constraint.bav.SLLATOLN.val");
+		NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
+
+		ruleBookCLLARG.setDefaultResult(Boolean.TRUE);
+		facts.put(new Fact<>(caratteristica));
+		ruleBookCLLARG.run(facts);
+
+		ruleBookCLLARG.getResult().ifPresent(result -> {
+			System.out.println("Vincolo per SLLATOLN con valore " + caratteristica.getSLLATOLN().toString()
+					+ " Valore per SLTOLLA " + caratteristica.getSLTOLLA().toString() + "; per CLLARG "
+					+ caratteristica.getCLLARG().toString() + "; per CLSPESS " + caratteristica.getCLSPESS().toString()
+					+ "; per DLLATOLN " + caratteristica.getDLLATOLN().toString() + " validato " + result.toString());
+			assertEquals(result.getValue(),
+					Main.testRuleSLLATOLNStandard(caratteristica.getCLSPESS(), caratteristica.getCLLARG().toString(),
+							caratteristica.getSLTOLLA().toString(), caratteristica.getDLLATOLN().toString(),
+							caratteristica.getSLLATOLN().toString()));
+		});
+	}
+
+	// @Test
+	public void ruleSLLATOLNTest() {
+		List<ICaratteristica> returnCases = new ArrayList<>();
+
+		returnCases = Main.buildCases();
+
+		for (ICaratteristica caratteristica : returnCases) {
+
+			RuleBookRunner ruleBookCLLARG = new RuleBookRunner("it.profilglass.constraint.bav.val.SLLATOLN");
+			NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
+			ruleBookCLLARG.setDefaultResult(Boolean.TRUE);
+			facts.put(new Fact<>(caratteristica));
+			ruleBookCLLARG.run(facts);
+
+			ruleBookCLLARG.getResult().ifPresent(result -> {
+				System.out.println("Vincolo per SLLATOLN con valore " + caratteristica.getSLLATOLN().toString()
+						+ " Valore per SLTOLLA " + caratteristica.getSLTOLLA().toString() + "; per CLLARG "
+						+ caratteristica.getCLLARG().toString() + "; per CLSPESS "
+						+ caratteristica.getCLSPESS().toString() + "; per DLLATOLN "
+						+ caratteristica.getDLLATOLN().toString() + " validato " + result.toString());
+				assertEquals(result.getValue(),
+						Main.testRuleSLLATOLNStandard(caratteristica.getCLSPESS(),
+								caratteristica.getCLLARG().toString(), caratteristica.getSLTOLLA().toString(),
+								caratteristica.getDLLATOLN().toString(), caratteristica.getSLLATOLN().toString()));
+			});
+		}
+	}
+
+	// @Test
+	public void ruleSLLATOLPSingleTest() {
+		ICaratteristica caratteristica = new Caratteristica(new BigDecimal(620), "", "", "", "", "", "", "500", "", "",
+				"", "", "", "", "", "", "", "", "F", "0", "", "BAF.0.1", "", 1, 1, "3CJ1240", "B11", "BA", "N");
+		RuleBookRunner ruleBookCLLARG = new RuleBookRunner("it.profilglass.constraint.bav.val.SLLATOLP");
+		NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
+
+		ruleBookCLLARG.setDefaultResult(Boolean.TRUE);
+		facts.put(new Fact<>(caratteristica));
+		ruleBookCLLARG.run(facts);
+
+		ruleBookCLLARG.getResult().ifPresent(result -> {
+			System.out.println("Vincolo per SLLATOLP con valore " + caratteristica.getSLLATOLP().toString()
+					+ " Valore per SLTOLLA " + caratteristica.getSLTOLLA().toString() + "; per CLLARG "
+					+ caratteristica.getCLLARG().toString() + "; per CLSPESS " + caratteristica.getCLSPESS().toString()
+					+ "; per DLLATOLP " + caratteristica.getDLLATOLP().toString() + " validato " + result.toString());
+			assertEquals(result.getValue(),
+					Main.testRuleSLLATOLPStandard(caratteristica.getCLSPESS(), caratteristica.getCLLARG().toString(),
+							caratteristica.getSLTOLLA().toString(), caratteristica.getDLLATOLP().toString(),
+							caratteristica.getSLLATOLP().toString()));
+		});
+	}
+
+	@Test
+	public void ruleSLLATOLPTest() {
+		List<ICaratteristica> returnCases = new ArrayList<>();
+
+		returnCases = Main.buildCases();
+
+		for (ICaratteristica caratteristica : returnCases) {
+
+			RuleBookRunner ruleBookCLLARG = new RuleBookRunner("it.profilglass.constraint.bav.SLLATOLP.val");
+			NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
+			ruleBookCLLARG.setDefaultResult(Boolean.TRUE);
+			facts.put(new Fact<>(caratteristica));
+			ruleBookCLLARG.run(facts);
+
+			ruleBookCLLARG.getResult().ifPresent(result -> {
+				System.out.println("Vincolo per SLLATOLP con valore " + caratteristica.getSLLATOLP().toString()
+						+ " Valore per SLTOLLA " + caratteristica.getSLTOLLA().toString() + "; per CLLARG "
+						+ caratteristica.getCLLARG().toString() + "; per CLSPESS "
+						+ caratteristica.getCLSPESS().toString() + "; per DLLATOLP "
+						+ caratteristica.getDLLATOLP().toString() + " validato " + result.toString());
+				assertEquals(result.getValue(),
+						Main.testRuleSLLATOLPStandard(caratteristica.getCLSPESS(),
+								caratteristica.getCLLARG().toString(), caratteristica.getSLTOLLA().toString(),
+								caratteristica.getDLLATOLP().toString(), caratteristica.getSLLATOLP().toString()));
 			});
 		}
 	}

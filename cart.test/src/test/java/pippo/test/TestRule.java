@@ -24,17 +24,17 @@ public class TestRule {
 	@Result
 	private List<Macchina> macchine;
 
-	@When
-	public boolean when() {
-	    System.out.println("ZZZZZZZZZZ");
-		return true;
-	}
-
 	@Then
 	public RuleState then() {
 		macchine.add(new Macchina("123"));
 		System.out.println("pippo");
 		return RuleState.BREAK;
+	}
+
+	@When
+	public boolean when() {
+	    System.out.println("ZZZZZZZZZZ");
+		return true;
 	}
 
 }

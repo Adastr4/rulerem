@@ -23,6 +23,13 @@ public class CLFINI_Rule4 {
 	@Result
 	private boolean validate;
 
+	@Then
+	public RuleState then() {
+		System.out.println("executed rule 4 no package");
+		validate = Boolean.FALSE;
+		return RuleState.BREAK;
+	}
+
 	@When
 	public boolean when() {
 		System.out.println("executing rule 4 no package");
@@ -38,13 +45,6 @@ public class CLFINI_Rule4 {
 				.anyMatch(caratteristica -> caratteristica.getCLFINI().equalsIgnoreCase("o")) )
 				&& caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLLEGA().equalsIgnoreCase("3d"))
 				&& caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSTATF().equalsIgnoreCase("h12"));
-	}
-
-	@Then
-	public RuleState then() {
-		System.out.println("executed rule 4 no package");
-		validate = Boolean.FALSE;
-		return RuleState.BREAK;
 	}
 
 

@@ -21,6 +21,13 @@ public class RuleCLSTATF_5 {
 	@Result
 	private boolean result;
 
+	@Then
+	public RuleState then()
+	{
+		result = Boolean.TRUE;
+		return RuleState.BREAK;
+	}
+
 	@When
 	public boolean when()
 	{
@@ -28,13 +35,6 @@ public class RuleCLSTATF_5 {
 		return caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLLEGA().substring(0,1).equalsIgnoreCase("3")
 																&& caratteristica.getSLBPTE().equalsIgnoreCase(caratteristica.getSLBP().toString())
 																&& caratteristica.getCLSTATF().equalsIgnoreCase("H14"));
-	}
-
-	@Then
-	public RuleState then()
-	{
-		result = Boolean.TRUE;
-		return RuleState.BREAK;
 	}
 
 }

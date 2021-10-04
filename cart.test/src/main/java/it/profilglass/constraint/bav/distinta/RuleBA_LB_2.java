@@ -22,12 +22,6 @@ public class RuleBA_LB_2 {
 	@Result
 	private List<LivelloDistinta> result;
 
-	@When
-	public boolean when()
-	{
-		return !caratteristiche.stream().filter(caratteristica -> "SLMOD".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().equalsIgnoreCase("BP");
-	}
-
 	@Then
 	public RuleState then()
 	{
@@ -41,6 +35,12 @@ public class RuleBA_LB_2 {
 																				caratteristiche.stream().filter(caratteristica -> "CLFINI".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue() +
 																				caratteristiche.stream().filter(caratteristica -> "CLTOLLE".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue(),"LB",null), 2, 1));
 		return RuleState.NEXT;
+	}
+
+	@When
+	public boolean when()
+	{
+		return !caratteristiche.stream().filter(caratteristica -> "SLMOD".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().equalsIgnoreCase("BP");
 	}
 
 }

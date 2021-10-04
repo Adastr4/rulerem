@@ -20,16 +20,16 @@ public class RuleCLTOLLE_2 {
 	@Result
 	private boolean result;
 
-	@When
-	public boolean when()
-	{
-		return !caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLFINI().toString().equalsIgnoreCase("K") || caratteristica.getCLFINI().toString().equalsIgnoreCase("Q"));
-	}
-
 	@Then
 	public RuleState then()
 	{
 		result = Boolean.TRUE;
 		return RuleState.BREAK;
+	}
+
+	@When
+	public boolean when()
+	{
+		return !caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLFINI().toString().equalsIgnoreCase("K") || caratteristica.getCLFINI().toString().equalsIgnoreCase("Q"));
 	}
 }

@@ -21,6 +21,12 @@ public class CLSTATF_CLLEGA_Rule4 {
   @Result
   private boolean validate;
 
+  @Then
+  public RuleState then() {
+
+	  return RuleState.BREAK;
+  }
+
   @When
   public boolean when() {
 
@@ -32,12 +38,6 @@ public class CLSTATF_CLLEGA_Rule4 {
     		caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSTATF().equalsIgnoreCase("h16")) ||
     		caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSTATF().equalsIgnoreCase("h17")) ;
   return !res;
-  }
-
-  @Then
-  public RuleState then() {
-
-	  return RuleState.BREAK;
   }
 
 }

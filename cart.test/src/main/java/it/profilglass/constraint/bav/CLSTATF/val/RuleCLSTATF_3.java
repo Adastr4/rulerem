@@ -20,6 +20,12 @@ public class RuleCLSTATF_3 {
 	@Result
 	private boolean result;
 
+	@Then
+	public RuleState then()
+	{
+		return RuleState.BREAK;
+	}
+
 	@When
 	public boolean when()
 	{
@@ -31,12 +37,6 @@ public class RuleCLSTATF_3 {
 																	 caratteristica.getCLSTATF().substring(0, 3).equalsIgnoreCase("H15") ||
 																	 caratteristica.getCLSTATF().substring(0, 3).equalsIgnoreCase("H16") ||
 																	 caratteristica.getCLSTATF().substring(0, 3).equalsIgnoreCase("H17")));
-	}
-
-	@Then
-	public RuleState then()
-	{
-		return RuleState.BREAK;
 	}
 
 }

@@ -23,17 +23,17 @@ public class RuleLA6_25 extends it.profilglass.constraint.bav.attivita.subrules.
 	@Result
 	private List<Attivita> result;
 
-	@Override
-	@When
-	public boolean when()
-	{
-		return super.when() && caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getQLLAVDET().equalsIgnoreCase("G01"));
-	}
-
 	@Then
 	public RuleState then()
 	{
 		result.add(ReadDB.getAttivitaFromId("LA6"));
 		return RuleState.NEXT;
+	}
+
+	@Override
+	@When
+	public boolean when()
+	{
+		return super.when() && caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getQLLAVDET().equalsIgnoreCase("G01"));
 	}
 }

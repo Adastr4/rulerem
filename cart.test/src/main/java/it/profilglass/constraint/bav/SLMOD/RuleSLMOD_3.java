@@ -20,6 +20,13 @@ public class RuleSLMOD_3 {
 	@Result
 	private String result;
 
+	@Then
+	public RuleState then()
+	{
+		result = "BL";
+		return RuleState.BREAK;
+	}
+
 	@When
 	public boolean when()
 	{
@@ -39,12 +46,5 @@ public class RuleSLMOD_3 {
 																&& caratteristica.getCLSPESS().intValue() <= 2500
 																&& caratteristica.getCLRIVE().equalsIgnoreCase("B")
 																); //Da implementare quando diverranno effettive le nuove regole da applicare
-	}
-
-	@Then
-	public RuleState then()
-	{
-		result = "BL";
-		return RuleState.BREAK;
 	}
 }

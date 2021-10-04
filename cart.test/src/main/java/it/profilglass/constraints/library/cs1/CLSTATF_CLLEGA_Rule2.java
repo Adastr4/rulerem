@@ -21,17 +21,17 @@ public class CLSTATF_CLLEGA_Rule2 {
   @Result
   private boolean validate;
 
+  @Then
+  public RuleState then() {
+	  validate = Boolean.FALSE;
+	  return RuleState.BREAK;
+  }
+
   @When
   public boolean when() {
 
     return
     		caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSTATF().substring(0, 2).equalsIgnoreCase("H3"));
-  }
-
-  @Then
-  public RuleState then() {
-	  validate = Boolean.FALSE;
-	  return RuleState.BREAK;
   }
 
 }

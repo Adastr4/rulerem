@@ -18,18 +18,18 @@ public class RuleMLSTATF_33_5 {
 	@Result
 	private String result;
 
-	@When
-	public boolean when()
-	{
-		return (caratteristica.getCLLEGA().substring(0,1).equalsIgnoreCase("5") &&
-				caratteristica.getCLSTATF().substring(0,2).equalsIgnoreCase("H3"));
-	}
-
 	@Then
 	public RuleState then()
 	{
 		System.out.println("Rule 32 entered");
 		result = "H2" + caratteristica.getCLSTATF().substring(2,2);
 		return RuleState.BREAK;
+	}
+
+	@When
+	public boolean when()
+	{
+		return (caratteristica.getCLLEGA().substring(0,1).equalsIgnoreCase("5") &&
+				caratteristica.getCLSTATF().substring(0,2).equalsIgnoreCase("H3"));
 	}
 }

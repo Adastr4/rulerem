@@ -18,18 +18,18 @@ public class RuleMLSTATF_16_3D_3T extends it.profilglass.constraint.bav.MLSTATF.
 	@Result
 	private String result;
 
-	@Override
-	@When
-	public boolean when()
-	{
-		return (caratteristica.getCLSTATF().equalsIgnoreCase("H18")) && super.when();
-	}
-
 	@Then
 	public RuleState then()
 	{
 		System.out.println("Rule 16 entered");
 		result = "H28";
 		return RuleState.NEXT;
+	}
+
+	@Override
+	@When
+	public boolean when()
+	{
+		return (caratteristica.getCLSTATF().equalsIgnoreCase("H18")) && super.when();
 	}
 }

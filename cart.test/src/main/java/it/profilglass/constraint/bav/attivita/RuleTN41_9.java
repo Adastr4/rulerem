@@ -23,17 +23,17 @@ public class RuleTN41_9 extends it.profilglass.constraint.bav.attivita.subrules.
 	@Result
 	private List<Attivita> result;
 
-	@Override
-	@When
-	public boolean when()
-	{
-		return super.when() && caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSPESS().intValue() > 400);
-	}
-
 	@Then
 	public RuleState then()
 	{
 		result.add(ReadDB.getAttivitaFromId("TN41"));
 		return RuleState.NEXT;
+	}
+
+	@Override
+	@When
+	public boolean when()
+	{
+		return super.when() && caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSPESS().intValue() > 400);
 	}
 }

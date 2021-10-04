@@ -19,18 +19,18 @@ public class RuleSLLARG_2 extends RuleSLLARG_1 {
 	private String result;
 
 	@Override
-	@When
-	public boolean when()
-	{
-
-		return !super.when();
-	}
-
-	@Override
 	@Then
 	public RuleState then()
 	{
 		result = "99999";
 		return RuleState.BREAK;
+	}
+
+	@Override
+	@When
+	public boolean when()
+	{
+
+		return !super.when();
 	}
 }

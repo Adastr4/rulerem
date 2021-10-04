@@ -23,6 +23,13 @@ public class CLSTATF_CLLEGA_Rule2 {
 	@Result
 	private boolean validate;
 
+	@Then
+	public RuleState then() {
+//		System.out.println("executed rule 1 package cs1");
+		validate = Boolean.FALSE;
+		return RuleState.BREAK;
+	}
+
 	@When
 	public boolean when() {
 //		System.out.println("executing rule 1 package cs1");
@@ -30,13 +37,6 @@ public class CLSTATF_CLLEGA_Rule2 {
 				.anyMatch(caratteristica -> caratteristica.getCLLEGA().substring(0, 1).equalsIgnoreCase("1"))
 				&& caratteristiche.stream()
 						.anyMatch(caratteristica -> caratteristica.getCLSTATF().substring(0, 2).equalsIgnoreCase("h3"));
-	}
-
-	@Then
-	public RuleState then() {
-//		System.out.println("executed rule 1 package cs1");
-		validate = Boolean.FALSE;
-		return RuleState.BREAK;
 	}
 
 }

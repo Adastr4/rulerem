@@ -58,9 +58,52 @@ public class SampleRule {
   @Result
   private String _result;
 
-  @When
-  public boolean when() {
-    return _fact1.getValue().equals(_fact2.getValue());
+  public String getFact1() {
+    return _fact1.getValue();
+  }
+
+  public String getFact2() {
+    return _fact2.getValue();
+  }
+
+  public FactMap<String> getFactMap() {
+    return _factMap;
+  }
+
+  public Queue<String> getQueue() {
+    return _queue;
+  }
+
+  public String getResult() {
+    return _result;
+  }
+
+  public List<String> getStrList() {
+    return _strList;
+  }
+
+  public Map<String, String> getStrMap() {
+    return _strMap;
+  }
+
+  public Set<String> getStrSet() {
+    return _strSet;
+  }
+
+  public int getValue1() {
+    return _value1;
+  }
+
+  public List<Integer> getValueList() {
+    return _valueList;
+  }
+
+  public Map<String, Integer> getValueMap() {
+    return _valueMap;
+  }
+
+  public Set<Integer> getValueSet() {
+    return _valueSet;
   }
 
   /**
@@ -76,52 +119,9 @@ public class SampleRule {
     return RuleState.NEXT;
   }
 
-  public String getFact1() {
-    return _fact1.getValue();
-  }
-
-  public String getFact2() {
-    return _fact2.getValue();
-  }
-
-  public List<String> getStrList() {
-    return _strList;
-  }
-
-  public Set<String> getStrSet() {
-    return _strSet;
-  }
-
-  public Map<String, String> getStrMap() {
-    return _strMap;
-  }
-
-  public FactMap<String> getFactMap() {
-    return _factMap;
-  }
-
-  public int getValue1() {
-    return _value1;
-  }
-
-  public Set<Integer> getValueSet() {
-    return _valueSet;
-  }
-
-  public List<Integer> getValueList() {
-    return _valueList;
-  }
-
-  public Map<String, Integer> getValueMap() {
-    return _valueMap;
-  }
-
-  public String getResult() {
-    return _result;
-  }
-
-  public Queue<String> getQueue() {
-    return _queue;
+  @When
+  public boolean when() {
+    return _fact1.getValue().equals(_fact2.getValue());
   }
 }
 

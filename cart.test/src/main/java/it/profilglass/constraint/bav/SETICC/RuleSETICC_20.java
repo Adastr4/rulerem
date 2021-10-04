@@ -16,17 +16,17 @@ public class RuleSETICC_20 {
 	@Result
 	private Integer result;
 
-	@When
-	public boolean when()
-	{
-		return (descEtichetta.equalsIgnoreCase("Senza Logo"));
-	}
-
 	@Then
 	public RuleState then()
 	{
 		System.out.println("Rule SETICC 2 entered");
 		result = 2;
 		return RuleState.BREAK;
+	}
+
+	@When
+	public boolean when()
+	{
+		return (descEtichetta.equalsIgnoreCase("Senza Logo"));
 	}
 }

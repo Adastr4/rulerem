@@ -20,17 +20,17 @@ public class RuleSETIC_40 {
 	@Result
 	private String result;
 
-	@When
-	public boolean when()
-	{
-		return (caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getSETICC() == 4));
-	}
-
 	@Then
 	public RuleState then()
 	{
 		System.out.println("Rule SETIC 4 entered");
 		result = "Personalizzata";
 		return RuleState.BREAK;
+	}
+
+	@When
+	public boolean when()
+	{
+		return (caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getSETICC() == 4));
 	}
 }

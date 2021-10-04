@@ -21,6 +21,13 @@ public class RuleCLLARG_2 {
 	@Result
 	private boolean result;
 
+	@Then
+	public RuleState then()
+	{
+		result = Boolean.FALSE;
+		return RuleState.BREAK;
+	}
+
 	@When
 	public boolean when()
 	{
@@ -32,13 +39,6 @@ public class RuleCLLARG_2 {
 																|| (Integer.parseInt(caratteristica.getCLLARG()) > 10000 && Integer.parseInt(caratteristica.getCLLARG()) <= 12500 && caratteristica.getSLLATOLP().substring(1, 2).equalsIgnoreCase("f"))
 																|| (Integer.parseInt(caratteristica.getCLLARG()) > 12500 && Integer.parseInt(caratteristica.getCLLARG()) <= 16500 && caratteristica.getSLLATOLP().substring(1, 2).equalsIgnoreCase("g"))
 												)));
-	}
-
-	@Then
-	public RuleState then()
-	{
-		result = Boolean.FALSE;
-		return RuleState.BREAK;
 	}
 
 }

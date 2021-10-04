@@ -20,19 +20,19 @@ public class RuleCLSTATF_7 extends it.profilglass.constraint.bav.CLSTATF.val.sub
 	@Result
 	private boolean result;
 
+	@Then
+	public RuleState then()
+	{
+		result = Boolean.FALSE;
+		return RuleState.BREAK;
+	}
+
 	@Override
 	@When
 	public boolean when()
 	{
 
 		return caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLLEGA().substring(0,1).equalsIgnoreCase("3")) && !super.when();
-	}
-
-	@Then
-	public RuleState then()
-	{
-		result = Boolean.FALSE;
-		return RuleState.BREAK;
 	}
 
 }

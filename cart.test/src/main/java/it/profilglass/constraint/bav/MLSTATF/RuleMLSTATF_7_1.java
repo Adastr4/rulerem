@@ -18,6 +18,14 @@ public class RuleMLSTATF_7_1 {
 	@Result
 	private String result;
 
+	@Then
+	public RuleState then()
+	{
+		System.out.println("Rule 7 entered");
+		result = "H12";
+		return RuleState.NEXT;
+	}
+
 	@When
 	public boolean when()
 	{
@@ -25,13 +33,5 @@ public class RuleMLSTATF_7_1 {
 				caratteristica.getCLSTATF().toString().equalsIgnoreCase("H22") &&
 				caratteristica.getCLSPESS().intValue() >= 900 &&
 				caratteristica.getCLSPESS().intValue() <= 1500);
-	}
-
-	@Then
-	public RuleState then()
-	{
-		System.out.println("Rule 7 entered");
-		result = "H12";
-		return RuleState.NEXT;
 	}
 }

@@ -23,16 +23,16 @@ public class RuleIMBL05 {
 	@Result
 	private ArrayList<Macchina> result;
 
-	@When
-	public boolean when()
-	{
-		return ReadDB.isMacchineListFromCharacteristicsValid(caratteristica.getCLLARG(),caratteristica.getCLLUNG(),caratteristica.getCLSPESS().toString(),caratteristica.getSLLANASLarg() - ((Integer.parseInt(caratteristica.getCLLARG())/10) * caratteristica.getBandellineNumInSLLANAS()),caratteristica.getCLFINI(),caratteristica.getCLRIVE(),"IMBL05");
-	}
-
 	@Then
 	public RuleState then()
 	{
 		result.add(ReadDB.getMacchinaFromId("IMBL05"));
 		return RuleState.NEXT;
+	}
+
+	@When
+	public boolean when()
+	{
+		return ReadDB.isMacchineListFromCharacteristicsValid(caratteristica.getCLLARG(),caratteristica.getCLLUNG(),caratteristica.getCLSPESS().toString(),caratteristica.getSLLANASLarg() - ((Integer.parseInt(caratteristica.getCLLARG())/10) * caratteristica.getBandellineNumInSLLANAS()),caratteristica.getCLFINI(),caratteristica.getCLRIVE(),"IMBL05");
 	}
 }

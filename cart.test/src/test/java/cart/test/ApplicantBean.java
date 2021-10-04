@@ -11,24 +11,24 @@ public class ApplicantBean {
 		this.firstTimeHomeBuyer = firstTimeHomeBuyer;
 	}
 
+	public double getCashOnHand() {
+		return cashOnHand;
+	}
+
 	public int getCreditScore() {
 		return creditScore;
 	}
 
-	public void setCreditScore(int creditScore) {
-		this.creditScore = creditScore;
-	}
-
-	public double getCashOnHand() {
-		return cashOnHand;
+	public boolean isFirstTimeHomeBuyer() {
+		return firstTimeHomeBuyer;
 	}
 
 	public void setCashOnHand(double cashOnHand) {
 		this.cashOnHand = cashOnHand;
 	}
 
-	public boolean isFirstTimeHomeBuyer() {
-		return firstTimeHomeBuyer;
+	public void setCreditScore(int creditScore) {
+		this.creditScore = creditScore;
 	}
 
 	public void setFirstTimeHomeBuyer(boolean firstTimeHomeBuyer) {

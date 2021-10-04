@@ -19,19 +19,19 @@ public class RuleMLSTATF_24_3Q {
 	private String result;
 
 
-	@When
-	public boolean when()
-	{
-			return  caratteristica.getCLLEGA().equalsIgnoreCase("3Q") &&
-				   (caratteristica.getCLSPESS().intValue() >= 2000);
-
-	}
-
 	@Then
 	public RuleState then()
 	{
 		System.out.println("Rule 23 entered");
 		result = caratteristica.getCLSTATF();
 		return RuleState.BREAK;
+	}
+
+	@When
+	public boolean when()
+	{
+			return  caratteristica.getCLLEGA().equalsIgnoreCase("3Q") &&
+				   (caratteristica.getCLSPESS().intValue() >= 2000);
+
 	}
 }

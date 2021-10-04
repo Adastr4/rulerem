@@ -18,6 +18,14 @@ public class RuleMLSTATF_8_1 extends it.profilglass.constraint.bav.MLSTATF.sub1.
 	@Result
 	private String result;
 
+	@Then
+	public RuleState then()
+	{
+		System.out.println("Rule 8 entered");
+		result = "H00";
+		return RuleState.NEXT;
+	}
+
 	@Override
 	@When
 	public boolean when()
@@ -26,13 +34,5 @@ public class RuleMLSTATF_8_1 extends it.profilglass.constraint.bav.MLSTATF.sub1.
 							   		(caratteristica.getCLSTATF().toString().equalsIgnoreCase("H00") ||
 							   		 caratteristica.getCLSTATF().toString().equalsIgnoreCase("HA1")) &&
 								caratteristica.getCLSPESS().intValue() >= 2500);
-	}
-
-	@Then
-	public RuleState then()
-	{
-		System.out.println("Rule 8 entered");
-		result = "H00";
-		return RuleState.NEXT;
 	}
 }

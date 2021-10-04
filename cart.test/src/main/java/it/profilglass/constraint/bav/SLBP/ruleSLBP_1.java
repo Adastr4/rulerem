@@ -19,17 +19,17 @@ public class ruleSLBP_1 {
 	@Result
 	private String result;
 
-	@When
-	public boolean when()
-	{
-		return ReadDB.getSLBPSpecial(caratteristica.getSLBPTE().toString(), "BAV"); //Da implementare quando diverr� effettivo il legame tra la lega ed il codice ARTICOLO da configurare
-	}
-
 	@Then
 	public RuleState then()
 	{
 		result = caratteristica.getSLBPTE().toString();
 		return RuleState.BREAK;
+	}
+
+	@When
+	public boolean when()
+	{
+		return ReadDB.getSLBPSpecial(caratteristica.getSLBPTE().toString(), "BAV"); //Da implementare quando diverr� effettivo il legame tra la lega ed il codice ARTICOLO da configurare
 	}
 
 }

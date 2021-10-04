@@ -25,13 +25,13 @@ public class GenericConfItem {
 	}
 
 
-	public Configuratore getConf() {
-		return conf;
+	public String getClasse() {
+		return classe;
 	}
 
 
-	public void setConf(Configuratore conf) {
-		this.conf = conf;
+	public Configuratore getConf() {
+		return conf;
 	}
 
 
@@ -40,17 +40,17 @@ public class GenericConfItem {
 	}
 
 
-	public void setDistinta(List<LivelloDistinta> distinta) {
-		this.distinta = distinta;
-	}
-
-
-	public String getClasse() {
-		return classe;
-	}
-
-
 	public void setClasse(String classe) {
 		this.classe = classe;
+	}
+
+
+	public void setConf(Configuratore conf) {
+		this.conf = conf;
+	}
+
+
+	public void setDistinta(List<LivelloDistinta> distinta) {
+		this.distinta = distinta;
 	}
 }

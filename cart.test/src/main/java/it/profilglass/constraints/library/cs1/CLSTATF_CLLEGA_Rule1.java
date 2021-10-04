@@ -22,15 +22,15 @@ public class CLSTATF_CLLEGA_Rule1 {
   @Result
   private boolean validate;
 
+  @Then
+  public RuleState then() {
+	  return RuleState.NEXT;
+  }
   @When
   public boolean when() {
 
     return
     		caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLLEGA().substring(0, 1).equalsIgnoreCase("3"));
-  }
-  @Then
-  public RuleState then() {
-	  return RuleState.NEXT;
   }
 
 }

@@ -23,13 +23,9 @@ public class Distinta<LivelloDistinta> {
         this.parent = parent;
     }
 
-    public List<Distinta<LivelloDistinta>> getChildren() {
-        return children;
-    }
-
-    public void setParent(Distinta<LivelloDistinta> parent) {
-        parent.addChild(this);
-        this.parent = parent;
+    public void addChild(Distinta<LivelloDistinta> child) {
+        child.setParent(this);
+        this.children.add(child);
     }
 
     public void addChild(LivelloDistinta data) {
@@ -38,29 +34,33 @@ public class Distinta<LivelloDistinta> {
         this.children.add(child);
     }
 
-    public void addChild(Distinta<LivelloDistinta> child) {
-        child.setParent(this);
-        this.children.add(child);
+    public List<Distinta<LivelloDistinta>> getChildren() {
+        return children;
     }
 
     public LivelloDistinta getData() {
         return this.data;
     }
 
-    public void setData(LivelloDistinta data) {
-        this.data = data;
+    public boolean isLeaf() {
+        return this.children.size() == 0;
     }
 
     public boolean isRoot() {
         return (this.parent == null);
     }
 
-    public boolean isLeaf() {
-        return this.children.size() == 0;
-    }
-
     public void removeParent() {
         this.parent = null;
+    }
+
+    public void setData(LivelloDistinta data) {
+        this.data = data;
+    }
+
+    public void setParent(Distinta<LivelloDistinta> parent) {
+        parent.addChild(this);
+        this.parent = parent;
     }
 
 }

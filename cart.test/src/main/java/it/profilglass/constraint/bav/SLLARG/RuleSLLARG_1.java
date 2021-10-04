@@ -18,18 +18,18 @@ public class RuleSLLARG_1 {
 	@Result
 	private String result;
 
-	@When
-	public boolean when()
-	{
-
-		return caratteristica.getCLLARG().equalsIgnoreCase("10000") || caratteristica.getCLLARG().equalsIgnoreCase("12500") || caratteristica.getCLLARG().equalsIgnoreCase("15000");
-	}
-
 	@Then
 	public RuleState then()
 	{
 		result = caratteristica.getCLLARG();
 		return RuleState.BREAK;
+	}
+
+	@When
+	public boolean when()
+	{
+
+		return caratteristica.getCLLARG().equalsIgnoreCase("10000") || caratteristica.getCLLARG().equalsIgnoreCase("12500") || caratteristica.getCLLARG().equalsIgnoreCase("15000");
 	}
 
 }

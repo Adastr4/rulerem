@@ -20,17 +20,17 @@ public class RuleCLTOLLE_3 {
 	@Result
 	private boolean result;
 
-	@When
-	public boolean when()
-	{
-		return !caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLTOLLE().toString().equalsIgnoreCase("P"));
-	}
-
 	@Then
 	public RuleState then()
 	{
 		result = Boolean.FALSE;
 		return RuleState.BREAK;
+	}
+
+	@When
+	public boolean when()
+	{
+		return !caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLTOLLE().toString().equalsIgnoreCase("P"));
 	}
 
 }

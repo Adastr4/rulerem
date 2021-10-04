@@ -19,18 +19,18 @@ public class RuleDLLATOLP_1 extends it.profilglass.constraint.bav.DLLATOLP.RuleD
 	private Boolean result;
 
 	@Override
-	@When
-	public boolean when()
-	{
-		return !super.when(); //Da implementare quando diverranno effettive le nuove regole da applicare
-	}
-
-	@Override
 	@Then
 	public RuleState then()
 	{
 		result = Boolean.TRUE;
 		return RuleState.BREAK;
+	}
+
+	@Override
+	@When
+	public boolean when()
+	{
+		return !super.when(); //Da implementare quando diverranno effettive le nuove regole da applicare
 	}
 
 }

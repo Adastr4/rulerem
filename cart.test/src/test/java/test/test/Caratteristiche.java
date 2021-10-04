@@ -30,10 +30,25 @@ public class Caratteristiche {
 	private static List<String> sllatolpValues = new ArrayList<>();
 	private static List<String> sllatolnValues = new ArrayList<>();
 
-	public static void readCLLEGAValues(String articolo) {
+	public static List<String> getCLFINIValues(String articolo) {
 
-		cllegaValues = ReadDB.readCaratteristica("CLLEGA",articolo);
+		if (clfiniValues.isEmpty()) {
 
+			readCLFINIValues(articolo);
+
+		}
+		return clfiniValues;
+
+	}
+
+	public static List<String> getCLLARGValues(String articolo) {
+
+		if (cllargValues.isEmpty()) {
+
+			readCLLARGValues(articolo);
+
+		}
+		return cllargValues;
 	}
 
 	public static List<String> getCLLEGAValues(String articolo) {
@@ -47,10 +62,24 @@ public class Caratteristiche {
 
 	}
 
-	public static void readCLSPESSValues(String articolo) {
+	public static List<String> getCLLUNGValues(String articolo) {
 
-		clspessValues = ReadDB.readCaratteristicaDecimal("CLSPESS",articolo);
+		if (cllungValues.isEmpty()) {
 
+			readCLLUNGValues(articolo);
+
+		}
+		return cllungValues;
+	}
+
+	public static List<String> getCLRIVEValues(String articolo) {
+
+		if (clriveValues.isEmpty()) {
+
+			readCLRIVEValues(articolo);
+
+		}
+		return clriveValues;
 	}
 
 	public static List<BigDecimal> getCLSPESSValues(String articolo) {
@@ -61,12 +90,6 @@ public class Caratteristiche {
 
 		}
 		return clspessValues;
-
-	}
-
-	public static void readCLSTATFValues(String articolo) {
-
-		clstatfValues = ReadDB.readCaratteristica("CLSTATF",articolo);
 
 	}
 
@@ -81,27 +104,104 @@ public class Caratteristiche {
 
 	}
 
-	public static void readCLFINIValues(String articolo) {
+	public static List<String> getCLTOLLEValues(String articolo) {
 
-		clfiniValues = ReadDB.readCaratteristica("CLFINI",articolo);
+		if (cltolleValues.isEmpty()) {
 
-	}
-
-	public static List<String> getCLFINIValues(String articolo) {
-
-		if (clfiniValues.isEmpty()) {
-
-			readCLFINIValues(articolo);
+			readCLTOLLEValues(articolo);
 
 		}
-		return clfiniValues;
-
+		return cltolleValues;
 	}
 
-	public static void readSLBPTEValues(String articolo) {
+	public static List<String> getDLDESTValues(String articolo) {
 
-		slbpteValues = ReadDB.readCaratteristica("SLBPTE",articolo);
+		if (dldestValues.isEmpty()) {
 
+			readDLDESTValues(articolo);
+
+		}
+		return dldestValues;
+	}
+
+	public static List<String> getDLLATOLNValues(String articolo) {
+
+		if (dllatolnValues.isEmpty()) {
+
+			readDLLATOLNValues(articolo);
+
+		}
+		return dllatolnValues;
+	}
+
+	public static List<String> getDLLATOLPValues(String articolo) {
+
+		if (dllatolpValues.isEmpty()) {
+
+			readDLLATOLPValues(articolo);
+
+		}
+		return dllatolpValues;
+	}
+
+	public static List<String> getDLLAVValues(String articolo) {
+
+		if (dllavValues.isEmpty()) {
+
+			readDLLAVValues(articolo);
+
+		}
+		return dllavValues;
+	}
+
+	public static List<String> getDLLUBRIValues(String articolo) {
+
+		if (dllubriValues.isEmpty()) {
+
+			readDLLUBRIValues(articolo);
+
+		}
+		return dllubriValues;
+	}
+
+	public static List<String> getMLSTATFValues(String articolo) {
+
+		if (mlstatfValues.isEmpty()) {
+
+			readMLSTATFValues(articolo);
+
+		}
+		return mlstatfValues;
+	}
+
+	public static List<String> getPLACKGValues(String articolo) {
+
+		if (plackgValues.isEmpty()) {
+
+			readPLACKGValues(articolo);
+
+		}
+		return plackgValues;
+	}
+
+	public static List<String> getPMETCValues(String articolo) {
+
+		if (pmetcValues.isEmpty()) {
+
+			readPMETCGValues(articolo);
+
+		}
+		return pmetcValues;
+	}
+
+	public static List<String> getQSPECValues(String articolo) {
+
+		if (qspecValues.isEmpty()) {
+
+			readQSPECValues(articolo);
+
+		}
+		return qspecValues;
 	}
 
 	public static List<String> getSLBPTEValues(String articolo) {
@@ -115,26 +215,6 @@ public class Caratteristiche {
 
 	}
 
-	public static void readCLLARGValues(String articolo) {
-
-		cllargValues = ReadDB.readCaratteristica("CLLARG",articolo);
-	}
-
-	public static List<String> getCLLARGValues(String articolo) {
-
-		if (cllargValues.isEmpty()) {
-
-			readCLLARGValues(articolo);
-
-		}
-		return cllargValues;
-	}
-
-	public static void readSLBPValues(String articolo) {
-
-		slbpValues = ReadDB.readCaratteristica("SLBP",articolo);
-	}
-
 	public static List<String> getSLBPValues(String articolo) {
 
 		if (slbpValues.isEmpty()) {
@@ -145,204 +225,14 @@ public class Caratteristiche {
 		return slbpValues;
 	}
 
-	public static void readCLLUNGValues(String articolo) {
+	public static List<String> getSLLATOLNValues(String articolo) {
 
-		cllungValues = ReadDB.readCaratteristica("CLLUNG",articolo);
-	}
+		if (sllatolnValues.isEmpty()) {
 
-	public static List<String> getCLLUNGValues(String articolo) {
-
-		if (cllungValues.isEmpty()) {
-
-			readCLLUNGValues(articolo);
+			readSLLATOLNValues(articolo);
 
 		}
-		return cllungValues;
-	}
-
-	public static void readCLRIVEValues(String articolo) {
-
-		clriveValues = ReadDB.readCaratteristica("CLRIVE",articolo);
-	}
-
-	public static List<String> getCLRIVEValues(String articolo) {
-
-		if (clriveValues.isEmpty()) {
-
-			readCLRIVEValues(articolo);
-
-		}
-		return clriveValues;
-	}
-
-	public static void readCLTOLLEValues(String articolo) {
-
-		cltolleValues = ReadDB.readCaratteristica("CLTOLLE",articolo);
-	}
-
-	public static List<String> getCLTOLLEValues(String articolo) {
-
-		if (cltolleValues.isEmpty()) {
-
-			readCLTOLLEValues(articolo);
-
-		}
-		return cltolleValues;
-	}
-
-	public static void readDLDESTValues(String articolo) {
-
-		dldestValues = ReadDB.readCaratteristica("DLDEST",articolo);
-	}
-
-	public static List<String> getDLDESTValues(String articolo) {
-
-		if (dldestValues.isEmpty()) {
-
-			readDLDESTValues(articolo);
-
-		}
-		return dldestValues;
-	}
-
-	public static void readDLLAVValues(String articolo) {
-
-		dllavValues = ReadDB.readCaratteristica("DLLAV",articolo);
-	}
-
-	public static List<String> getDLLAVValues(String articolo) {
-
-		if (dllavValues.isEmpty()) {
-
-			readDLLAVValues(articolo);
-
-		}
-		return dllavValues;
-	}
-
-	public static void readDLLUBRIValues(String articolo) {
-
-		dllubriValues = ReadDB.readCaratteristica("DLLUBRI",articolo);
-	}
-
-	public static List<String> getDLLUBRIValues(String articolo) {
-
-		if (dllubriValues.isEmpty()) {
-
-			readDLLUBRIValues(articolo);
-
-		}
-		return dllubriValues;
-	}
-
-	public static void readMLSTATFValues(String articolo) {
-
-		mlstatfValues = ReadDB.readCaratteristica("MLSTATF",articolo);
-	}
-
-	public static List<String> getMLSTATFValues(String articolo) {
-
-		if (mlstatfValues.isEmpty()) {
-
-			readMLSTATFValues(articolo);
-
-		}
-		return mlstatfValues;
-	}
-
-	public static void readPLACKGValues(String articolo) {
-
-		plackgValues = ReadDB.readCaratteristica("PLACKG",articolo);
-	}
-
-	public static List<String> getPLACKGValues(String articolo) {
-
-		if (plackgValues.isEmpty()) {
-
-			readPLACKGValues(articolo);
-
-		}
-		return plackgValues;
-	}
-
-	public static void readPMETCGValues(String articolo) {
-
-		pmetcValues = ReadDB.readCaratteristica("PMETC",articolo);
-	}
-
-	public static List<String> getPMETCValues(String articolo) {
-
-		if (pmetcValues.isEmpty()) {
-
-			readPMETCGValues(articolo);
-
-		}
-		return pmetcValues;
-	}
-
-	public static void readQSPECValues(String articolo) {
-
-		qspecValues = ReadDB.readCaratteristica("QSPEC",articolo);
-	}
-
-	public static List<String> getQSPECValues(String articolo) {
-
-		if (qspecValues.isEmpty()) {
-
-			readQSPECValues(articolo);
-
-		}
-		return qspecValues;
-	}
-
-	public static void readSLTOLLAValues(String articolo) {
-
-		sltollaValues = ReadDB.readCaratteristica("SLTOLLA",articolo);
-	}
-
-	public static List<String> getSLTOLLAValues(String articolo) {
-
-		if (sltollaValues.isEmpty()) {
-
-			readSLTOLLAValues(articolo);
-
-		}
-		return sltollaValues;
-	}
-
-	public static void readDLLATOLPValues(String articolo) {
-
-		dllatolpValues = ReadDB.readCaratteristica("DLLATOLP",articolo);
-	}
-
-	public static List<String> getDLLATOLPValues(String articolo) {
-
-		if (dllatolpValues.isEmpty()) {
-
-			readDLLATOLPValues(articolo);
-
-		}
-		return dllatolpValues;
-	}
-
-	public static void readDLLATOLNValues(String articolo) {
-
-		dllatolnValues = ReadDB.readCaratteristica("DLLATOLN",articolo);
-	}
-
-	public static List<String> getDLLATOLNValues(String articolo) {
-
-		if (dllatolnValues.isEmpty()) {
-
-			readDLLATOLNValues(articolo);
-
-		}
-		return dllatolnValues;
-	}
-
-	public static void readSLLATOLPValues(String articolo) {
-
-		sllatolpValues = ReadDB.readCaratteristica("SLLATOLP",articolo);
+		return sllatolnValues;
 	}
 
 	public static List<String> getSLLATOLPValues(String articolo) {
@@ -355,19 +245,129 @@ public class Caratteristiche {
 		return sllatolpValues;
 	}
 
+	public static List<String> getSLTOLLAValues(String articolo) {
+
+		if (sltollaValues.isEmpty()) {
+
+			readSLTOLLAValues(articolo);
+
+		}
+		return sltollaValues;
+	}
+
+	public static void readCLFINIValues(String articolo) {
+
+		clfiniValues = ReadDB.readCaratteristica("CLFINI",articolo);
+
+	}
+
+	public static void readCLLARGValues(String articolo) {
+
+		cllargValues = ReadDB.readCaratteristica("CLLARG",articolo);
+	}
+
+	public static void readCLLEGAValues(String articolo) {
+
+		cllegaValues = ReadDB.readCaratteristica("CLLEGA",articolo);
+
+	}
+
+	public static void readCLLUNGValues(String articolo) {
+
+		cllungValues = ReadDB.readCaratteristica("CLLUNG",articolo);
+	}
+
+	public static void readCLRIVEValues(String articolo) {
+
+		clriveValues = ReadDB.readCaratteristica("CLRIVE",articolo);
+	}
+
+	public static void readCLSPESSValues(String articolo) {
+
+		clspessValues = ReadDB.readCaratteristicaDecimal("CLSPESS",articolo);
+
+	}
+
+	public static void readCLSTATFValues(String articolo) {
+
+		clstatfValues = ReadDB.readCaratteristica("CLSTATF",articolo);
+
+	}
+
+	public static void readCLTOLLEValues(String articolo) {
+
+		cltolleValues = ReadDB.readCaratteristica("CLTOLLE",articolo);
+	}
+
+	public static void readDLDESTValues(String articolo) {
+
+		dldestValues = ReadDB.readCaratteristica("DLDEST",articolo);
+	}
+
+	public static void readDLLATOLNValues(String articolo) {
+
+		dllatolnValues = ReadDB.readCaratteristica("DLLATOLN",articolo);
+	}
+
+	public static void readDLLATOLPValues(String articolo) {
+
+		dllatolpValues = ReadDB.readCaratteristica("DLLATOLP",articolo);
+	}
+
+	public static void readDLLAVValues(String articolo) {
+
+		dllavValues = ReadDB.readCaratteristica("DLLAV",articolo);
+	}
+
+	public static void readDLLUBRIValues(String articolo) {
+
+		dllubriValues = ReadDB.readCaratteristica("DLLUBRI",articolo);
+	}
+
+	public static void readMLSTATFValues(String articolo) {
+
+		mlstatfValues = ReadDB.readCaratteristica("MLSTATF",articolo);
+	}
+
+	public static void readPLACKGValues(String articolo) {
+
+		plackgValues = ReadDB.readCaratteristica("PLACKG",articolo);
+	}
+
+	public static void readPMETCGValues(String articolo) {
+
+		pmetcValues = ReadDB.readCaratteristica("PMETC",articolo);
+	}
+
+	public static void readQSPECValues(String articolo) {
+
+		qspecValues = ReadDB.readCaratteristica("QSPEC",articolo);
+	}
+
+	public static void readSLBPTEValues(String articolo) {
+
+		slbpteValues = ReadDB.readCaratteristica("SLBPTE",articolo);
+
+	}
+
+	public static void readSLBPValues(String articolo) {
+
+		slbpValues = ReadDB.readCaratteristica("SLBP",articolo);
+	}
+
 	public static void readSLLATOLNValues(String articolo) {
 
 		sllatolnValues = ReadDB.readCaratteristica("SLLATOLN",articolo);
 	}
 
-	public static List<String> getSLLATOLNValues(String articolo) {
+	public static void readSLLATOLPValues(String articolo) {
 
-		if (sllatolnValues.isEmpty()) {
+		sllatolpValues = ReadDB.readCaratteristica("SLLATOLP",articolo);
+	}
 
-			readSLLATOLNValues(articolo);
+	public static void readSLTOLLAValues(String articolo) {
 
-		}
-		return sllatolnValues;
+		sltollaValues = ReadDB.readCaratteristica("SLTOLLA",articolo);
 	}
 
 }

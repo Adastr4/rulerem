@@ -18,6 +18,14 @@ public class RuleMLSTATF_30_5G {
 	@Result
 	private String result;
 
+	@Then
+	public RuleState then()
+	{
+		System.out.println("Rule 29 entered");
+		result = "H12";
+		return RuleState.NEXT;
+	}
+
 	@When
 	public boolean when()
 	{
@@ -25,13 +33,5 @@ public class RuleMLSTATF_30_5G {
 				caratteristica.getCLSTATF().equalsIgnoreCase("H22") &&
 				caratteristica.getCLSPESS().intValue() >= 600 &&
 				caratteristica.getCLSPESS().intValue() <= 3000);
-	}
-
-	@Then
-	public RuleState then()
-	{
-		System.out.println("Rule 29 entered");
-		result = "H12";
-		return RuleState.NEXT;
 	}
 }

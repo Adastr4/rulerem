@@ -21,28 +21,28 @@ public class CLSTATF_CLLEGA_Rule4 {
   @Result
   private boolean validate = Boolean.FALSE;
 
-  @When
-  public boolean when() {
-	System.out.println("Exceuting rule 4 package subrules1");
-
-    boolean res =
-    		( caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSTATF().equalsIgnoreCase("h00")) ||
-    		  caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSTATF().equalsIgnoreCase("ha1")) ||
-    	      caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSTATF().equalsIgnoreCase("h12")) ||
-    	      caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSTATF().equalsIgnoreCase("h15")) ||
-    	      caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSTATF().equalsIgnoreCase("h16")) ||
-    	      caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSTATF().equalsIgnoreCase("h17")) ||
-    	      caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSTATF().equalsIgnoreCase("h14"))
-    				) ;
-
-    return true;
-
-  }
-	  @Then
+  @Then
   public RuleState then() {
-	  System.out.println("Exceuted rule 4");
-	  validate = Boolean.FALSE ;
-	  return RuleState.BREAK;
+  System.out.println("Exceuted rule 4");
+  validate = Boolean.FALSE ;
+  return RuleState.BREAK;
   }
+	  @When
+	  public boolean when() {
+		System.out.println("Exceuting rule 4 package subrules1");
+	
+	    boolean res =
+	    		( caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSTATF().equalsIgnoreCase("h00")) ||
+	    		  caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSTATF().equalsIgnoreCase("ha1")) ||
+	    	      caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSTATF().equalsIgnoreCase("h12")) ||
+	    	      caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSTATF().equalsIgnoreCase("h15")) ||
+	    	      caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSTATF().equalsIgnoreCase("h16")) ||
+	    	      caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSTATF().equalsIgnoreCase("h17")) ||
+	    	      caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSTATF().equalsIgnoreCase("h14"))
+	    				) ;
+	
+	    return true;
+	
+	  }
 
 }

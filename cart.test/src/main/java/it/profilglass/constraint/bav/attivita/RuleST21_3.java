@@ -23,18 +23,18 @@ public class RuleST21_3 extends it.profilglass.constraint.bav.attivita.subrules.
 	@Result
 	private List<Attivita> result;
 
+	@Then
+	public RuleState then()
+	{
+		result.add(ReadDB.getAttivitaFromId("ST21"));
+		return RuleState.NEXT;
+	}
+
 	@Override
 	@When
 	public boolean when()
 	{
 		return super.when() && caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSPESS().intValue() > 600
 																				&& caratteristica.getCLSPESS().intValue() <= 1490);
-	}
-
-	@Then
-	public RuleState then()
-	{
-		result.add(ReadDB.getAttivitaFromId("ST21"));
-		return RuleState.NEXT;
 	}
 }

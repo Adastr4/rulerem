@@ -18,6 +18,14 @@ public class RuleMLSTATF_18_3D_3T extends it.profilglass.constraint.bav.MLSTATF.
 	@Result
 	private String result;
 
+	@Then
+	public RuleState then()
+	{
+		System.out.println("Rule 17 entered");
+		result = "H24";
+		return RuleState.NEXT;
+	}
+
 	@Override
 	@When
 	public boolean when()
@@ -28,13 +36,5 @@ public class RuleMLSTATF_18_3D_3T extends it.profilglass.constraint.bav.MLSTATF.
 					 caratteristica.getCLSTATF().equalsIgnoreCase("H23") ||
 					 caratteristica.getCLSTATF().equalsIgnoreCase("H24"))
 				) && !super.when();
-	}
-
-	@Then
-	public RuleState then()
-	{
-		System.out.println("Rule 17 entered");
-		result = "H24";
-		return RuleState.NEXT;
 	}
 }

@@ -27,6 +27,43 @@ import it.profilglass.classmodel.ICaratteristica;
  */
 
 class CicloTest {
+	/**
+	 * dato un elenco di caratteristiche mi restituisce la lisat delle macchine che
+	 * possono lavorare quell'articolo
+	 *
+	 */
+	@Test
+	void cicloTest() {
+
+		ICaratteristica applicant1 = getCaratteristiche();
+		RuleBookRunner ruleBook = creaRoleBook("");
+		runRuleBook(ruleBook, applicant1);
+
+	}
+
+	private RuleBookRunner creaRoleBook(List caratteristiche) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	private RuleBookRunner creaRoleBook(String string) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	private ICaratteristica getCaratteristiche() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Test
+	void Macchina_3000_1O_H22_B00084_B00084_1000_1000_Test() {
+
+		ICaratteristica cara = new Caratteristica(new BigDecimal(3000),"1O","H22","B00084","B00084","MF","C","1000","1000", "C", "N","N" , "", "N", "H22", "1", "005", "2", "P", "0", "0", "+1,00", "-0,00",1,1, "1AA1050", "", "BA", "N");
+		System.out.println("Valore visualizzato: " + cara.getSLLANASLarg());
+		it.profilglass.constraints.Main.RuleMacchina(cara);
+
+	}
+
 	@Test
 	void Macchina_3000_1O_H22_B00084_B00084_1111_2222_Test() {
 
@@ -67,28 +104,6 @@ class CicloTest {
 
 	}
 
-	@Test
-	void Macchina_3000_1O_H22_B00084_B00084_1000_1000_Test() {
-
-		ICaratteristica cara = new Caratteristica(new BigDecimal(3000),"1O","H22","B00084","B00084","MF","C","1000","1000", "C", "N","N" , "", "N", "H22", "1", "005", "2", "P", "0", "0", "+1,00", "-0,00",1,1, "1AA1050", "", "BA", "N");
-		System.out.println("Valore visualizzato: " + cara.getSLLANASLarg());
-		it.profilglass.constraints.Main.RuleMacchina(cara);
-
-	}
-	/**
-	 * dato un elenco di caratteristiche mi restituisce la lisat delle macchine che
-	 * possono lavorare quell'articolo
-	 *
-	 */
-	@Test
-	void cicloTest() {
-
-		ICaratteristica applicant1 = getCaratteristiche();
-		RuleBookRunner ruleBook = creaRoleBook("");
-		runRuleBook(ruleBook, applicant1);
-
-	}
-
 	private void runRuleBook(RuleBookRunner ruleBook, ICaratteristica applicant1) {
 		NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
 		facts.put(new Fact<>(applicant1));
@@ -97,21 +112,6 @@ class CicloTest {
 		ruleBook.run(facts);
 
 
-	}
-
-	private RuleBookRunner creaRoleBook(String string) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	private RuleBookRunner creaRoleBook(List caratteristiche) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	private ICaratteristica getCaratteristiche() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

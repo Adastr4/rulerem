@@ -18,24 +18,24 @@ public class Operazione {
 		this.attivita = ReadDB.getClassmodelAttivitaFromId(attivitaId);
 	}
 
+	public Attivita getAttivita() {
+		return attivita;
+	}
+
 	public Macchina getMacchina() {
 		return macchina;
 	}
 
-	public void setMacchina(Macchina macchina) {
-		this.macchina = macchina;
-	}
-
-	public Attivita getAttivita() {
-		return attivita;
+	public int getOrdine() {
+		return ordine;
 	}
 
 	public void setAttivita(Attivita attivita) {
 		this.attivita = attivita;
 	}
 
-	public int getOrdine() {
-		return ordine;
+	public void setMacchina(Macchina macchina) {
+		this.macchina = macchina;
 	}
 
 	public void setOrdine(int ordine) {

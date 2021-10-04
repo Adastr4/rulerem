@@ -14,35 +14,35 @@ public class Attivita {
 		this.centroLavoroPred = centroLavoroPred;
 	}
 
-	public String getIdAttivita() {
-		return idAttivita;
-	}
-
-	public void setIdAttivita(String idAttivita) {
-		this.idAttivita = idAttivita;
+	public String getCentroLavoroPred() {
+		return centroLavoroPred;
 	}
 
 	public String getDescrizioneAttivita() {
 		return descrizioneAttivita;
 	}
 
-	public void setDescrizioneAttivita(String descrizioneAttivita) {
-		this.descrizioneAttivita = descrizioneAttivita;
+	public String getIdAttivita() {
+		return idAttivita;
 	}
 
 	public Macchina getMacchinaPred() {
 		return macchinaPred;
 	}
 
-	public void setMacchinaPred(Macchina macchinaPred) {
-		this.macchinaPred = macchinaPred;
-	}
-
-	public String getCentroLavoroPred() {
-		return centroLavoroPred;
-	}
-
 	public void setCentroLavoroPred(String centroLavoroPred) {
 		this.centroLavoroPred = centroLavoroPred;
+	}
+
+	public void setDescrizioneAttivita(String descrizioneAttivita) {
+		this.descrizioneAttivita = descrizioneAttivita;
+	}
+
+	public void setIdAttivita(String idAttivita) {
+		this.idAttivita = idAttivita;
+	}
+
+	public void setMacchinaPred(Macchina macchinaPred) {
+		this.macchinaPred = macchinaPred;
 	}
 }

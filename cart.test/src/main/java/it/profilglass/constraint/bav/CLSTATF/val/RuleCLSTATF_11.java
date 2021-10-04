@@ -20,6 +20,13 @@ public class RuleCLSTATF_11 extends it.profilglass.constraint.bav.CLSTATF.val.su
 	@Result
 	private boolean result;
 
+	@Then
+	public RuleState then()
+	{
+		result = Boolean.TRUE;
+		return RuleState.BREAK;
+	}
+
 	@Override
 	@When
 	public boolean when()
@@ -29,12 +36,5 @@ public class RuleCLSTATF_11 extends it.profilglass.constraint.bav.CLSTATF.val.su
 																																	   caratteristica.getCLSTATF().equalsIgnoreCase("T06") ||
 																																	   caratteristica.getCLSTATF().equalsIgnoreCase("T4P") ||
 																																	   caratteristica.getCLSTATF().equalsIgnoreCase("H00"))) && !super.when();
-	}
-
-	@Then
-	public RuleState then()
-	{
-		result = Boolean.TRUE;
-		return RuleState.BREAK;
 	}
 }

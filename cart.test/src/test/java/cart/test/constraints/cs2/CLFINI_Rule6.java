@@ -23,6 +23,13 @@ public class CLFINI_Rule6 {
 	@Result
 	private boolean validate;
 
+	@Then
+	public RuleState then() {
+		System.out.println("executed rule 6 no package");
+		validate = Boolean.FALSE;
+		return RuleState.BREAK;
+	}
+
 	@When
 	public boolean when() {
 		System.out.println("executing rule 6 no package");
@@ -44,13 +51,6 @@ public class CLFINI_Rule6 {
 						caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLLEGA().equalsIgnoreCase("3h"))
 
 						);
-	}
-
-	@Then
-	public RuleState then() {
-		System.out.println("executed rule 6 no package");
-		validate = Boolean.FALSE;
-		return RuleState.BREAK;
 	}
 
 

@@ -20,6 +20,14 @@ public class RuleSBATIPO_40 {
 	@Result
 	private Boolean result;
 
+	@Then
+	public RuleState then()
+	{
+		System.out.println("Rule SBATIPO 4 entered");
+		result = Boolean.TRUE;
+		return RuleState.BREAK;
+	}
+
 	@When
 	public boolean when()
 	{
@@ -28,13 +36,5 @@ public class RuleSBATIPO_40 {
 																   !caratteristica.getCLFINI().equalsIgnoreCase("D") &&
 																   !caratteristica.getCLFINI().equalsIgnoreCase("E") &&
 																   !caratteristica.getCLFINI().equalsIgnoreCase("G"));
-	}
-
-	@Then
-	public RuleState then()
-	{
-		System.out.println("Rule SBATIPO 4 entered");
-		result = Boolean.TRUE;
-		return RuleState.BREAK;
 	}
 }

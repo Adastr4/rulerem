@@ -20,17 +20,17 @@ public class RuleSBATIPO_30 {
 	@Result
 	private Boolean result;
 
-	@When
-	public boolean when()
-	{
-		return caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getSBATIPO() == 2);
-	}
-
 	@Then
 	public RuleState then()
 	{
 		System.out.println("Rule SBATIPO 3 entered");
 		result = Boolean.FALSE;
 		return RuleState.BREAK;
+	}
+
+	@When
+	public boolean when()
+	{
+		return caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getSBATIPO() == 2);
 	}
 }

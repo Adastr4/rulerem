@@ -20,6 +20,14 @@ public class RuleSBATIPO_80 {
 	@Result
 	private Boolean result;
 
+	@Then
+	public RuleState then()
+	{
+		System.out.println("Rule SBATIPO 9 entered");
+		result = Boolean.FALSE;
+		return RuleState.BREAK;
+	}
+
 	@When
 	public boolean when()
 	{
@@ -37,13 +45,5 @@ public class RuleSBATIPO_80 {
 																		caratteristica.getSLBP().equalsIgnoreCase("B02786") ||
 																		caratteristica.getSLBP().equalsIgnoreCase("B06468")
 																		));
-	}
-
-	@Then
-	public RuleState then()
-	{
-		System.out.println("Rule SBATIPO 9 entered");
-		result = Boolean.FALSE;
-		return RuleState.BREAK;
 	}
 }

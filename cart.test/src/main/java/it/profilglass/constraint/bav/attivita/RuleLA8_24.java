@@ -23,18 +23,18 @@ public class RuleLA8_24 extends it.profilglass.constraint.bav.attivita.subrules.
 	@Result
 	private List<Attivita> result;
 
+	@Then
+	public RuleState then()
+	{
+		result.add(ReadDB.getAttivitaFromId("LA8"));
+		return RuleState.NEXT;
+	}
+
 	@Override
 	@When
 	public boolean when()
 	{
 		return super.when() && caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getQLLAVDET().equalsIgnoreCase("E01")
 																				&& caratteristica.getCLSPESS().intValue() <= 3000);
-	}
-
-	@Then
-	public RuleState then()
-	{
-		result.add(ReadDB.getAttivitaFromId("LA8"));
-		return RuleState.NEXT;
 	}
 }
