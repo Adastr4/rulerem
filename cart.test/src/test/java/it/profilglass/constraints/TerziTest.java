@@ -329,7 +329,7 @@ public class TerziTest {
 		CLASSE = "EDT";
 
 		List<String> CLFINIValues = null;// Caratteristiche.getCLFINIValues();
-
+		if (CLFINIValues==null) return;
 		ListIterator<String> litr = CLFINIValues.listIterator();
 		while (litr.hasNext()) {
 
@@ -371,7 +371,7 @@ public class TerziTest {
 		String CLSTATF;
 
 		CLLEGA = "3A";
-
+		if (CLSTATFValues==null) return;
 		ListIterator<String> litr = CLSTATFValues.listIterator();
 		while (litr.hasNext()) {
 
@@ -417,7 +417,7 @@ public class TerziTest {
 		// CLLEGA = "3A";
 		// CLLEGA = "4A";
 		CLLEGA = "6B";
-
+		if (CLSTATFValues==null) return;
 		ListIterator<String> litr = CLSTATFValues.listIterator();
 		while (litr.hasNext()) {
 
