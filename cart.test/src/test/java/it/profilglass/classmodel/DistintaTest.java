@@ -2,6 +2,8 @@ package it.profilglass.classmodel;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
@@ -20,10 +22,27 @@ class DistintaTest {
 		item.getConf().getCaratteristicaById("CLLUNG").setSelectedValue("20000");
 		item.getConf().getCaratteristicaById("CLTOLLE").setSelectedValue("N");
 		item.getConf().getCaratteristicaById("CLRIVE").setSelectedValue("A");
-		item.getConf().getCaratteristicaById("SLLANAS").setSelectedValue("FAB1040");
+	//	item.getConf().getCaratteristicaById("SLLANAS").setSelectedValue("FAB1040");
 
-		List<LivelloDistinta> distinta = item.getConf().buildDistinta();
 	
+		RunDistintaNew(item).get(0);
+		
 	}
 
+	public List<LivelloDistinta> RunDistintaNew(GenericConfItem conf)
+	{
+		List<LivelloDistinta> distinta = conf.getConf().buildDistinta();
+		return distinta;
+	}
+	
+	@Test
+	public void distintaDefault()
+	{
+		List<LivelloDistinta> distinta = new ArrayList<LivelloDistinta>();
+		distinta.add(new LivelloDistinta(new GenericItem("BA5F3000HA11000020000MNA","BA",null),1,1));
+		distinta.add(new LivelloDistinta(new GenericItem("LB5F3000HA1MN","LB",null),2,1));
+		distinta.add(new LivelloDistinta(new GenericItem("IMCARG90L1000","IMCAR",null),2,2));
+		//return distinta;
+	}
+	
 }
