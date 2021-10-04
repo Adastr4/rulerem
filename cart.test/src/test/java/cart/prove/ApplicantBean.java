@@ -1,4 +1,4 @@
-package test.test;
+package cart.prove;
 
 public class ApplicantBean {
 	private int creditScore;

@@ -10,6 +10,7 @@ import com.deliveredtechnologies.rulebook.FactMap;
 import com.deliveredtechnologies.rulebook.NameValueReferableMap;
 import com.deliveredtechnologies.rulebook.model.runner.RuleBookRunner;
 
+import cart.prove.Caratteristiche;
 import it.profilglass.classmodel.Caratteristica;
 import it.profilglass.classmodel.ConfiguratoreBAV;
 import it.profilglass.classmodel.GenericConfItem;
@@ -17,7 +18,6 @@ import it.profilglass.classmodel.GenericItem;
 import it.profilglass.classmodel.ICaratteristica;
 import it.profilglass.classmodel.LivelloDistinta;
 import it.profilglass.classmodel.Macchina;
-import test.test.Caratteristiche;
 
 
 public class Main {

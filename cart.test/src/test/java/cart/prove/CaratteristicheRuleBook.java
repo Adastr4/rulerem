@@ -1,4 +1,4 @@
-package test.test;
+package cart.prove;
 
 import com.deliveredtechnologies.rulebook.lang.RuleBuilder;
 import com.deliveredtechnologies.rulebook.model.RuleBook;
