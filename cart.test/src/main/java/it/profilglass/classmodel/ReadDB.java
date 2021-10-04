@@ -1,4 +1,4 @@
-package test.test;
+package it.profilglass.classmodel;
 
 import java.math.BigDecimal;
 import java.sql.Connection;
@@ -8,10 +8,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
-import it.profilglass.classmodel.Caratteristica;
-import it.profilglass.classmodel.ICaratteristica;
-import it.profilglass.classmodel.Opzione;
 
 public class ReadDB {
 	private static Connection conn =null;

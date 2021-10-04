@@ -3,8 +3,6 @@ package it.profilglass.classmodel;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
-import test.test.ReadDB;
-
 public class Caratteristica implements ICaratteristica {
 
 	private String caratteristicaId;

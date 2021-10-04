@@ -18,8 +18,9 @@ import it.profilglass.classmodel.GenericConfItem;
 import it.profilglass.classmodel.GenericItem;
 import it.profilglass.classmodel.ICaratteristica;
 import it.profilglass.classmodel.LivelloDistinta;
+import it.profilglass.classmodel.Macchina;
 import test.test.Caratteristiche;
-import test.test.Macchina;
+
 
 public class Main {
 

@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import it.profilglass.classmodel.ReadDB;
+
 public class Caratteristiche {
 	private static List<String> cllegaValues = new ArrayList<>();
 	private static List<String> clstatfValues = new ArrayList<>();

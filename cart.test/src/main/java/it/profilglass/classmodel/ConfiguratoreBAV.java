@@ -9,8 +9,6 @@ import com.deliveredtechnologies.rulebook.FactMap;
 import com.deliveredtechnologies.rulebook.NameValueReferableMap;
 import com.deliveredtechnologies.rulebook.model.runner.RuleBookRunner;
 
-import test.test.ReadDB;
-
 public class ConfiguratoreBAV extends Configuratore {
 
 	public ConfiguratoreBAV()

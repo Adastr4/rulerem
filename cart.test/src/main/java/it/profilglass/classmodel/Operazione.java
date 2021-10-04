@@ -1,7 +1,5 @@
 package it.profilglass.classmodel;
 
-import test.test.ReadDB;
-
 public class Operazione {
 	private Macchina macchina;
 	private Attivita attivita;

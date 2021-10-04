@@ -9,9 +9,10 @@ import com.deliveredtechnologies.rulebook.annotation.Rule;
 import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
+import it.profilglass.classmodel.Attivita;
 import it.profilglass.classmodel.ICaratteristica;
-import test.test.Attivita;
-import test.test.ReadDB;
+import it.profilglass.classmodel.ReadDB;
+
 
 @Rule(order = 1, name = "ruleLA7_1")
 

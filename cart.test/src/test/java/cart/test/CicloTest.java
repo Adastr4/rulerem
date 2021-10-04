@@ -15,7 +15,7 @@ import com.deliveredtechnologies.rulebook.model.runner.RuleBookRunner;
 
 import it.profilglass.classmodel.Caratteristica;
 import it.profilglass.classmodel.ICaratteristica;
-import test.test.Macchina;
+
 
 /**
  * per la generazione del ciclo A partire da una serie di caratteristiche viene
