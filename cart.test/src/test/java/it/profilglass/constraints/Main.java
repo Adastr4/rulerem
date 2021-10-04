@@ -10,6 +10,7 @@ import com.deliveredtechnologies.rulebook.FactMap;
 import com.deliveredtechnologies.rulebook.NameValueReferableMap;
 import com.deliveredtechnologies.rulebook.model.runner.RuleBookRunner;
 
+import it.profilglass.classmodel.Caratteristica;
 import it.profilglass.classmodel.ConfiguratoreBAV;
 import it.profilglass.classmodel.GenericConfItem;
 import it.profilglass.classmodel.GenericItem;
@@ -131,7 +132,7 @@ public class Main {
 		RuleBookRunner ruleBookCLSPESS = new RuleBookRunner("it.profilglass.constraint.bav.f092.CLSPESS");
 		RuleBookRunner ruleBookSLTOLLA = new RuleBookRunner("it.profilglass.constraint.bav.f092.SLTOLLA");
 		NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
-		ICaratteristica applicant1 = new ICaratteristica(CLSPESS, CLLEGA, CLSTATF, SLBPTE, SLBP, CLFINI, CLASSE, CLLARG, CLLUNG, CLRIVE, CLTOLLE, DLDEST, DLLAV, DLLUBRI, MLSTATF, PLACKG, PMETC, QSPEC, SLTOLLA, DLLATOLP, DLLATOLN, SLLATOLP, SLLATOLN,1,1, SLLANAS, QLLAVDET, SLMOD, QLLAV);
+		ICaratteristica applicant1 = new Caratteristica(CLSPESS, CLLEGA, CLSTATF, SLBPTE, SLBP, CLFINI, CLASSE, CLLARG, CLLUNG, CLRIVE, CLTOLLE, DLDEST, DLLAV, DLLUBRI, MLSTATF, PLACKG, PMETC, QSPEC, SLTOLLA, DLLATOLP, DLLATOLN, SLLATOLP, SLLATOLN,1,1, SLLANAS, QLLAVDET, SLMOD, QLLAV);
 
 		facts.put(new Fact<>(applicant1));
 
@@ -364,7 +365,7 @@ public class Main {
 														while (litr13.hasNext())
 														{
 															QLLAV = litr13.next();
-															returnCases.add(new ICaratteristica(CLSPESS, CLLEGA, CLSTATF, SLBPTE, SLBP, CLFINI, CLASSE, CLLARG, CLLUNG, CLRIVE, CLTOLLE, DLDEST, DLLAV, DLLUBRI, MLSTATF, PLACKG, PMETC, QSPEC, SLTOLLA, DLLATOLP, DLLATOLP, SLLATOLP, SLLATOLP,1,1, SLLANAS, QLLAVDET, SLMOD, QLLAV));
+															returnCases.add(new Caratteristica(CLSPESS, CLLEGA, CLSTATF, SLBPTE, SLBP, CLFINI, CLASSE, CLLARG, CLLUNG, CLRIVE, CLTOLLE, DLDEST, DLLAV, DLLUBRI, MLSTATF, PLACKG, PMETC, QSPEC, SLTOLLA, DLLATOLP, DLLATOLP, SLLATOLP, SLLATOLP,1,1, SLLANAS, QLLAVDET, SLMOD, QLLAV));
 														}
 													}
 												}
@@ -387,7 +388,7 @@ public class Main {
 	{
 		RuleBookRunner ruleBookCLLARG = new RuleBookRunner("it.profilglass.constraint.bav.f092.CLLARG");
 		NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
-		ICaratteristica applicant1 = new ICaratteristica(CLSPESS, CLLEGA, CLSTATF, SLBPTE, SLBP, CLFINI, CLASSE, CLLARG, CLLUNG, CLRIVE, CLTOLLE, DLDEST, DLLAV, DLLUBRI, MLSTATF, PLACKG, PMETC, QSPEC, SLTOLLA, DLLATOLP, DLLATOLN, SLLATOLP, SLLATOLN,1,1, SLLANAS, QLLAVDET, SLMOD, QLLAV);
+		ICaratteristica applicant1 = new Caratteristica(CLSPESS, CLLEGA, CLSTATF, SLBPTE, SLBP, CLFINI, CLASSE, CLLARG, CLLUNG, CLRIVE, CLTOLLE, DLDEST, DLLAV, DLLUBRI, MLSTATF, PLACKG, PMETC, QSPEC, SLTOLLA, DLLATOLP, DLLATOLN, SLLATOLP, SLLATOLN,1,1, SLLANAS, QLLAVDET, SLMOD, QLLAV);
 		
 		facts.put(new Fact<>(applicant1));
 		ruleBookCLLARG.run(facts);
@@ -422,6 +423,12 @@ public class Main {
 		}
 	}
 	
+	static void testMLSTATFRuleStandard(String cllega, String clstatf, String cllarg, String cllung,
+			Integer clspess, String clrive, String dldest, String slbp) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	private static void Rulef092CLLARGExecutorList()
 	{
 		RuleBookRunner ruleBookCLLARG = new RuleBookRunner("it.profilglass.constraint.bav.f092.CLLARG");
@@ -597,7 +604,7 @@ public class Main {
 	{
 		RuleBookRunner ruleBookCLLARG = new RuleBookRunner("it.profilglass.constraint.bav.val.SLLATOLP");
 		NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
-		ICaratteristica applicant1 = new ICaratteristica(CLSPESS, "A3", "H00", "A", "", "", "", CLLARG, "", "", "", "", "", "", "", "", "", "", SLTOLLA, DLLATOLP, "", SLLATOLP, "",1,1,"3CJ1240","B11","BA","N");
+		ICaratteristica applicant1 = new Caratteristica(CLSPESS, "A3", "H00", "A", "", "", "", CLLARG, "", "", "", "", "", "", "", "", "", "", SLTOLLA, DLLATOLP, "", SLLATOLP, "",1,1,"3CJ1240","B11","BA","N");
 		
 		ruleBookCLLARG.setDefaultResult(Boolean.TRUE);
 		facts.put(new Fact<>(applicant1));
@@ -693,7 +700,7 @@ public class Main {
 	{
 		RuleBookRunner ruleBookCLLARG = new RuleBookRunner("it.profilglass.constraint.bav.val.SLLATOLN");
 		NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
-		ICaratteristica applicant1 = new ICaratteristica(CLSPESS, "A3", "H00", "A", "", "", "", CLLARG, "", "", "", "", "", "", "", "", "", "", SLTOLLA, "" , DLLATOLN, "" , SLLATOLN,1,1,"3CJ1240","B11","BA","N");
+		ICaratteristica applicant1 = new Caratteristica(CLSPESS, "A3", "H00", "A", "", "", "", CLLARG, "", "", "", "", "", "", "", "", "", "", SLTOLLA, "" , DLLATOLN, "" , SLLATOLN,1,1,"3CJ1240","B11","BA","N");
 		
 		ruleBookCLLARG.setDefaultResult(Boolean.TRUE);
 		facts.put(new Fact<>(applicant1));
@@ -748,7 +755,7 @@ public class Main {
 	{
 		RuleBookRunner ruleBookCLLARG = new RuleBookRunner("it.profilglass.constraint.bav.f088");
 		NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
-		ICaratteristica applicant1 = new ICaratteristica(CLSPESS, CLLEGA, CLSTATF, SLBPTE, SLBP, CLFINI, CLASSE, CLLARG, CLLUNG, CLRIVE, CLTOLLE, DLDEST, DLLAV, DLLUBRI, MLSTATF, PLACKG, PMETC, QSPEC, SLTOLLA, DLLATOLP, DLLATOLN, SLLATOLP, SLLATOLN, 1, 1, "3CJ1240", QLLAVDET, SLMOD, QLLAV);
+		ICaratteristica applicant1 = new Caratteristica(CLSPESS, CLLEGA, CLSTATF, SLBPTE, SLBP, CLFINI, CLASSE, CLLARG, CLLUNG, CLRIVE, CLTOLLE, DLDEST, DLLAV, DLLUBRI, MLSTATF, PLACKG, PMETC, QSPEC, SLTOLLA, DLLATOLP, DLLATOLN, SLLATOLP, SLLATOLN, 1, 1, "3CJ1240", QLLAVDET, SLMOD, QLLAV);
 		
 		facts.put(new Fact<>(applicant1));
 		ruleBookCLLARG.run(facts);
@@ -772,7 +779,7 @@ public class Main {
 	{
 		RuleBookRunner ruleBookCLLARG = new RuleBookRunner("it.profilglass.constraint.bav.f089");
 		NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
-		ICaratteristica applicant1 = new ICaratteristica(CLSPESS, CLLEGA, CLSTATF, SLBPTE, SLBP, CLFINI, CLASSE, CLLARG, CLLUNG, CLRIVE, CLTOLLE, DLDEST, DLLAV, DLLUBRI, MLSTATF, PLACKG, PMETC, QSPEC, SLTOLLA, DLLATOLP, DLLATOLN, SLLATOLP, SLLATOLN, 1, 1, SLLANAS, QLLAVDET, SLMOD, QLLAV);
+		ICaratteristica applicant1 = new Caratteristica(CLSPESS, CLLEGA, CLSTATF, SLBPTE, SLBP, CLFINI, CLASSE, CLLARG, CLLUNG, CLRIVE, CLTOLLE, DLDEST, DLLAV, DLLUBRI, MLSTATF, PLACKG, PMETC, QSPEC, SLTOLLA, DLLATOLP, DLLATOLN, SLLATOLP, SLLATOLN, 1, 1, SLLANAS, QLLAVDET, SLMOD, QLLAV);
 		
 		facts.put(new Fact<>(applicant1));
 		ruleBookCLLARG.run(facts);
@@ -1160,5 +1167,17 @@ public class Main {
 		distinta.add(new LivelloDistinta(new GenericItem("LB5F3000HA1MN","LB",null),2,1));
 		distinta.add(new LivelloDistinta(new GenericItem("IMCARG90L1000","IMCAR",null),2,2));
 		return distinta;
+	}
+
+	public static Object testRuleSLLATOLNStandard(Integer clspess, String string, String string2, String string3,
+			String string4) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public static Object testRuleSLLATOLPStandard(Integer clspess, String string, String string2, String string3,
+			String string4) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

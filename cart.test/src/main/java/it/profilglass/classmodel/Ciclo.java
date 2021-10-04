@@ -3,9 +3,9 @@ package it.profilglass.classmodel;
 import java.util.List;
 
 public class Ciclo {
-	
 
-	
+
+
 	private List<Operazione> operazioni;
 
 
@@ -22,12 +22,12 @@ public class Ciclo {
 	public String getIdCiclo() {
 		return idCiclo;
 	}
-	
+
 	public List<Operazione> getOperazioni() {
 		return operazioni;
 	}
 
-	
+
 
 	public boolean isStandard() {
 		return isStandard;
@@ -44,6 +44,6 @@ public class Ciclo {
 	public void setStandard(boolean isStandard) {
 		this.isStandard = isStandard;
 	}
-	
-	
+
+
 }

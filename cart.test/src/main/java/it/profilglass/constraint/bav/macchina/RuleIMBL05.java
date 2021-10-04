@@ -16,18 +16,18 @@ import test.test.ReadDB;
 @Rule(order = 9, name = "ruleIMBL05")
 
 public class RuleIMBL05 {
-	@Given("caratteristica") 
+	@Given("caratteristica")
 	ICaratteristica caratteristica; //Annotated Lists get injected with all Facts of the declared generic type
 
 	@Result
 	private ArrayList<Macchina> result;
-	
+
 	@When
 	public boolean when()
 	{
 		return ReadDB.isMacchineListFromCharacteristicsValid(caratteristica.getCLLARG(),caratteristica.getCLLUNG(),caratteristica.getCLSPESS().toString(),caratteristica.getSLLANASLarg() - ((Integer.parseInt(caratteristica.getCLLARG())/10) * caratteristica.getBandellineNumInSLLANAS()),caratteristica.getCLFINI(),caratteristica.getCLRIVE(),"IMBL05");
 	}
-	
+
 	@Then
 	public RuleState then()
 	{

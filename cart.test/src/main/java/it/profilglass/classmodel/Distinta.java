@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Distinta<LivelloDistinta> {
-	 
-	private List<Distinta<LivelloDistinta>> children = new ArrayList<Distinta<LivelloDistinta>>();
+
+	private List<Distinta<LivelloDistinta>> children = new ArrayList<>();
     private Distinta<LivelloDistinta> parent = null;
     private LivelloDistinta data = null;
 
@@ -13,7 +13,7 @@ public class Distinta<LivelloDistinta> {
     {
     	this.data = null;
     }
-    
+
     public Distinta(LivelloDistinta data) {
         this.data = data;
     }
@@ -33,7 +33,7 @@ public class Distinta<LivelloDistinta> {
     }
 
     public void addChild(LivelloDistinta data) {
-        Distinta<LivelloDistinta> child = new Distinta<LivelloDistinta>(data);
+        Distinta<LivelloDistinta> child = new Distinta<>(data);
         child.setParent(this);
         this.children.add(child);
     }
@@ -62,5 +62,5 @@ public class Distinta<LivelloDistinta> {
     public void removeParent() {
         this.parent = null;
     }
-	 
+
 }

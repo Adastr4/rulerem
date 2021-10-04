@@ -16,24 +16,24 @@ import it.profilglass.classmodel.LivelloDistinta;
 @Rule(order = 3, name = "ruleBA_LB_2")
 
 public class RuleBA_LB_2 {
-	@Given 
+	@Given
 	private List<ICaratteristica> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 
 	@Result
 	private List<LivelloDistinta> result;
-	
+
 	@When
 	public boolean when()
 	{
-		return !caratteristiche.stream().filter(caratteristica -> "SLMOD".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().equalsIgnoreCase("BP"); 
+		return !caratteristiche.stream().filter(caratteristica -> "SLMOD".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().equalsIgnoreCase("BP");
 	}
-	
+
 	@Then
 	public RuleState then()
 	{
 		//result.add(ReadDB.getAttivitaFromId("BA1"));
-		result.add(new LivelloDistinta(new GenericItem("LB" + caratteristiche.stream().filter(caratteristica -> "CLLEGA".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue() + 
-																				caratteristiche.stream().filter(caratteristica -> "CLSPESS".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue() + 
+		result.add(new LivelloDistinta(new GenericItem("LB" + caratteristiche.stream().filter(caratteristica -> "CLLEGA".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue() +
+																				caratteristiche.stream().filter(caratteristica -> "CLSPESS".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue() +
 																				caratteristiche.stream().filter(caratteristica -> "MLSTATF".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue() +
 																				caratteristiche.stream().filter(caratteristica -> "SLLANAS".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().substring(3, 6) +
 																				caratteristiche.stream().filter(caratteristica -> "CLFINI".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue() +

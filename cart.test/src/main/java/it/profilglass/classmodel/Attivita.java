@@ -5,7 +5,7 @@ public class Attivita {
 	private String descrizioneAttivita;
 	private Macchina macchinaPred;
 	private String centroLavoroPred;
-	
+
 	public Attivita(String idAttivita, String descrizioneAttivita, Macchina macchinaPred, String centroLavoroPred)
 	{
 		this.idAttivita = idAttivita;

@@ -3,7 +3,7 @@ package it.profilglass.classmodel;
 public class Opzione {
 	private String opzione;
 	private String descrizione;
-	
+
 	public Opzione(String opzione, String descrizione)
 	{
 		this.opzione = opzione;
@@ -25,6 +25,6 @@ public class Opzione {
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
 	}
-	
-	
+
+
 }

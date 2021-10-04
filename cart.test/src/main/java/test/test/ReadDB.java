@@ -271,7 +271,7 @@ public class ReadDB {
 
 			}
 		}
-		
+
 		public static it.profilglass.classmodel.Macchina getClassmodelMacchinaFromId(String idMacchina)
 		{
 			Statement stmt = null;
@@ -319,7 +319,7 @@ public class ReadDB {
 
 			}
 		}
-		
+
 		public static Attivita getAttivitaFromId(String idAttivita)
 		{
 			Statement stmt = null;
@@ -415,7 +415,7 @@ public class ReadDB {
 
 			}
 		}
-		
+
 		public static String getMacchineListFromCharacteristics(String CLLARG, String CLLUNG, String CLSPESS, int rifilo, String CLFINI, String CLRIVE, String idMacchina)
 		{
 			Statement stmt = null;
@@ -484,11 +484,11 @@ public class ReadDB {
 
 
 				stmt = conn.createStatement();
-		 
+
 				query = "SELECT idMacchina FROM ciclo_macchina_rules WHERE LargMin <=" + Integer.parseInt(CLLARG)/10 + " AND LargMax >=" + Integer.parseInt(CLLARG)/10 +
-						 										" AND LungMin <=" + Integer.parseInt(CLLUNG)/10 + " AND LungMax >= " + Integer.parseInt(CLLUNG)/10 + 
-						 										" AND SpessMin <=" + Double.parseDouble(CLSPESS)/1000 + " AND SpessMax >= " + Double.parseDouble(CLSPESS)/1000 + 
-						 										" AND RifiloMin <=" + rifilo + " AND RifiloMax >=" + rifilo + 
+						 										" AND LungMin <=" + Integer.parseInt(CLLUNG)/10 + " AND LungMax >= " + Integer.parseInt(CLLUNG)/10 +
+						 										" AND SpessMin <=" + Double.parseDouble(CLSPESS)/1000 + " AND SpessMax >= " + Double.parseDouble(CLSPESS)/1000 +
+						 										" AND RifiloMin <=" + rifilo + " AND RifiloMax >=" + rifilo +
 						 										" AND FinituraList LIKE '%" + CLFINI + "%' AND" +
 						 										" (RivestimentoList = 'TUTTI' OR (RivestimentoList = 'NESSUNO' AND '" + CLRIVE + "' = '') OR RivestimentoList LIKE '%" + CLRIVE + "%') " +
 						 										" AND idMacchina = '" + idMacchina + "'LIMIT 1";
@@ -530,18 +530,18 @@ public class ReadDB {
 
 			}
 		}
-		
+
 		public static ArrayList<Opzione> getOpzioniList(String configuratore, String caratteristica)
 		{
 			Statement stmt = null;
 			String query = null;
-			ArrayList<Opzione> ret = new ArrayList<Opzione>();
+			ArrayList<Opzione> ret = new ArrayList<>();
 			ResultSet rs = null;
 			try {
 				// The newInstance() call is a work around for some
 				// broken Java implementations
 
-			
+
 				stmt = conn.createStatement();
 				query = "SELECT opzione, descrizione FROM caratteristiche WHERE trim(articolo) ='" + configuratore + "' AND caratteristica ='" + caratteristica + "'";
 				rs = stmt.executeQuery(query);
@@ -579,18 +579,18 @@ public class ReadDB {
 
 			}
 		}
-		
+
 		public static ArrayList<ICaratteristica> getCaratteristicheFromConfigurator(String articolo)
 		{
 			Statement stmt = null;
 			String query = null;
-			ArrayList<ICaratteristica> ret = new ArrayList<ICaratteristica>();
+			ArrayList<ICaratteristica> ret = new ArrayList<>();
 			ResultSet rs = null;
 			try {
 				// The newInstance() call is a work around for some
 				// broken Java implementations
 
-			
+
 				stmt = conn.createStatement();
 				query = "SELECT Caratteristica, Descrizione, Sequenza FROM caratteristicaconfiguratore WHERE trim(articolo) ='" + articolo + "' AND ExpireDate >= current_date";
 				rs = stmt.executeQuery(query);

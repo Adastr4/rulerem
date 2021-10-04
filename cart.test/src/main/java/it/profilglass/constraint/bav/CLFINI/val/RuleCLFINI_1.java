@@ -15,7 +15,7 @@ import it.profilglass.classmodel.ICaratteristica;
 
 public class RuleCLFINI_1 extends it.profilglass.constraint.bav.CLFINI.val.sub1.RuleCLFINI_0{
 
-	@Given 
+	@Given
 	//private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 	private List<ICaratteristica> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 
@@ -32,7 +32,7 @@ public class RuleCLFINI_1 extends it.profilglass.constraint.bav.CLFINI.val.sub1.
 		//																		 || caratteristica.getCLFINI().toString().equalsIgnoreCase("U")
 		//																		 || caratteristica.getCLFINI().toString().equalsIgnoreCase("Y")
 		//																		 || caratteristica.getCLFINI().toString().equalsIgnoreCase("O"));
-		
+
 		return super.when() && !(caratteristiche.stream().filter(caratteristica -> "CLFINI".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().equalsIgnoreCase("I")
 								|| caratteristiche.stream().filter(caratteristica -> "CLFINI".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().equalsIgnoreCase("T")
 								|| caratteristiche.stream().filter(caratteristica -> "CLFINI".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().equalsIgnoreCase("U")

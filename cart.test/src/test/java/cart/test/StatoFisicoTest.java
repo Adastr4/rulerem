@@ -15,7 +15,8 @@ import com.deliveredtechnologies.rulebook.lang.RuleBookBuilder;
 import com.deliveredtechnologies.rulebook.model.RuleBook;
 import com.deliveredtechnologies.rulebook.model.runner.RuleBookRunner;
 
-import test.test.ICaratteristica;
+import it.profilglass.classmodel.Caratteristica;
+import it.profilglass.classmodel.ICaratteristica;
 
 class StatoFisicoTest {
 
@@ -24,7 +25,7 @@ class StatoFisicoTest {
 		RuleBook statoFisicoRuleBook = RuleBookBuilder.create(StatoFisicoRuleBook.class).withResultType(String.class)
 				.withDefaultResult("Caratteristica fisica  NON ammessa").build();
 		NameValueReferableMap facts = new FactMap();
-		facts.setValue("Caratteristica", new ICaratteristica(new BigDecimal(19.8), "3A", "H00", "", "", "", ""));
+		facts.setValue("Caratteristica", new Caratteristica(new BigDecimal(19.8), "3A", "H00", "", "", "", ""));
 		statoFisicoRuleBook.run(facts);
 
 		statoFisicoRuleBook.getResult().ifPresent(result -> System.out.println(result));
@@ -47,7 +48,7 @@ class StatoFisicoTest {
 
 		NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
 
-		ICaratteristica applicant1 = new ICaratteristica(new BigDecimal(650), CLLEGA, CLSTATF, "", "", CLFINI,
+		ICaratteristica applicant1 = new Caratteristica(new BigDecimal(650), CLLEGA, CLSTATF, "", "", CLFINI,
 				CLASSE);
 
 		facts.put(new Fact<>(applicant1));
@@ -87,7 +88,7 @@ class StatoFisicoTest {
 							|| s.equalsIgnoreCase("cart.test.library.subrules1")
 							|| s.equalsIgnoreCase("cart.test.library.subrules2"));
 			NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
-			ICaratteristica applicant1 = new ICaratteristica(new BigDecimal(650), CLLEGA, CLSTATF, "B07187",
+			ICaratteristica applicant1 = new Caratteristica(new BigDecimal(650), CLLEGA, CLSTATF, "B07187",
 					"B07187", "", "");
 
 			facts.put(new Fact<>(applicant1));

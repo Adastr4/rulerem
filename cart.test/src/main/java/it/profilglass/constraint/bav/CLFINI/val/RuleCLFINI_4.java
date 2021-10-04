@@ -15,7 +15,7 @@ import it.profilglass.classmodel.ICaratteristica;
 
 public class RuleCLFINI_4 extends it.profilglass.constraint.bav.CLFINI.val.sub1.RuleCLFINI_0 {
 
-	@Given 
+	@Given
 	//private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 	private List<ICaratteristica> caratteristiche;
 

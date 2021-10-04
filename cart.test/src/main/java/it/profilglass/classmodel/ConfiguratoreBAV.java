@@ -12,7 +12,7 @@ import com.deliveredtechnologies.rulebook.model.runner.RuleBookRunner;
 import test.test.ReadDB;
 
 public class ConfiguratoreBAV extends Configuratore {
-	
+
 	public ConfiguratoreBAV()
 	{
 		try {
@@ -24,10 +24,11 @@ public class ConfiguratoreBAV extends Configuratore {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		cicli=new ArrayList<Ciclo>() ;
-		distinte= new ArrayList<Distinta>() ;
+		cicli=new ArrayList<>() ;
+		distinte= new ArrayList<>() ;
 	}
-	
+
+	@Override
 	public boolean runCaratteristicaValidationRuleByIndex(int index)
 	{
 		try
@@ -36,12 +37,12 @@ public class ConfiguratoreBAV extends Configuratore {
 			NameValueReferableMap<List<ICaratteristica>> facts = new FactMap<>();
 			facts.put(new Fact<>(this.caratteristiche));
 			ruleBook.run(facts);
-			
+
 			if(ruleBook.getResult().isPresent())
 			{
 				return (boolean) ruleBook.getResult().get().getValue();
 			}
-			
+
 			return false;
 		}
 		catch(Exception ex)
@@ -50,7 +51,8 @@ public class ConfiguratoreBAV extends Configuratore {
 			return false;
 		}
 	}
-	
+
+	@Override
 	public boolean runCaratteristicaValidationRuleByName(String name)
 	{
 		try
@@ -59,14 +61,14 @@ public class ConfiguratoreBAV extends Configuratore {
 			NameValueReferableMap<Caratteristica> facts = new FactMap<>();
 			for(ICaratteristica cara : this.caratteristiche)
 				facts.put(new Fact<>((Caratteristica)cara));
-			
+
 			ruleBook.run(facts);
-			
+
 			if(ruleBook.getResult().isPresent())
 			{
 				return (boolean) ruleBook.getResult().get().getValue();
 			}
-			
+
 			return false;
 		}
 		catch(Exception ex)
@@ -75,7 +77,8 @@ public class ConfiguratoreBAV extends Configuratore {
 			return false;
 		}
 	}
-	
+
+	@Override
 	public boolean runCaratteristicaDefaultValueRuleByIndex(int index)
 	{
 		try
@@ -84,15 +87,15 @@ public class ConfiguratoreBAV extends Configuratore {
 			NameValueReferableMap<Caratteristica> facts = new FactMap<>();
 			for(ICaratteristica cara : this.caratteristiche)
 				facts.put(new Fact<>((Caratteristica)cara));
-			
+
 			ruleBook.run(facts);
-			
+
 			if(ruleBook.getResult().isPresent())
 			{
 				this.caratteristiche.get(index).setSelectedValue(ruleBook.getResult().get().getValue().toString());
 				return true;
 			}
-			
+
 			return false;
 		}
 		catch(Exception ex)
@@ -101,7 +104,8 @@ public class ConfiguratoreBAV extends Configuratore {
 			return false;
 		}
 	}
-	
+
+	@Override
 	public boolean runCaratteristicaDefaultValueRuleByName(String name)
 	{
 		try
@@ -110,15 +114,15 @@ public class ConfiguratoreBAV extends Configuratore {
 			NameValueReferableMap<Caratteristica> facts = new FactMap<>();
 			for(ICaratteristica cara : this.caratteristiche)
 				facts.put(new Fact<>((Caratteristica)cara));
-			
+
 			ruleBook.run(facts);
-			
+
 			if(ruleBook.getResult().isPresent())
 			{
 				this.getCaratteristicaById(name).setSelectedValue(ruleBook.getResult().get().getValue().toString());
 				return true;
 			}
-			
+
 			return false;
 		}
 		catch(Exception ex)
@@ -127,7 +131,8 @@ public class ConfiguratoreBAV extends Configuratore {
 			return false;
 		}
 	}
-	
+
+	@Override
 	public List<LivelloDistinta> buildDistinta()
 	{
 		try
@@ -136,14 +141,14 @@ public class ConfiguratoreBAV extends Configuratore {
 			NameValueReferableMap<Caratteristica> facts = new FactMap<>();
 			for(ICaratteristica cara : this.caratteristiche)
 				facts.put(new Fact<>((Caratteristica)cara));
-			
+
 			ruleBook.run(facts);
-			
+
 			if(ruleBook.getResult().isPresent())
 			{
 				return (List<LivelloDistinta>) ruleBook.getResult().get().getValue();
 			}
-			
+
 			return null;
 		}
 		catch(Exception ex)

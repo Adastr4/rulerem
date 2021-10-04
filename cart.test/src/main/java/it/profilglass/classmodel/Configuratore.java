@@ -33,27 +33,27 @@ public abstract class Configuratore {
 		this.caratteristiche = caratteristiche;
 	}
 
-	
+
 	public List<LivelloDistinta> buildDistinta()
 	{
-		return new ArrayList<LivelloDistinta>();
+		return new ArrayList<>();
 	}
-	
+
 	public List<ICaratteristica> getOrderedCaratteristiche()
 	{
 		return this.caratteristiche;
 	}
-	
+
 	public void setCaratteristicaValue(String idCaratteristica, String value)
 	{
 		this.getCaratteristicaById(idCaratteristica).setSelectedValue(value);
 	}
-	
+
 	public List<Opzione> getCaratteristicaOpzioni(String idCaratteristica)
 	{
 		return this.getCaratteristicaById(idCaratteristica).getValori();
 	}
-	
+
 	public ICaratteristica getCaratteristicaById(String Id)
 	{
 		for(ICaratteristica cara : this.caratteristiche)
@@ -63,25 +63,25 @@ public abstract class Configuratore {
 				return cara;
 			}
 		}
-		
+
 		return null;
 	}
-	
+
 	public boolean runCaratteristicaValidationRuleByIndex(int index)
 	{
 		return true;
 	}
-	
+
 	public boolean runCaratteristicaValidationRuleByName(String name)
 	{
 		return true;
 	}
-	
+
 	public boolean runCaratteristicaDefaultValueRuleByIndex(int index)
 	{
 		return true;
 	}
-	
+
 	public boolean runCaratteristicaDefaultValueRuleByName(String name)
 	{
 		return true;

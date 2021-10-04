@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LivelloDistinta {
-	
+
 	private GenericItem articoloDistinta;
 	private List<GenericItem> articoliAlternativi;
 	private int livelloDistinta;
 	private int livelloOrdine;
-	
+
 	public LivelloDistinta(GenericItem articoloDistinta, List<GenericItem> articoliAlternativi, int livelloDistinta, int livelloOrdine)
 	{
 		this.articoloDistinta = articoloDistinta;
@@ -17,13 +17,13 @@ public class LivelloDistinta {
 		this.livelloDistinta = livelloDistinta;
 		this.livelloOrdine = livelloOrdine;
 	}
-	
+
 	public LivelloDistinta(GenericItem articoloDistinta, int livelloDistinta, int livelloOrdine)
 	{
 		this.articoloDistinta = articoloDistinta;
 		this.livelloDistinta = livelloDistinta;
 		this.livelloOrdine = livelloOrdine;
-		this.articoliAlternativi = new ArrayList<GenericItem>();
+		this.articoliAlternativi = new ArrayList<>();
 	}
 
 	public GenericItem getArticoloDistinta() {

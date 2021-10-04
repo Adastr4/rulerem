@@ -16,18 +16,18 @@ import it.profilglass.classmodel.LivelloDistinta;
 @Rule(order = 4, name = "ruleBA_IMCAR_3_1")
 
 public class RuleBA_IMCAR_3_1 {
-	@Given 
+	@Given
 	private List<ICaratteristica> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 
 	@Result
 	private List<LivelloDistinta> result;
-	
+
 	@When
 	public boolean when()
 	{
-		return caratteristiche.stream().filter(caratteristica -> "CLRIVE".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().equalsIgnoreCase("A"); 
+		return caratteristiche.stream().filter(caratteristica -> "CLRIVE".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().equalsIgnoreCase("A");
 	}
-	
+
 	@Then
 	public RuleState then()
 	{

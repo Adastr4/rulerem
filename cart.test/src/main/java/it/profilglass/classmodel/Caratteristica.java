@@ -1,11 +1,12 @@
 package it.profilglass.classmodel;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 import test.test.ReadDB;
 
 public class Caratteristica implements ICaratteristica {
-	
+
 	private String caratteristicaId;
 	private String descrizioneCaratteristica;
 	private int caratteristicaOrder;
@@ -14,7 +15,7 @@ public class Caratteristica implements ICaratteristica {
 	private String selectedValue;
 	private boolean enabled = false;
 	private boolean visible = false;
-	
+
 	public Caratteristica(String caratteristicaId, String descrizioneCaratteristica, int caratteristicaOrder, String classe, ArrayList<Opzione> valori, String selectedValue)
 	{
 		this.caratteristicaId = caratteristicaId;
@@ -24,7 +25,7 @@ public class Caratteristica implements ICaratteristica {
 		this.selectedValue = selectedValue;
 		this.descrizioneCaratteristica = descrizioneCaratteristica;
 	}
-	
+
 	public Caratteristica(String caratteristicaId, String descrizioneCaratteristica, int caratteristicaOrder, String classe, String selectedValue)
 	{
 		this.caratteristicaId = caratteristicaId;
@@ -34,7 +35,7 @@ public class Caratteristica implements ICaratteristica {
 		this.selectedValue = selectedValue;
 		this.descrizioneCaratteristica = descrizioneCaratteristica;
 	}
-	
+
 	public Caratteristica(String caratteristicaId, String descrizioneCaratteristica, int caratteristicaOrder, String classe)
 	{
 		this.caratteristicaId = caratteristicaId;
@@ -43,6 +44,19 @@ public class Caratteristica implements ICaratteristica {
 		this.valori = this.setListOfValues();
 		this.selectedValue = "";
 		this.descrizioneCaratteristica = descrizioneCaratteristica;
+	}
+
+	public Caratteristica(BigDecimal cLSPESS, String cLLEGA, String cLSTATF, String sLBPTE, String sLBP, String cLFINI,
+			String cLASSE2, String cLLARG, String cLLUNG, String cLRIVE, String cLTOLLE, String dLDEST, String dLLAV,
+			String dLLUBRI, String mLSTATF, String pLACKG, String pMETC, String qSPEC, String sLTOLLA, String dLLATOLP,
+			String dLLATOLN, String sLLATOLP, String sLLATOLN, int i, int j, String sLLANAS, String qLLAVDET,
+			String sLMOD, String qLLAV) {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Caratteristica(BigDecimal bigDecimal, String cLLEGA, String cLSTATF, String string, String string2,
+			String cLFINI, String cLASSE2) {
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -74,17 +88,17 @@ public class Caratteristica implements ICaratteristica {
 	public String getClasse() {
 		return classe;
 	}
-	
+
 	private ArrayList<Opzione> setListOfValues()
 	{
 		return ReadDB.getOpzioniList(this.classe, this.caratteristicaId);
 	}
-	
+
 	private Opzione deleteElementAt(int index)
 	{
 		return this.valori.remove(index);
 	}
-	
+
 	private boolean deleteElementByValue(String value)
 	{
 		for(Opzione valore : valori)
@@ -92,10 +106,10 @@ public class Caratteristica implements ICaratteristica {
 			if(valore.getOpzione().toString().equalsIgnoreCase(value))
 				return this.valori.remove(valore);
 		}
-		
+
 		return false;
 	}
-	
+
 	private boolean deleteElementByObject(Opzione opz)
 	{
 		return this.valori.remove(opz);
@@ -125,7 +139,7 @@ public class Caratteristica implements ICaratteristica {
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
-	
+
 	@Override
 	public boolean isVisible() {
 		return visible;
@@ -290,5 +304,5 @@ public class Caratteristica implements ICaratteristica {
 	public String getCLASSE() {
 		// TODO Auto-generated method stub
 		return null;
-	}	
+	}
 }

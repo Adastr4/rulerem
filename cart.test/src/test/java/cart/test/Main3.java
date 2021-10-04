@@ -11,6 +11,7 @@ import com.deliveredtechnologies.rulebook.NameValueReferableMap;
 import com.deliveredtechnologies.rulebook.model.Auditor;
 import com.deliveredtechnologies.rulebook.model.runner.RuleBookRunner;
 
+import it.profilglass.classmodel.Caratteristica;
 import it.profilglass.classmodel.ICaratteristica;
 
 public class Main3 {
@@ -51,7 +52,7 @@ public class Main3 {
 
 							);
 			NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
-			ICaratteristica applicant1 = new ICaratteristica(new BigDecimal(650), CLLEGA, CLSTATF, "B07187",
+			ICaratteristica applicant1 = new Caratteristica(new BigDecimal(650), CLLEGA, CLSTATF, "B07187",
 					"B07187", "", "");
 
 			facts.put(new Fact<>(applicant1));
@@ -92,7 +93,7 @@ public class Main3 {
 					s ->  s.equalsIgnoreCase("it.profilglass.constraints.library.cs1")
 							);
 			NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
-			ICaratteristica applicant1 = new ICaratteristica(new BigDecimal(650), CLLEGA, CLSTATF, "B07187",
+			ICaratteristica applicant1 = new Caratteristica(new BigDecimal(650), CLLEGA, CLSTATF, "B07187",
 					"B07187", "", "");
 
 			facts.put(new Fact<>(applicant1));
@@ -249,7 +250,7 @@ public class Main3 {
 							s.equalsIgnoreCase("cart.test.library.subrules1") ||
 							s.equalsIgnoreCase("cart.test.library.subrules2"));
 			NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
-			ICaratteristica applicant1 = new ICaratteristica(new BigDecimal(650), CLLEGA, CLSTATF, "B07187",
+			ICaratteristica applicant1 = new Caratteristica(new BigDecimal(650), CLLEGA, CLSTATF, "B07187",
 					"B07187", "", "");
 
 			facts.put(new Fact<>(applicant1));
@@ -287,7 +288,7 @@ public class Main3 {
 						|| s.equalsIgnoreCase("cart.test.library.subrules2"));
 		NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
 
-		ICaratteristica caratteristiche = new ICaratteristica(
+		ICaratteristica caratteristiche = new Caratteristica(
 				new BigDecimal(650), CLLEGA, CLSTATF, "B07187",
 				"B07187", "", "");
 
@@ -334,7 +335,7 @@ public class Main3 {
 
 		NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
 
-		ICaratteristica applicant1 = new ICaratteristica(
+		ICaratteristica applicant1 = new Caratteristica(
 				new BigDecimal(650), CLLEGA, CLSTATF,  "", "", CLFINI, CLASSE);
 
 		facts.put(new Fact<>(applicant1));
@@ -353,7 +354,7 @@ public class Main3 {
 	private static void testReturnArray() {
 		System.out.println("AAA");
 		RuleBookRunner ruleBook = new RuleBookRunner("pippo.test");
-		ICaratteristica applicant1 = new ICaratteristica(
+		ICaratteristica applicant1 = new Caratteristica(
 				new BigDecimal(650), "", "",  "", "", "", "");
 		NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
 		facts.put(new Fact<>(applicant1));
@@ -389,7 +390,7 @@ public class Main3 {
 
 		NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
 
-		ICaratteristica applicant1 = new ICaratteristica(new BigDecimal(650), CLLEGA, CLSTATF,  "", "", CLFINI, CLASSE);
+		ICaratteristica applicant1 = new Caratteristica(new BigDecimal(650), CLLEGA, CLSTATF,  "", "", CLFINI, CLASSE);
 
 		facts.put(new Fact<>(applicant1));
 
