@@ -80,4 +80,6 @@ public interface ICaratteristica {
 
 	String getMLSTATF();
 
+	String getCLASSE();
+
 }

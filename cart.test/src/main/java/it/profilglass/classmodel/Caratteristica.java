@@ -284,5 +284,11 @@ public class Caratteristica implements ICaratteristica {
 	public String getMLSTATF() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public String getCLASSE() {
+		// TODO Auto-generated method stub
+		return null;
 	}	
 }
