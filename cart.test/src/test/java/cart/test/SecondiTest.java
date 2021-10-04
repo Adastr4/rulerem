@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.ListIterator;
 
+import org.junit.jupiter.api.Test;
+
 import com.deliveredtechnologies.rulebook.Fact;
 import com.deliveredtechnologies.rulebook.FactMap;
 import com.deliveredtechnologies.rulebook.NameValueReferableMap;
@@ -13,22 +15,10 @@ import com.deliveredtechnologies.rulebook.model.runner.RuleBookRunner;
 import it.profilglass.classmodel.Caratteristica;
 import it.profilglass.classmodel.ICaratteristica;
 
-public class Main2 {
+public class SecondiTest {
 
-	public static void main(String[] args) {
-
-
-		noLoopCLSTATF();
-//		withLoopCLSTATF();
-
-//		noLoopCLFINI();
-	//  withLoopCLFINI();
-
-	}
-
-	 private static void noLoopCLFINI() {
-
-
+	@Test
+	void noLoopCLFINI() {
 
 		String CLLEGA;
 		String CLSTATF;
@@ -40,22 +30,19 @@ public class Main2 {
 		CLFINI = "M";
 		CLASSE = "EDT";
 
-
-
 		RuleBookRunner ruleBook = new RuleBookRunner("cart.test.constraints.cs2");
 
 		NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
 
-		ICaratteristica applicant1 = new Caratteristica(
-				new BigDecimal(650), CLLEGA, CLSTATF,  "", "", CLFINI, CLASSE);
+		ICaratteristica applicant1 = new Caratteristica(new BigDecimal(650), CLLEGA, CLSTATF, "", "", CLFINI, CLASSE);
 
 		facts.put(new Fact<>(applicant1));
 
 		ruleBook.setDefaultResult(Boolean.FALSE);
 		ruleBook.run(facts);
 
-		ruleBook.getResult().ifPresent(
-				result -> System.out.println("Vincolo per Caratteristica finitura " + "validato " + result));
+		ruleBook.getResult()
+				.ifPresent(result -> System.out.println("Vincolo per Caratteristica finitura " + "validato " + result));
 
 		boolean test = testVincolo2(CLLEGA, CLSTATF, "EDT", CLFINI);
 		System.out.println("TEST per " + CLLEGA + " " + CLSTATF + " " + test);
@@ -64,24 +51,19 @@ public class Main2 {
 
 	private static void noLoopCLSTATF() {
 
-
-
 		String CLLEGA;
 		String CLSTATF;
 
 		CLLEGA = "3A";
 		CLSTATF = "H0F";
 
-
-
 		RuleBookRunner ruleBook = new RuleBookRunner("cart.test",
 				s -> s.equalsIgnoreCase("cart.test") || s.equalsIgnoreCase("cart.test.library.subrules1")
 						|| s.equalsIgnoreCase("cart.test.library.subrules2"));
 		NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
 
-		ICaratteristica caratteristiche = new Caratteristica(
-				new BigDecimal(650), CLLEGA, CLSTATF, "B07187",
-				"B07187", "", "");
+		ICaratteristica caratteristiche = new Caratteristica(new BigDecimal(650), CLLEGA, CLSTATF, "B07187", "B07187",
+				"", "");
 
 		facts.put(new Fact<>(caratteristiche));
 
@@ -89,12 +71,12 @@ public class Main2 {
 		ruleBook.run(facts);
 
 		Auditor auditor = ruleBook;
-	    System.out.println("Library subrules1 - rule 1 status: " + auditor.getRuleStatus("CLSTATF_CLLEGA_Rule1"));
-	    System.out.println("Library subrules1 - rule 3 status: " + auditor.getRuleStatus("CLSTATF_CLLEGA_Rule3"));
-	    System.out.println("Library subrules1 - rule 5 status: " + auditor.getRuleStatus("CLSTATF_CLLEGA_Rule5"));
-	    System.out.println("Library subrules1 - rule 2 status: " + auditor.getRuleStatus("CLSTATF_CLLEGA_Rule2"));
-	    System.out.println("Library subrules1 - rule 6 status: " + auditor.getRuleStatus("CLSTATF_CLLEGA_Rule6"));
-	    System.out.println("Library subrules1 - rule 4 status: " + auditor.getRuleStatus("CLSTATF_CLLEGA_Rule4"));
+		System.out.println("Library subrules1 - rule 1 status: " + auditor.getRuleStatus("CLSTATF_CLLEGA_Rule1"));
+		System.out.println("Library subrules1 - rule 3 status: " + auditor.getRuleStatus("CLSTATF_CLLEGA_Rule3"));
+		System.out.println("Library subrules1 - rule 5 status: " + auditor.getRuleStatus("CLSTATF_CLLEGA_Rule5"));
+		System.out.println("Library subrules1 - rule 2 status: " + auditor.getRuleStatus("CLSTATF_CLLEGA_Rule2"));
+		System.out.println("Library subrules1 - rule 6 status: " + auditor.getRuleStatus("CLSTATF_CLLEGA_Rule6"));
+		System.out.println("Library subrules1 - rule 4 status: " + auditor.getRuleStatus("CLSTATF_CLLEGA_Rule4"));
 
 		ruleBook.getResult().ifPresent(
 				result -> System.out.println("Vincolo per Caratteristica stato fisico " + " validato " + result));
@@ -102,12 +84,9 @@ public class Main2 {
 		boolean test = testVincolo(CLLEGA, CLSTATF, "B07187", "B07187");
 		System.out.println("TEST per " + CLLEGA + " " + CLSTATF + " " + test);
 
-
-
-
 	}
 
-	static  boolean testVincolo(String CLLEGA, String CLSTATF, String SLBPTE, String SLBP) {
+	static boolean testVincolo(String CLLEGA, String CLSTATF, String SLBPTE, String SLBP) {
 		boolean validate = Boolean.TRUE;
 		if (CLSTATF.equalsIgnoreCase("t04") || CLSTATF.equalsIgnoreCase("t06") || CLSTATF.equalsIgnoreCase("t4p"))
 			validate = Boolean.FALSE;
@@ -171,18 +150,16 @@ public class Main2 {
 
 				}
 			}
-		}
-		else {
+		} else {
 			validate = Boolean.FALSE;
-			if(CLFINI.equalsIgnoreCase("f") || CLFINI.equalsIgnoreCase("n"))
+			if (CLFINI.equalsIgnoreCase("f") || CLFINI.equalsIgnoreCase("n"))
 				validate = Boolean.TRUE;
 
 		}
 		return validate;
 	}
+
 	private static void withLoopCLFINI() {
-
-
 
 		String CLLEGA;
 		String CLSTATF;
@@ -194,7 +171,7 @@ public class Main2 {
 
 		CLASSE = "EDT";
 
-		List<String> CLFINIValues = null;//Caratteristiche.getCLFINIValues();
+		List<String> CLFINIValues = null;// Caratteristiche.getCLFINIValues();
 
 		ListIterator<String> litr = CLFINIValues.listIterator();
 		while (litr.hasNext()) {
@@ -202,24 +179,26 @@ public class Main2 {
 			CLFINI = litr.next();
 			CLFINI = CLFINI.substring(0, CLFINI.indexOf("-") - 1);
 
-		RuleBookRunner ruleBook = new RuleBookRunner("cart.test.constraints.cs2");
+			RuleBookRunner ruleBook = new RuleBookRunner("cart.test.constraints.cs2");
 
-		NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
+			NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
 
-		ICaratteristica applicant1 = new Caratteristica(new BigDecimal(650), CLLEGA, CLSTATF,  "", "", CLFINI, CLASSE);
+			ICaratteristica applicant1 = new Caratteristica(new BigDecimal(650), CLLEGA, CLSTATF, "", "", CLFINI,
+					CLASSE);
 
-		facts.put(new Fact<>(applicant1));
+			facts.put(new Fact<>(applicant1));
 
-		ruleBook.setDefaultResult(Boolean.FALSE);
-		ruleBook.run(facts);
+			ruleBook.setDefaultResult(Boolean.FALSE);
+			ruleBook.run(facts);
 
-		ruleBook.getResult().ifPresent(
-				result -> System.out.println("Vincolo per Caratteristica finitura " + "validato " + result));
+			ruleBook.getResult().ifPresent(
+					result -> System.out.println("Vincolo per Caratteristica finitura " + "validato " + result));
 
-		boolean test = testVincolo2(CLLEGA, CLSTATF, CLASSE, CLFINI);
-		System.out.println("TEST per " + CLLEGA + " " + CLSTATF + " " + CLASSE + " " + CLFINI + " " + test);
+			boolean test = testVincolo2(CLLEGA, CLSTATF, CLASSE, CLFINI);
+			System.out.println("TEST per " + CLLEGA + " " + CLSTATF + " " + CLASSE + " " + CLFINI + " " + test);
 		}
 	}
+
 	/**
 	 * test con i dati clblati
 	 *
@@ -227,7 +206,7 @@ public class Main2 {
 	private static void withLoopCLSTATF() {
 
 //		List<String> CLLEGAValues = Caratteristiche.getCLLEGAValues();
-		List<String> CLSTATFValues = null;//Caratteristiche.getCLSTATFValues();
+		List<String> CLSTATFValues = null;// Caratteristiche.getCLSTATFValues();
 //		List<String> CLFINIValues = Caratteristiche.getCLFINIValues();
 
 		String CLLEGA;
@@ -242,12 +221,12 @@ public class Main2 {
 			CLSTATF = CLSTATF.substring(0, CLSTATF.indexOf("-") - 1);
 
 			RuleBookRunner ruleBook = new RuleBookRunner("cart.test",
-					s ->  s.equalsIgnoreCase("cart.test.library.subrules1") ||
-							s.equalsIgnoreCase("cart.test.library.subrules1") ||
-							s.equalsIgnoreCase("cart.test.library.subrules2"));
+					s -> s.equalsIgnoreCase("cart.test.library.subrules1")
+							|| s.equalsIgnoreCase("cart.test.library.subrules1")
+							|| s.equalsIgnoreCase("cart.test.library.subrules2"));
 			NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
-			ICaratteristica applicant1 = new Caratteristica(new BigDecimal(650), CLLEGA, CLSTATF, "B07187",
-					"B07187", "", "");
+			ICaratteristica applicant1 = new Caratteristica(new BigDecimal(650), CLLEGA, CLSTATF, "B07187", "B07187",
+					"", "");
 
 			facts.put(new Fact<>(applicant1));
 

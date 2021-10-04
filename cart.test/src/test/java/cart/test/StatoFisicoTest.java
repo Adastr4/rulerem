@@ -15,6 +15,7 @@ import com.deliveredtechnologies.rulebook.lang.RuleBookBuilder;
 import com.deliveredtechnologies.rulebook.model.RuleBook;
 import com.deliveredtechnologies.rulebook.model.runner.RuleBookRunner;
 
+import cart.prove.StatoFisicoRuleBook;
 import it.profilglass.classmodel.Caratteristica;
 import it.profilglass.classmodel.ICaratteristica;
 
@@ -102,7 +103,7 @@ class StatoFisicoTest {
 			{
 				System.out
 					.println("Vincolo per Caratteristica stato fisico " + clstatfRis + " validato " + result);
-				boolean test = Main2.testVincolo(CLLEGA, clstatfRis, "B07187", "B07187");
+				boolean test = InizialiTest.testVincolo(CLLEGA, clstatfRis, "B07187", "B07187");
 				assertTrue(test==(Boolean) result.getValue());
 			});
 
@@ -112,4 +113,13 @@ class StatoFisicoTest {
 		}
 
 	}
+	@Test
+	void provaCaratteristicaTest()
+	{	RuleBook statoFisicoRuleBook = RuleBookBuilder.create(StatoFisicoRuleBook.class).withResultType(String.class)
+			.withDefaultResult("Caratteristica fisica  NON ammessa").build();
+	NameValueReferableMap facts = new FactMap();
+	facts.setValue("Caratteristica", new Caratteristica(new BigDecimal(19.8), "3A", "H00", "", "", "", ""));
+	statoFisicoRuleBook.run(facts);
+
+	statoFisicoRuleBook.getResult().ifPresent(result -> System.out.println(result));}
 }

@@ -1,17 +1,20 @@
 package cart.test;
 
+import org.junit.jupiter.api.Test;
+
 import com.deliveredtechnologies.rulebook.FactMap;
 import com.deliveredtechnologies.rulebook.NameValueReferableMap;
 import com.deliveredtechnologies.rulebook.lang.RuleBookBuilder;
 import com.deliveredtechnologies.rulebook.model.RuleBook;
 
-public class StatoFisicoRuleBookDSL {
+public class StatoFisicoRuleBookDSLTest {
 
-	public static void main(String args[]) {
+	@Test
+	public void provaFisicoRuleBookDSLtest() {
 
 		NameValueReferableMap factMap = new FactMap();
-		factMap.setValue("number of pets", Integer.valueOf(args[0]));
-		factMap.setValue("number of kids", Integer.valueOf(args[1]));
+		factMap.setValue("number of pets", Integer.valueOf(3));
+		factMap.setValue("number of kids", Integer.valueOf(2));
 		/*
 		 * RuleBook petRuleBook = RuleBookBuilder.create().withResultType(String.class)
 		 * .withDefaultResult("You're probably lonely. You could use a pet!")

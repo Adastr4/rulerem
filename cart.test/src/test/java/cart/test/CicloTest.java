@@ -15,6 +15,7 @@ import com.deliveredtechnologies.rulebook.model.runner.RuleBookRunner;
 
 import it.profilglass.classmodel.Caratteristica;
 import it.profilglass.classmodel.ICaratteristica;
+import it.profilglass.classmodel.Macchina;
 
 
 /**

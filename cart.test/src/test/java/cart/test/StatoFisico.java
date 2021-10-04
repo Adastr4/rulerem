@@ -7,6 +7,7 @@ import com.deliveredtechnologies.rulebook.NameValueReferableMap;
 import com.deliveredtechnologies.rulebook.lang.RuleBookBuilder;
 import com.deliveredtechnologies.rulebook.model.RuleBook;
 
+import cart.prove.StatoFisicoRuleBook;
 import it.profilglass.classmodel.Caratteristica;
 
 public class StatoFisico {

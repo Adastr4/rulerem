@@ -1,4 +1,4 @@
-package cart.test;
+package cart.prove;
 
 import com.deliveredtechnologies.rulebook.FactMap;
 import com.deliveredtechnologies.rulebook.NameValueReferableMap;
