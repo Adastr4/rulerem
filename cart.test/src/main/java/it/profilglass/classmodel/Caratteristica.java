@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import test.test.ReadDB;
 
-public class Caratteristica {
+public class Caratteristica implements ICaratteristica {
 	
 	private String caratteristicaId;
 	private String descrizioneCaratteristica;
@@ -45,26 +45,32 @@ public class Caratteristica {
 		this.descrizioneCaratteristica = descrizioneCaratteristica;
 	}
 
+	@Override
 	public int getCaratteristicaOrder() {
 		return caratteristicaOrder;
 	}
 
+	@Override
 	public void setCaratteristicaOrder(int caratteristicaOrder) {
 		this.caratteristicaOrder = caratteristicaOrder;
 	}
 
+	@Override
 	public ArrayList<Opzione> getValori() {
 		return valori;
 	}
 
+	@Override
 	public void setValori(ArrayList<Opzione> valori) {
 		this.valori = valori;
 	}
 
+	@Override
 	public String getCaratteristicaId() {
 		return caratteristicaId;
 	}
 
+	@Override
 	public String getClasse() {
 		return classe;
 	}
@@ -95,31 +101,188 @@ public class Caratteristica {
 		return this.valori.remove(opz);
 	}
 
+	@Override
 	public String getSelectedValue() {
 		return selectedValue;
 	}
 
+	@Override
 	public void setSelectedValue(String selectedValue) {
 		this.selectedValue = selectedValue;
 	}
 
+	@Override
 	public String getDescrizioneCaratteristica() {
 		return descrizioneCaratteristica;
 	}
 
+	@Override
 	public boolean isEnabled() {
 		return enabled;
 	}
 
+	@Override
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
 	
+	@Override
 	public boolean isVisible() {
 		return visible;
 	}
 
+	@Override
 	public void setVisible(boolean visible) {
 		this.visible = visible;
+	}
+
+	@Override
+	public String getSLTOLLA() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getCLFINI() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getCLLEGA() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getQLLAVDET() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Integer getCLSPESS() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getSLMOD() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getCLSTATF() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getCLLARG() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getCLTOLLE() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getCLRIVE() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int getBandellineNumInSLLANAS() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public String getSLBP() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getQLLAV() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getSLBPTE() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getCLLUNG() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int getSLLANASLarg() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public String getDLDEST() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int getSBATIPO() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public String getDLLATOLN() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getSLLATOLP() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getSLLATOLN() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getDLLATOLP() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int getSETICC() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getSLTMAX() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public String getMLSTATF() {
+		// TODO Auto-generated method stub
+		return null;
 	}	
 }

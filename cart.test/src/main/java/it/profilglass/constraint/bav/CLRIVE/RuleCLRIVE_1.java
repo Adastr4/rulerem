@@ -6,11 +6,11 @@ import com.deliveredtechnologies.rulebook.annotation.Result;
 import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
-import test.test.CaratteristicaBean;
+import it.profilglass.classmodel.ICaratteristica;
 
 public class RuleCLRIVE_1 {
 	@Given("caratteristica")
-	private CaratteristicaBean caratteristica; //Annotated Lists get injected with all Facts of the declared generic type
+	private ICaratteristica caratteristica; //Annotated Lists get injected with all Facts of the declared generic type
 
 	@Result
 	private String result = "A";

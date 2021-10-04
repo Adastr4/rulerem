@@ -7,18 +7,18 @@ import com.deliveredtechnologies.rulebook.annotation.Rule;
 import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
-import test.test.CaratteristicaBean;
+import it.profilglass.classmodel.ICaratteristica;
 
 @Rule(order = 25, name = "ruleMLSTATF_25")
 
 public class RuleMLSTATF_25_4A extends it.profilglass.constraint.bav.MLSTATF.sub1.SubRuleMLSTATF_4A {
 	@Given("caratteristica")
-	private CaratteristicaBean caratteristica; //Annotated Lists get injected with all Facts of the declared generic type
+	private ICaratteristica caratteristica; //Annotated Lists get injected with all Facts of the declared generic type
 
 	@Result
 	private String result;
 
-	private CaratteristicaBean carRet;
+	private ICaratteristica carRet;
 
 	@Override
 	@When

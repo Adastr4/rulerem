@@ -3,11 +3,6 @@ package it.profilglass.classmodel;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.deliveredtechnologies.rulebook.Fact;
-import com.deliveredtechnologies.rulebook.FactMap;
-import com.deliveredtechnologies.rulebook.NameValueReferableMap;
-import com.deliveredtechnologies.rulebook.model.runner.RuleBookRunner;
-
 public abstract class Configuratore {
 	public List<Ciclo> getCicli() {
 		return cicli;
@@ -28,13 +23,13 @@ public abstract class Configuratore {
 	protected List<Ciclo> cicli;
 	protected List<Distinta> distinte;
 	// LISTA CARATTERISTICHE VALIDE PER TUTTI I CONFIGURATORI
-	protected List<Caratteristica> caratteristiche;
+	protected List<ICaratteristica> caratteristiche;
 
-	public List<Caratteristica> getCaratteristiche() {
+	public List<ICaratteristica> getCaratteristiche() {
 		return caratteristiche;
 	}
 
-	public void setCaratteristiche(List<Caratteristica> caratteristiche) {
+	public void setCaratteristiche(List<ICaratteristica> caratteristiche) {
 		this.caratteristiche = caratteristiche;
 	}
 
@@ -44,7 +39,7 @@ public abstract class Configuratore {
 		return new ArrayList<LivelloDistinta>();
 	}
 	
-	public List<Caratteristica> getOrderedCaratteristiche()
+	public List<ICaratteristica> getOrderedCaratteristiche()
 	{
 		return this.caratteristiche;
 	}
@@ -59,9 +54,9 @@ public abstract class Configuratore {
 		return this.getCaratteristicaById(idCaratteristica).getValori();
 	}
 	
-	public Caratteristica getCaratteristicaById(String Id)
+	public ICaratteristica getCaratteristicaById(String Id)
 	{
-		for(Caratteristica cara : this.caratteristiche)
+		for(ICaratteristica cara : this.caratteristiche)
 		{
 			if(cara.getCaratteristicaId().equalsIgnoreCase(Id))
 			{

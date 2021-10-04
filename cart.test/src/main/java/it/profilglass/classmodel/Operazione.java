@@ -1,7 +1,5 @@
 package it.profilglass.classmodel;
 
-import java.util.List;
-
 import test.test.ReadDB;
 
 public class Operazione {

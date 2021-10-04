@@ -9,8 +9,6 @@ import com.deliveredtechnologies.rulebook.FactMap;
 import com.deliveredtechnologies.rulebook.NameValueReferableMap;
 import com.deliveredtechnologies.rulebook.model.runner.RuleBookRunner;
 
-import test.test.CaratteristicaBean;
-import test.test.Macchina;
 import test.test.ReadDB;
 
 public class ConfiguratoreBAV extends Configuratore {
@@ -21,7 +19,7 @@ public class ConfiguratoreBAV extends Configuratore {
 			//INIZIALIZZO TUTTI I VALORI DI CARATTERISTICA
 			this.caratteristiche = ReadDB.getCaratteristicheFromConfigurator("BAV");
 			//ORDINO PER INDICE DI CONFIGURAZZOONE
-			this.caratteristiche.sort(Comparator.comparingInt(Caratteristica::getCaratteristicaOrder));
+			this.caratteristiche.sort(Comparator.comparingInt(ICaratteristica::getCaratteristicaOrder));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -35,7 +33,7 @@ public class ConfiguratoreBAV extends Configuratore {
 		try
 		{
 			RuleBookRunner ruleBook = new RuleBookRunner("it.profilglass.constraint.bav." + this.caratteristiche.get(index).getCaratteristicaId().toUpperCase() + ".val");
-			NameValueReferableMap<List<Caratteristica>> facts = new FactMap<>();
+			NameValueReferableMap<List<ICaratteristica>> facts = new FactMap<>();
 			facts.put(new Fact<>(this.caratteristiche));
 			ruleBook.run(facts);
 			
@@ -59,8 +57,8 @@ public class ConfiguratoreBAV extends Configuratore {
 		{
 			RuleBookRunner ruleBook = new RuleBookRunner("it.profilglass.constraint.bav." + name.toUpperCase() + ".val");
 			NameValueReferableMap<Caratteristica> facts = new FactMap<>();
-			for(Caratteristica cara : this.caratteristiche)
-				facts.put(new Fact<>(cara));
+			for(ICaratteristica cara : this.caratteristiche)
+				facts.put(new Fact<>((Caratteristica)cara));
 			
 			ruleBook.run(facts);
 			
@@ -84,8 +82,8 @@ public class ConfiguratoreBAV extends Configuratore {
 		{
 			RuleBookRunner ruleBook = new RuleBookRunner("it.profilglass.constraint.bav." + this.caratteristiche.get(index).getCaratteristicaId().toUpperCase());
 			NameValueReferableMap<Caratteristica> facts = new FactMap<>();
-			for(Caratteristica cara : this.caratteristiche)
-				facts.put(new Fact<>(cara));
+			for(ICaratteristica cara : this.caratteristiche)
+				facts.put(new Fact<>((Caratteristica)cara));
 			
 			ruleBook.run(facts);
 			
@@ -110,8 +108,8 @@ public class ConfiguratoreBAV extends Configuratore {
 		{
 			RuleBookRunner ruleBook = new RuleBookRunner("it.profilglass.constraint.bav." + name.toUpperCase());
 			NameValueReferableMap<Caratteristica> facts = new FactMap<>();
-			for(Caratteristica cara : this.caratteristiche)
-				facts.put(new Fact<>(cara));
+			for(ICaratteristica cara : this.caratteristiche)
+				facts.put(new Fact<>((Caratteristica)cara));
 			
 			ruleBook.run(facts);
 			
@@ -136,8 +134,8 @@ public class ConfiguratoreBAV extends Configuratore {
 		{
 			RuleBookRunner ruleBook = new RuleBookRunner("it.profilglass.constraint.bav.distinta");
 			NameValueReferableMap<Caratteristica> facts = new FactMap<>();
-			for(Caratteristica cara : this.caratteristiche)
-				facts.put(new Fact<>(cara));
+			for(ICaratteristica cara : this.caratteristiche)
+				facts.put(new Fact<>((Caratteristica)cara));
 			
 			ruleBook.run(facts);
 			

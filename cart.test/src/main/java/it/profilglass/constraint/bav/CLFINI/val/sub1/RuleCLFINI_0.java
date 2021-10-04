@@ -5,13 +5,12 @@ import java.util.List;
 import com.deliveredtechnologies.rulebook.annotation.Given;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
-//import test.test.CaratteristicaBean;
-import it.profilglass.classmodel.Caratteristica;
+import it.profilglass.classmodel.ICaratteristica;
 
 public class RuleCLFINI_0 {
 	@Given 
 	//private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
-	private List<Caratteristica> caratteristiche;
+	private List<ICaratteristica> caratteristiche;
 	
 	@When
 	public boolean when()

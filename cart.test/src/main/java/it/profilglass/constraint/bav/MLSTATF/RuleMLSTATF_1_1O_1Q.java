@@ -7,7 +7,7 @@ import com.deliveredtechnologies.rulebook.annotation.Rule;
 import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
-import test.test.CaratteristicaBean;
+import it.profilglass.classmodel.ICaratteristica;
 
 @Rule(order = 1, name = "ruleMLSTATF_1")
 
@@ -15,7 +15,7 @@ public class RuleMLSTATF_1_1O_1Q extends it.profilglass.constraint.bav.MLSTATF.s
 
 	//private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 	@Given("caratteristica")
-	private CaratteristicaBean caratteristica;
+	private ICaratteristica caratteristica;
 
 	@Result
 	private String result;

@@ -9,8 +9,7 @@ import com.deliveredtechnologies.rulebook.annotation.Rule;
 import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
-//import test.test.CaratteristicaBean;
-import it.profilglass.classmodel.Caratteristica;
+import it.profilglass.classmodel.ICaratteristica;
 
 @Rule(order = 4, name = "ruleCLFINI_4")
 
@@ -18,7 +17,7 @@ public class RuleCLFINI_4 extends it.profilglass.constraint.bav.CLFINI.val.sub1.
 
 	@Given 
 	//private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
-	private List<Caratteristica> caratteristiche;
+	private List<ICaratteristica> caratteristiche;
 
 
 	@Result

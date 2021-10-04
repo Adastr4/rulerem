@@ -1,7 +1,6 @@
 package it.profilglass.constraint.bav.macchina;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import com.deliveredtechnologies.rulebook.RuleState;
 import com.deliveredtechnologies.rulebook.annotation.Given;
@@ -10,7 +9,7 @@ import com.deliveredtechnologies.rulebook.annotation.Rule;
 import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
-import test.test.CaratteristicaBean;
+import it.profilglass.classmodel.ICaratteristica;
 import test.test.Macchina;
 import test.test.ReadDB;
 
@@ -18,7 +17,7 @@ import test.test.ReadDB;
 
 public class RuleIMBL09 {
 	@Given("caratteristica") 
-	CaratteristicaBean caratteristica; //Annotated Lists get injected with all Facts of the declared generic type
+	ICaratteristica caratteristica; //Annotated Lists get injected with all Facts of the declared generic type
 
 	@Result
 	private ArrayList<Macchina> result;

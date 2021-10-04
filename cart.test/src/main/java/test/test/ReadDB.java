@@ -9,6 +9,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import it.profilglass.classmodel.Caratteristica;
+import it.profilglass.classmodel.ICaratteristica;
 import it.profilglass.classmodel.Opzione;
 
 public class ReadDB {
@@ -578,11 +580,11 @@ public class ReadDB {
 			}
 		}
 		
-		public static ArrayList<it.profilglass.classmodel.Caratteristica> getCaratteristicheFromConfigurator(String articolo)
+		public static ArrayList<ICaratteristica> getCaratteristicheFromConfigurator(String articolo)
 		{
 			Statement stmt = null;
 			String query = null;
-			ArrayList<it.profilglass.classmodel.Caratteristica> ret = new ArrayList<it.profilglass.classmodel.Caratteristica>();
+			ArrayList<ICaratteristica> ret = new ArrayList<ICaratteristica>();
 			ResultSet rs = null;
 			try {
 				// The newInstance() call is a work around for some
@@ -593,7 +595,7 @@ public class ReadDB {
 				query = "SELECT Caratteristica, Descrizione, Sequenza FROM caratteristicaconfiguratore WHERE trim(articolo) ='" + articolo + "' AND ExpireDate >= current_date";
 				rs = stmt.executeQuery(query);
 				while(rs.next()) {
-					ret.add(new it.profilglass.classmodel.Caratteristica(rs.getString("Caratteristica"),rs.getString("Descrizione"),rs.getInt("Sequenza"), articolo));
+					ret.add(new Caratteristica(rs.getString("Caratteristica"),rs.getString("Descrizione"),rs.getInt("Sequenza"), articolo));
 				}
 
 				return ret;

@@ -9,20 +9,15 @@ import com.deliveredtechnologies.rulebook.annotation.Rule;
 import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
-import it.profilglass.classmodel.Caratteristica;
-import it.profilglass.classmodel.Ciclo;
-import it.profilglass.classmodel.Distinta;
 import it.profilglass.classmodel.GenericItem;
+import it.profilglass.classmodel.ICaratteristica;
 import it.profilglass.classmodel.LivelloDistinta;
-import test.test.Attivita;
-import test.test.CaratteristicaBean;
-import test.test.ReadDB;
 
 @Rule(order = 2, name = "ruleBA_LV_2")
 
 public class RuleBA_LV_2 {
 	@Given 
-	private List<Caratteristica> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
+	private List<ICaratteristica> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 
 	@Result
 	private List<LivelloDistinta> result;

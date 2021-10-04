@@ -9,13 +9,13 @@ import com.deliveredtechnologies.rulebook.annotation.Rule;
 import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
-import test.test.CaratteristicaBean;
+import it.profilglass.classmodel.ICaratteristica;
 
 @Rule(order = 90, name = "ruleSBATIPO_90")
 
 public class RuleSBATIPO_90 {
 	@Given
-	private List<CaratteristicaBean> caratteristiche;
+	private List<ICaratteristica> caratteristiche;
 
 	@Result
 	private Boolean result;

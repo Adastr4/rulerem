@@ -7,7 +7,7 @@ import com.deliveredtechnologies.rulebook.annotation.Rule;
 import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
-import test.test.CaratteristicaBean;
+import it.profilglass.classmodel.ICaratteristica;
 
 @Rule(order = 1, name = "ruleSLTMAX1")
 
@@ -16,7 +16,7 @@ public class RuleSLTMAX_1 extends it.profilglass.constraint.bav.SLCHMAX.val.Rule
 	private Double hImballi;
 
 	@Given("caratteristica")
-	private CaratteristicaBean caratteristica; //Annotated Lists get injected with all Facts of the declared generic type
+	private ICaratteristica caratteristica; //Annotated Lists get injected with all Facts of the declared generic type
 
 	@Given("pesoSpec")
 	private Double pesoSpec;
