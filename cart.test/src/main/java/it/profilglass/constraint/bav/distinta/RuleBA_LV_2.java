@@ -31,11 +31,13 @@ public class RuleBA_LV_2 {
 	@Then
 	public RuleState then()
 	{
-		//result.add(ReadDB.getAttivitaFromId("BA1"));
-		result.add(new LivelloDistinta(new GenericItem("LV" + caratteristiche.stream().filter(caratteristica -> "CLLEGA".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue() +
-																				caratteristiche.stream().filter(caratteristica -> "CLSPESS".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue() +
+
+		//AGIIUNGO IL LIVELLO 2 DI DISTINTA (LB o LV)
+		result.get(0).getDistinta().add(new LivelloDistinta(new GenericItem("LV" + caratteristiche.stream().filter(caratteristica -> "CLLEGA".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue() + 
+																				caratteristiche.stream().filter(caratteristica -> "CLSPESS".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue() + 
+
 																				caratteristiche.stream().filter(caratteristica -> "MLSTATF".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue() +
-																				caratteristiche.stream().filter(caratteristica -> "SLLANAS".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().substring(3, 6) +
+																				caratteristiche.stream().filter(caratteristica -> "SLLANAS".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().substring(3, 7) +
 																				caratteristiche.stream().filter(caratteristica -> "CLFINI".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue() +
 																				caratteristiche.stream().filter(caratteristica -> "CLTOLLE".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue(),"LV",null), 2, 1));
 		return RuleState.NEXT;

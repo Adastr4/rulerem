@@ -13,8 +13,14 @@ import com.deliveredtechnologies.rulebook.FactMap;
 import com.deliveredtechnologies.rulebook.NameValueReferableMap;
 import com.deliveredtechnologies.rulebook.model.runner.RuleBookRunner;
 
+
 import it.profilglass.classmodel.Caratteristica;
 import it.profilglass.classmodel.ICaratteristica;
+
+import it.profilglass.classmodel.ConfiguratoreBAV;
+import it.profilglass.classmodel.GenericConfItem;
+import it.profilglass.classmodel.LivelloDistinta;
+
 
 class MainTest {
 

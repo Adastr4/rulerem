@@ -34,7 +34,7 @@ public class RuleBA_IMPVC_3_3 {
 	public RuleState then()
 	{
 		//result.add(ReadDB.getAttivitaFromId("BA1"));
-		result.add(new LivelloDistinta(new GenericItem("IMPVC" + "050"  + caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().substring(0,caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().length()-1) +
+		result.get(0).getDistinta().add(new LivelloDistinta(new GenericItem("IMPVC" + "050"  + caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().substring(0,caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().length()-1) +
 																							caratteristiche.stream().filter(caratteristica -> "SLMOD".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue() ,"IMPVC",null), 2, 2));
 		return RuleState.BREAK;
 	}

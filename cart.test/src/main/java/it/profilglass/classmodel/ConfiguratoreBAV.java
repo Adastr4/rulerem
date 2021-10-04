@@ -146,7 +146,7 @@ public class ConfiguratoreBAV extends Configuratore {
 
 			if(ruleBook.getResult().isPresent())
 			{
-				return (List<LivelloDistinta>) ruleBook.getResult().get().getValue();
+				return (ArrayList<LivelloDistinta>) ruleBook.getResult().get().getValue();
 			}
 
 			return null;
