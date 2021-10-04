@@ -9,13 +9,16 @@ import com.deliveredtechnologies.rulebook.annotation.Rule;
 import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
+import it.profilglass.classmodel.Caratteristica;
 import test.test.CaratteristicaBean;
 
 @Rule(order = 16, name = "ruleMLSTATF_16")
 
 public class RuleMLSTATF_16_3D_3T extends it.profilglass.constraint.bav.MLSTATF.sub1.SubRuleMLSTATF_3D_3T{
-	@Given("caratteristica") 
-	private CaratteristicaBean caratteristica; //Annotated Lists get injected with all Facts of the declared generic type
+	/*@Given("caratteristica") 
+	private CaratteristicaBean caratteristica; //Annotated Lists get injected with all Facts of the declared generic type*/
+	@Given
+	private List<Caratteristica> caratteristiche;
 
 	@Result
 	private String result;
@@ -23,7 +26,9 @@ public class RuleMLSTATF_16_3D_3T extends it.profilglass.constraint.bav.MLSTATF.
 	@When
 	public boolean when()
 	{
-		return (caratteristica.getCLSTATF().equalsIgnoreCase("H18")) && super.when();
+		//return (caratteristica.getCLSTATF().equalsIgnoreCase("H18")) && super.when();
+		return super.when()
+			&& caratteristiche.stream().filter(caratteristica -> "CLSTATF".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().equalsIgnoreCase("H18");
 	}
 	
 	@Then

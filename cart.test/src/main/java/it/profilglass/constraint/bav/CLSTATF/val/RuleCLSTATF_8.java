@@ -9,14 +9,16 @@ import com.deliveredtechnologies.rulebook.annotation.Rule;
 import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
+import it.profilglass.classmodel.Caratteristica;
 import test.test.CaratteristicaBean;
 
 @Rule(order = 8, name = "ruleCLSTATF_8")
 
 public class RuleCLSTATF_8 extends it.profilglass.constraint.bav.CLSTATF.val.sub1.SubRuleCLSTATF_2{
 	@Given 
-	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
-
+	//private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
+	private List<Caratteristica> caratteristiche;
+	
 	@Result
 	private boolean result;
 	
@@ -24,7 +26,9 @@ public class RuleCLSTATF_8 extends it.profilglass.constraint.bav.CLSTATF.val.sub
 	public boolean when()
 	{
 		
-		return caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLLEGA().substring(0,1).equalsIgnoreCase("4")) && super.when();
+		//return caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLLEGA().substring(0,1).equalsIgnoreCase("4")) && super.when();
+		return super.when()
+			&& caratteristiche.stream().filter(caratteristica -> "CLLEGA".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().substring(0,1).equalsIgnoreCase("4");
 	}
 	
 	@Then

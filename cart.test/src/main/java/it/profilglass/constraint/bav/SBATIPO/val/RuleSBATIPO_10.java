@@ -9,13 +9,16 @@ import com.deliveredtechnologies.rulebook.annotation.Rule;
 import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
+import it.profilglass.classmodel.Caratteristica;
 import test.test.CaratteristicaBean;
 
 @Rule(order = 10, name = "ruleSBATIPO_10")
 
 public class RuleSBATIPO_10 {
-	@Given 
-	private List<CaratteristicaBean> caratteristiche;
+	/*@Given 
+	private List<CaratteristicaBean> caratteristiche;*/
+	@Given
+	private List<Caratteristica> caratteristiche;
 	
 	@Result
 	private Boolean result;
@@ -23,9 +26,12 @@ public class RuleSBATIPO_10 {
 	@When
 	public boolean when()
 	{		
-		return caratteristiche.stream().anyMatch(caratteristica -> Integer.parseInt(caratteristica.getCLLARG()) <= 10000 &&
+		/*return caratteristiche.stream().anyMatch(caratteristica -> Integer.parseInt(caratteristica.getCLLARG()) <= 10000 &&
 																   Integer.parseInt(caratteristica.getCLLUNG()) <= 10000 &&
-																   caratteristica.getSBATIPO() != 2);
+																   caratteristica.getSBATIPO() != 2);*/
+		return Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue()) <= 10000
+			&& Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLUNG".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue()) <= 10000
+			&& Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "SBATIPO".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue()) != 2;
 	}
 	
 	@Then

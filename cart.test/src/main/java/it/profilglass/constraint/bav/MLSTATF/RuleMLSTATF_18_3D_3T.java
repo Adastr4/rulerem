@@ -9,13 +9,16 @@ import com.deliveredtechnologies.rulebook.annotation.Rule;
 import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
+import it.profilglass.classmodel.Caratteristica;
 import test.test.CaratteristicaBean;
 
 @Rule(order = 18, name = "ruleMLSTATF_18")
 
 public class RuleMLSTATF_18_3D_3T extends it.profilglass.constraint.bav.MLSTATF.sub1.SubRuleMLSTATF_4 {
-	@Given("caratteristica") 
-	private CaratteristicaBean caratteristica; //Annotated Lists get injected with all Facts of the declared generic type
+	/*@Given("caratteristica") 
+	private CaratteristicaBean caratteristica; //Annotated Lists get injected with all Facts of the declared generic type*/
+	@Given
+	private List<Caratteristica> caratteristiche;
 
 	@Result
 	private String result;
@@ -23,12 +26,20 @@ public class RuleMLSTATF_18_3D_3T extends it.profilglass.constraint.bav.MLSTATF.
 	@When
 	public boolean when()
 	{
-		return ((caratteristica.getCLLEGA().equalsIgnoreCase("3D") ||
+		/*return ((caratteristica.getCLLEGA().equalsIgnoreCase("3D") ||
 				 caratteristica.getCLLEGA().equalsIgnoreCase("3T")) &&
 					(caratteristica.getCLSTATF().equalsIgnoreCase("H22") ||
 					 caratteristica.getCLSTATF().equalsIgnoreCase("H23") ||
 					 caratteristica.getCLSTATF().equalsIgnoreCase("H24"))
-				) && !super.when();
+				) && !super.when();*/
+		return !super.when()
+			&&	((   caratteristiche.stream().filter(caratteristica -> "CLLEGA".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().equalsIgnoreCase("3T")
+				 || caratteristiche.stream().filter(caratteristica -> "CLLEGA".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().equalsIgnoreCase("3D")
+				)
+			&&  (	caratteristiche.stream().filter(caratteristica -> "CLSTATF".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().equalsIgnoreCase("H22")
+				 || caratteristiche.stream().filter(caratteristica -> "CLSTATF".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().equalsIgnoreCase("H23")
+				 || caratteristiche.stream().filter(caratteristica -> "CLSTATF".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().equalsIgnoreCase("H24")	
+				));
 	}
 	
 	@Then

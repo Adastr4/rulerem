@@ -9,13 +9,17 @@ import com.deliveredtechnologies.rulebook.annotation.Rule;
 import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
+import it.profilglass.classmodel.Caratteristica;
 import test.test.CaratteristicaBean;
 
 @Rule(order = 27, name = "ruleMLSTATF_27")
 
 public class RuleMLSTATF_27_4A extends it.profilglass.constraint.bav.MLSTATF.sub1.SubRuleMLSTATF_4A_2 {
-	@Given("caratteristica") 
-	private CaratteristicaBean caratteristica; //Annotated Lists get injected with all Facts of the declared generic type
+	/*@Given("caratteristica") 
+	private CaratteristicaBean caratteristica; //Annotated Lists get injected with all Facts of the declared generic type*/
+	
+	@Given
+	private List<Caratteristica> caratteristiche;
 
 	@Result
 	private String result;
@@ -23,7 +27,9 @@ public class RuleMLSTATF_27_4A extends it.profilglass.constraint.bav.MLSTATF.sub
 	@When
 	public boolean when()
 	{
-		return super.when() && !(caratteristica.getCLSPESS().intValue() >= 2500);
+		//return super.when() && !(caratteristica.getCLSPESS().intValue() >= 2500);
+		return super.when()
+			&& !(Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLSPESS".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue()) >= 2500);
 	}
 	
 	@Then
