@@ -7,8 +7,7 @@ public class GenericItem {
 	private String codiceArticolo;
 	private String classe;
 
-	public GenericItem(String codiceArticolo, String classe, List<Ciclo> cicli)
-	{
+	public GenericItem(String codiceArticolo, String classe, List<Ciclo> cicli) {
 		this.codiceArticolo = codiceArticolo;
 		this.ciclo = cicli;
 		this.classe = classe;
@@ -18,8 +17,7 @@ public class GenericItem {
 		return ciclo;
 	}
 
-	public Ciclo getCicloAtIndex(int index)
-	{
+	public Ciclo getCicloAtIndex(int index) {
 		return ciclo.get(index);
 	}
 
@@ -31,13 +29,11 @@ public class GenericItem {
 		return codiceArticolo;
 	}
 
-	public Ciclo getStandardCiclo()
-	{
+	public Ciclo getStandardCiclo() {
 		Ciclo retValue = null;
 
-		for(Ciclo cicloSing : this.ciclo)
-		{
-			if(cicloSing.isStandard())
+		for (final Ciclo cicloSing : this.ciclo) {
+			if (cicloSing.isStandard())
 				retValue = cicloSing;
 		}
 

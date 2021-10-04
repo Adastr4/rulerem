@@ -4,8 +4,7 @@ public class Opzione {
 	private String opzione;
 	private String descrizione;
 
-	public Opzione(String opzione, String descrizione)
-	{
+	public Opzione(String opzione, String descrizione) {
 		this.opzione = opzione;
 		this.descrizione = descrizione;
 	}
@@ -25,6 +24,5 @@ public class Opzione {
 	public void setOpzione(String opzione) {
 		this.opzione = opzione;
 	}
-
 
 }

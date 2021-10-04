@@ -1,5 +1,6 @@
 package it.profilglass.classmodel;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public interface ICaratteristica {
@@ -24,7 +25,7 @@ public interface ICaratteristica {
 
 	String getCLRIVE();
 
-	Integer getCLSPESS();
+	BigDecimal getCLSPESS();
 
 	String getCLSTATF();
 

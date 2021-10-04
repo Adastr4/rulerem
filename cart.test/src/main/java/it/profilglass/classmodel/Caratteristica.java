@@ -3,302 +3,890 @@ package it.profilglass.classmodel;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
+/**
+ * @author nodejs
+ *
+ */
 public class Caratteristica implements ICaratteristica {
 
+	/**
+	 *
+	 */
 	private String caratteristicaId;
-	private String descrizioneCaratteristica;
+	/**
+	 *
+	 */
 	private int caratteristicaOrder;
+	/**
+	 *
+	 */
 	private String classe;
+	/**
+	 *
+	 */
 	private ArrayList<Opzione> valori;
-	private String selectedValue;
+	/**
+	 *
+	 */
 	private boolean enabled = false;
+	/**
+	 *
+	 */
 	private boolean visible = false;
+	/**
+	 *
+	 */
+	private BigDecimal CLSPESS;
+	/**
+	 *
+	 */
+	private String CLLEGA;
+	/**
+	 *
+	 */
+	private String CLSTATF;
+	/**
+	 *
+	 */
+	private String SLBPTE;
+	/**
+	 *
+	 */
+	private String SLBP;
+	/**
+	 *
+	 */
+	private String CLFINI;
+	/**
+	 *
+	 */
+	private String CLASSE;
+	/**
+	 *
+	 */
+	private String CLLARG;
+	/**
+	 *
+	 */
+	private String CLLUNG;
+	/**
+	 *
+	 */
+	private String CLRIVE;
+	/**
+	 *
+	 */
+	private String CLTOLLE;
+	/**
+	 *
+	 */
+	private String DLDEST;
+	/**
+	 *
+	 */
+	private String DLLAV;
+	/**
+	 *
+	 */
+	private String DLLUBRI;
+	/**
+	 *
+	 */
+	private String MLSTATF;
+	/**
+	 *
+	 */
+	private String PLACKG;
+	/**
+	 *
+	 */
+	private String PMETC;
+	/**
+	 *
+	 */
+	private String QSPEC;
+	/**
+	 *
+	 */
+	private String SLTOLLA;
+	/**
+	 *
+	 */
+	private String DLLATOLP;
+	/**
+	 *
+	 */
+	private String DLLATOLN;
+	/**
+	 *
+	 */
+	private String SLLATOLP;
+	/**
+	 *
+	 */
+	private String SLLATOLN;
+	/**
+	 *
+	 */
+	private String SLLANAS;
+	/**
+	 *
+	 */
+	private String QLLAVDET;
+	/**
+	 *
+	 */
+	private String SLMOD;
+	/**
+	 *
+	 */
+	private String QLLAV;
+	/**
+	 *
+	 */
+	private int SLTMAX;
+	/**
+	 *
+	 */
+	private int SBATIPO;
+	/**
+	 *
+	 */
+	int SETICC;
 
-	public Caratteristica(BigDecimal bigDecimal, String cLLEGA, String cLSTATF, String string, String string2,
-			String cLFINI, String cLASSE2) {
-		// TODO Auto-generated constructor stub
+	/**
+	 * @param bigDecimal
+	 * @param string
+	 * @param string2
+	 * @param string3
+	 * @param string4
+	 * @param string5
+	 * @param string6
+	 */
+	public Caratteristica(BigDecimal bigDecimal, String string, String string2, String string3, String string4,
+			String string5, String string6) {
+		this(bigDecimal, string, string2, string3, string4, string5, string6, null, null, null, null, null, null, null,
+				null, null, null, null, null, null, null, null, null, 0, 0, null, null, null, null);
 	}
 
-	public Caratteristica(BigDecimal cLSPESS, String cLLEGA, String cLSTATF, String sLBPTE, String sLBP, String cLFINI,
-			String cLASSE2, String cLLARG, String cLLUNG, String cLRIVE, String cLTOLLE, String dLDEST, String dLLAV,
-			String dLLUBRI, String mLSTATF, String pLACKG, String pMETC, String qSPEC, String sLTOLLA, String dLLATOLP,
-			String dLLATOLN, String sLLATOLP, String sLLATOLN, int i, int j, String sLLANAS, String qLLAVDET,
-			String sLMOD, String qLLAV) {
-		// TODO Auto-generated constructor stub
+	/**
+	 * @param CLSPESS
+	 * @param CLLEGA
+	 * @param CLSTATF
+	 * @param SLBPTE
+	 * @param SLBP
+	 * @param CLFINI
+	 * @param CLASSE
+	 * @param CLLARG
+	 * @param CLLUNG
+	 * @param CLRIVE
+	 * @param CLTOLLE
+	 * @param DLDEST
+	 * @param DLLAV
+	 * @param DLLUBRI
+	 * @param MLSTATF
+	 * @param PLACKG
+	 * @param PMETC
+	 * @param QSPEC
+	 * @param SLTOLLA
+	 * @param DLLATOLP
+	 * @param DLLATOLN
+	 * @param SLLATOLP
+	 * @param SLLATOLN
+	 * @param SLTMAX
+	 * @param SBATIPO
+	 * @param SLLANAS
+	 * @param QLLAVDET
+	 * @param SLMOD
+	 * @param QLLAV
+	 */
+	public Caratteristica(BigDecimal CLSPESS, String CLLEGA, String CLSTATF, String SLBPTE, String SLBP, String CLFINI,
+			String CLASSE, String CLLARG, String CLLUNG, String CLRIVE, String CLTOLLE, String DLDEST, String DLLAV,
+			String DLLUBRI, String MLSTATF, String PLACKG, String PMETC, String QSPEC, String SLTOLLA, String DLLATOLP,
+			String DLLATOLN, String SLLATOLP, String SLLATOLN, int SLTMAX, int SBATIPO, String SLLANAS, String QLLAVDET,
+			String SLMOD, String QLLAV) {
+		this.CLSPESS = CLSPESS;
+		this.CLLEGA = CLLEGA;
+		this.CLSTATF = CLSTATF;
+		this.SLBPTE = SLBPTE;
+		this.SLBP = SLBP;
+		this.CLFINI = CLFINI;
+		this.CLASSE = CLASSE;
+		this.CLLARG = CLLARG;
+		this.CLLUNG = CLLUNG;
+		this.CLRIVE = CLRIVE;
+		this.CLTOLLE = CLTOLLE;
+		this.DLDEST = DLDEST;
+		this.DLLAV = DLLAV;
+		this.DLLUBRI = DLLUBRI;
+		this.MLSTATF = MLSTATF;
+		this.PLACKG = PLACKG;
+		this.PMETC = PMETC;
+		this.QSPEC = QSPEC;
+		this.SLTOLLA = SLTOLLA;
+		this.DLLATOLP = DLLATOLP;
+		this.DLLATOLN = DLLATOLN;
+		this.SLLATOLP = SLLATOLP;
+		this.SLLATOLN = SLLATOLN;
+		this.SLTMAX = SLTMAX;
+		this.SBATIPO = SBATIPO;
+		this.SLLANAS = SLLANAS;
+		this.QLLAVDET = QLLAVDET;
+		this.SLMOD = SLMOD;
+		this.QLLAV = QLLAV;
 	}
 
-	public Caratteristica(String caratteristicaId, String descrizioneCaratteristica, int caratteristicaOrder, String classe)
-	{
+	/**
+	 * @param caratteristicaId
+	 * @param descrizioneCaratteristica
+	 * @param caratteristicaOrder
+	 * @param classe
+	 */
+	public Caratteristica(String caratteristicaId, String descrizioneCaratteristica, int caratteristicaOrder,
+			String classe) {
 		this.caratteristicaId = caratteristicaId;
 		this.caratteristicaOrder = caratteristicaOrder;
 		this.classe = classe;
 		this.valori = this.setListOfValues();
-		this.selectedValue = "";
-		this.descrizioneCaratteristica = descrizioneCaratteristica;
 	}
 
-	public Caratteristica(String caratteristicaId, String descrizioneCaratteristica, int caratteristicaOrder, String classe, ArrayList<Opzione> valori, String selectedValue)
-	{
+	/**
+	 * @param caratteristicaId
+	 * @param descrizioneCaratteristica
+	 * @param caratteristicaOrder
+	 * @param classe
+	 * @param valori
+	 * @param selectedValue
+	 */
+	public Caratteristica(String caratteristicaId, String descrizioneCaratteristica, int caratteristicaOrder,
+			String classe, ArrayList<Opzione> valori, String selectedValue) {
 		this.caratteristicaId = caratteristicaId;
 		this.caratteristicaOrder = caratteristicaOrder;
 		this.classe = classe;
 		this.valori = valori;
-		this.selectedValue = selectedValue;
-		this.descrizioneCaratteristica = descrizioneCaratteristica;
 	}
 
-	public Caratteristica(String caratteristicaId, String descrizioneCaratteristica, int caratteristicaOrder, String classe, String selectedValue)
-	{
+	/**
+	 * @param caratteristicaId
+	 * @param descrizioneCaratteristica
+	 * @param caratteristicaOrder
+	 * @param classe
+	 * @param selectedValue
+	 */
+	public Caratteristica(String caratteristicaId, String descrizioneCaratteristica, int caratteristicaOrder,
+			String classe, String selectedValue) {
 		this.caratteristicaId = caratteristicaId;
 		this.caratteristicaOrder = caratteristicaOrder;
 		this.classe = classe;
 		this.valori = this.setListOfValues();
-		this.selectedValue = selectedValue;
-		this.descrizioneCaratteristica = descrizioneCaratteristica;
 	}
 
-	private Opzione deleteElementAt(int index)
-	{
-		return this.valori.remove(index);
-	}
-
-	private boolean deleteElementByObject(Opzione opz)
-	{
-		return this.valori.remove(opz);
-	}
-
-	private boolean deleteElementByValue(String value)
-	{
-		for(Opzione valore : valori)
-		{
-			if(valore.getOpzione().toString().equalsIgnoreCase(value))
-				return this.valori.remove(valore);
+	/**
+	 * @param index
+	 * @return
+	 */
+	private int convertSLLANASIndex(String index) {
+		int returnValue = 0;
+		switch (index) {
+		case "A":
+		case "C":
+		case "K":
+		case "G":
+		case "J":
+			returnValue = 40;
+			break;
+		case "I":
+		case "L":
+			returnValue = 80;
+			break;
+		case "W":
+			returnValue = 30;
+			break;
+		case "Z":
+		case "Y":
+			returnValue = 70;
+			break;
+		default:
+			returnValue = 0;
 		}
 
-		return false;
+		return returnValue;
 	}
 
+	/**
+	 *
+	 */
 	@Override
 	public int getBandellineNumInSLLANAS() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
+	/**
+	 *
+	 */
 	@Override
 	public String getCaratteristicaId() {
 		return caratteristicaId;
 	}
 
+	/**
+	 *
+	 */
 	@Override
 	public int getCaratteristicaOrder() {
 		return caratteristicaOrder;
 	}
 
+	/**
+	 *
+	 */
 	@Override
 	public String getClasse() {
 		return classe;
 	}
 
+	/**
+	 *
+	 */
 	@Override
 	public String getCLASSE() {
-		// TODO Auto-generated method stub
-		return null;
+		if (CLASSE == null) {
+			CLASSE = ReadDB.readClasse();
+		}
+		return CLASSE;
 	}
 
+	/**
+	 *
+	 */
 	@Override
 	public String getCLFINI() {
-		// TODO Auto-generated method stub
-		return null;
+		return CLFINI;
 	}
 
+	/**
+	 *
+	 */
 	@Override
 	public String getCLLARG() {
-		// TODO Auto-generated method stub
-		return null;
+		return CLLARG;
 	}
 
+	/**
+	 *
+	 */
 	@Override
 	public String getCLLEGA() {
-		// TODO Auto-generated method stub
-		return null;
+		return CLLEGA;
 	}
 
+	/**
+	 *
+	 */
 	@Override
 	public String getCLLUNG() {
-		// TODO Auto-generated method stub
-		return null;
+		return CLLUNG;
 	}
 
+	/**
+	 *
+	 */
 	@Override
 	public String getCLRIVE() {
-		// TODO Auto-generated method stub
-		return null;
+		return CLRIVE;
 	}
 
+	/**
+	 *
+	 */
 	@Override
-	public Integer getCLSPESS() {
-		// TODO Auto-generated method stub
-		return null;
+	public BigDecimal getCLSPESS() {
+		return CLSPESS;
 	}
 
+	/**
+	 *
+	 */
 	@Override
 	public String getCLSTATF() {
-		// TODO Auto-generated method stub
-		return null;
+		return CLSTATF;
 	}
 
+	/**
+	 *
+	 */
 	@Override
 	public String getCLTOLLE() {
-		// TODO Auto-generated method stub
-		return null;
+		return CLTOLLE;
 	}
 
+	/**
+	 *
+	 */
 	@Override
 	public String getDescrizioneCaratteristica() {
-		return descrizioneCaratteristica;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
+	/**
+	 *
+	 */
 	@Override
 	public String getDLDEST() {
-		// TODO Auto-generated method stub
-		return null;
+		return DLDEST;
 	}
 
+	/**
+	 *
+	 */
 	@Override
 	public String getDLLATOLN() {
-		// TODO Auto-generated method stub
-		return null;
+		return DLLATOLN;
 	}
 
+	/**
+	 *
+	 */
 	@Override
 	public String getDLLATOLP() {
-		// TODO Auto-generated method stub
-		return null;
+		return DLLATOLP;
 	}
 
+	/**
+	 * @return
+	 */
+	public String getDLLAV() {
+		return DLLAV;
+	}
+
+	/**
+	 * @return
+	 */
+	public String getDLLUBRI() {
+		return DLLUBRI;
+	}
+
+	/**
+	 *
+	 */
 	@Override
 	public String getMLSTATF() {
-		// TODO Auto-generated method stub
-		return null;
+		return MLSTATF;
 	}
 
+	/**
+	 * @return
+	 */
+	public String getPLACKG() {
+		return PLACKG;
+	}
+
+	/**
+	 * @return
+	 */
+	public String getPMETC() {
+		return PMETC;
+	}
+
+	/**
+	 *
+	 */
 	@Override
 	public String getQLLAV() {
-		// TODO Auto-generated method stub
-		return null;
+		return QLLAV;
 	}
 
+	/**
+	 *
+	 */
 	@Override
 	public String getQLLAVDET() {
+		return QLLAVDET;
+	}
+
+	/**
+	 * @return
+	 */
+	public String getQSPEC() {
+		return QSPEC;
+	}
+
+	/**
+	 *
+	 */
+	@Override
+	public int getSBATIPO() {
+		return SBATIPO;
+	}
+
+	/**
+	 *
+	 */
+	@Override
+	public String getSelectedValue() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
-	public int getSBATIPO() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public String getSelectedValue() {
-		return selectedValue;
-	}
-
+	/**
+	 *
+	 */
 	@Override
 	public int getSETICC() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
+	/**
+	 *
+	 */
 	@Override
 	public String getSLBP() {
-		// TODO Auto-generated method stub
-		return null;
+		return SLBP;
 	}
 
+	/**
+	 *
+	 */
 	@Override
 	public String getSLBPTE() {
-		// TODO Auto-generated method stub
-		return null;
+		return SLBPTE;
 	}
 
+	/**
+	 * @return
+	 */
+	public String getSLLANAS() {
+		return SLLANAS;
+	}
+
+	/**
+	 *
+	 */
 	@Override
 	public int getSLLANASLarg() {
-		// TODO Auto-generated method stub
-		return 0;
+		String SLLANASletter = "";
+		String SLLANASDim = "";
+
+		try {
+			SLLANASletter = this.getSLLANAS().substring(2, 3);
+			SLLANASDim = this.getSLLANAS().substring(3, this.getSLLANAS().length());
+			return (Integer.parseInt(SLLANASDim) + this.convertSLLANASIndex(SLLANASletter));
+		} catch (final Exception ex) {
+			return 0;
+		}
 	}
 
+	/**
+	 *
+	 */
 	@Override
 	public String getSLLATOLN() {
-		// TODO Auto-generated method stub
-		return null;
+		return SLLATOLN;
 	}
 
+	/**
+	 *
+	 */
 	@Override
 	public String getSLLATOLP() {
-		// TODO Auto-generated method stub
-		return null;
+		return SLLATOLP;
 	}
 
+	/**
+	 *
+	 */
 	@Override
 	public String getSLMOD() {
-		// TODO Auto-generated method stub
-		return null;
+		return SLMOD;
 	}
 
+	/**
+	 *
+	 */
 	@Override
 	public int getSLTMAX() {
-		// TODO Auto-generated method stub
-		return 0;
+		return SLTMAX;
 	}
 
+	/**
+	 *
+	 */
 	@Override
 	public String getSLTOLLA() {
-		// TODO Auto-generated method stub
-		return null;
+		return SLTOLLA;
 	}
 
+	/**
+	 *
+	 */
 	@Override
 	public ArrayList<Opzione> getValori() {
 		return valori;
 	}
 
+	/**
+	 *
+	 */
 	@Override
 	public boolean isEnabled() {
 		return enabled;
 	}
 
+	/**
+	 *
+	 */
 	@Override
 	public boolean isVisible() {
 		return visible;
 	}
 
+	/**
+	 *
+	 */
 	@Override
 	public void setCaratteristicaOrder(int caratteristicaOrder) {
 		this.caratteristicaOrder = caratteristicaOrder;
 	}
 
+	/**
+	 * @param CLASSE
+	 */
+	public void setCLASSE(String CLASSE) {
+		this.CLASSE = CLASSE;
+	}
+
+	/**
+	 * @param CLFINI
+	 */
+	public void setCLFINI(String CLFINI) {
+		this.CLFINI = CLFINI;
+	}
+
+	/**
+	 * @param cLLARG
+	 */
+	public void setCLLARG(String cLLARG) {
+		CLLARG = cLLARG;
+	}
+
+	/**
+	 * @param CLLEGA
+	 */
+	public void setCLLEGA(String CLLEGA) {
+		this.CLLEGA = CLLEGA;
+	}
+
+	/**
+	 * @param cLLUNG
+	 */
+	public void setCLLUNG(String cLLUNG) {
+		CLLUNG = cLLUNG;
+	}
+
+	/**
+	 * @param cLRIVE
+	 */
+	public void setCLRIVE(String cLRIVE) {
+		CLRIVE = cLRIVE;
+	}
+
+	/**
+	 * @param CLSPESS
+	 */
+	public void setCLSPESS(BigDecimal CLSPESS) {
+		this.CLSPESS = CLSPESS;
+	}
+
+	/**
+	 * @param CLSTATF
+	 */
+	public void setCLSTATF(String CLSTATF) {
+		this.CLSTATF = CLSTATF;
+	}
+
+	/**
+	 * @param cLTOLLE
+	 */
+	public void setCLTOLLE(String cLTOLLE) {
+		CLTOLLE = cLTOLLE;
+	}
+
+	/**
+	 * @param dLDEST
+	 */
+	public void setDLDEST(String dLDEST) {
+		DLDEST = dLDEST;
+	}
+
+	/**
+	 * @param dLLATOLN
+	 */
+	public void setDLLATOLN(String dLLATOLN) {
+		DLLATOLN = dLLATOLN;
+	}
+
+	/**
+	 * @param dLLATOLP
+	 */
+	public void setDLLATOLP(String dLLATOLP) {
+		DLLATOLP = dLLATOLP;
+	}
+
+	/**
+	 * @param dLLAV
+	 */
+	public void setDLLAV(String dLLAV) {
+		DLLAV = dLLAV;
+	}
+
+	/**
+	 * @param dLLUBRI
+	 */
+	public void setDLLUBRI(String dLLUBRI) {
+		DLLUBRI = dLLUBRI;
+	}
+
+	/**
+	 *
+	 */
 	@Override
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
 
-	private ArrayList<Opzione> setListOfValues()
-	{
+	/**
+	 * @return
+	 */
+	private ArrayList<Opzione> setListOfValues() {
 		return ReadDB.getOpzioniList(this.classe, this.caratteristicaId);
 	}
 
-	@Override
-	public void setSelectedValue(String selectedValue) {
-		this.selectedValue = selectedValue;
+	/**
+	 * @param mLSTATF
+	 */
+	public void setMLSTATF(String mLSTATF) {
+		MLSTATF = mLSTATF;
 	}
 
+	/**
+	 * @param pLACKG
+	 */
+	public void setPLACKG(String pLACKG) {
+		PLACKG = pLACKG;
+	}
+
+	/**
+	 * @param pMETC
+	 */
+	public void setPMETC(String pMETC) {
+		PMETC = pMETC;
+	}
+
+	/**
+	 * @param qLLAV
+	 */
+	public void setQLLAV(String qLLAV) {
+		QLLAV = qLLAV;
+	}
+
+	/**
+	 * @param qLLAVDET
+	 */
+	public void setQLLAVDET(String qLLAVDET) {
+		QLLAVDET = qLLAVDET;
+	}
+
+	/**
+	 * @param qSPEC
+	 */
+	public void setQSPEC(String qSPEC) {
+		QSPEC = qSPEC;
+	}
+
+	/**
+	 * @param sBATIPO
+	 */
+	public void setSBATIPO(int sBATIPO) {
+		SBATIPO = sBATIPO;
+	}
+
+	/**
+	 *
+	 */
+	@Override
+	public void setSelectedValue(String selectedValue) {
+	}
+
+	/**
+	 * @param SLBP
+	 */
+	public void setSLBP(String SLBP) {
+		this.SLBP = SLBP;
+	}
+
+	/**
+	 * @param SLBPTE
+	 */
+	public void setSLBPTE(String SLBPTE) {
+		this.SLBPTE = SLBPTE;
+	}
+
+	/**
+	 * @param sLLANAS
+	 */
+	public void setSLLANAS(String sLLANAS) {
+		SLLANAS = sLLANAS;
+	}
+
+	/**
+	 * @param sLLATOLN
+	 */
+	public void setSLLATOLN(String sLLATOLN) {
+		SLLATOLN = sLLATOLN;
+	}
+
+	/**
+	 * @param sLLATOLP
+	 */
+	public void setSLLATOLP(String sLLATOLP) {
+		SLLATOLP = sLLATOLP;
+	}
+
+	/**
+	 * @param sLMOD
+	 */
+	public void setSLMOD(String sLMOD) {
+		SLMOD = sLMOD;
+	}
+
+	/**
+	 * @param sLTMAX
+	 */
+	public void setSLTMAX(int sLTMAX) {
+		SLTMAX = sLTMAX;
+	}
+
+	/**
+	 * @param sLTOLLA
+	 */
+	public void setSLTOLLA(String sLTOLLA) {
+		SLTOLLA = sLTOLLA;
+	}
+
+	/**
+	 *
+	 */
 	@Override
 	public void setValori(ArrayList<Opzione> valori) {
 		this.valori = valori;
 	}
 
+	/**
+	 *
+	 */
 	@Override
 	public void setVisible(boolean visible) {
 		this.visible = visible;

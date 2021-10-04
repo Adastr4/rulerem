@@ -5,15 +5,13 @@ public class Operazione {
 	private Attivita attivita;
 	private int ordine;
 
-	public Operazione(Macchina macchina, Attivita attivita, int ordine)
-	{
+	public Operazione(Macchina macchina, Attivita attivita, int ordine) {
 		this.macchina = macchina;
 		this.attivita = attivita;
 		this.ordine = ordine;
 	}
 
-	public Operazione(String macchinaId, String attivitaId, int ordine)
-	{
+	public Operazione(String macchinaId, String attivitaId, int ordine) {
 		this.macchina = ReadDB.getClassmodelMacchinaFromId(macchinaId);
 		this.attivita = ReadDB.getClassmodelAttivitaFromId(attivitaId);
 	}
@@ -41,7 +39,5 @@ public class Operazione {
 	public void setOrdine(int ordine) {
 		this.ordine = ordine;
 	}
-
-
 
 }

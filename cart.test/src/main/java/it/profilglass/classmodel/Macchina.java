@@ -8,17 +8,17 @@ public class Macchina {
 	private int capacitaBaseGiornaliera;
 	private int capacitaBaseSettimanale;
 
-	public Macchina(String idMacchina, String descMacchina, String idCentroLavoro, int capacitaBaseGiornaliera, int capacitaBaseSettimanale)
-	{
+	public Macchina(String string) {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Macchina(String idMacchina, String descMacchina, String idCentroLavoro, int capacitaBaseGiornaliera,
+			int capacitaBaseSettimanale) {
 		this.idMacchina = idMacchina;
 		this.descMacchina = descMacchina;
 		this.idCentroLavoro = idCentroLavoro;
 		this.capacitaBaseGiornaliera = capacitaBaseGiornaliera;
 		this.capacitaBaseSettimanale = capacitaBaseSettimanale;
-	}
-
-	public Macchina(String string) {
-		// TODO Auto-generated constructor stub
 	}
 
 	public int getCapacitaBaseGiornaliera() {

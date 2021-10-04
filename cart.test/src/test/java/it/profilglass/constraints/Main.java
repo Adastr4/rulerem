@@ -263,18 +263,6 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		//System.out.println("substring(2,3) " + "CBF.0.5".substring(2,3).toString());
-		//System.out.println("substring(2,3) " + "CBF.0.5".substring(4, "CBF.0.5".length()));
-		//withLoopCLLARGSTOLLACLSPESSNew();
-		//withLoopTestCLLARGf092();
-		//Rulef092CLLARGExecutorList();
-		//RuleSLLATOLNNoIterator(new BigDecimal(620),"500","F","0","BAF.0.1");
-		//System.out.println(testRuleSLLATOLNStandard(new BigDecimal(620), "500", "F", "0", "BAF.0.1").toString());
-		//ruleMLSTATFTest();
-		//RuleSLLATOLPIterator();
-		//CaratteristicaBean cara = new CaratteristicaBean(new BigDecimal(600),"1K","H18","B00957","000000","L","","03450","03750","B","N","N"," ","N","H18","1","002","","P","0","0","ACP","ACP",1,2,"1KB1420","H01","BL","N");
-		//System.out.println("Valore visualizzato: " + cara.getSLLANASLarg());
-		//RuleMacchina(cara);
 		GenericConfItem item = new GenericConfItem(new ConfiguratoreBAV(), "BAV");
 		item.getConf().getCaratteristicaById("CLFINI").setSelectedValue("M");
 		item.getConf().getCaratteristicaById("CLLEGA").setSelectedValue("5F");
