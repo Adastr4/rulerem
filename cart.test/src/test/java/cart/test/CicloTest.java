@@ -106,6 +106,7 @@ class CicloTest {
 	}
 
 	private void runRuleBook(RuleBookRunner ruleBook, ICaratteristica applicant1) {
+		if (applicant1==null) return;
 		NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
 		facts.put(new Fact<>(applicant1));
 

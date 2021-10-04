@@ -5,9 +5,6 @@ import com.deliveredtechnologies.rulebook.NameValueReferableMap;
 import com.deliveredtechnologies.rulebook.lang.RuleBookBuilder;
 import com.deliveredtechnologies.rulebook.model.RuleBook;
 
-import cart.test.ApplicantBean;
-import cart.test.HomeLoanRateRuleBook;
-
 public class ExampleSolution {
 	public static void main(String[] args) {
 		RuleBook homeLoanRateRuleBook = RuleBookBuilder.create(HomeLoanRateRuleBook.class).withResultType(Double.class)
