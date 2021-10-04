@@ -423,9 +423,9 @@ public class Main {
 		}
 	}
 
-	static void testMLSTATFRuleStandard(String cllega, String clstatf, String cllarg, String cllung,
+	static Object testMLSTATFRuleStandard(String cllega, String clstatf, String cllarg, String cllung,
 			Integer clspess, String clrive, String dldest, String slbp) {
-		// TODO Auto-generated method stub
+		return new Object();
 
 	}
 
