@@ -13,7 +13,7 @@ import com.deliveredtechnologies.rulebook.FactMap;
 import com.deliveredtechnologies.rulebook.NameValueReferableMap;
 import com.deliveredtechnologies.rulebook.model.runner.RuleBookRunner;
 
-import test.test.CaratteristicaBean;
+import it.profilglass.classmodel.ICaratteristica;
 
 class MainTest {
 
@@ -425,15 +425,15 @@ class MainTest {
 	@Test
 	public void ruleSLLATOLPTest()
 	{
-		List<CaratteristicaBean> returnCases = new ArrayList<>();
+		List<ICaratteristica> returnCases = new ArrayList<>();
 
 		returnCases = Main.buildCases();
 
-		for (CaratteristicaBean caratteristica : returnCases) {
+		for (ICaratteristica caratteristica : returnCases) {
 
 			
 			RuleBookRunner ruleBookCLLARG = new RuleBookRunner("it.profilglass.constraint.bav.SLLATOLP.val");
-			NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
+			NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
 			ruleBookCLLARG.setDefaultResult(Boolean.TRUE);
 			facts.put(new Fact<>(caratteristica));
 			ruleBookCLLARG.run(facts);
@@ -447,9 +447,9 @@ class MainTest {
 	//@Test
 	public void ruleSLLATOLPSingleTest()
 	{
-		CaratteristicaBean caratteristica = new CaratteristicaBean(new BigDecimal(620), "", "", "", "", "", "", "500", "", "", "", "", "", "", "", "", "", "", "F", "0", "", "BAF.0.1", "",1,1,"3CJ1240","B11","BA","N");
+		ICaratteristica caratteristica = new ICaratteristica(new BigDecimal(620), "", "", "", "", "", "", "500", "", "", "", "", "", "", "", "", "", "", "F", "0", "", "BAF.0.1", "",1,1,"3CJ1240","B11","BA","N");
 		RuleBookRunner ruleBookCLLARG = new RuleBookRunner("it.profilglass.constraint.bav.val.SLLATOLP");
-		NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
+		NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
 
 		ruleBookCLLARG.setDefaultResult(Boolean.TRUE);
 		facts.put(new Fact<>(caratteristica));
@@ -463,14 +463,14 @@ class MainTest {
 	//@Test
 	public void ruleSLLATOLNTest()
 	{
-		List<CaratteristicaBean> returnCases = new ArrayList<>();
+		List<ICaratteristica> returnCases = new ArrayList<>();
 
 		returnCases = Main.buildCases();
 
-		for (CaratteristicaBean caratteristica : returnCases) {
+		for (ICaratteristica caratteristica : returnCases) {
 
 			RuleBookRunner ruleBookCLLARG = new RuleBookRunner("it.profilglass.constraint.bav.val.SLLATOLN");
-			NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
+			NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
 			ruleBookCLLARG.setDefaultResult(Boolean.TRUE);
 			facts.put(new Fact<>(caratteristica));
 			ruleBookCLLARG.run(facts);
@@ -484,9 +484,9 @@ class MainTest {
 	//@Test
 	public void ruleSLLATOLNSingleTest()
 	{
-		CaratteristicaBean caratteristica = new CaratteristicaBean(new BigDecimal(620), "", "", "", "", "", "", "500", "", "", "", "", "", "", "", "", "", "", "F", "", "0", "", "BAF.0.1",1,1,"3CJ1240","B11","BA","N");
+		ICaratteristica caratteristica = new ICaratteristica(new BigDecimal(620), "", "", "", "", "", "", "500", "", "", "", "", "", "", "", "", "", "", "F", "", "0", "", "BAF.0.1",1,1,"3CJ1240","B11","BA","N");
 		RuleBookRunner ruleBookCLLARG = new RuleBookRunner("it.profilglass.constraint.bav.SLLATOLN.val");
-		NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
+		NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
 
 		ruleBookCLLARG.setDefaultResult(Boolean.TRUE);
 		facts.put(new Fact<>(caratteristica));
@@ -500,14 +500,14 @@ class MainTest {
 	//@Test
 	public void ruleCLSTATFTest()
 	{
-		List<CaratteristicaBean> returnCases = new ArrayList<>();
+		List<ICaratteristica> returnCases = new ArrayList<>();
 
 		returnCases = Main.buildCases();
 
-		for (CaratteristicaBean caratteristica : returnCases) {
+		for (ICaratteristica caratteristica : returnCases) {
 
 			RuleBookRunner ruleBookCLLARG = new RuleBookRunner("it.profilglass.constraint.bav.val.CLSTATF");
-			NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
+			NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
 			ruleBookCLLARG.setDefaultResult(Boolean.TRUE);
 			facts.put(new Fact<>(caratteristica));
 			ruleBookCLLARG.run(facts);
@@ -521,14 +521,14 @@ class MainTest {
 	@Test
 	public void ruleMLSTATFTest()
 	{
-		List<CaratteristicaBean> returnCases = new ArrayList<>();
+		List<ICaratteristica> returnCases = new ArrayList<>();
 
 		returnCases = Main.buildCases();
 
-		for (CaratteristicaBean caratteristica : returnCases) {
+		for (ICaratteristica caratteristica : returnCases) {
 
 			RuleBookRunner ruleBookMLSTATF = new RuleBookRunner("it.profilglass.constraint.bav.MLSTATF");
-			NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
+			NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
 			ruleBookMLSTATF.setDefaultResult(caratteristica.getCLSTATF());
 			facts.setValue("caratteristica", caratteristica);
 			ruleBookMLSTATF.run(facts);

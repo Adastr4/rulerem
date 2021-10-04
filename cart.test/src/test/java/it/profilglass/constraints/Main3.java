@@ -10,7 +10,7 @@ import com.deliveredtechnologies.rulebook.NameValueReferableMap;
 import com.deliveredtechnologies.rulebook.model.Auditor;
 import com.deliveredtechnologies.rulebook.model.runner.RuleBookRunner;
 
-import test.test.CaratteristicaBean;
+import it.profilglass.classmodel.ICaratteristica;
 
 public class Main3 {
 
@@ -51,8 +51,8 @@ public class Main3 {
 			RuleBookRunner ruleBook = new RuleBookRunner("cart.test",
 					s ->  s.equalsIgnoreCase("it.profilglass.constraints.library.cs1")
 							);
-			NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
-			CaratteristicaBean applicant1 = new CaratteristicaBean(new BigDecimal(650), CLLEGA, CLSTATF, "B07187",
+			NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
+			ICaratteristica applicant1 = new ICaratteristica(new BigDecimal(650), CLLEGA, CLSTATF, "B07187",
 					"B07187", "", "");
 
 			facts.put(new Fact<>(applicant1));
@@ -115,8 +115,8 @@ else if( 1 == 1){
 			RuleBookRunner ruleBook = new RuleBookRunner("it.profilglass.constraints.library.cs1"
 				//,	s ->  s.equalsIgnoreCase("it.profilglass.constraints.library.cs1")
 							);
-			NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
-			CaratteristicaBean applicant1 = new CaratteristicaBean(new BigDecimal(650), CLLEGA, CLSTATF, SLBPTE,
+			NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
+			ICaratteristica applicant1 = new ICaratteristica(new BigDecimal(650), CLLEGA, CLSTATF, SLBPTE,
 					SLBP, "", "");
 
 			facts.put(new Fact<>(applicant1));
@@ -167,8 +167,8 @@ else if( 1 == 1){
 					 || s.equalsIgnoreCase("it.profilglass.constraints.library.cs2")
 					 || s.equalsIgnoreCase("it.profilglass.constraints.cs1")
 							);
-			NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
-			CaratteristicaBean applicant1 = new CaratteristicaBean(new BigDecimal(650), CLLEGA, CLSTATF, SLBPTE,
+			NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
+			ICaratteristica applicant1 = new ICaratteristica(new BigDecimal(650), CLLEGA, CLSTATF, SLBPTE,
 					SLBP, "", "");
 
 			facts.put(new Fact<>(applicant1));
@@ -230,8 +230,8 @@ else if( 1 == 1){
 					 || s.equalsIgnoreCase("it.profilglass.constraints.library.cs2")
 					 || s.equalsIgnoreCase("it.profilglass.constraints.cs1")
 							);
-			NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
-			CaratteristicaBean applicant1 = new CaratteristicaBean(new BigDecimal(650), CLLEGA, CLSTATF, SLBPTE,
+			NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
+			ICaratteristica applicant1 = new ICaratteristica(new BigDecimal(650), CLLEGA, CLSTATF, SLBPTE,
 					SLBP, "", "");
 
 			facts.put(new Fact<>(applicant1));
@@ -397,8 +397,8 @@ else if( 1 == 1){
 					s ->  s.equalsIgnoreCase("cart.test.library.subrules1") ||
 							s.equalsIgnoreCase("cart.test.library.subrules1") ||
 							s.equalsIgnoreCase("cart.test.library.subrules2"));
-			NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
-			CaratteristicaBean applicant1 = new CaratteristicaBean(new BigDecimal(650), CLLEGA, CLSTATF, "B07187",
+			NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
+			ICaratteristica applicant1 = new ICaratteristica(new BigDecimal(650), CLLEGA, CLSTATF, "B07187",
 					"B07187", "", "");
 
 			facts.put(new Fact<>(applicant1));
@@ -434,9 +434,9 @@ else if( 1 == 1){
 		RuleBookRunner ruleBook = new RuleBookRunner("cart.test",
 				s -> s.equalsIgnoreCase("cart.test") || s.equalsIgnoreCase("cart.test.library.subrules1")
 						|| s.equalsIgnoreCase("cart.test.library.subrules2"));
-		NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
+		NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
 
-		CaratteristicaBean caratteristiche = new CaratteristicaBean(
+		ICaratteristica caratteristiche = new ICaratteristica(
 				new BigDecimal(650), CLLEGA, CLSTATF, "B07187",
 				"B07187", "", "");
 
@@ -481,9 +481,9 @@ else if( 1 == 1){
 
 		RuleBookRunner ruleBook = new RuleBookRunner("cart.test.constraints.cs2");
 
-		NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
+		NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
 
-		CaratteristicaBean applicant1 = new CaratteristicaBean(
+		ICaratteristica applicant1 = new ICaratteristica(
 				new BigDecimal(650), CLLEGA, CLSTATF,  "", "", CLFINI, CLASSE);
 
 		facts.put(new Fact<>(applicant1));
@@ -522,9 +522,9 @@ else if( 1 == 1){
 
 		RuleBookRunner ruleBook = new RuleBookRunner("cart.test.constraints.cs2");
 
-		NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
+		NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
 
-		CaratteristicaBean applicant1 = new CaratteristicaBean(new BigDecimal(650), CLLEGA, CLSTATF,  "", "", CLFINI, CLASSE);
+		ICaratteristica applicant1 = new ICaratteristica(new BigDecimal(650), CLLEGA, CLSTATF,  "", "", CLFINI, CLASSE);
 
 		facts.put(new Fact<>(applicant1));
 

@@ -10,7 +10,7 @@ import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
 import cart.test.Macchina;
-import test.test.CaratteristicaBean;
+import it.profilglass.classmodel.ICaratteristica;
 
 @Rule(order = 1, name="Rule5") // order specifies the order the rule should execute in; if not specified, any
 					// order may be used
@@ -18,7 +18,7 @@ public class TestRule {
 	private static final RuleState BREAK = null;
 
 	@Given
-	private List<CaratteristicaBean> caratteristiche; // Annotated Lists get injected with all Facts of the declared
+	private List<ICaratteristica> caratteristiche; // Annotated Lists get injected with all Facts of the declared
 														// generic type
 
 	@Given

@@ -1,9 +1,6 @@
 package it.profilglass.constraints;
 
-import static org.junit.Assert.assertEquals;
-
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
@@ -11,15 +8,13 @@ import java.util.ListIterator;
 import com.deliveredtechnologies.rulebook.Fact;
 import com.deliveredtechnologies.rulebook.FactMap;
 import com.deliveredtechnologies.rulebook.NameValueReferableMap;
-import com.deliveredtechnologies.rulebook.model.Auditor;
 import com.deliveredtechnologies.rulebook.model.runner.RuleBookRunner;
 
 import it.profilglass.classmodel.ConfiguratoreBAV;
-import it.profilglass.classmodel.Distinta;
 import it.profilglass.classmodel.GenericConfItem;
 import it.profilglass.classmodel.GenericItem;
+import it.profilglass.classmodel.ICaratteristica;
 import it.profilglass.classmodel.LivelloDistinta;
-import test.test.CaratteristicaBean;
 import test.test.Caratteristiche;
 import test.test.Macchina;
 
@@ -135,8 +130,8 @@ public class Main {
 		RuleBookRunner ruleBookCLLARG = new RuleBookRunner("it.profilglass.constraint.bav.f092.CLLARG");
 		RuleBookRunner ruleBookCLSPESS = new RuleBookRunner("it.profilglass.constraint.bav.f092.CLSPESS");
 		RuleBookRunner ruleBookSLTOLLA = new RuleBookRunner("it.profilglass.constraint.bav.f092.SLTOLLA");
-		NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
-		CaratteristicaBean applicant1 = new CaratteristicaBean(CLSPESS, CLLEGA, CLSTATF, SLBPTE, SLBP, CLFINI, CLASSE, CLLARG, CLLUNG, CLRIVE, CLTOLLE, DLDEST, DLLAV, DLLUBRI, MLSTATF, PLACKG, PMETC, QSPEC, SLTOLLA, DLLATOLP, DLLATOLN, SLLATOLP, SLLATOLN,1,1, SLLANAS, QLLAVDET, SLMOD, QLLAV);
+		NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
+		ICaratteristica applicant1 = new ICaratteristica(CLSPESS, CLLEGA, CLSTATF, SLBPTE, SLBP, CLFINI, CLASSE, CLLARG, CLLUNG, CLRIVE, CLTOLLE, DLDEST, DLLAV, DLLUBRI, MLSTATF, PLACKG, PMETC, QSPEC, SLTOLLA, DLLATOLP, DLLATOLN, SLLATOLP, SLLATOLN,1,1, SLLANAS, QLLAVDET, SLMOD, QLLAV);
 
 		facts.put(new Fact<>(applicant1));
 
@@ -158,7 +153,7 @@ public class Main {
 		return totalString.toString();
 	}
 	
-	static List<CaratteristicaBean> buildCases()
+	static List<ICaratteristica> buildCases()
 	{
 		//List<String> CLLARGValues = Caratteristiche.getCLLARGValues("BAV");
 		List<String> CLLARGValues = new ArrayList<String>();
@@ -178,7 +173,7 @@ public class Main {
 		List<String> SLMODValues = new ArrayList<String>();
 		List<String> QLLAVValues = new ArrayList<String>();
 		
-		List<CaratteristicaBean> returnCases = new ArrayList<CaratteristicaBean>();
+		List<ICaratteristica> returnCases = new ArrayList<ICaratteristica>();
 		
 		SLTOLLAValues.add("F");
 		
@@ -369,7 +364,7 @@ public class Main {
 														while (litr13.hasNext())
 														{
 															QLLAV = litr13.next();
-															returnCases.add(new CaratteristicaBean(CLSPESS, CLLEGA, CLSTATF, SLBPTE, SLBP, CLFINI, CLASSE, CLLARG, CLLUNG, CLRIVE, CLTOLLE, DLDEST, DLLAV, DLLUBRI, MLSTATF, PLACKG, PMETC, QSPEC, SLTOLLA, DLLATOLP, DLLATOLP, SLLATOLP, SLLATOLP,1,1, SLLANAS, QLLAVDET, SLMOD, QLLAV));
+															returnCases.add(new ICaratteristica(CLSPESS, CLLEGA, CLSTATF, SLBPTE, SLBP, CLFINI, CLASSE, CLLARG, CLLUNG, CLRIVE, CLTOLLE, DLDEST, DLLAV, DLLUBRI, MLSTATF, PLACKG, PMETC, QSPEC, SLTOLLA, DLLATOLP, DLLATOLP, SLLATOLP, SLLATOLP,1,1, SLLANAS, QLLAVDET, SLMOD, QLLAV));
 														}
 													}
 												}
@@ -391,8 +386,8 @@ public class Main {
 	private static String Rulef092CLLARGExecutor(BigDecimal CLSPESS, String CLLEGA, String CLSTATF, String SLBPTE, String SLBP, String CLFINI, String CLASSE, String CLLARG, String CLLUNG, String CLRIVE, String CLTOLLE, String DLDEST, String DLLAV, String DLLUBRI, String MLSTATF, String PLACKG, String PMETC, String QSPEC, String SLTOLLA, String DLLATOLP, String DLLATOLN, String SLLATOLP, String SLLATOLN, String SLLANAS, String QLLAVDET, String SLMOD, String QLLAV)
 	{
 		RuleBookRunner ruleBookCLLARG = new RuleBookRunner("it.profilglass.constraint.bav.f092.CLLARG");
-		NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
-		CaratteristicaBean applicant1 = new CaratteristicaBean(CLSPESS, CLLEGA, CLSTATF, SLBPTE, SLBP, CLFINI, CLASSE, CLLARG, CLLUNG, CLRIVE, CLTOLLE, DLDEST, DLLAV, DLLUBRI, MLSTATF, PLACKG, PMETC, QSPEC, SLTOLLA, DLLATOLP, DLLATOLN, SLLATOLP, SLLATOLN,1,1, SLLANAS, QLLAVDET, SLMOD, QLLAV);
+		NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
+		ICaratteristica applicant1 = new ICaratteristica(CLSPESS, CLLEGA, CLSTATF, SLBPTE, SLBP, CLFINI, CLASSE, CLLARG, CLLUNG, CLRIVE, CLTOLLE, DLDEST, DLLAV, DLLUBRI, MLSTATF, PLACKG, PMETC, QSPEC, SLTOLLA, DLLATOLP, DLLATOLN, SLLATOLP, SLLATOLN,1,1, SLLANAS, QLLAVDET, SLMOD, QLLAV);
 		
 		facts.put(new Fact<>(applicant1));
 		ruleBookCLLARG.run(facts);
@@ -407,11 +402,11 @@ public class Main {
 	
 	private static void ruleMLSTATFTest()
 	{
-		List<CaratteristicaBean> returnCases = new ArrayList<CaratteristicaBean>();
+		List<ICaratteristica> returnCases = new ArrayList<ICaratteristica>();
 		
 		returnCases = Main.buildCases();
 
-		for (CaratteristicaBean caratteristica : returnCases) {
+		for (ICaratteristica caratteristica : returnCases) {
 			
 			testMLSTATFRuleStandard(caratteristica.getCLLEGA(), caratteristica.getCLSTATF(), caratteristica.getCLLARG(), caratteristica.getCLLUNG(), caratteristica.getCLSPESS(), caratteristica.getCLRIVE(), caratteristica.getDLDEST(), caratteristica.getSLBP());
 			/*RuleBookRunner ruleBookMLSTATF = new RuleBookRunner("it.profilglass.constraint.bav.val.MLSTATF");
@@ -430,11 +425,11 @@ public class Main {
 	private static void Rulef092CLLARGExecutorList()
 	{
 		RuleBookRunner ruleBookCLLARG = new RuleBookRunner("it.profilglass.constraint.bav.f092.CLLARG");
-		NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
+		NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
 		
-		List<CaratteristicaBean> applicanti = buildCases();
+		List<ICaratteristica> applicanti = buildCases();
 		
-		for (CaratteristicaBean applicante : applicanti) {
+		for (ICaratteristica applicante : applicanti) {
 			facts.put(new Fact<>(applicante));
 		}
 		
@@ -601,8 +596,8 @@ public class Main {
 	public static void RuleSLLATOLP(BigDecimal CLSPESS, String CLLARG, String SLTOLLA, String DLLATOLP, String SLLATOLP)
 	{
 		RuleBookRunner ruleBookCLLARG = new RuleBookRunner("it.profilglass.constraint.bav.val.SLLATOLP");
-		NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
-		CaratteristicaBean applicant1 = new CaratteristicaBean(CLSPESS, "A3", "H00", "A", "", "", "", CLLARG, "", "", "", "", "", "", "", "", "", "", SLTOLLA, DLLATOLP, "", SLLATOLP, "",1,1,"3CJ1240","B11","BA","N");
+		NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
+		ICaratteristica applicant1 = new ICaratteristica(CLSPESS, "A3", "H00", "A", "", "", "", CLLARG, "", "", "", "", "", "", "", "", "", "", SLTOLLA, DLLATOLP, "", SLLATOLP, "",1,1,"3CJ1240","B11","BA","N");
 		
 		ruleBookCLLARG.setDefaultResult(Boolean.TRUE);
 		facts.put(new Fact<>(applicant1));
@@ -697,8 +692,8 @@ public class Main {
 	public static void RuleSLLATOLN(BigDecimal CLSPESS, String CLLARG, String SLTOLLA, String DLLATOLN, String SLLATOLN)
 	{
 		RuleBookRunner ruleBookCLLARG = new RuleBookRunner("it.profilglass.constraint.bav.val.SLLATOLN");
-		NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
-		CaratteristicaBean applicant1 = new CaratteristicaBean(CLSPESS, "A3", "H00", "A", "", "", "", CLLARG, "", "", "", "", "", "", "", "", "", "", SLTOLLA, "" , DLLATOLN, "" , SLLATOLN,1,1,"3CJ1240","B11","BA","N");
+		NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
+		ICaratteristica applicant1 = new ICaratteristica(CLSPESS, "A3", "H00", "A", "", "", "", CLLARG, "", "", "", "", "", "", "", "", "", "", SLTOLLA, "" , DLLATOLN, "" , SLLATOLN,1,1,"3CJ1240","B11","BA","N");
 		
 		ruleBookCLLARG.setDefaultResult(Boolean.TRUE);
 		facts.put(new Fact<>(applicant1));
@@ -752,8 +747,8 @@ public class Main {
 	public static String Rulef088(BigDecimal CLSPESS, String CLLEGA, String CLSTATF, String SLBPTE, String SLBP, String CLFINI, String CLASSE, String CLLARG, String CLLUNG, String CLRIVE, String CLTOLLE, String DLDEST, String DLLAV, String DLLUBRI, String MLSTATF, String PLACKG, String PMETC, String QSPEC, String SLTOLLA, String DLLATOLP, String DLLATOLN, String SLLATOLP, String SLLATOLN, String QLLAVDET, String SLMOD, String QLLAV)
 	{
 		RuleBookRunner ruleBookCLLARG = new RuleBookRunner("it.profilglass.constraint.bav.f088");
-		NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
-		CaratteristicaBean applicant1 = new CaratteristicaBean(CLSPESS, CLLEGA, CLSTATF, SLBPTE, SLBP, CLFINI, CLASSE, CLLARG, CLLUNG, CLRIVE, CLTOLLE, DLDEST, DLLAV, DLLUBRI, MLSTATF, PLACKG, PMETC, QSPEC, SLTOLLA, DLLATOLP, DLLATOLN, SLLATOLP, SLLATOLN, 1, 1, "3CJ1240", QLLAVDET, SLMOD, QLLAV);
+		NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
+		ICaratteristica applicant1 = new ICaratteristica(CLSPESS, CLLEGA, CLSTATF, SLBPTE, SLBP, CLFINI, CLASSE, CLLARG, CLLUNG, CLRIVE, CLTOLLE, DLDEST, DLLAV, DLLUBRI, MLSTATF, PLACKG, PMETC, QSPEC, SLTOLLA, DLLATOLP, DLLATOLN, SLLATOLP, SLLATOLN, 1, 1, "3CJ1240", QLLAVDET, SLMOD, QLLAV);
 		
 		facts.put(new Fact<>(applicant1));
 		ruleBookCLLARG.run(facts);
@@ -776,8 +771,8 @@ public class Main {
 	public static String Rulef089(BigDecimal CLSPESS, String CLLEGA, String CLSTATF, String SLBPTE, String SLBP, String CLFINI, String CLASSE, String CLLARG, String CLLUNG, String CLRIVE, String CLTOLLE, String DLDEST, String DLLAV, String DLLUBRI, String MLSTATF, String PLACKG, String PMETC, String QSPEC, String SLTOLLA, String DLLATOLP, String DLLATOLN, String SLLATOLP, String SLLATOLN, String SLLANAS, String QLLAVDET, String SLMOD, String QLLAV)
 	{
 		RuleBookRunner ruleBookCLLARG = new RuleBookRunner("it.profilglass.constraint.bav.f089");
-		NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
-		CaratteristicaBean applicant1 = new CaratteristicaBean(CLSPESS, CLLEGA, CLSTATF, SLBPTE, SLBP, CLFINI, CLASSE, CLLARG, CLLUNG, CLRIVE, CLTOLLE, DLDEST, DLLAV, DLLUBRI, MLSTATF, PLACKG, PMETC, QSPEC, SLTOLLA, DLLATOLP, DLLATOLN, SLLATOLP, SLLATOLN, 1, 1, SLLANAS, QLLAVDET, SLMOD, QLLAV);
+		NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
+		ICaratteristica applicant1 = new ICaratteristica(CLSPESS, CLLEGA, CLSTATF, SLBPTE, SLBP, CLFINI, CLASSE, CLLARG, CLLUNG, CLRIVE, CLTOLLE, DLDEST, DLLAV, DLLUBRI, MLSTATF, PLACKG, PMETC, QSPEC, SLTOLLA, DLLATOLP, DLLATOLN, SLLATOLP, SLLATOLN, 1, 1, SLLANAS, QLLAVDET, SLMOD, QLLAV);
 		
 		facts.put(new Fact<>(applicant1));
 		ruleBookCLLARG.run(facts);
@@ -790,11 +785,11 @@ public class Main {
 		return totalString.toString();
 	}
 	
-	public static void RuleMacchina(CaratteristicaBean caratteristica)
+	public static void RuleMacchina(ICaratteristica caratteristica)
 	{
 		ArrayList<Macchina> macchine = new ArrayList<Macchina>();
 		RuleBookRunner ruleBookMacchina = new RuleBookRunner("it.profilglass.constraint.bav.macchina");
-		NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
+		NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
 		
 		facts.setValue("caratteristica", caratteristica);
 		ruleBookMacchina.setDefaultResult(new ArrayList<Macchina>());

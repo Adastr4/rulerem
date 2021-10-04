@@ -9,14 +9,14 @@ import com.deliveredtechnologies.rulebook.annotation.Rule;
 import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
-import test.test.CaratteristicaBean;
+import it.profilglass.classmodel.ICaratteristica;
 
 @Rule(order = 1000) //order specifies the order the rule should execute in; if not specified, any order may be used
 public class CLSTATF_CLLEGA_Rule1 {
   private static final RuleState BREAK = null;
 
 @Given
-  private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
+  private List<ICaratteristica> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 
   @Result
   private boolean validate;

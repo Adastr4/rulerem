@@ -15,7 +15,7 @@ import com.deliveredtechnologies.rulebook.lang.RuleBookBuilder;
 import com.deliveredtechnologies.rulebook.model.RuleBook;
 import com.deliveredtechnologies.rulebook.model.runner.RuleBookRunner;
 
-import test.test.CaratteristicaBean;
+import test.test.ICaratteristica;
 
 class StatoFisicoTest {
 
@@ -24,7 +24,7 @@ class StatoFisicoTest {
 		RuleBook statoFisicoRuleBook = RuleBookBuilder.create(StatoFisicoRuleBook.class).withResultType(String.class)
 				.withDefaultResult("Caratteristica fisica  NON ammessa").build();
 		NameValueReferableMap facts = new FactMap();
-		facts.setValue("Caratteristica", new CaratteristicaBean(new BigDecimal(19.8), "3A", "H00", "", "", "", ""));
+		facts.setValue("Caratteristica", new ICaratteristica(new BigDecimal(19.8), "3A", "H00", "", "", "", ""));
 		statoFisicoRuleBook.run(facts);
 
 		statoFisicoRuleBook.getResult().ifPresent(result -> System.out.println(result));
@@ -45,9 +45,9 @@ class StatoFisicoTest {
 
 		RuleBookRunner ruleBook = new RuleBookRunner("cart.test.constraints.cs2");
 
-		NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
+		NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
 
-		CaratteristicaBean applicant1 = new CaratteristicaBean(new BigDecimal(650), CLLEGA, CLSTATF, "", "", CLFINI,
+		ICaratteristica applicant1 = new ICaratteristica(new BigDecimal(650), CLLEGA, CLSTATF, "", "", CLFINI,
 				CLASSE);
 
 		facts.put(new Fact<>(applicant1));
@@ -86,8 +86,8 @@ class StatoFisicoTest {
 					s -> s.equalsIgnoreCase("cart.test.library.subrules1")
 							|| s.equalsIgnoreCase("cart.test.library.subrules1")
 							|| s.equalsIgnoreCase("cart.test.library.subrules2"));
-			NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
-			CaratteristicaBean applicant1 = new CaratteristicaBean(new BigDecimal(650), CLLEGA, CLSTATF, "B07187",
+			NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
+			ICaratteristica applicant1 = new ICaratteristica(new BigDecimal(650), CLLEGA, CLSTATF, "B07187",
 					"B07187", "", "");
 
 			facts.put(new Fact<>(applicant1));
