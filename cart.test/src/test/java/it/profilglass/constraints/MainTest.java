@@ -14,6 +14,9 @@ import com.deliveredtechnologies.rulebook.FactMap;
 import com.deliveredtechnologies.rulebook.NameValueReferableMap;
 import com.deliveredtechnologies.rulebook.model.runner.RuleBookRunner;
 
+import it.profilglass.classmodel.ConfiguratoreBAV;
+import it.profilglass.classmodel.GenericConfItem;
+import it.profilglass.classmodel.LivelloDistinta;
 import test.test.CaratteristicaBean;
 
 class MainTest {

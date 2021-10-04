@@ -5,8 +5,10 @@ import static org.junit.Assert.assertEquals;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.Queue;
 
 import com.deliveredtechnologies.rulebook.Fact;
 import com.deliveredtechnologies.rulebook.FactMap;
@@ -51,6 +53,8 @@ public class Main {
 		item.getConf().getCaratteristicaById("CLRIVE").setSelectedValue("A");
 		item.getConf().getCaratteristicaById("SLLANAS").setSelectedValue("FAB1040");
 		RunDistintaNew(item);
+		printDistinta(RunDistintaNew(item).get(0));
+		printDistinta(distintaDefault().get(0));
 	}
 	
 	private static void withLoopCLLARGSTOLLACLSPESSNew() {
@@ -1161,9 +1165,29 @@ public class Main {
 	public static List<LivelloDistinta> distintaDefault()
 	{
 		List<LivelloDistinta> distinta = new ArrayList<LivelloDistinta>();
+		//PRIMO LIVELLO
 		distinta.add(new LivelloDistinta(new GenericItem("BA5F3000HA11000020000MNA","BA",null),1,1));
-		distinta.add(new LivelloDistinta(new GenericItem("LB5F3000HA1MN","LB",null),2,1));
-		distinta.add(new LivelloDistinta(new GenericItem("IMCARG90L1000","IMCAR",null),2,2));
+		//SECONDO LIVELLO CON DUE ELEMENTI
+		distinta.get(0).getDistinta().add(new LivelloDistinta(new GenericItem("LB5F3000HA11040MN","LB",null),2,1));
+		distinta.get(0).getDistinta().add(new LivelloDistinta(new GenericItem("IMCARG28L1000","IMCAR",null),2,2));
 		return distinta;
 	}
+	
+	private static void printDistinta(LivelloDistinta root){
+        if(root == null) return;
+        Queue<LivelloDistinta> queue = new LinkedList<>();
+        queue.offer(root);
+        while(!queue.isEmpty()) {
+            int len = queue.size();
+            for(int i=0;i<len;i++) {
+                LivelloDistinta node = queue.poll();
+                assert node != null;
+                System.out.print(node.getArticoloDistinta().getCodiceArticolo() + " ");
+                for (LivelloDistinta item : node.getDistinta()) {
+                    queue.offer(item);
+                }
+            }
+            System.out.println();
+        }
+    }
 }

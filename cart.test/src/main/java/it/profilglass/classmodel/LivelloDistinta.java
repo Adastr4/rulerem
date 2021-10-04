@@ -7,15 +7,17 @@ public class LivelloDistinta {
 	
 	private GenericItem articoloDistinta;
 	private List<GenericItem> articoliAlternativi;
+	private List<LivelloDistinta> distinta;
 	private int livelloDistinta;
 	private int livelloOrdine;
 	
-	public LivelloDistinta(GenericItem articoloDistinta, List<GenericItem> articoliAlternativi, int livelloDistinta, int livelloOrdine)
+	public LivelloDistinta(GenericItem articoloDistinta, List<GenericItem> articoliAlternativi, List<LivelloDistinta> distinta, int livelloDistinta, int livelloOrdine)
 	{
 		this.articoloDistinta = articoloDistinta;
 		this.articoliAlternativi = articoliAlternativi;
 		this.livelloDistinta = livelloDistinta;
 		this.livelloOrdine = livelloOrdine;
+		this.distinta = distinta;
 	}
 	
 	public LivelloDistinta(GenericItem articoloDistinta, int livelloDistinta, int livelloOrdine)
@@ -24,6 +26,7 @@ public class LivelloDistinta {
 		this.livelloDistinta = livelloDistinta;
 		this.livelloOrdine = livelloOrdine;
 		this.articoliAlternativi = new ArrayList<GenericItem>();
+		this.distinta = new ArrayList<LivelloDistinta>();
 	}
 
 	public GenericItem getArticoloDistinta() {
@@ -57,4 +60,13 @@ public class LivelloDistinta {
 	public void setLivelloOrdine(int livelloOrdine) {
 		this.livelloOrdine = livelloOrdine;
 	}
+
+	public List<LivelloDistinta> getDistinta() {
+		return distinta;
+	}
+
+	public void setDistinta(List<LivelloDistinta> distinta) {
+		this.distinta = distinta;
+	}
+	
 }
