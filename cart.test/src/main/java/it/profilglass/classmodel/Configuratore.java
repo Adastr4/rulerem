@@ -27,9 +27,7 @@ public abstract class Configuratore {
 	/**
 	 * @return
 	 */
-	public List<LivelloDistinta> buildDistinta() {
-		return new ArrayList<>();
-	}
+	public abstract List<LivelloDistinta> buildDistinta();
 
 	/**
 	 * @param Id

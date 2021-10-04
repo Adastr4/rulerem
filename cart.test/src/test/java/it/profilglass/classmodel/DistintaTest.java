@@ -1,5 +1,8 @@
 package it.profilglass.classmodel;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,7 +35,8 @@ class DistintaTest {
 	//	item.getConf().getCaratteristicaById("SLLANAS").setSelectedValue("FAB1040");
 
 
-		RunDistintaNew(item).get(0);
+		
+		assertNotEquals(RunDistintaNew(item),null);
 
 	}
 
