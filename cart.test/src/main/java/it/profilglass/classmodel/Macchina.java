@@ -17,6 +17,10 @@ public class Macchina {
 		this.capacitaBaseSettimanale = capacitaBaseSettimanale;
 	}
 
+	public Macchina(String string) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getCapacitaBaseGiornaliera() {
 		return capacitaBaseGiornaliera;
 	}
