@@ -16,18 +16,18 @@ import test.test.ReadDB;
 @Rule(order = 27, name = "ruleTT5_1")
 
 public class RuleTT5_27 {
-	@Given 
+	@Given
 	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 
 	@Result
 	private List<Attivita> result;
-	
+
 	@When
 	public boolean when()
 	{
 		return caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getSLMOD().equalsIgnoreCase("BP"));
 	}
-	
+
 	@Then
 	public RuleState then()
 	{

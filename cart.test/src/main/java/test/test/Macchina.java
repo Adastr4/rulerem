@@ -1,13 +1,13 @@
 package test.test;
 
 public class Macchina {
-	
+
 	private String idMacchina;
 	private String descMacchina;
 	private String idCentroLavoro;
 	private int capacitaBaseGiornaliera;
 	private int capacitaBaseSettimanale;
-	
+
 	public Macchina(String idMacchina, String descMacchina, String idCentroLavoro, int capacitaBaseGiornaliera, int capacitaBaseSettimanale)
 	{
 		this.idMacchina = idMacchina;

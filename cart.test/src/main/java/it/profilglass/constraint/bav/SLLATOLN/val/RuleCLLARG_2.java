@@ -19,13 +19,15 @@ public class RuleCLLARG_2 extends it.profilglass.constraint.bav.SLLATOLP.val.Rul
 
 	@Result
 	private boolean result;
-	
+
+	@Override
 	@When
 	public boolean when()
 	{
 		return super.when();
 	}
-	
+
+	@Override
 	@Then
 	public RuleState then()
 	{

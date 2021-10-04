@@ -1,6 +1,6 @@
 package cart.test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -14,6 +14,8 @@ import com.deliveredtechnologies.rulebook.NameValueReferableMap;
 import com.deliveredtechnologies.rulebook.lang.RuleBookBuilder;
 import com.deliveredtechnologies.rulebook.model.RuleBook;
 import com.deliveredtechnologies.rulebook.model.runner.RuleBookRunner;
+
+import test.test.CaratteristicaBean;
 
 class StatoFisicoTest {
 
@@ -66,7 +68,7 @@ class StatoFisicoTest {
 	void withLoopCLSTATF() {
 
 //		List<String> CLLEGAValues = Caratteristiche.getCLLEGAValues();
-		List<String> CLSTATFValues = Caratteristiche.getCLSTATFValues();
+		List<String> CLSTATFValues =null;// Caratteristiche.getCLSTATFValues();
 //		List<String> CLFINIValues = Caratteristiche.getCLFINIValues();
 
 		String CLLEGA;
@@ -97,14 +99,14 @@ class StatoFisicoTest {
 
 			ruleBook.getResult().ifPresent(result ->
 			{
-				System.out	
+				System.out
 					.println("Vincolo per Caratteristica stato fisico " + clstatfRis + " validato " + result);
 				boolean test = Main2.testVincolo(CLLEGA, clstatfRis, "B07187", "B07187");
 				assertTrue(test==(Boolean) result.getValue());
 			});
-			
 
-			
+
+
 
 		}
 

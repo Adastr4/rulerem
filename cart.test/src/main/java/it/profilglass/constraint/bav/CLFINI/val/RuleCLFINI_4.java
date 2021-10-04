@@ -15,13 +15,16 @@ import it.profilglass.classmodel.Caratteristica;
 @Rule(order = 4, name = "ruleCLFINI_4")
 
 public class RuleCLFINI_4 extends it.profilglass.constraint.bav.CLFINI.val.sub1.RuleCLFINI_0 {
+
 	@Given 
 	//private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 	private List<Caratteristica> caratteristiche;
 
+
 	@Result
 	private boolean result;
-	
+
+	@Override
 	@When
 	public boolean when()
 	{
@@ -53,7 +56,7 @@ public class RuleCLFINI_4 extends it.profilglass.constraint.bav.CLFINI.val.sub1.
 			     				 ||   caratteristiche.stream().filter(caratteristica -> "CLLEGA".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().equalsIgnoreCase("3O")
 			    				);
 	}
-	
+
 	@Then
 	public RuleState then()
 	{

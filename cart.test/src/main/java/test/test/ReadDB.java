@@ -1,35 +1,43 @@
 package test.test;
 
+import java.math.BigDecimal;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
 import it.profilglass.classmodel.Opzione;
 
-import java.math.BigDecimal;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 public class ReadDB {
+	private static Connection conn =null;
+	static {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+			conn =  	       DriverManager.getConnection("jdbc:mysql://212.237.47.99:3306/profilglass?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true&"+
+					"user=profilglass&password=Qc89d9a~");
+		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 		private static int counter;
-		private static Connection conn = null;
+
 
 		public static String readClasse() {
 			Statement stmt = null;
 			ResultSet rs = null;
-			String res = null;
+			String res = "prova";
 			try {
 				// The newInstance() call is a work around for some
 				// broken Java implementations
 
-				Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-				conn =  	       DriverManager.getConnection("jdbc:mysql://localhost/profilglass?" +
-						"user=root&password=root");
+
 				stmt = conn.createStatement();
-				rs = stmt.executeQuery("SELECT * FROM CAR_CLFINI where classe = 'PROVA'");
+				rs = stmt.executeQuery("SELECT * FROM carclfini");  //where classe = 'PROVA'
 				while(rs.next()) {
 					String classe = rs.getString("classe");
 					res = classe;
@@ -65,19 +73,17 @@ public class ReadDB {
 
 			}
 		}
-		
+
 		public static List<String> readCaratteristica(String caratteristica, String articolo) {
 			Statement stmt = null;
 			String query = null;
 			ResultSet rs = null;
-			List<String> res = new ArrayList<String>();
+			List<String> res = new ArrayList<>();
 			try {
 				// The newInstance() call is a work around for some
 				// broken Java implementations
 
-				Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-				conn =  	       DriverManager.getConnection("jdbc:mysql://localhost/profilglass?" +
-						"user=root&password=root");
+
 				stmt = conn.createStatement();
 				query = "SELECT * FROM caratteristiche WHERE caratteristica ='" + caratteristica + "' AND TRIM(articolo) = '" + articolo + "'";
 				rs = stmt.executeQuery(query);
@@ -116,19 +122,17 @@ public class ReadDB {
 
 			}
 		}
-		
+
 		public static List<BigDecimal> readCaratteristicaDecimal(String caratteristica, String articolo) {
 			Statement stmt = null;
 			String query = null;
 			ResultSet rs = null;
-			List<BigDecimal> res = new ArrayList<BigDecimal>();
+			List<BigDecimal> res = new ArrayList<>();
 			try {
 				// The newInstance() call is a work around for some
 				// broken Java implementations
 
-				Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-				conn =  	       DriverManager.getConnection("jdbc:mysql://localhost/profilglass?" +
-						"user=root&password=root");
+
 				stmt = conn.createStatement();
 				query = "SELECT * FROM caratteristiche WHERE caratteristica ='" + caratteristica + "' AND TRIM(articolo) = '" + articolo + "'";
 				rs = stmt.executeQuery(query);
@@ -166,7 +170,7 @@ public class ReadDB {
 
 			}
 		}
-		
+
 		public static boolean getSLBPSpecial(String SLBP, String articolo)
 		{
 			Statement stmt = null;
@@ -177,9 +181,7 @@ public class ReadDB {
 				// The newInstance() call is a work around for some
 				// broken Java implementations
 
-				Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-				conn =  	       DriverManager.getConnection("jdbc:mysql://localhost/profilglass?" +
-						"user=root&password=root");
+
 				stmt = conn.createStatement();
 				query = "SELECT * FROM caratteristiche WHERE caratteristica ='SLBP' AND TRIM(articolo) = '" + articolo + "' AND opzione = '" + SLBP + "' LIMIT 1";
 				rs = stmt.executeQuery(query);
@@ -217,7 +219,7 @@ public class ReadDB {
 
 			}
 		}
-		
+
 		//public static ArrayList<Macchina> getMacchinaFromId(String CLLARG, String CLLUNG, String CLSPESS, String SLLANAS, String CLFINI, String CLRIVE)
 		public static Macchina getMacchinaFromId(String idMacchina)
 		{
@@ -229,9 +231,7 @@ public class ReadDB {
 				// The newInstance() call is a work around for some
 				// broken Java implementations
 
-				Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-				conn =  	       DriverManager.getConnection("jdbc:mysql://localhost/profilglass?" +
-						"user=root&password=root");
+
 				stmt = conn.createStatement();
 				query = "SELECT * FROM macchine WHERE idMacchina ='" + idMacchina + "' LIMIT 1";
 				rs = stmt.executeQuery(query);
@@ -280,9 +280,6 @@ public class ReadDB {
 				// The newInstance() call is a work around for some
 				// broken Java implementations
 
-				Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-				conn =  	       DriverManager.getConnection("jdbc:mysql://localhost/profilglass?" +
-						"user=root&password=root");
 				stmt = conn.createStatement();
 				query = "SELECT * FROM macchine WHERE idMacchina ='" + idMacchina + "' LIMIT 1";
 				rs = stmt.executeQuery(query);
@@ -331,9 +328,7 @@ public class ReadDB {
 				// The newInstance() call is a work around for some
 				// broken Java implementations
 
-				Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-				conn =  	       DriverManager.getConnection("jdbc:mysql://localhost/profilglass?" +
-						"user=root&password=root");
+
 				stmt = conn.createStatement();
 				query = "SELECT * FROM attivita WHERE idAttivita ='" + idAttivita + "' LIMIT 1";
 				rs = stmt.executeQuery(query);
@@ -371,7 +366,7 @@ public class ReadDB {
 
 			}
 		}
-		
+
 		public static it.profilglass.classmodel.Attivita getClassmodelAttivitaFromId(String idAttivita)
 		{
 			Statement stmt = null;
@@ -381,11 +376,7 @@ public class ReadDB {
 			try {
 				// The newInstance() call is a work around for some
 				// broken Java implementations
-
-				Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-				conn =  	       DriverManager.getConnection("jdbc:mysql://localhost/profilglass?" +
-						"user=root&password=root");
-				stmt = conn.createStatement();
+		stmt = conn.createStatement();
 				query = "SELECT * FROM attivita WHERE idAttivita ='" + idAttivita + "' LIMIT 1";
 				rs = stmt.executeQuery(query);
 				while(rs.next()) {
@@ -433,14 +424,12 @@ public class ReadDB {
 				// The newInstance() call is a work around for some
 				// broken Java implementations
 
-				Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-				conn =  	       DriverManager.getConnection("jdbc:mysql://localhost/profilglass?" +
-						"user=root&password=root");
+
 				stmt = conn.createStatement();
 				query = "SELECT idMacchina FROM ciclo_macchina_rules WHERE LargMin <=" + Integer.parseInt(CLLARG) + " AND LargMax >=" + Integer.parseInt(CLLARG) +
-						 										" LungMin <=" + Integer.parseInt(CLLUNG) + " AND LungMax >= " + Integer.parseInt(CLLUNG) + 
-						 										" SpessMin <=" + Integer.parseInt(CLSPESS) + " AND SpessMax >= " + Integer.parseInt(CLSPESS) + 
-						 										" RifiloMin <=" + rifilo + " AND RifiloMin >=" + rifilo + 
+						 										" LungMin <=" + Integer.parseInt(CLLUNG) + " AND LungMax >= " + Integer.parseInt(CLLUNG) +
+						 										" SpessMin <=" + Integer.parseInt(CLSPESS) + " AND SpessMax >= " + Integer.parseInt(CLSPESS) +
+						 										" RifiloMin <=" + rifilo + " AND RifiloMin >=" + rifilo +
 						 										" AND FinituraList LIKE '%" + CLFINI + "%' AND" +
 						 										" (RivestimentoList = 'TUTTI' OR (RivestimentoList = 'NESSUNO' AND " + CLRIVE + " = '') OR RivestimentoList LIKE '%" + CLRIVE + "%') " +
 						 										" AND idMacchina = '" + idMacchina + "'";
@@ -480,7 +469,7 @@ public class ReadDB {
 
 			}
 		}
-		
+
 		public static Boolean isMacchineListFromCharacteristicsValid(String CLLARG, String CLLUNG, String CLSPESS, int rifilo, String CLFINI, String CLRIVE, String idMacchina)
 		{
 			Statement stmt = null;
@@ -491,10 +480,9 @@ public class ReadDB {
 				// The newInstance() call is a work around for some
 				// broken Java implementations
 
-				Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-				conn =  	       DriverManager.getConnection("jdbc:mysql://localhost/profilglass?" +
-						"user=root&password=root");
+
 				stmt = conn.createStatement();
+		 
 				query = "SELECT idMacchina FROM ciclo_macchina_rules WHERE LargMin <=" + Integer.parseInt(CLLARG)/10 + " AND LargMax >=" + Integer.parseInt(CLLARG)/10 +
 						 										" AND LungMin <=" + Integer.parseInt(CLLUNG)/10 + " AND LungMax >= " + Integer.parseInt(CLLUNG)/10 + 
 						 										" AND SpessMin <=" + Double.parseDouble(CLSPESS)/1000 + " AND SpessMax >= " + Double.parseDouble(CLSPESS)/1000 + 
@@ -602,9 +590,7 @@ public class ReadDB {
 				// The newInstance() call is a work around for some
 				// broken Java implementations
 
-				Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-				conn =  	       DriverManager.getConnection("jdbc:mysql://localhost/profilglass?" +
-						"user=root&password=root");
+			
 				stmt = conn.createStatement();
 				query = "SELECT Caratteristica, Descrizione, Sequenza FROM caratteristicaconfiguratore WHERE trim(articolo) ='" + articolo + "' AND ExpireDate >= current_date";
 				rs = stmt.executeQuery(query);

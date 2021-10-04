@@ -18,11 +18,11 @@ public class RuleCLSTATF_11 extends it.profilglass.constraint.bav.CLSTATF.val.su
 	@Given 
 	//private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 	private List<Caratteristica> caratteristiche;
-	
-	
+
 	@Result
 	private boolean result;
-	
+
+	@Override
 	@When
 	public boolean when()
 	{
@@ -39,7 +39,7 @@ public class RuleCLSTATF_11 extends it.profilglass.constraint.bav.CLSTATF.val.su
 				 || caratteristiche.stream().filter(caratteristica -> "CLSTATF".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().equalsIgnoreCase("H00")
 			   );
 	}
-	
+
 	@Then
 	public RuleState then()
 	{

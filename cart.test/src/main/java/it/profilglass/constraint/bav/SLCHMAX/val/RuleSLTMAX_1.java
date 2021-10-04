@@ -12,19 +12,19 @@ import test.test.CaratteristicaBean;
 @Rule(order = 1, name = "ruleSLTMAX1")
 
 public class RuleSLTMAX_1 {
-	
-	@Given("caratteristica") 
+
+	@Given("caratteristica")
 	private CaratteristicaBean caratteristica; //Annotated Lists get injected with all Facts of the declared generic type
 
 	@Result
 	private double result;
-	
+
 	@When
 	public boolean when()
 	{
 		return (caratteristica.getSBATIPO() != 1 && caratteristica.getSBATIPO() != 2 && caratteristica.getSLTMAX() == 2);
 	}
-	
+
 	@Then
 	public RuleState then()
 	{

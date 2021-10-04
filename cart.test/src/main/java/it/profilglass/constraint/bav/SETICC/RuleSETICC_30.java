@@ -7,23 +7,21 @@ import com.deliveredtechnologies.rulebook.annotation.Rule;
 import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
-import test.test.CaratteristicaBean;
-
 
 @Rule(order = 30, name = "ruleSETICC_30")
 public class RuleSETICC_30 {
-	@Given("descEtichetta") 
+	@Given("descEtichetta")
 	private String descEtichetta;
 
 	@Result
 	private Integer result;
-	
+
 	@When
 	public boolean when()
-	{		
+	{
 		return (descEtichetta.equalsIgnoreCase("Anonima"));
 	}
-	
+
 	@Then
 	public RuleState then()
 	{

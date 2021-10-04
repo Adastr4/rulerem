@@ -14,12 +14,12 @@ import test.test.CaratteristicaBean;
 @Rule(order = 2, name = "ruleSLMOD2")
 
 public class RuleSLMOD_3 {
-	@Given 
+	@Given
 	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 
 	@Result
 	private String result;
-	
+
 	@When
 	public boolean when()
 	{
@@ -40,7 +40,7 @@ public class RuleSLMOD_3 {
 																&& caratteristica.getCLRIVE().equalsIgnoreCase("B")
 																); //Da implementare quando diverranno effettive le nuove regole da applicare
 	}
-	
+
 	@Then
 	public RuleState then()
 	{

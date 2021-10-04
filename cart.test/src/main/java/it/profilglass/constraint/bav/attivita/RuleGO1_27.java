@@ -16,18 +16,19 @@ import test.test.ReadDB;
 @Rule(order = 27, name = "ruleGO1_1")
 
 public class RuleGO1_27 extends it.profilglass.constraint.bav.attivita.subrules.SubRuleGO_1 {
-	@Given 
+	@Given
 	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 
 	@Result
 	private List<Attivita> result;
-	
+
+	@Override
 	@When
 	public boolean when()
 	{
 		return super.when();
 	}
-	
+
 	@Then
 	public RuleState then()
 	{

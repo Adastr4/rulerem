@@ -21,7 +21,8 @@ public class RuleCLSTATF_12 extends it.profilglass.constraint.bav.CLSTATF.val.su
 	
 	@Result
 	private boolean result;
-	
+
+	@Override
 	@When
 	public boolean when()
 	{
@@ -38,7 +39,7 @@ public class RuleCLSTATF_12 extends it.profilglass.constraint.bav.CLSTATF.val.su
 					 || caratteristiche.stream().filter(caratteristica -> "CLSTATF".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().equalsIgnoreCase("H00")
 				   );
 	}
-	
+
 	@Then
 	public RuleState then()
 	{

@@ -10,6 +10,8 @@ import com.deliveredtechnologies.rulebook.NameValueReferableMap;
 import com.deliveredtechnologies.rulebook.model.Auditor;
 import com.deliveredtechnologies.rulebook.model.runner.RuleBookRunner;
 
+import test.test.CaratteristicaBean;
+
 public class Main2 {
 
 	public static void main(String[] args) {
@@ -17,7 +19,7 @@ public class Main2 {
 
 		noLoopCLSTATF();
 //		withLoopCLSTATF();
-		
+
 //		noLoopCLFINI();
 	//  withLoopCLFINI();
 
@@ -47,11 +49,11 @@ public class Main2 {
 			validate = Boolean.FALSE;
 			if(CLFINI.equalsIgnoreCase("f") || CLFINI.equalsIgnoreCase("n"))
 				validate = Boolean.TRUE;
-			
+
 		}
 		return validate;
 	}
-	
+
 	static  boolean testVincolo(String CLLEGA, String CLSTATF, String SLBPTE, String SLBP) {
 		boolean validate = Boolean.TRUE;
 		if (CLSTATF.equalsIgnoreCase("t04") || CLSTATF.equalsIgnoreCase("t06") || CLSTATF.equalsIgnoreCase("t4p"))
@@ -102,9 +104,9 @@ public class Main2 {
 	 *
 	 */
 	private static void withLoopCLSTATF() {
-		
+
 //		List<String> CLLEGAValues = Caratteristiche.getCLLEGAValues();
-		List<String> CLSTATFValues = Caratteristiche.getCLSTATFValues();
+		List<String> CLSTATFValues = null;//Caratteristiche.getCLSTATFValues();
 //		List<String> CLFINIValues = Caratteristiche.getCLFINIValues();
 
 		String CLLEGA;
@@ -120,7 +122,7 @@ public class Main2 {
 
 			RuleBookRunner ruleBook = new RuleBookRunner("cart.test",
 					s ->  s.equalsIgnoreCase("cart.test.library.subrules1") ||
-							s.equalsIgnoreCase("cart.test.library.subrules1") || 
+							s.equalsIgnoreCase("cart.test.library.subrules1") ||
 							s.equalsIgnoreCase("cart.test.library.subrules2"));
 			NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
 			CaratteristicaBean applicant1 = new CaratteristicaBean(new BigDecimal(650), CLLEGA, CLSTATF, "B07187",
@@ -136,7 +138,7 @@ public class Main2 {
 			ruleBook.getResult().ifPresent(result -> System.out
 					.println("Vincolo per Caratteristica stato fisico " + clstatfRis + " validato " + result));
 			System.out.println(CLLEGA + " " + clstatfRis);
-			
+
 			boolean test = testVincolo(CLLEGA, clstatfRis, "B07187", "B07187");
 			System.out.println("TEST per " + CLLEGA + " " + clstatfRis + " " + test);
 
@@ -145,7 +147,7 @@ public class Main2 {
 	}
 
 	private static void noLoopCLSTATF() {
-		
+
 
 
 		String CLLEGA;
@@ -154,7 +156,7 @@ public class Main2 {
 		CLLEGA = "3A";
 		CLSTATF = "H0F";
 
-		
+
 
 		RuleBookRunner ruleBook = new RuleBookRunner("cart.test",
 				s -> s.equalsIgnoreCase("cart.test") || s.equalsIgnoreCase("cart.test.library.subrules1")
@@ -170,26 +172,26 @@ public class Main2 {
 		ruleBook.setDefaultResult(Boolean.FALSE);
 		ruleBook.run(facts);
 
-		Auditor auditor = (Auditor)ruleBook;
+		Auditor auditor = ruleBook;
 	    System.out.println("Library subrules1 - rule 1 status: " + auditor.getRuleStatus("CLSTATF_CLLEGA_Rule1"));
-	    System.out.println("Library subrules1 - rule 3 status: " + auditor.getRuleStatus("CLSTATF_CLLEGA_Rule3"));	    
+	    System.out.println("Library subrules1 - rule 3 status: " + auditor.getRuleStatus("CLSTATF_CLLEGA_Rule3"));
 	    System.out.println("Library subrules1 - rule 5 status: " + auditor.getRuleStatus("CLSTATF_CLLEGA_Rule5"));
 	    System.out.println("Library subrules1 - rule 2 status: " + auditor.getRuleStatus("CLSTATF_CLLEGA_Rule2"));
 	    System.out.println("Library subrules1 - rule 6 status: " + auditor.getRuleStatus("CLSTATF_CLLEGA_Rule6"));
 	    System.out.println("Library subrules1 - rule 4 status: " + auditor.getRuleStatus("CLSTATF_CLLEGA_Rule4"));
-		
+
 		ruleBook.getResult().ifPresent(
 				result -> System.out.println("Vincolo per Caratteristica stato fisico " + " validato " + result));
 
 		boolean test = testVincolo(CLLEGA, CLSTATF, "B07187", "B07187");
 		System.out.println("TEST per " + CLLEGA + " " + CLSTATF + " " + test);
-		
-	    
+
+
 
 
 	}
 	private static void noLoopCLFINI() {
-		
+
 
 
 		String CLLEGA;
@@ -202,10 +204,10 @@ public class Main2 {
 		CLFINI = "M";
 		CLASSE = "EDT";
 
-		
+
 
 		RuleBookRunner ruleBook = new RuleBookRunner("cart.test.constraints.cs2");
-				
+
 		NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
 
 		CaratteristicaBean applicant1 = new CaratteristicaBean(
@@ -224,7 +226,7 @@ public class Main2 {
 
 	}
 	private static void withLoopCLFINI() {
-		
+
 
 
 		String CLLEGA;
@@ -234,19 +236,19 @@ public class Main2 {
 
 		CLLEGA = "3D";
 		CLSTATF = "H12";
-		
+
 		CLASSE = "EDT";
 
-		List<String> CLFINIValues = Caratteristiche.getCLFINIValues();	
-		
+		List<String> CLFINIValues = null;//Caratteristiche.getCLFINIValues();
+
 		ListIterator<String> litr = CLFINIValues.listIterator();
 		while (litr.hasNext()) {
 
 			CLFINI = litr.next();
 			CLFINI = CLFINI.substring(0, CLFINI.indexOf("-") - 1);
-			
+
 		RuleBookRunner ruleBook = new RuleBookRunner("cart.test.constraints.cs2");
-				
+
 		NameValueReferableMap<CaratteristicaBean> facts = new FactMap<>();
 
 		CaratteristicaBean applicant1 = new CaratteristicaBean(new BigDecimal(650), CLLEGA, CLSTATF,  "", "", CLFINI, CLASSE);

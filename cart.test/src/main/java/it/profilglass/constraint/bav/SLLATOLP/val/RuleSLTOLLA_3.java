@@ -19,11 +19,11 @@ public class RuleSLTOLLA_3 {
 
 	@Result
 	private boolean result;
-	
+
 	@When
 	public boolean when()
 	{
-		return caratteristiche.stream().anyMatch(caratteristica -> !((caratteristica.getSLTOLLA().equalsIgnoreCase("f") 
+		return caratteristiche.stream().anyMatch(caratteristica -> !((caratteristica.getSLTOLLA().equalsIgnoreCase("f")
 															    	 &&  caratteristica.getSLLATOLP().substring(2, 3).equalsIgnoreCase("f")
 															    	 &&  caratteristica.getSLLATOLP().substring(4, caratteristica.getSLLATOLP().length()).equalsIgnoreCase(caratteristica.getDLLATOLP().toString())
 															    	)
@@ -34,7 +34,7 @@ public class RuleSLTOLLA_3 {
 															    	))
 												);
 	}
-	
+
 	@Then
 	public RuleState then()
 	{

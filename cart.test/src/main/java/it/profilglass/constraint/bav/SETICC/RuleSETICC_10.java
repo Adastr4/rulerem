@@ -7,23 +7,21 @@ import com.deliveredtechnologies.rulebook.annotation.Rule;
 import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
-import test.test.CaratteristicaBean;
-
 
 @Rule(order = 10, name = "ruleSETICC_10")
 public class RuleSETICC_10 {
-	@Given("descEtichetta") 
+	@Given("descEtichetta")
 	private String descEtichetta;
 
 	@Result
 	private Integer result;
-	
+
 	@When
 	public boolean when()
-	{		
+	{
 		return (descEtichetta.equalsIgnoreCase("Con Logo"));
 	}
-	
+
 	@Then
 	public RuleState then()
 	{

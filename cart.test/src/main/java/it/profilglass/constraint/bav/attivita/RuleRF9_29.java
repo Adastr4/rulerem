@@ -16,24 +16,24 @@ import test.test.ReadDB;
 @Rule(order = 29, name = "ruleRF9_1")
 
 public class RuleRF9_29 {
-	@Given 
+	@Given
 	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 
 	@Result
 	private List<Attivita> result;
-	
+
 	@When
 	public boolean when()
 	{
 		return caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getSLMOD().equalsIgnoreCase("BA")
-																&& (	caratteristica.getCLFINI().equalsIgnoreCase("B") 
+																&& (	caratteristica.getCLFINI().equalsIgnoreCase("B")
 																	 || caratteristica.getCLFINI().equalsIgnoreCase("M") // NON COMPLETA ANCORA; manca la regola dell'SLLANAS
 																	)
 																&& Integer.parseInt(caratteristica.getCLLARG()) >= 8500
 																&& caratteristica.getCLSPESS().intValue() >= 500
 																&& caratteristica.getCLSPESS().intValue() < 1000);
 	}
-	
+
 	@Then
 	public RuleState then()
 	{

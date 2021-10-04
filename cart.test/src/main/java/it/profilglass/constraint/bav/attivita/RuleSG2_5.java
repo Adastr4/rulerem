@@ -16,12 +16,13 @@ import test.test.ReadDB;
 @Rule(order = 5, name = "ruleSG2_1")
 
 public class RuleSG2_5 extends it.profilglass.constraint.bav.attivita.subrules.SubRuleSG_1 {
-	@Given 
+	@Given
 	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 
 	@Result
 	private List<Attivita> result;
-	
+
+	@Override
 	@When
 	public boolean when()
 	{
@@ -29,7 +30,7 @@ public class RuleSG2_5 extends it.profilglass.constraint.bav.attivita.subrules.S
 																			    && caratteristica.getCLSPESS().intValue() <= 400
 																			    && caratteristica.getQLLAV().equalsIgnoreCase("N"));
 	}
-	
+
 	@Then
 	public RuleState then()
 	{

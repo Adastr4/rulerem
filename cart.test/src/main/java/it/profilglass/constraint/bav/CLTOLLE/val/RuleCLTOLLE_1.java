@@ -15,13 +15,18 @@ import test.test.CaratteristicaBean;
 @Rule(order = 1, name = "ruleCLTOLLE_1")
 
 public class RuleCLTOLLE_1 {
+<<<<<<< HEAD
 	@Given 
 	//private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 	private List<Caratteristica> caratteristiche;
+=======
+	@Given
+	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
+>>>>>>> branch 'filippoBranch' of ssh://git@github.com/Adastr4/rulerem.git
 
 	@Result
 	private boolean result;
-	
+
 	@When
 	public boolean when()
 	{
@@ -29,7 +34,7 @@ public class RuleCLTOLLE_1 {
 		return !(caratteristiche.stream().filter(caratteristica -> "CLLEGA".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().equalsIgnoreCase("3D")
 			&& caratteristiche.stream().filter(caratteristica -> "CLSPESS".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().equalsIgnoreCase("1200"));
 	}
-	
+
 	@Then
 	public RuleState then()
 	{

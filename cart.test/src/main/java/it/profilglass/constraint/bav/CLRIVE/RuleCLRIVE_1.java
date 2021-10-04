@@ -18,7 +18,7 @@ public class RuleCLRIVE_1 {
 
 	@Result
 	private String result = "A";
-	
+
 	@When
 	public boolean when()
 	{
@@ -27,7 +27,7 @@ public class RuleCLRIVE_1 {
 			 ||	caratteristiche.stream().filter(caratteristica -> "CLFINI".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().equalsIgnoreCase("Q")
 			 || caratteristiche.stream().filter(caratteristica -> "CLFINI".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().equalsIgnoreCase("W");
 	}
-	
+
 	@Then
 	public RuleState then()
 	{

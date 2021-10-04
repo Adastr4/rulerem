@@ -16,19 +16,19 @@ import test.test.ReadDB;
 @Rule(order = 26, name = "ruleLA9_1")
 
 public class RuleLA9_26 {
-	@Given 
+	@Given
 	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 
 	@Result
 	private List<Attivita> result;
-	
+
 	@When
 	public boolean when()
 	{
 		return caratteristiche.stream().anyMatch(caratteristica ->  caratteristica.getQLLAVDET().equalsIgnoreCase("I01")
 																&& !caratteristica.getSLMOD().equalsIgnoreCase("BP"));
 	}
-	
+
 	@Then
 	public RuleState then()
 	{

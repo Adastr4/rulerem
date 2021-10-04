@@ -8,10 +8,11 @@ import com.deliveredtechnologies.rulebook.annotation.When;
 import test.test.CaratteristicaBean;
 
 public class SubRuleLA_3 extends it.profilglass.constraint.bav.attivita.subrules.SubRuleSL_2 {
-	@Given 
+	@Given
 	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 
-	
+
+	@Override
 	@When
 	public boolean when()
 	{

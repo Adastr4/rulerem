@@ -9,19 +9,19 @@ import com.deliveredtechnologies.rulebook.NameValueReferableMap;
 import com.deliveredtechnologies.rulebook.model.runner.RuleBookRunner;
 
 public abstract class Configuratore {
-	
-	//LISTA CARATTERISTICHE VALIDE PER TUTTI I CONFIGURATORI
+	protected List<Ciclo> cicli;
+	protected List<Distinta> distinte;
+	// LISTA CARATTERISTICHE VALIDE PER TUTTI I CONFIGURATORI
 	protected List<Caratteristica> caratteristiche;
 
-	public Configuratore()
-	{
-		//TO DO: NON POSSO DEFINIRE QUI LE CARATTERISTICHE GENERALI PERCHE GLI ORDINI NEL CONFIGURATORE DI TALI CARATTERISTICHE POSSONO CAMBIARE
+	public List<Caratteristica> getCaratteristiche() {
+		return caratteristiche;
 	}
-	
-	public void buildCiclo(GenericItem item)
-	{
-		//TO DO: DEVE ESSERE IMPLEMENTATO NEI SINGOLI CONFIGURATORI SEPCIFICI 
+
+	public void setCaratteristiche(List<Caratteristica> caratteristiche) {
+		this.caratteristiche = caratteristiche;
 	}
+
 	
 	public List<LivelloDistinta> buildDistinta()
 	{
@@ -74,6 +74,7 @@ public abstract class Configuratore {
 	public boolean runCaratteristicaDefaultValueRuleByName(String name)
 	{
 		return true;
+
 	}
 
 }

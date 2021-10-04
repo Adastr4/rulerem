@@ -1,7 +1,5 @@
 package it.profilglass.constraint.bav.MLSTATF;
 
-import java.util.List;
-
 import com.deliveredtechnologies.rulebook.RuleState;
 import com.deliveredtechnologies.rulebook.annotation.Given;
 import com.deliveredtechnologies.rulebook.annotation.Result;
@@ -15,15 +13,21 @@ import test.test.CaratteristicaBean;
 @Rule(order = 8, name = "ruleMLSTATF_8")
 
 public class RuleMLSTATF_8_1 extends it.profilglass.constraint.bav.MLSTATF.sub1.SubRuleMLSTATF_1 {
+<<<<<<< HEAD
 	/*@Given("caratteristica") 
 	private CaratteristicaBean caratteristica; //Annotated Lists get injected with all Facts of the declared generic type*/
 	
 	@Given
 	private List<Caratteristica> caratteristiche;
+=======
+	@Given("caratteristica")
+	private CaratteristicaBean caratteristica; //Annotated Lists get injected with all Facts of the declared generic type
+>>>>>>> branch 'filippoBranch' of ssh://git@github.com/Adastr4/rulerem.git
 
 	@Result
 	private String result;
-	
+
+	@Override
 	@When
 	public boolean when()
 	{
@@ -38,7 +42,7 @@ public class RuleMLSTATF_8_1 extends it.profilglass.constraint.bav.MLSTATF.sub1.
 			   )
 			&& Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLSPESS".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue()) >= 2500;
 	}
-	
+
 	@Then
 	public RuleState then()
 	{

@@ -14,13 +14,13 @@ import test.test.CaratteristicaBean;
 @Rule(order = 1, name = "ruleCLSPESS1")
 
 public class RuleCLSPESS_1 {
-	
+
 	@Given
 	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 
 	@Result
 	private boolean result;
-	
+
 	@When
 	public boolean when()
 	{
@@ -30,7 +30,7 @@ public class RuleCLSPESS_1 {
 																|| (caratteristica.getCLSPESS().intValue() > 6000 && caratteristica.getSLLATOLP().substring(0, 1).equalsIgnoreCase("d")))
 												));
 	}
-	
+
 	@Then
 	public RuleState then()
 	{

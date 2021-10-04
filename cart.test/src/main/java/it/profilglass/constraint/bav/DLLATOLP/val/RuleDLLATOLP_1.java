@@ -15,21 +15,28 @@ import test.test.CaratteristicaBean;
 @Rule(order = 1, name = "ruleDLLATOLP1")
 
 public class RuleDLLATOLP_1 extends it.profilglass.constraint.bav.DLLATOLP.RuleDLLATOLP_1 {
+<<<<<<< HEAD
 	/*@Given("caratteristica") 
 	private CaratteristicaBean caratteristica; //Annotated Lists get injected with all Facts of the declared generic type*/
 	
 	@Given
 	private List<Caratteristica> caratteristiche;
+=======
+	@Given("caratteristica")
+	private CaratteristicaBean caratteristica; //Annotated Lists get injected with all Facts of the declared generic type
+>>>>>>> branch 'filippoBranch' of ssh://git@github.com/Adastr4/rulerem.git
 
 	@Result
 	private Boolean result;
-	
+
+	@Override
 	@When
 	public boolean when()
 	{
 		return !super.when(); //Da implementare quando diverranno effettive le nuove regole da applicare
 	}
-	
+
+	@Override
 	@Then
 	public RuleState then()
 	{

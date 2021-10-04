@@ -21,13 +21,13 @@ public class RuleCLLUNG_1 {
 
 	@Result
 	private boolean result;
-	
+
 	@When
 	public boolean when()
 	{
 		return true; //Da implementare quando diverranno effettive le nuove regole da applicare
 	}
-	
+
 	@Then
 	public RuleState then()
 	{

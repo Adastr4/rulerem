@@ -12,13 +12,15 @@ import com.deliveredtechnologies.rulebook.annotation.When;
 import it.profilglass.classmodel.Caratteristica;
 
 public class RuleCLFINI_5 extends it.profilglass.constraint.bav.CLFINI.val.sub1.RuleCLFINI_0 {
+
 	@Given 
 	//private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 	private List<Caratteristica> caratteristiche;
 
 	@Result
 	private boolean result;
-	
+
+	@Override
 	@When
 	public boolean when()
 	{
@@ -27,7 +29,7 @@ public class RuleCLFINI_5 extends it.profilglass.constraint.bav.CLFINI.val.sub1.
 		return super.when() && (caratteristiche.stream().filter(caratteristica -> "CLFINI".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().equalsIgnoreCase("F")
 								|| caratteristiche.stream().filter(caratteristica -> "CLFINI".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().equalsIgnoreCase("N"));
 	}
-	
+
 	@Then
 	public RuleState then()
 	{
