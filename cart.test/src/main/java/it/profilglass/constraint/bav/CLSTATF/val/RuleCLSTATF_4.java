@@ -16,36 +16,25 @@ import test.test.CaratteristicaBean;
 
 public class RuleCLSTATF_4{
 
-<<<<<<< HEAD
 	@Given 
 	//private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 	private List<Caratteristica> caratteristiche;
-	
-=======
-	@Given
-	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 
->>>>>>> branch 'filippoBranch' of ssh://git@github.com/Adastr4/rulerem.git
 	@Result
 	private boolean result;
 
 	@When
 	public boolean when()
 	{
-<<<<<<< HEAD
 		
 		/*return caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLLEGA().substring(0,1).equalsIgnoreCase("3")
-=======
-
-		return caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLLEGA().substring(0,1).equalsIgnoreCase("3")
->>>>>>> branch 'filippoBranch' of ssh://git@github.com/Adastr4/rulerem.git
 																 && (caratteristica.getSLBPTE().equalsIgnoreCase("B07187") ||
 																	 caratteristica.getSLBPTE().equalsIgnoreCase("B03835") ||
 																	 caratteristica.getSLBPTE().equalsIgnoreCase("B07434")));*/
 		return caratteristiche.stream().filter(caratteristica -> "CLLEGA".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().substring(0,1).equalsIgnoreCase("3")
-				&& !(   caratteristiche.stream().filter(caratteristica -> "SLBPTE".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().equalsIgnoreCase("B07187")
-					 || caratteristiche.stream().filter(caratteristica -> "SLBPTE".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().equalsIgnoreCase("B03835")
-					 || caratteristiche.stream().filter(caratteristica -> "SLBPTE".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().equalsIgnoreCase("B03835"));
+			&& !(   caratteristiche.stream().filter(caratteristica -> "SLBPTE".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().equalsIgnoreCase("B07187")
+				 || caratteristiche.stream().filter(caratteristica -> "SLBPTE".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().equalsIgnoreCase("B03835")
+				 || caratteristiche.stream().filter(caratteristica -> "SLBPTE".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().equalsIgnoreCase("B03835"));
 	}
 
 	@Then

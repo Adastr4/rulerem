@@ -15,29 +15,18 @@ import test.test.CaratteristicaBean;
 @Rule(order = 3, name = "ruleCLSTATF_3")
 
 public class RuleCLSTATF_3 {
-<<<<<<< HEAD
 	@Given 
 	//private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 	private List<Caratteristica> caratteristiche;
 	
-=======
-	@Given
-	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
-
->>>>>>> branch 'filippoBranch' of ssh://git@github.com/Adastr4/rulerem.git
 	@Result
 	private boolean result;
 
 	@When
 	public boolean when()
 	{
-<<<<<<< HEAD
 		
 		/*return caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLLEGA().substring(0,1).equalsIgnoreCase("3")
-=======
-
-		return caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLLEGA().substring(0,1).equalsIgnoreCase("3")
->>>>>>> branch 'filippoBranch' of ssh://git@github.com/Adastr4/rulerem.git
 																 && !(caratteristica.getCLSTATF().substring(0, 3).equalsIgnoreCase("H00") ||
 																	 caratteristica.getCLSTATF().substring(0, 3).equalsIgnoreCase("HA1") ||
 																	 caratteristica.getCLSTATF().substring(0, 3).equalsIgnoreCase("H12") ||

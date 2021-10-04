@@ -15,16 +15,10 @@ import test.test.CaratteristicaBean;
 @Rule(order = 3, name = "ruleCLTOLLE_3")
 
 public class RuleCLTOLLE_3 {
-<<<<<<< HEAD
 	@Given 
 	//private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 	private List<Caratteristica> caratteristiche;
 	
-=======
-	@Given
-	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
-
->>>>>>> branch 'filippoBranch' of ssh://git@github.com/Adastr4/rulerem.git
 	@Result
 	private boolean result;
 
