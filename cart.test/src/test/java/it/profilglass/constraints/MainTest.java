@@ -25,90 +25,90 @@ class MainTest {
 	 * String DLDEST; String DLLAV; String DLLUBRI; String MLSTATF; String PLACKG;
 	 * String PMETC; String QSPEC; String SLTOLLA; String DLLATOLP; String DLLATOLN;
 	 * String SLLATOLP; String SLLATOLN;
-	 * 
+	 *
 	 * CLLEGA = "3A"; SLBPTE = "A"; SLBP = "B06789"; CLFINI = "C"; CLASSE = "2";
 	 * CLLARG = "500"; CLLUNG = "01280"; CLRIVE = "A"; CLTOLLE = "C"; DLDEST = "B";
 	 * DLLAV = "000"; DLLUBRI = "B"; MLSTATF = "H28"; PLACKG = "1"; PMETC = "007";
 	 * QSPEC = ""; DLLATOLN = "K"; DLLATOLP = "K"; SLLATOLP = "AAP"; SLLATOLN =
 	 * "AAP"; CLSTATF = "H00"; SLTOLLA = "F"; CLSPESS = new BigDecimal(500);
-	 * 
+	 *
 	 * assertEquals("AAF.K", Main.Rulef092Executor(CLSPESS, CLLEGA, CLSTATF, SLBPTE,
 	 * SLBP, CLFINI, CLASSE, CLLARG, CLLUNG, CLRIVE, CLTOLLE, DLDEST, DLLAV,
 	 * DLLUBRI, MLSTATF, PLACKG, PMETC, QSPEC, SLTOLLA, DLLATOLP, DLLATOLN,
 	 * SLLATOLP, SLLATOLN)); }
-	 * 
+	 *
 	 * @Test public void rulef092Executor1000500FTest() { String CLLEGA; String
 	 * CLSTATF; BigDecimal CLSPESS; String SLBP; String CLFINI; String SLBPTE;
 	 * String CLASSE; String CLLARG; String CLLUNG; String CLRIVE; String CLTOLLE;
 	 * String DLDEST; String DLLAV; String DLLUBRI; String MLSTATF; String PLACKG;
 	 * String PMETC; String QSPEC; String SLTOLLA; String DLLATOLP; String DLLATOLN;
 	 * String SLLATOLP; String SLLATOLN;
-	 * 
+	 *
 	 * CLLEGA = "3A"; SLBPTE = "A"; SLBP = "B06789"; CLFINI = "C"; CLASSE = "2";
 	 * CLLARG = "500"; CLLUNG = "01280"; CLRIVE = "A"; CLTOLLE = "C"; DLDEST = "B";
 	 * DLLAV = "000"; DLLUBRI = "B"; MLSTATF = "H28"; PLACKG = "1"; PMETC = "007";
 	 * QSPEC = ""; DLLATOLN = "K"; DLLATOLP = "K"; SLLATOLP = "AAP"; SLLATOLN =
 	 * "AAP"; CLSTATF = "H00"; SLTOLLA = "F"; CLSPESS = new BigDecimal(1000);
-	 * 
+	 *
 	 * assertEquals("BAF.K", Main.Rulef092Executor(CLSPESS, CLLEGA, CLSTATF, SLBPTE,
 	 * SLBP, CLFINI, CLASSE, CLLARG, CLLUNG, CLRIVE, CLTOLLE, DLDEST, DLLAV,
 	 * DLLUBRI, MLSTATF, PLACKG, PMETC, QSPEC, SLTOLLA, DLLATOLP, DLLATOLN,
 	 * SLLATOLP, SLLATOLN)); }
-	 * 
+	 *
 	 * @Test public void rulef092Executor3000500FTest() { String CLLEGA; String
 	 * CLSTATF; BigDecimal CLSPESS; String SLBP; String CLFINI; String SLBPTE;
 	 * String CLASSE; String CLLARG; String CLLUNG; String CLRIVE; String CLTOLLE;
 	 * String DLDEST; String DLLAV; String DLLUBRI; String MLSTATF; String PLACKG;
 	 * String PMETC; String QSPEC; String SLTOLLA; String DLLATOLP; String DLLATOLN;
 	 * String SLLATOLP; String SLLATOLN;
-	 * 
+	 *
 	 * CLLEGA = "3A"; SLBPTE = "A"; SLBP = "B06789"; CLFINI = "C"; CLASSE = "2";
 	 * CLLARG = "500"; CLLUNG = "01280"; CLRIVE = "A"; CLTOLLE = "C"; DLDEST = "B";
 	 * DLLAV = "000"; DLLUBRI = "B"; MLSTATF = "H28"; PLACKG = "1"; PMETC = "007";
 	 * QSPEC = ""; DLLATOLN = "K"; DLLATOLP = "K"; SLLATOLP = "AAP"; SLLATOLN =
 	 * "AAP"; CLSTATF = "H00"; SLTOLLA = "F"; CLSPESS = new BigDecimal(3000);
-	 * 
+	 *
 	 * assertEquals("CAF.K", Main.Rulef092Executor(CLSPESS, CLLEGA, CLSTATF, SLBPTE,
 	 * SLBP, CLFINI, CLASSE, CLLARG, CLLUNG, CLRIVE, CLTOLLE, DLDEST, DLLAV,
 	 * DLLUBRI, MLSTATF, PLACKG, PMETC, QSPEC, SLTOLLA, DLLATOLP, DLLATOLN,
 	 * SLLATOLP, SLLATOLN)); }
-	 * 
+	 *
 	 * @Test public void rulef092Executor7000500FTest() { String CLLEGA; String
 	 * CLSTATF; BigDecimal CLSPESS; String SLBP; String CLFINI; String SLBPTE;
 	 * String CLASSE; String CLLARG; String CLLUNG; String CLRIVE; String CLTOLLE;
 	 * String DLDEST; String DLLAV; String DLLUBRI; String MLSTATF; String PLACKG;
 	 * String PMETC; String QSPEC; String SLTOLLA; String DLLATOLP; String DLLATOLN;
 	 * String SLLATOLP; String SLLATOLN;
-	 * 
+	 *
 	 * CLLEGA = "3A"; SLBPTE = "A"; SLBP = "B06789"; CLFINI = "C"; CLASSE = "2";
 	 * CLLARG = "500"; CLLUNG = "01280"; CLRIVE = "A"; CLTOLLE = "C"; DLDEST = "B";
 	 * DLLAV = "000"; DLLUBRI = "B"; MLSTATF = "H28"; PLACKG = "1"; PMETC = "007";
 	 * QSPEC = ""; DLLATOLN = "K"; DLLATOLP = "K"; SLLATOLP = "AAP"; SLLATOLN =
 	 * "AAP"; CLSTATF = "H00"; SLTOLLA = "F"; CLSPESS = new BigDecimal(7000);
-	 * 
+	 *
 	 * assertEquals("DAF.K", Main.Rulef092Executor(CLSPESS, CLLEGA, CLSTATF, SLBPTE,
 	 * SLBP, CLFINI, CLASSE, CLLARG, CLLUNG, CLRIVE, CLTOLLE, DLDEST, DLLAV,
 	 * DLLUBRI, MLSTATF, PLACKG, PMETC, QSPEC, SLTOLLA, DLLATOLP, DLLATOLN,
 	 * SLLATOLP, SLLATOLN)); }
-	 * 
+	 *
 	 * @Test public void rulef092ExecutorWithLoopTest() {
-	 * 
+	 *
 	 * List<String> CLLARGValues = Caratteristiche.getCLLARGValues("BAV");
 	 * List<String> SLTOLLAValues = Caratteristiche.getSLTOLLAValues("BAV");
 	 * List<BigDecimal> CLSPESSValues = Caratteristiche.getCLSPESSValues("BAV");
-	 * 
+	 *
 	 * String CLLEGA; String CLSTATF; BigDecimal CLSPESS; String SLBP; String
 	 * CLFINI; String SLBPTE; String CLASSE; String CLLARG; String CLLUNG; String
 	 * CLRIVE; String CLTOLLE; String DLDEST; String DLLAV; String DLLUBRI; String
 	 * MLSTATF; String PLACKG; String PMETC; String QSPEC; String SLTOLLA; String
 	 * DLLATOLP; String DLLATOLN; String SLLATOLP; String SLLATOLN;
-	 * 
+	 *
 	 * CLLEGA = "3A"; SLBPTE = "A"; SLBP = "B06789"; CLFINI = "C"; CLASSE = "2";
 	 * CLLUNG = "01280"; CLRIVE = "A"; CLTOLLE = "C"; DLDEST = "B"; DLLAV = "000";
 	 * DLLUBRI = "B"; MLSTATF = "H28"; PLACKG = "1"; PMETC = "007"; QSPEC = "";
 	 * DLLATOLN = "K"; DLLATOLP = "K"; SLLATOLP = "AAP"; SLLATOLN = "AAP"; CLSTATF =
 	 * "H00";
-	 * 
+	 *
 	 * ListIterator<String> litr = CLLARGValues.listIterator(); while
 	 * (litr.hasNext()) { CLLARG = litr.next(); ListIterator<String> litr2 =
 	 * SLTOLLAValues.listIterator(); while (litr2.hasNext()) { SLTOLLA =
@@ -118,46 +118,46 @@ class MainTest {
 	 * Main.Rulef092Executor(CLSPESS, CLLEGA, CLSTATF, SLBPTE, SLBP, CLFINI, CLASSE,
 	 * CLLARG, CLLUNG, CLRIVE, CLTOLLE, DLDEST, DLLAV, DLLUBRI, MLSTATF, PLACKG,
 	 * PMETC, QSPEC, SLTOLLA, DLLATOLP, DLLATOLN, SLLATOLP, SLLATOLN)); } } } }
-	 * 
+	 *
 	 * @Test public void rulef088Test() {
-	 * 
+	 *
 	 * List<String> SLTOLLAValues = Caratteristiche.getSLTOLLAValues("BAV");
-	 * 
+	 *
 	 * String CLLEGA; String CLSTATF; BigDecimal CLSPESS; String SLBP; String
 	 * CLFINI; String SLBPTE; String CLASSE; String CLLARG; String CLLUNG; String
 	 * CLRIVE; String CLTOLLE; String DLDEST; String DLLAV; String DLLUBRI; String
 	 * MLSTATF; String PLACKG; String PMETC; String QSPEC; String SLTOLLA; String
 	 * DLLATOLP; String DLLATOLN; String SLLATOLP; String SLLATOLN;
-	 * 
+	 *
 	 * CLLEGA = "3A"; SLBPTE = "A"; SLBP = "B06789"; CLFINI = "C"; CLASSE = "2";
 	 * CLLUNG = "01280"; CLRIVE = "A"; CLTOLLE = "C"; DLDEST = "B"; DLLAV = "000";
 	 * DLLUBRI = "B"; MLSTATF = "H28"; PLACKG = "1"; PMETC = "007"; QSPEC = "";
 	 * DLLATOLN = "K"; DLLATOLP = "D"; SLLATOLP = "AAP"; SLLATOLN = "AAP"; CLSTATF =
 	 * "H00"; CLLARG = "0200"; CLSPESS = new BigDecimal(200);
-	 * 
+	 *
 	 * ListIterator<String> litr2 = SLTOLLAValues.listIterator(); while
 	 * (litr2.hasNext()) { SLTOLLA = litr2.next();
 	 * assertEquals(Main.testRulef088Standard(SLTOLLA,DLLATOLP),
 	 * Main.Rulef088(CLSPESS, CLLEGA, CLSTATF, SLBPTE, SLBP, CLFINI, CLASSE, CLLARG,
 	 * CLLUNG, CLRIVE, CLTOLLE, DLDEST, DLLAV, DLLUBRI, MLSTATF, PLACKG, PMETC,
 	 * QSPEC, SLTOLLA, DLLATOLP, DLLATOLN, SLLATOLP, SLLATOLN)); } }
-	 * 
+	 *
 	 * @Test public void rulef089Test() {
-	 * 
+	 *
 	 * List<String> SLTOLLAValues = Caratteristiche.getSLTOLLAValues("BAV");
-	 * 
+	 *
 	 * String CLLEGA; String CLSTATF; BigDecimal CLSPESS; String SLBP; String
 	 * CLFINI; String SLBPTE; String CLASSE; String CLLARG; String CLLUNG; String
 	 * CLRIVE; String CLTOLLE; String DLDEST; String DLLAV; String DLLUBRI; String
 	 * MLSTATF; String PLACKG; String PMETC; String QSPEC; String SLTOLLA; String
 	 * DLLATOLP; String DLLATOLN; String SLLATOLP; String SLLATOLN;
-	 * 
+	 *
 	 * CLLEGA = "3A"; SLBPTE = "A"; SLBP = "B06789"; CLFINI = "C"; CLASSE = "2";
 	 * CLLUNG = "01280"; CLRIVE = "A"; CLTOLLE = "C"; DLDEST = "B"; DLLAV = "000";
 	 * DLLUBRI = "B"; MLSTATF = "H28"; PLACKG = "1"; PMETC = "007"; QSPEC = "";
 	 * DLLATOLN = "K"; DLLATOLP = "D"; SLLATOLP = "AAP"; SLLATOLN = "AAP"; CLSTATF =
 	 * "H00"; CLLARG = "0200"; CLSPESS = new BigDecimal(200);
-	 * 
+	 *
 	 * ListIterator<String> litr2 = SLTOLLAValues.listIterator(); while
 	 * (litr2.hasNext()) { SLTOLLA = litr2.next();
 	 * assertEquals(Main.testRulef089Standard(SLTOLLA,DLLATOLN),
