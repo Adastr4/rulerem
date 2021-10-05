@@ -34,7 +34,7 @@ public class CLFINI_Rule1 {
 	public boolean when() {
 		System.out.println("executing rule 1 no package");
 
-		return ( caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLASSE().equalsIgnoreCase("EDT")) &&
+		return ( caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getClasse().equalsIgnoreCase("EDT")) &&
 				 caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLFINI().equalsIgnoreCase("f")) ||
 						caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLFINI().equalsIgnoreCase("n")) );
 	}
