@@ -1,15 +1,19 @@
 package cart.test;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
 
 import com.deliveredtechnologies.rulebook.Fact;
 import com.deliveredtechnologies.rulebook.FactMap;
 import com.deliveredtechnologies.rulebook.NameValueReferableMap;
+import com.deliveredtechnologies.rulebook.Result;
 import com.deliveredtechnologies.rulebook.model.Auditor;
 import com.deliveredtechnologies.rulebook.model.runner.RuleBookRunner;
 
@@ -19,7 +23,27 @@ import it.profilglass.classmodel.Macchina;
 
 public class InizialiTest {
 
+	@Test
+	void prova3DH14ITest() {
+		RuleBookRunner ruleBook = new RuleBookRunner("it.profilglass.constraint.bav.CLFINI.val");
+		NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
+		ICaratteristica applicant1 = new Caratteristica(new BigDecimal(650), "H14", "3D", "B07187", "B07187",
+				"I", "F");
 
+		facts.put(new Fact<>(applicant1));
+
+		ruleBook.setDefaultResult(Boolean.FALSE);
+		ruleBook.run(facts);
+		boolean ret = false;
+		Optional<Result> result = ruleBook.getResult();
+
+		result.ifPresent(action -> {
+			System.out.println("Vincolo per Caratteristica stato fisico " + " validato " + action);
+		});
+
+		assertTrue((boolean) result.get().getValue());
+
+	}
 
 	@Test
 	void noLoopCLFINI() {
@@ -258,7 +282,8 @@ public class InizialiTest {
 		CLASSE = "EDT";
 
 		List<String> CLFINIValues = null;// Caratteristiche.getCLFINIValues();
-		if (CLFINIValues==null) return;
+		if (CLFINIValues == null)
+			return;
 		ListIterator<String> litr = CLFINIValues.listIterator();
 		while (litr.hasNext()) {
 
@@ -300,7 +325,8 @@ public class InizialiTest {
 		String CLSTATF;
 
 		CLLEGA = "3A";
-		if (CLSTATFValues==null) return;
+		if (CLSTATFValues == null)
+			return;
 		ListIterator<String> litr = CLSTATFValues.listIterator();
 		while (litr.hasNext()) {
 
@@ -343,8 +369,9 @@ public class InizialiTest {
 		CLLEGA = "3A";
 //		CLLEGA = "4A";
 //		CLLEGA = "6B";
-		if (CLSTATFValues==null) return;
-		
+		if (CLSTATFValues == null)
+			return;
+
 		ListIterator<String> litr = CLSTATFValues.listIterator();
 		while (litr.hasNext()) {
 
