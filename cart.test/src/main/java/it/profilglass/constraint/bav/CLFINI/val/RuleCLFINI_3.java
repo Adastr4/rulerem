@@ -29,8 +29,8 @@ public class RuleCLFINI_3 extends it.profilglass.constraint.bav.CLFINI.val.sub1.
 	{
 		//return super.when() && !caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSTATF().toString().substring(1, 3).equalsIgnoreCase("00")
 		//																		|| caratteristica.getCLSTATF().toString().substring(1, 3).equalsIgnoreCase("A1"));
-		return super.when() && !(     caratteristiche.stream().filter(caratteristica -> "CLSTATF".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().equalsIgnoreCase("00")
-							     ||   caratteristiche.stream().filter(caratteristica -> "CLSTATF".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().equalsIgnoreCase("A1")
+		return super.when() && !(     caratteristiche.stream().filter(caratteristica -> "CLSTATF".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("00")
+							     ||   caratteristiche.stream().filter(caratteristica -> "CLSTATF".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("A1")
 							    );
 	}
 

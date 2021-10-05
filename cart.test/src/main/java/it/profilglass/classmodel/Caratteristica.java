@@ -11,11 +11,11 @@ public class Caratteristica {
 	private int caratteristicaOrder;
 	private String classe;
 	private ArrayList<Opzione> valori;
-	private String selectedValue;
+	private Opzione selectedValue;
 	private boolean enabled = false;
 	private boolean visible = false;
 	
-	public Caratteristica(String caratteristicaId, String descrizioneCaratteristica, int caratteristicaOrder, String classe, ArrayList<Opzione> valori, String selectedValue)
+	public Caratteristica(String caratteristicaId, String descrizioneCaratteristica, int caratteristicaOrder, String classe, ArrayList<Opzione> valori, Opzione selectedValue)
 	{
 		this.caratteristicaId = caratteristicaId;
 		this.caratteristicaOrder = caratteristicaOrder;
@@ -25,7 +25,7 @@ public class Caratteristica {
 		this.descrizioneCaratteristica = descrizioneCaratteristica;
 	}
 	
-	public Caratteristica(String caratteristicaId, String descrizioneCaratteristica, int caratteristicaOrder, String classe, String selectedValue)
+	public Caratteristica(String caratteristicaId, String descrizioneCaratteristica, int caratteristicaOrder, String classe, Opzione selectedValue)
 	{
 		this.caratteristicaId = caratteristicaId;
 		this.caratteristicaOrder = caratteristicaOrder;
@@ -41,7 +41,7 @@ public class Caratteristica {
 		this.caratteristicaOrder = caratteristicaOrder;
 		this.classe = classe;
 		this.valori = this.setListOfValues();
-		this.selectedValue = "";
+		this.selectedValue = new Opzione("","");
 		this.descrizioneCaratteristica = descrizioneCaratteristica;
 	}
 
@@ -95,11 +95,11 @@ public class Caratteristica {
 		return this.valori.remove(opz);
 	}
 
-	public String getSelectedValue() {
+	public Opzione getSelectedValue() {
 		return selectedValue;
 	}
 
-	public void setSelectedValue(String selectedValue) {
+	public void setSelectedValue(Opzione selectedValue) {
 		this.selectedValue = selectedValue;
 	}
 

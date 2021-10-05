@@ -84,7 +84,7 @@ public class ConfiguratoreBAV extends Configuratore {
 			
 			if(ruleBook.getResult().isPresent())
 			{
-				this.caratteristiche.get(index).setSelectedValue(ruleBook.getResult().get().getValue().toString());
+				this.caratteristiche.get(index).setSelectedValue((Opzione) ruleBook.getResult().get().getValue());
 				return true;
 			}
 			
@@ -110,7 +110,7 @@ public class ConfiguratoreBAV extends Configuratore {
 			
 			if(ruleBook.getResult().isPresent())
 			{
-				this.getCaratteristicaById(name).setSelectedValue(ruleBook.getResult().get().getValue().toString());
+				this.getCaratteristicaById(name).setSelectedValue((Opzione) ruleBook.getResult().get().getValue());
 				return true;
 			}
 			

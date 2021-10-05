@@ -33,9 +33,9 @@ public abstract class Configuratore {
 		return this.caratteristiche;
 	}
 	
-	public void setCaratteristicaValue(String idCaratteristica, String value)
+	public void setCaratteristicaValue(String idCaratteristica, String value, String description)
 	{
-		this.getCaratteristicaById(idCaratteristica).setSelectedValue(value);
+		this.getCaratteristicaById(idCaratteristica).setSelectedValue(new Opzione(value,description));
 	}
 	
 	public List<Opzione> getCaratteristicaOpzioni(String idCaratteristica)

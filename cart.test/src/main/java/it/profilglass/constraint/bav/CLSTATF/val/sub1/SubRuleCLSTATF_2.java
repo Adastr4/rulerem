@@ -22,7 +22,7 @@ public class SubRuleCLSTATF_2 {
 	public boolean when()
 	{
 		//return caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSTATF().substring(1,2).equalsIgnoreCase("H3"));
-		return caratteristiche.stream().filter(caratteristica -> "CLSTATF".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().substring(1,2).equalsIgnoreCase("H3");
+		return caratteristiche.stream().filter(caratteristica -> "CLSTATF".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().substring(1,2).equalsIgnoreCase("H3");
 	}
 
 	@Then
