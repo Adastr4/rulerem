@@ -15,29 +15,18 @@ import test.test.CaratteristicaBean;
 @Rule(order = 10, name = "ruleSBATIPO_10")
 
 public class RuleSBATIPO_10 {
-<<<<<<< HEAD
 	/*@Given 
 	private List<CaratteristicaBean> caratteristiche;*/
 	@Given
 	private List<Caratteristica> caratteristiche;
 	
-=======
-	@Given
-	private List<CaratteristicaBean> caratteristiche;
-
->>>>>>> branch 'filippoBranch' of ssh://git@github.com/Adastr4/rulerem.git
 	@Result
 	private Boolean result;
 
 	@When
 	public boolean when()
-<<<<<<< HEAD
 	{		
 		/*return caratteristiche.stream().anyMatch(caratteristica -> Integer.parseInt(caratteristica.getCLLARG()) <= 10000 &&
-=======
-	{
-		return caratteristiche.stream().anyMatch(caratteristica -> Integer.parseInt(caratteristica.getCLLARG()) <= 10000 &&
->>>>>>> branch 'filippoBranch' of ssh://git@github.com/Adastr4/rulerem.git
 																   Integer.parseInt(caratteristica.getCLLUNG()) <= 10000 &&
 																   caratteristica.getSBATIPO() != 2);*/
 		return Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue()) <= 10000

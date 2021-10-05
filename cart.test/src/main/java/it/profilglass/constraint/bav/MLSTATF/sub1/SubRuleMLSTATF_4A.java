@@ -9,18 +9,12 @@ import it.profilglass.classmodel.Caratteristica;
 import test.test.CaratteristicaBean;
 
 public class SubRuleMLSTATF_4A {
-<<<<<<< HEAD
 	/*@Given("caratteristica") 
 	private CaratteristicaBean caratteristica; //Annotated Lists get injected with all Facts of the declared generic type*/
 	
 	@Given
 	private List<Caratteristica> caratteristiche;
 	
-=======
-	@Given("caratteristica")
-	private CaratteristicaBean caratteristica; //Annotated Lists get injected with all Facts of the declared generic type
-
->>>>>>> branch 'filippoBranch' of ssh://git@github.com/Adastr4/rulerem.git
 	@When
 	public boolean when()
 	{

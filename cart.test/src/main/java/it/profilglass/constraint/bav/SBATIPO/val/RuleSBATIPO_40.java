@@ -15,30 +15,19 @@ import test.test.CaratteristicaBean;
 @Rule(order = 40, name = "ruleSBATIPO_40")
 
 public class RuleSBATIPO_40 {
-<<<<<<< HEAD
 	/*@Given 
 	private List<CaratteristicaBean> caratteristiche;*/
 	
 	@Given
 	private List<Caratteristica> caratteristiche;
 	
-=======
-	@Given
-	private List<CaratteristicaBean> caratteristiche;
-
->>>>>>> branch 'filippoBranch' of ssh://git@github.com/Adastr4/rulerem.git
 	@Result
 	private Boolean result;
 
 	@When
 	public boolean when()
-<<<<<<< HEAD
 	{		
 		/*return caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getSBATIPO() == 1 &&
-=======
-	{
-		return caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getSBATIPO() == 1 &&
->>>>>>> branch 'filippoBranch' of ssh://git@github.com/Adastr4/rulerem.git
 																   !caratteristica.getCLFINI().equalsIgnoreCase("C") &&
 																   !caratteristica.getCLFINI().equalsIgnoreCase("D") &&
 																   !caratteristica.getCLFINI().equalsIgnoreCase("E") &&
