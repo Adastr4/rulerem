@@ -153,6 +153,8 @@ public class Caratteristica implements ICaratteristica {
 	 *
 	 */
 	int SETICC;
+	
+	private String selectedValue;
 
 	/**
 	 * @param bigDecimal
@@ -521,7 +523,7 @@ public class Caratteristica implements ICaratteristica {
 	@Override
 	public String getSelectedValue() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.selectedValue;
 	}
 
 	/**
@@ -812,6 +814,7 @@ public class Caratteristica implements ICaratteristica {
 	 */
 	@Override
 	public void setSelectedValue(String selectedValue) {
+		this.selectedValue = selectedValue;
 	}
 
 	/**

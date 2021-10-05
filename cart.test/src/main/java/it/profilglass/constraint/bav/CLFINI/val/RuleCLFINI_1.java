@@ -9,6 +9,7 @@ import com.deliveredtechnologies.rulebook.annotation.Rule;
 import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
+import it.profilglass.classmodel.Caratteristica;
 import it.profilglass.classmodel.ICaratteristica;
 
 @Rule(order = 1, name = "ruleCLFINI_1")

@@ -8,6 +8,7 @@ import com.deliveredtechnologies.rulebook.annotation.Result;
 import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
+import it.profilglass.classmodel.Caratteristica;
 import it.profilglass.classmodel.ICaratteristica;
 
 public class RuleCLFINI_5 extends it.profilglass.constraint.bav.CLFINI.val.sub1.RuleCLFINI_0 {

@@ -18,6 +18,8 @@ import com.deliveredtechnologies.rulebook.model.Auditor;
 import com.deliveredtechnologies.rulebook.model.runner.RuleBookRunner;
 
 import it.profilglass.classmodel.Caratteristica;
+import it.profilglass.classmodel.ConfiguratoreBAV;
+import it.profilglass.classmodel.GenericConfItem;
 import it.profilglass.classmodel.ICaratteristica;
 import it.profilglass.classmodel.Macchina;
 
@@ -25,12 +27,23 @@ public class InizialiTest {
 
 	@Test
 	void prova3DH14ITest() {
-		RuleBookRunner ruleBook = new RuleBookRunner("it.profilglass.constraint.bav.CLFINI.val");
+		/*RuleBookRunner ruleBook = new RuleBookRunner("it.profilglass.constraint.bav.CLFINI.val");
 		NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
 		ICaratteristica applicant1 = new Caratteristica(new BigDecimal(650), "H14", "3D", "B07187", "B07187",
-				"I", "F");
+				"I", "F");*/
+		
+		GenericConfItem conf = new GenericConfItem(new ConfiguratoreBAV(),"BAV");
+		
+		conf.getConf().getCaratteristicaById("CLSPESS").setSelectedValue("650");
+		conf.getConf().getCaratteristicaById("CLSTATF").setSelectedValue("H14");
+		conf.getConf().getCaratteristicaById("CLLEGA").setSelectedValue("3D");
+		conf.getConf().getCaratteristicaById("SLBP").setSelectedValue("B07187");
+		conf.getConf().getCaratteristicaById("SLBPTE").setSelectedValue("B07187");
+		conf.getConf().getCaratteristicaById("CLFINI").setSelectedValue("I");
+		
+		Boolean assertion = conf.getConf().runCaratteristicaDefaultValueRuleByName("CLFINI");
 
-		facts.put(new Fact<>(applicant1));
+		/*facts.put(new Fact<>(applicant1));
 
 		ruleBook.setDefaultResult(Boolean.FALSE);
 		ruleBook.run(facts);
@@ -39,9 +52,9 @@ public class InizialiTest {
 
 		result.ifPresent(action -> {
 			System.out.println("Vincolo per Caratteristica stato fisico " + " validato " + action);
-		});
+		});*/
 
-		assertTrue((boolean) result.get().getValue());
+		assertTrue((boolean) assertion);
 
 	}
 
