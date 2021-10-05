@@ -14,7 +14,7 @@ import test.test.CaratteristicaBean;
 
 public class Main3 {
 
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 
 
 //		noLoopCLSTATF();
@@ -31,7 +31,7 @@ public class Main3 {
 //		noLoopCLSTAFNew();
 		withLoopCLSTATFNew();
 
-	}
+	}*/
 	static void withLoopSubVincolo1() {
 	//	List<String> CLSTATFValues = Caratteristiche.getCLSTATFValues();
 

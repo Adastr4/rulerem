@@ -24,7 +24,6 @@ public class Main {
 
 		//System.out.println("substring(2,3) " + "CBF.0.5".substring(2,3).toString());
 		//System.out.println("substring(2,3) " + "CBF.0.5".substring(4, "CBF.0.5".length()));
-		//withLoopCLLARGSTOLLACLSPESSNew();
 		//withLoopTestCLLARGf092();
 		//Rulef092CLLARGExecutorList();
 		//RuleSLLATOLNNoIterator(new BigDecimal(620),"500","F","0","BAF.0.1");

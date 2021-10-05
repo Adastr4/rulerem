@@ -9,14 +9,17 @@ import com.deliveredtechnologies.rulebook.annotation.Rule;
 import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
+import it.profilglass.classmodel.Caratteristica;
 import test.test.CaratteristicaBean;
 
 @Rule(order = 2, name = "ruleCLLARG2")
 
 public class RuleCLLARG_2 {
 
+	/*@Given
+	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type*/
 	@Given
-	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
+	private List<Caratteristica> caratteristiche;
 
 	@Result
 	private boolean result;
@@ -24,14 +27,41 @@ public class RuleCLLARG_2 {
 	@When
 	public boolean when()
 	{
-		return caratteristiche.stream().anyMatch(caratteristica -> !(((Integer.parseInt(caratteristica.getCLLARG()) <= 1000 && caratteristica.getSLLATOLP().substring(1, 2).equalsIgnoreCase("a"))
+		/*return caratteristiche.stream().anyMatch(caratteristica -> !(((Integer.parseInt(caratteristica.getCLLARG()) <= 1000 && caratteristica.getSLLATOLP().substring(1, 2).equalsIgnoreCase("a"))
 																|| (Integer.parseInt(caratteristica.getCLLARG()) > 1000 && Integer.parseInt(caratteristica.getCLLARG()) <= 3000 && caratteristica.getSLLATOLP().substring(1, 2).equalsIgnoreCase("b"))
 																|| (Integer.parseInt(caratteristica.getCLLARG()) > 3000 && Integer.parseInt(caratteristica.getCLLARG()) <= 5000 && caratteristica.getSLLATOLP().substring(1, 2).equalsIgnoreCase("c"))
 																|| (Integer.parseInt(caratteristica.getCLLARG()) > 5000 && Integer.parseInt(caratteristica.getCLLARG()) <= 9000 && caratteristica.getSLLATOLP().substring(1, 2).equalsIgnoreCase("d"))
 																|| (Integer.parseInt(caratteristica.getCLLARG()) > 9000 && Integer.parseInt(caratteristica.getCLLARG()) <= 10000 && caratteristica.getSLLATOLP().substring(1, 2).equalsIgnoreCase("e"))
 																|| (Integer.parseInt(caratteristica.getCLLARG()) > 10000 && Integer.parseInt(caratteristica.getCLLARG()) <= 12500 && caratteristica.getSLLATOLP().substring(1, 2).equalsIgnoreCase("f"))
 																|| (Integer.parseInt(caratteristica.getCLLARG()) > 12500 && Integer.parseInt(caratteristica.getCLLARG()) <= 16500 && caratteristica.getSLLATOLP().substring(1, 2).equalsIgnoreCase("g"))
-												)));
+												)));*/
+		return ((   Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue()) <= 1000 
+				&& caratteristiche.stream().filter(caratteristica -> "SLLATOLP".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().substring(1,2).equalsIgnoreCase("a")
+			   )
+			|| (   Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue()) > 1000 
+				&& Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue()) <= 3000 
+				&& caratteristiche.stream().filter(caratteristica -> "SLLATOLP".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().substring(1,2).equalsIgnoreCase("b")
+			   )
+			|| (   Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue()) > 3000 
+				&& Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue()) <= 5000 
+				&& caratteristiche.stream().filter(caratteristica -> "SLLATOLP".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().substring(1,2).equalsIgnoreCase("c")
+			   )
+			|| (   Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue()) > 5000 
+				&& Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue()) <= 9000 
+				&& caratteristiche.stream().filter(caratteristica -> "SLLATOLP".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().substring(1,2).equalsIgnoreCase("d")
+			   )
+			|| (   Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue()) > 9000 
+				&& Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue()) <= 10000 
+				&& caratteristiche.stream().filter(caratteristica -> "SLLATOLP".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().substring(1,2).equalsIgnoreCase("e")
+			   )
+			|| (   Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue()) > 10000 
+				&& Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue()) <= 12500 
+				&& caratteristiche.stream().filter(caratteristica -> "SLLATOLP".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().substring(1,2).equalsIgnoreCase("f")
+				)
+			|| (   Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue()) > 12500 
+				&& Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue()) <= 16500 
+				&& caratteristiche.stream().filter(caratteristica -> "SLLATOLP".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().substring(1,2).equalsIgnoreCase("g")
+			));
 	}
 
 	@Then

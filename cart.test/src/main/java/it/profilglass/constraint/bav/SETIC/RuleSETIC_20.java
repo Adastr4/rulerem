@@ -9,13 +9,16 @@ import com.deliveredtechnologies.rulebook.annotation.Rule;
 import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
+import it.profilglass.classmodel.Caratteristica;
 import test.test.CaratteristicaBean;
 
 @Rule(order = 20, name = "ruleSETIC_20")
 
 public class RuleSETIC_20 {
+	/*@Given
+	private List<CaratteristicaBean> caratteristiche;*/
 	@Given
-	private List<CaratteristicaBean> caratteristiche;
+	private List<Caratteristica> caratteristiche;
 
 	@Result
 	private String result;
@@ -23,7 +26,8 @@ public class RuleSETIC_20 {
 	@When
 	public boolean when()
 	{
-		return (caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getSETICC() == 2));
+		//return (caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getSETICC() == 2));
+		return Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "SETICC".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue()) == 2;
 	}
 
 	@Then
