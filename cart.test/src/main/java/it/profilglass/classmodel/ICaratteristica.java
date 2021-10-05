@@ -13,7 +13,6 @@ public interface ICaratteristica {
 
 	String getClasse();
 
-	String getCLASSE();
 
 	String getCLFINI();
 

@@ -338,19 +338,13 @@ public class Caratteristica implements ICaratteristica {
 		return caratteristicaOrder;
 	}
 
-	/**
-	 *
-	 */
-	@Override
-	public String getClasse() {
-		return classe;
-	}
+	
 
 	/**
 	 *
 	 */
 	@Override
-	public String getCLASSE() {
+	public String getClasse() {
 		if (CLASSE == null) {
 			CLASSE = ReadDB.readClasse();
 		}
