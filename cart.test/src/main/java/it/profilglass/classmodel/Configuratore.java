@@ -23,7 +23,7 @@ public abstract class Configuratore {
 	 *
 	 */
 	protected List<ICaratteristica> caratteristiche;
-
+	
 	/**
 	 * @return
 	 */

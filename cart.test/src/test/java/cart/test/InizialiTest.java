@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Optional;
 
+import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
 import com.deliveredtechnologies.rulebook.Fact;
@@ -20,18 +21,17 @@ import com.deliveredtechnologies.rulebook.model.runner.RuleBookRunner;
 import it.profilglass.classmodel.Caratteristica;
 import it.profilglass.classmodel.ConfiguratoreBAV;
 import it.profilglass.classmodel.GenericConfItem;
+import it.profilglass.classmodel.GenericItem;
 import it.profilglass.classmodel.ICaratteristica;
+import it.profilglass.classmodel.LivelloDistinta;
 import it.profilglass.classmodel.Macchina;
 
 public class InizialiTest {
 
-	@Test
+	//@Test
 	void prova3DH14ITest() {
-		/*RuleBookRunner ruleBook = new RuleBookRunner("it.profilglass.constraint.bav.CLFINI.val");
-		NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
-		ICaratteristica applicant1 = new Caratteristica(new BigDecimal(650), "H14", "3D", "B07187", "B07187",
-				"I", "F");*/
 		
+		//INIZIALIZZO L'OGGETTO "BANDELLA" E DEFINISCO LE CARATTERISTICHE DI CONFIGURAZIONE
 		GenericConfItem conf = new GenericConfItem(new ConfiguratoreBAV(),"BAV");
 		
 		conf.getConf().getCaratteristicaById("CLSPESS").setSelectedValue("650");
@@ -41,21 +41,71 @@ public class InizialiTest {
 		conf.getConf().getCaratteristicaById("SLBPTE").setSelectedValue("B07187");
 		conf.getConf().getCaratteristicaById("CLFINI").setSelectedValue("I");
 		
-		Boolean assertion = conf.getConf().runCaratteristicaDefaultValueRuleByName("CLFINI");
-
-		/*facts.put(new Fact<>(applicant1));
-
-		ruleBook.setDefaultResult(Boolean.FALSE);
-		ruleBook.run(facts);
-		boolean ret = false;
-		Optional<Result> result = ruleBook.getResult();
-
-		result.ifPresent(action -> {
-			System.out.println("Vincolo per Caratteristica stato fisico " + " validato " + action);
-		});*/
-
+		//VALIDO L'OPZIONE CLFINI CON LA CONFIGURAZIONE PARZIALE
+		Boolean assertion = conf.getConf().runCaratteristicaValidationRuleByName("CLFINI");
+		
+		//VERIFICO LA VALIDAZIONE
 		assertTrue((boolean) assertion);
-
+	}
+	
+	//@Test
+	void distintaBandelleTest()
+	{
+		// COSTRUISCO LA DISTINTA SFRUTTANDO RULEBOOK
+		GenericConfItem conf = new GenericConfItem(new ConfiguratoreBAV(),"BAV");
+		
+		conf.getConf().getCaratteristicaById("CLLEGA").setSelectedValue("5F");
+		conf.getConf().getCaratteristicaById("CLSPESS").setSelectedValue("3000");
+		conf.getConf().getCaratteristicaById("CLSTATF").setSelectedValue("HA1");
+		conf.getConf().getCaratteristicaById("MLSTATF").setSelectedValue("HA1");
+		conf.getConf().getCaratteristicaById("CLLARG").setSelectedValue("10000");
+		conf.getConf().getCaratteristicaById("CLLUNG").setSelectedValue("20000");
+		conf.getConf().getCaratteristicaById("CLFINI").setSelectedValue("M");
+		conf.getConf().getCaratteristicaById("CLTOLLE").setSelectedValue("N");
+		conf.getConf().getCaratteristicaById("CLRIVE").setSelectedValue("A");
+		conf.getConf().getCaratteristicaById("SLLANAS").setSelectedValue("FAB1040");
+		conf.getConf().getCaratteristicaById("SLMOD").setSelectedValue("CP");
+		
+		List<LivelloDistinta> distintaRuleBook = conf.getConf().buildDistinta();
+		
+		//COSTRUISCO LA DISTINTA MANUALMENTE
+		List<LivelloDistinta> distintaDefault = new ArrayList<LivelloDistinta>();
+		//PRIMO LIVELLO
+		distintaDefault.add(new LivelloDistinta(new GenericItem("BA5F3000HA11000020000MNA","BA",null),1,1));
+		//SECONDO LIVELLO CON DUE ELEMENTI
+		distintaDefault.get(0).getDistinta().add(new LivelloDistinta(new GenericItem("LB5F3000HA11040MN","LB",null),2,1));
+		distintaDefault.get(0).getDistinta().add(new LivelloDistinta(new GenericItem("IMCARG28L1000","IMCAR",null),2,2));
+		
+		//ORA OCCORRE CONFRONTARE LE DUE DISTINTE(ho già visto che sono uguali, basta fare l'automatismo che controlla)
+		//Assert.assertArrayEquals(distintaRuleBook.toArray(), distintaDefault.toArray());
+	}
+	
+	@Test
+	void macchinaBandelleTest()
+	{
+		List<Macchina> listMacchinaRuleBook = new ArrayList<Macchina>();
+		List<Macchina> listMacchinaDefault = new ArrayList<Macchina>();
+		
+		//COSTRUISCO LA LISTA DELLE MACCHINE DA RULEBOOK
+		Caratteristica cara = new Caratteristica(new BigDecimal(600),"1K","H18","B00957","000000","L","","03450","03750","B","N","N"," ","N","H18","1","002","","P","0","0","ACP","ACP",1,2,"1KB1420","H01","BL","N");
+		ArrayList<Macchina> macchine = new ArrayList<Macchina>();
+		RuleBookRunner ruleBookMacchina = new RuleBookRunner("it.profilglass.constraint.bav.macchina");
+		NameValueReferableMap<ICaratteristica> facts = new FactMap<>();
+		
+		facts.setValue("caratteristica", cara);
+		ruleBookMacchina.setDefaultResult(new ArrayList<Macchina>());
+		ruleBookMacchina.run(facts);
+		
+		if(ruleBookMacchina.getResult().isPresent())
+		{
+			listMacchinaRuleBook = (ArrayList<Macchina>) ruleBookMacchina.getResult().get().getValue();
+		}
+		
+		//COSTRUISCO LA LISTA MACCHINE MANUALE
+		listMacchinaDefault.add(new Macchina("IMBL09"));
+		
+		//ORA OCCORRE CONFRONTARE LE DUE LISTE MACCHINE(ho già visto che sono uguali, basta fare l'automatismo che controlla)
+		//Assert.assertArrayEquals(listMacchinaRuleBook.toArray(), listMacchinaDefault.toArray());
 	}
 
 	@Test
