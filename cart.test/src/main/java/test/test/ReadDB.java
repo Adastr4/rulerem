@@ -628,5 +628,54 @@ public class ReadDB {
 
 			}
 		}
+		
+		public static double getQitmFromPackageDefinition(String packageDef)
+		{
+			Statement stmt = null;
+			String query = null;
+			double value = 0;
+			ResultSet rs = null;
+			try {
+				// The newInstance() call is a work around for some
+				// broken Java implementations
+
+			
+				stmt = conn.createStatement();
+				query = "SELECT quantitaArticolo FROM caratteristicaconfiguratore WHERE idDefinizioneImballo ='" + packageDef + "' LIMIT 1";
+				rs = stmt.executeQuery(query);
+				while(rs.next()) {
+					value = rs.getDouble("quantitaArticolo");
+				}
+
+				return value;
+			} catch (Exception ex) {
+				// handle the error
+				ex.printStackTrace();
+				return value;
+			}
+			finally {
+				// it is a good idea to release
+				// resources in a finally{} block
+				// in reverse-order of their creation
+				// if they are no-longer needed
+
+				if (rs != null) {
+					try {
+						rs.close();
+					} catch (SQLException sqlEx) { } // ignore
+
+					rs = null;
+				}
+
+				if (stmt != null) {
+					try {
+						stmt.close();
+					} catch (SQLException sqlEx) { } // ignore
+
+					stmt = null;
+				}
+
+			}
+		}
 }
 

@@ -18,7 +18,7 @@ import test.test.Attivita;
 import test.test.CaratteristicaBean;
 import test.test.ReadDB;
 
-@Rule(order = 6, name = "ruleBA_IMCAR_3_1")
+@Rule(order = 60, name = "ruleBA_IMCAR_3_1")
 
 public class RuleBA_IMPVC_3_3 {
 	@Given 

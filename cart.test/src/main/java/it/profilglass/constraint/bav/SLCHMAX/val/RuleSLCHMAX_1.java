@@ -14,7 +14,7 @@ import test.test.CaratteristicaBean;
 
 @Rule(order = 1, name = "ruleSLTMAX1")
 
-public class RuleSLTMAX_1 {
+public class RuleSLCHMAX_1 {
 
 	/*@Given("caratteristica")
 	private CaratteristicaBean caratteristica; //Annotated Lists get injected with all Facts of the declared generic type*/

@@ -50,7 +50,8 @@ public class Main {
 		item.getConf().getCaratteristicaById("CLLUNG").setSelectedValueFromOpzioneList("20000");
 		item.getConf().getCaratteristicaById("CLTOLLE").setSelectedValueFromOpzioneList("N");
 		item.getConf().getCaratteristicaById("CLRIVE").setSelectedValueFromOpzioneList("A");
-		item.getConf().getCaratteristicaById("SLLANAS").setSelectedValueFromOpzioneList("FAB1040");
+		item.getConf().getCaratteristicaById("SLLANAS").setSelectedValueFromOpzioneList("5AB1340");
+		item.getConf().getCaratteristicaById("SLMOD").setSelectedValueFromOpzioneList("CP");
 		RunDistintaNew(item);
 		printDistinta(RunDistintaNew(item).get(0));
 		printDistinta(distintaDefault().get(0));

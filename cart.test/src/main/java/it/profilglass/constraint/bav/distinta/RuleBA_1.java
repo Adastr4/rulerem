@@ -19,7 +19,7 @@ import test.test.Attivita;
 import test.test.CaratteristicaBean;
 import test.test.ReadDB;
 
-@Rule(order = 1, name = "ruleBA_1")
+@Rule(order = 10, name = "ruleBA_1")
 
 public class RuleBA_1 {
 	@Given 

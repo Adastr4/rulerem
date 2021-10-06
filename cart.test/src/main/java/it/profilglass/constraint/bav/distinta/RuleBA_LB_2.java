@@ -18,7 +18,7 @@ import test.test.Attivita;
 import test.test.CaratteristicaBean;
 import test.test.ReadDB;
 
-@Rule(order = 3, name = "ruleBA_LB_2")
+@Rule(order = 30, name = "ruleBA_LB_2")
 
 public class RuleBA_LB_2 {
 	@Given 
@@ -37,12 +37,12 @@ public class RuleBA_LB_2 {
 	public RuleState then()
 	{
 		//AGIIUNGO IL LIVELLO 2 DI DISTINTA (LB o LV)
-		result.get(0).getDistinta().add(new LivelloDistinta(new GenericItem("LB" + caratteristiche.stream().filter(caratteristica -> "CLLEGA".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione() + 
-																				caratteristiche.stream().filter(caratteristica -> "CLSPESS".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione() + 
-																				caratteristiche.stream().filter(caratteristica -> "MLSTATF".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione() +
-																				caratteristiche.stream().filter(caratteristica -> "SLLANAS".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().substring(3, 7) +
-																				caratteristiche.stream().filter(caratteristica -> "CLFINI".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione() +
-																				caratteristiche.stream().filter(caratteristica -> "CLTOLLE".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione(),"LB",null), 2, 1));
+		result.get(0).getDistinta().add(new LivelloDistinta(new GenericItem("LB" + caratteristiche.stream().filter(caratteristica -> "CLLEGA".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().toString() + 
+																				caratteristiche.stream().filter(caratteristica -> "CLSPESS".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().toString() + 
+																				caratteristiche.stream().filter(caratteristica -> "MLSTATF".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().toString() +
+																				caratteristiche.stream().filter(caratteristica -> "SLLANAS".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().substring(3, 7).toString() +
+																				caratteristiche.stream().filter(caratteristica -> "CLFINI".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().toString() +
+																				caratteristiche.stream().filter(caratteristica -> "CLTOLLE".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().toString(),"LB",null), 2, 1));
 		return RuleState.NEXT;
 	}
 

@@ -14,7 +14,7 @@ import test.test.CaratteristicaBean;
 
 @Rule(order = 1, name = "ruleSLTMAX1")
 
-public class RuleSLTMAX_1 extends it.profilglass.constraint.bav.SLCHMAX.val.RuleSLTMAX_1 {
+public class RuleSLCHMAX_1 extends it.profilglass.constraint.bav.SLCHMAX.val.RuleSLCHMAX_1 {
 
 	private Double hImballi;
 

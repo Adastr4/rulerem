@@ -18,7 +18,7 @@ import test.test.Attivita;
 import test.test.CaratteristicaBean;
 import test.test.ReadDB;
 
-@Rule(order = 2, name = "ruleBA_LV_2")
+@Rule(order = 20, name = "ruleBA_LV_2")
 
 public class RuleBA_LV_2 {
 	@Given 
