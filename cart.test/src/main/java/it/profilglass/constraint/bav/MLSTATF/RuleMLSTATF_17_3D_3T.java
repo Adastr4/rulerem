@@ -29,7 +29,7 @@ public class RuleMLSTATF_17_3D_3T extends it.profilglass.constraint.bav.MLSTATF.
 	{
 		//return (caratteristica.getCLSTATF().equalsIgnoreCase("H19")) && super.when();
 		return super.when()
-			&& caratteristiche.stream().filter(caratteristica -> "CLSTATF".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().equalsIgnoreCase("H19");
+			&& caratteristiche.stream().filter(caratteristica -> "CLSTATF".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("H19");
 	}
 
 	@Then

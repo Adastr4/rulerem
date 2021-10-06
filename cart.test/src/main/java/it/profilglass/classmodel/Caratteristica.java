@@ -102,6 +102,14 @@ public class Caratteristica {
 	public void setSelectedValue(Opzione selectedValue) {
 		this.selectedValue = selectedValue;
 	}
+	
+	public void setSelectedValueFromOpzioneList(String value) {
+		for(Opzione valore : valori)
+		{
+			if(valore.getOpzione().toString().equalsIgnoreCase(value))
+				this.selectedValue = valore;
+		}
+	}
 
 	public String getDescrizioneCaratteristica() {
 		return descrizioneCaratteristica;

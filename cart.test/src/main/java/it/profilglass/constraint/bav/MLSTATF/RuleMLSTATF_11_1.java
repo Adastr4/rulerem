@@ -29,7 +29,7 @@ public class RuleMLSTATF_11_1 extends it.profilglass.constraint.bav.MLSTATF.sub1
 	{
 		//return caratteristica.getCLLEGA().substring(0, 1).equalsIgnoreCase("1") && super.when();
 		return super.when()
-			&& caratteristiche.stream().filter(caratteristica -> "CLLEGA".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().substring(0,1).equalsIgnoreCase("1");
+			&& caratteristiche.stream().filter(caratteristica -> "CLLEGA".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().substring(0,1).equalsIgnoreCase("1");
 	}
 
 	@Then

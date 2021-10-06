@@ -20,7 +20,7 @@ public class SubRuleMLSTATF_1 extends SubRuleMLSTATF_0 {
 	{
 		//return super.when() && caratteristica.getCLRIVE().equalsIgnoreCase("B");
 		return super.when()
-			&& caratteristiche.stream().filter(caratteristica -> "CLRIVE".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().equalsIgnoreCase("B");
+			&& caratteristiche.stream().filter(caratteristica -> "CLRIVE".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("B");
 	}
 
 }

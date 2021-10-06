@@ -27,7 +27,7 @@ public class RuleSETIC_50 {
 	public boolean when()
 	{
 		//return (caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getSETICC() == 5));
-		return Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "SETICC".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue()) == 5;
+		return Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "SETICC".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione()) == 5;
 	}
 
 	@Then

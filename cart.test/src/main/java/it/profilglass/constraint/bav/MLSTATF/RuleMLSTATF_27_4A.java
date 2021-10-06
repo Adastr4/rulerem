@@ -30,7 +30,7 @@ public class RuleMLSTATF_27_4A extends it.profilglass.constraint.bav.MLSTATF.sub
 	{
 		//return super.when() && !(caratteristica.getCLSPESS().intValue() >= 2500);
 		return super.when()
-			&& !(Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLSPESS".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue()) >= 2500);
+			&& !(Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLSPESS".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione()) >= 2500);
 	}
 
 	@Then

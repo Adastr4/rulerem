@@ -28,7 +28,7 @@ public class RuleSBATIPO_70 {
 	public boolean when()
 	{		
 		//return caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getSBATIPO() == 6);
-		return Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "SBATIPO".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue()) == 6;
+		return Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "SBATIPO".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione()) == 6;
 	}
 
 	@Then
