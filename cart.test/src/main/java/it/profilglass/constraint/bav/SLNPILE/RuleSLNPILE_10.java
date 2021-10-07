@@ -24,8 +24,7 @@ public class RuleSLNPILE_10 extends it.profilglass.constraint.bav.SLHPILA.RuleSL
 	@When
 	public boolean when()
 	{
-		return super.when();
-			   
+		return super.when();		   
 	}
 	
 	@Then
