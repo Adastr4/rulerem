@@ -9,6 +9,12 @@ public class Opzione {
 		this.opzione = opzione;
 		this.descrizione = descrizione;
 	}
+	
+	public Opzione(String opzione)
+	{
+		this.opzione = opzione;
+		this.descrizione = "";
+	}
 
 	public String getOpzione() {
 		return opzione;

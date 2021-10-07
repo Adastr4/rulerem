@@ -10,6 +10,7 @@ import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
 import it.profilglass.classmodel.Caratteristica;
+import it.profilglass.classmodel.Opzione;
 
 @Rule(order = 10, name = "ruleSLDEFIMB_10")
 
@@ -18,7 +19,7 @@ public class RuleSLDEFIMB_10 extends it.profilglass.constraint.bav.SLHPILA.RuleS
 	private List<Caratteristica> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 
 	@Result
-	private String result = "";
+	private Opzione result;
 	
 	@When
 	public boolean when()
@@ -31,7 +32,7 @@ public class RuleSLDEFIMB_10 extends it.profilglass.constraint.bav.SLHPILA.RuleS
 	public RuleState then()
 	{
 		//Aggiungo il primo livello di distinta (nodo);
-		result = caratteristiche.stream().filter(caratteristica -> "SBADEFIMB".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione();
+		result = caratteristiche.stream().filter(caratteristica -> "SBADEFIMB".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue();
 		return RuleState.BREAK;
 	}
 

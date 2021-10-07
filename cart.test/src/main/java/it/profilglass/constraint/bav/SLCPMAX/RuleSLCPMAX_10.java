@@ -10,6 +10,7 @@ import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
 import it.profilglass.classmodel.Caratteristica;
+import it.profilglass.classmodel.Opzione;
 import test.test.ReadDB;
 
 @Rule(order = 10, name = "ruleSLCPMAX10")
@@ -19,7 +20,7 @@ public class RuleSLCPMAX_10 extends it.profilglass.constraint.bav.SLCPMAX.sub1.S
 	private List<Caratteristica> caratteristiche;
 
 	@Result
-	private double result;
+	private Opzione result;
 
 	@When
 	public boolean when()
@@ -34,7 +35,8 @@ public class RuleSLCPMAX_10 extends it.profilglass.constraint.bav.SLCPMAX.sub1.S
 	@Then
 	public RuleState then()
 	{
-		result = ReadDB.getQitmFromPackageDefinition(caratteristiche.stream().filter(caratteristica -> "SLDEFIMB".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione());
+		//result = ReadDB.getQitmFromPackageDefinition(caratteristiche.stream().filter(caratteristica -> "SLDEFIMB".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione());
+		result = new Opzione(String.valueOf(ReadDB.getQitmFromPackageDefinition(caratteristiche.stream().filter(caratteristica -> "SLDEFIMB".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione())));
 		return RuleState.BREAK;
 	}
 

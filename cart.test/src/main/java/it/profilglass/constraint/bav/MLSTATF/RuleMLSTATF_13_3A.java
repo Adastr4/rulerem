@@ -10,6 +10,7 @@ import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
 import it.profilglass.classmodel.Caratteristica;
+import it.profilglass.classmodel.Opzione;
 import test.test.CaratteristicaBean;
 
 @Rule(order = 13, name = "ruleMLSTATF_13")
@@ -21,7 +22,7 @@ public class RuleMLSTATF_13_3A {
 	private List<Caratteristica> caratteristiche;
 
 	@Result
-	private String result;
+	private Opzione result;
 
 	@When
 	public boolean when()
@@ -36,7 +37,8 @@ public class RuleMLSTATF_13_3A {
 	public RuleState then()
 	{
 		System.out.println("Rule 13 entered");
-		result = "H24";
+		result = caratteristiche.stream().filter(caratteristica -> "MLSTATF".equals(caratteristica.getCaratteristicaId())).findAny().get().getOpzioneFromOpzioneList("H24");
+		//result = "H24";
 		return RuleState.NEXT;
 	}
 }

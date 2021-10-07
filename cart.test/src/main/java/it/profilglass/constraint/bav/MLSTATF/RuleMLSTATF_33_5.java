@@ -10,6 +10,7 @@ import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
 import it.profilglass.classmodel.Caratteristica;
+import it.profilglass.classmodel.Opzione;
 import test.test.CaratteristicaBean;
 
 @Rule(order = 33, name = "ruleMLSTATF_33")
@@ -22,7 +23,7 @@ public class RuleMLSTATF_33_5 {
 	private List<Caratteristica> caratteristiche;
 
 	@Result
-	private String result;
+	private Opzione result;
 
 	@When
 	public boolean when()
@@ -37,8 +38,15 @@ public class RuleMLSTATF_33_5 {
 	public RuleState then()
 	{
 		System.out.println("Rule 32 entered");
-		//result = "H2" + caratteristica.getCLSTATF().substring(2,2);
-		result = "H2" + caratteristiche.stream().filter(caratteristica -> "CLSTATF".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().substring(2,3);
+		//result = "H2" + caratteristiche.stream().filter(caratteristica -> "CLSTATF".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().substring(2,3);
+		try
+		{
+			result = caratteristiche.stream().filter(caratteristica -> "MLSTATF".equals(caratteristica.getCaratteristicaId())).findAny().get().getOpzioneFromOpzioneList("H2" + caratteristiche.stream().filter(caratteristica -> "CLSTATF".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().substring(2,3));
+		}
+		catch(Exception ex)
+		{
+			result = new Opzione("H2" + caratteristiche.stream().filter(caratteristica -> "CLSTATF".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().substring(2,3));
+		}
 		return RuleState.BREAK;
 	}
 }

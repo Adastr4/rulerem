@@ -10,6 +10,7 @@ import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
 import it.profilglass.classmodel.Caratteristica;
+import it.profilglass.classmodel.Opzione;
 import test.test.CaratteristicaBean;
 
 @Rule(order = 8, name = "ruleMLSTATF_8")
@@ -22,7 +23,7 @@ public class RuleMLSTATF_8_1 extends it.profilglass.constraint.bav.MLSTATF.sub1.
 	private List<Caratteristica> caratteristiche;
 
 	@Result
-	private String result;
+	private Opzione result;
 
 	@Override
 	@When
@@ -44,7 +45,8 @@ public class RuleMLSTATF_8_1 extends it.profilglass.constraint.bav.MLSTATF.sub1.
 	public RuleState then()
 	{
 		System.out.println("Rule 8 entered");
-		result = "H00";
+		//result = "H00";
+		result = caratteristiche.stream().filter(caratteristica -> "MLSTATF".equals(caratteristica.getCaratteristicaId())).findAny().get().getOpzioneFromOpzioneList("H00");
 		return RuleState.NEXT;
 	}
 }

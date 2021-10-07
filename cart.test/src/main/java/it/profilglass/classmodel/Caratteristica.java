@@ -110,6 +110,15 @@ public class Caratteristica {
 				this.selectedValue = valore;
 		}
 	}
+	
+	public Opzione getOpzioneFromOpzioneList(String value) {
+		for(Opzione valore : valori)
+		{
+			if(valore.getOpzione().toString().equalsIgnoreCase(value))
+				return valore;
+		}
+		return null;
+	}
 
 	public String getDescrizioneCaratteristica() {
 		return descrizioneCaratteristica;

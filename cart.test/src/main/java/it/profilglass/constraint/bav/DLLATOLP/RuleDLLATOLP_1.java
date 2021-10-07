@@ -10,6 +10,7 @@ import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
 import it.profilglass.classmodel.Caratteristica;
+import it.profilglass.classmodel.Opzione;
 import test.test.CaratteristicaBean;
 
 @Rule(order = 1, name = "ruleDLLATOLP1")
@@ -22,7 +23,7 @@ public class RuleDLLATOLP_1 {
 	private List<Caratteristica> caratteristiche;
 
 	@Result
-	private String result;
+	private Opzione result;
 
 	@When
 	public boolean when()
@@ -34,7 +35,8 @@ public class RuleDLLATOLP_1 {
 	@Then
 	public RuleState then()
 	{
-		result = "0";
+		//result = "0";
+		result = new Opzione("0");
 		return RuleState.BREAK;
 	}
 }

@@ -10,6 +10,7 @@ import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
 import it.profilglass.classmodel.Caratteristica;
+import it.profilglass.classmodel.Opzione;
 import test.test.CaratteristicaBean;
 
 @Rule(order = 10, name = "ruleSETIC_10")
@@ -21,7 +22,7 @@ public class RuleSETIC_10 {
 	private List<Caratteristica> caratteristiche;
 
 	@Result
-	private String result;
+	private Opzione result;
 
 	@When
 	public boolean when()
@@ -34,7 +35,8 @@ public class RuleSETIC_10 {
 	public RuleState then()
 	{
 		System.out.println("Rule SETIC 1 entered");
-		result = "Con Logo";
+		//result = "Con Logo";
+		result = new Opzione("Con Logo","Con Logo");
 		return RuleState.BREAK;
 	}
 }
