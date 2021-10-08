@@ -15,7 +15,7 @@ import test.test.CaratteristicaBean;
 
 @Rule(order = 2, name = "ruleSLMOD2")
 
-public class RuleSLMOD_3 {
+public class RuleSLMOD_3 extends RuleSLMOD_1{
 	/*@Given
 	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type*/
 	
@@ -59,14 +59,16 @@ public class RuleSLMOD_3 {
 				|| caratteristiche.stream().filter(caratteristica -> "CLSTATF".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("H11")	
 			   )
 			&& Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLSPESS".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione()) <= 2500
-			&& caratteristiche.stream().filter(caratteristica -> "CLRIVE".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("B"));
+			&& caratteristiche.stream().filter(caratteristica -> "CLRIVE".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("B")
+			&& super.when()
+			);
 	}
 
 	@Then
 	public RuleState then()
 	{
-		//result = "BL";
-		result = caratteristiche.stream().filter(caratteristica -> "SLMOD".equals(caratteristica.getCaratteristicaId())).findAny().get().getOpzioneFromOpzioneList("BL");
+		//result = "BA";
+		result = caratteristiche.stream().filter(caratteristica -> "SLMOD".equals(caratteristica.getCaratteristicaId())).findAny().get().getOpzioneFromOpzioneList("BA");
 		return RuleState.BREAK;
 	}
 }

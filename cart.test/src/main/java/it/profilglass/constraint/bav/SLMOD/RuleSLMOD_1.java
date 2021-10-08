@@ -37,6 +37,6 @@ public class RuleSLMOD_1 {
 	{
 		//result = "BA";
 		result = caratteristiche.stream().filter(caratteristica -> "SLMOD".equals(caratteristica.getCaratteristicaId())).findAny().get().getOpzioneFromOpzioneList("BA");
-		return RuleState.BREAK;
+		return RuleState.NEXT;
 	}
 }

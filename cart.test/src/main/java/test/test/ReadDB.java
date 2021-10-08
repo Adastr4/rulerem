@@ -677,5 +677,54 @@ public class ReadDB {
 
 			}
 		}
+		
+		public static String getDatsFromAttributiBP(String bp, String cfea)
+		{
+			Statement stmt = null;
+			String query = null;
+			String value = "";
+			ResultSet rs = null;
+			try {
+				// The newInstance() call is a work around for some
+				// broken Java implementations
+
+			
+				stmt = conn.createStatement();
+				query = "select datiAlfaNum from baandb.ttdsmi101250 where idBp = '" + bp + "' AND attributo = '"+ cfea +"'";
+				rs = stmt.executeQuery(query);
+				while(rs.next()) {
+					value = rs.getString("datiAlfaNum");
+				}
+
+				return value;
+			} catch (Exception ex) {
+				// handle the error
+				ex.printStackTrace();
+				return value;
+			}
+			finally {
+				// it is a good idea to release
+				// resources in a finally{} block
+				// in reverse-order of their creation
+				// if they are no-longer needed
+
+				if (rs != null) {
+					try {
+						rs.close();
+					} catch (SQLException sqlEx) { } // ignore
+
+					rs = null;
+				}
+
+				if (stmt != null) {
+					try {
+						stmt.close();
+					} catch (SQLException sqlEx) { } // ignore
+
+					stmt = null;
+				}
+
+			}
+		}
 }
 
