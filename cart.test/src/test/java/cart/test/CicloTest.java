@@ -18,20 +18,20 @@ import it.profilglass.classmodel.ICaratteristica;
 import it.profilglass.classmodel.Macchina;
 
 
+// TODO: Auto-generated Javadoc
 /**
  * per la generazione del ciclo A partire da una serie di caratteristiche viene
  * restituito l'elenco delle macchine che possono lavorare il materiale
- * descritto dalle caratteristiche
+ * descritto dalle caratteristiche.
  *
  * @author nodejs
- *
  */
 
 class CicloTest {
+	
 	/**
 	 * dato un elenco di caratteristiche mi restituisce la lisat delle macchine che
-	 * possono lavorare quell'articolo
-	 *
+	 * possono lavorare quell'articolo.
 	 */
 	@Test
 	void cicloTest() {
@@ -42,20 +42,41 @@ class CicloTest {
 
 	}
 
+	/**
+	 * Crea role book.
+	 *
+	 * @param caratteristiche the caratteristiche
+	 * @return the rule book runner
+	 */
 	private RuleBookRunner creaRoleBook(List caratteristiche) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	/**
+	 * Crea role book.
+	 *
+	 * @param string the string
+	 * @return the rule book runner
+	 */
 	private RuleBookRunner creaRoleBook(String string) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	/**
+	 * Gets the caratteristiche.
+	 *
+	 * @return the caratteristiche
+	 */
 	private ICaratteristica getCaratteristiche() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	/**
+	 * Macchina 3000 1 O H 22 B 00084 B 00084 1000 1000 test.
+	 */
 	@Test
 	void Macchina_3000_1O_H22_B00084_B00084_1000_1000_Test() {
 
@@ -65,6 +86,9 @@ class CicloTest {
 
 	}
 
+	/**
+	 * Macchina 3000 1 O H 22 B 00084 B 00084 1111 2222 test.
+	 */
 	@Test
 	void Macchina_3000_1O_H22_B00084_B00084_1111_2222_Test() {
 
@@ -84,6 +108,9 @@ class CicloTest {
 		});
 	}
 
+	/**
+	 * Macchina 3000 1 O H 22 B 00084 B 00084 test.
+	 */
 	@Test
 	void Macchina_3000_1O_H22_B00084_B00084_Test() {
 
@@ -105,6 +132,12 @@ class CicloTest {
 
 	}
 
+	/**
+	 * Run rule book.
+	 *
+	 * @param ruleBook the rule book
+	 * @param applicant1 the applicant 1
+	 */
 	private void runRuleBook(RuleBookRunner ruleBook, ICaratteristica applicant1) {
 		if (applicant1==null) return;
 		NameValueReferableMap<ICaratteristica> facts = new FactMap<>();

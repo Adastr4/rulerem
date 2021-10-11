@@ -26,8 +26,15 @@ import it.profilglass.classmodel.ICaratteristica;
 import it.profilglass.classmodel.LivelloDistinta;
 import it.profilglass.classmodel.Macchina;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class InizialiTest.
+ */
 public class InizialiTest {
 
+	/**
+	 * Prova 3 DH 14 I test.
+	 */
 	@Test
 	void prova3DH14ITest() {
 		
@@ -48,6 +55,9 @@ public class InizialiTest {
 		assertTrue((boolean) assertion);
 	}
 	
+	/**
+	 * Distinta bandelle test.
+	 */
 	@Test
 	void distintaBandelleTest()
 	{
@@ -81,6 +91,9 @@ public class InizialiTest {
 		assertTrue(distintaRuleBook.toArray().length>0);
 	}
 	
+	/**
+	 * Macchina bandelle test.
+	 */
 	@Test
 	void macchinaBandelleTest()
 	{
@@ -110,6 +123,9 @@ public class InizialiTest {
 		//Assert.assertArrayEquals(listMacchinaRuleBook.toArray(), listMacchinaDefault.toArray());
 	}
 
+	/**
+	 * No loop CLFINI.
+	 */
 	@Test
 	void noLoopCLFINI() {
 
@@ -142,6 +158,9 @@ public class InizialiTest {
 
 	}
 
+	/**
+	 * No loop CLSTATF.
+	 */
 	@Test
 	void noLoopCLSTATF() {
 
@@ -180,6 +199,9 @@ public class InizialiTest {
 
 	}
 
+	/**
+	 * No loop sub vincolo 1.
+	 */
 	static @Test void noLoopSubVincolo1() {
 		List<String> CLSTATFValues = null;// Caratteristiche.getCLSTATFValues();
 
@@ -220,6 +242,9 @@ public class InizialiTest {
 
 	}
 
+	/**
+	 * Test return array.
+	 */
 	@Test
 	void testReturnArray() {
 		System.out.println("AAA");
@@ -233,6 +258,15 @@ public class InizialiTest {
 
 	}
 
+	/**
+	 * Test subvincolo 1.
+	 *
+	 * @param CLLEGA the cllega
+	 * @param CLSTATF the clstatf
+	 * @param SLBPTE the slbpte
+	 * @param SLBP the slbp
+	 * @return true, if successful
+	 */
 	static boolean testSubvincolo1(String CLLEGA, String CLSTATF, String SLBPTE, String SLBP) {
 		boolean validate = Boolean.TRUE;
 		if (CLLEGA.substring(0, 1).equalsIgnoreCase("3")) {
@@ -260,6 +294,15 @@ public class InizialiTest {
 
 	}
 
+	/**
+	 * Test vincolo.
+	 *
+	 * @param CLLEGA the cllega
+	 * @param CLSTATF the clstatf
+	 * @param SLBPTE the slbpte
+	 * @param SLBP the slbp
+	 * @return true, if successful
+	 */
 	static boolean testVincolo(String CLLEGA, String CLSTATF, String SLBPTE, String SLBP) {
 		boolean validate = Boolean.TRUE;
 		if (CLSTATF.equalsIgnoreCase("t04") || CLSTATF.equalsIgnoreCase("t06") || CLSTATF.equalsIgnoreCase("t4p"))
@@ -305,6 +348,15 @@ public class InizialiTest {
 
 	}
 
+	/**
+	 * Test vincolo 2.
+	 *
+	 * @param CLLEGA the cllega
+	 * @param CLSTATF the clstatf
+	 * @param CLASSE the classe
+	 * @param CLFINI the clfini
+	 * @return true, if successful
+	 */
 	static boolean testVincolo2(String CLLEGA, String CLSTATF, String CLASSE, String CLFINI) {
 		boolean validate = Boolean.FALSE;
 		if (!CLASSE.equalsIgnoreCase("EDT")) {
@@ -333,6 +385,9 @@ public class InizialiTest {
 		return validate;
 	}
 
+	/**
+	 * With loop CLFINI.
+	 */
 	@Test
 	void withLoopCLFINI() {
 
@@ -376,8 +431,7 @@ public class InizialiTest {
 	}
 
 	/**
-	 * test con i dati clblati
-	 *
+	 * test con i dati clblati.
 	 */
 	@Test
 	void withLoopCLSTATF() {
@@ -424,6 +478,9 @@ public class InizialiTest {
 
 	}
 
+	/**
+	 * With loop sub vincolo 1.
+	 */
 	@Test
 	void withLoopSubVincolo1() {
 		List<String> CLSTATFValues = null;// Caratteristiche.getCLSTATFValues();
