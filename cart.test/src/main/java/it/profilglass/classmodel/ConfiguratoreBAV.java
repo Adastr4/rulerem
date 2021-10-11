@@ -9,8 +9,17 @@ import com.deliveredtechnologies.rulebook.FactMap;
 import com.deliveredtechnologies.rulebook.NameValueReferableMap;
 import com.deliveredtechnologies.rulebook.model.runner.RuleBookRunner;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ConfiguratoreBAV.
+ *
+ * @author nodejs
+ */
 public class ConfiguratoreBAV extends Configuratore {
 
+	/**
+	 * Instantiates a new configuratore BAV.
+	 */
 	public ConfiguratoreBAV() {
 		try {
 			// INIZIALIZZO TUTTI I VALORI DI CARATTERISTICA
@@ -25,6 +34,11 @@ public class ConfiguratoreBAV extends Configuratore {
 		distinte = new ArrayList<>();
 	}
 
+	/**
+	 * Builds the distinta.
+	 *
+	 * @return the list
+	 */
 	@Override
 	public List<LivelloDistinta> buildDistinta() {
 		try {
@@ -46,6 +60,12 @@ public class ConfiguratoreBAV extends Configuratore {
 		}
 	}
 
+	/**
+	 * Run caratteristica default value rule by index.
+	 *
+	 * @param index the index
+	 * @return true, if successful
+	 */
 	@Override
 	public boolean runCaratteristicaDefaultValueRuleByIndex(int index) {
 		try {
@@ -70,6 +90,13 @@ public class ConfiguratoreBAV extends Configuratore {
 		}
 	}
 
+	
+	/**
+	 * Run caratteristica default value rule by name.
+	 *
+	 * @param name the name
+	 * @return true, if successful
+	 */
 	@Override
 	public boolean runCaratteristicaDefaultValueRuleByName(String name) {
 		try {
@@ -92,6 +119,12 @@ public class ConfiguratoreBAV extends Configuratore {
 		}
 	}
 
+	/**
+	 * Run caratteristica validation rule by index.
+	 *
+	 * @param index the index
+	 * @return true, if successful
+	 */
 	@Override
 	public boolean runCaratteristicaValidationRuleByIndex(int index) {
 		try {
@@ -113,6 +146,12 @@ public class ConfiguratoreBAV extends Configuratore {
 		}
 	}
 
+	/**
+	 * Run caratteristica validation rule by name.
+	 *
+	 * @param name the name
+	 * @return true, if successful
+	 */
 	@Override
 	public boolean runCaratteristicaValidationRuleByName(String name) {
 		try {

@@ -1,37 +1,37 @@
 package it.profilglass.classmodel;
 
-import java.util.ArrayList;
 import java.util.List;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author nodejs
+ * The Class Configuratore.
  *
+ * @author nodejs
  */
 public abstract class Configuratore {
-	/**
-	 *
-	 */
+
+	/** The cicli. */
 	protected List<Ciclo> cicli;
 
-	/**
-	 *
-	 */
+	/** The distinte. */
 	protected List<Distinta> distinte;
 
 	// LISTA CARATTERISTICHE VALIDE PER TUTTI I CONFIGURATORI
-	/**
-	 *
-	 */
+	/** The caratteristiche. */
 	protected List<ICaratteristica> caratteristiche;
-	
+
 	/**
-	 * @return
+	 * Builds the distinta.
+	 *
+	 * @return the list
 	 */
 	public abstract List<LivelloDistinta> buildDistinta();
 
 	/**
-	 * @param Id
-	 * @return
+	 * Gets the caratteristica by id.
+	 *
+	 * @param Id the id
+	 * @return the caratteristica by id
 	 */
 	public ICaratteristica getCaratteristicaById(String Id) {
 		for (final ICaratteristica cara : this.caratteristiche) {
@@ -44,98 +44,115 @@ public abstract class Configuratore {
 	}
 
 	/**
-	 * @param idCaratteristica
-	 * @return
+	 * Gets the caratteristica opzioni.
+	 *
+	 * @param idCaratteristica the id caratteristica
+	 * @return the caratteristica opzioni
 	 */
 	public List<Opzione> getCaratteristicaOpzioni(String idCaratteristica) {
 		return this.getCaratteristicaById(idCaratteristica).getValori();
 	}
 
 	/**
-	 * @return
+	 * Gets the caratteristiche.
+	 *
+	 * @return the caratteristiche
 	 */
 	public List<ICaratteristica> getCaratteristiche() {
 		return caratteristiche;
 	}
 
 	/**
-	 * @return
+	 * Gets the cicli.
+	 *
+	 * @return the cicli
 	 */
 	public List<Ciclo> getCicli() {
 		return cicli;
 	}
 
 	/**
-	 * @return
+	 * Gets the distinte.
+	 *
+	 * @return the distinte
 	 */
 	public List<Distinta> getDistinte() {
 		return distinte;
 	}
 
 	/**
-	 * @return
+	 * Gets the ordered caratteristiche.
+	 *
+	 * @return the ordered caratteristiche
 	 */
 	public List<ICaratteristica> getOrderedCaratteristiche() {
 		return this.caratteristiche;
 	}
 
 	/**
-	 * @param index
-	 * @return
+	 * Run caratteristica default value rule by index.
+	 *
+	 * @param index the index
+	 * @return true, if successful
 	 */
-	public boolean runCaratteristicaDefaultValueRuleByIndex(int index) {
-		return true;
-	}
+	public abstract boolean runCaratteristicaDefaultValueRuleByIndex(int index);
 
 	/**
-	 * @param name
-	 * @return
+	 * Run caratteristica default value rule by name.
+	 *
+	 * @param name the name
+	 * @return true, if successful
 	 */
-	public boolean runCaratteristicaDefaultValueRuleByName(String name) {
-		return true;
-
-	}
+	public abstract boolean runCaratteristicaDefaultValueRuleByName(String name);
 
 	/**
-	 * @param index
-	 * @return
+	 * Run caratteristica validation rule by index.
+	 *
+	 * @param index the index
+	 * @return true, if successful
 	 */
-	public boolean runCaratteristicaValidationRuleByIndex(int index) {
-		return true;
-	}
+	public abstract boolean runCaratteristicaValidationRuleByIndex(int index);
 
 	/**
-	 * @param name
-	 * @return
+	 * Run caratteristica validation rule by name.
+	 *
+	 * @param name the name
+	 * @return true, if successful
 	 */
-	public boolean runCaratteristicaValidationRuleByName(String name) {
-		return true;
-	}
+	public abstract boolean runCaratteristicaValidationRuleByName(String name);
 
 	/**
-	 * @param idCaratteristica
-	 * @param value
+	 * Sets the caratteristica value.
+	 *
+	 * @param idCaratteristica the id caratteristica
+	 * @param value            the value
 	 */
 	public void setCaratteristicaValue(String idCaratteristica, String value) {
 		this.getCaratteristicaById(idCaratteristica).setSelectedValue(value);
 	}
 
 	/**
-	 * @param caratteristiche
+	 * Sets the caratteristiche.
+	 *
+	 * @param caratteristiche the new caratteristiche
 	 */
 	public void setCaratteristiche(List<ICaratteristica> caratteristiche) {
 		this.caratteristiche = caratteristiche;
 	}
 
 	/**
-	 * @param cicli
+	 * Sets the cicli.
+	 *
+	 * @param cicli the new cicli
 	 */
 	public void setCicli(List<Ciclo> cicli) {
 		this.cicli = cicli;
 	}
 
 	/**
-	 * @param distinte
+	 * Sets the distinte.
+	 *
+	 * @param distinte the new distinte
 	 */
 	public void setDistinte(List<Distinta> distinte) {
 		this.distinte = distinte;
