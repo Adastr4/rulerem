@@ -28,7 +28,7 @@ import it.profilglass.classmodel.Macchina;
 
 public class InizialiTest {
 
-	//@Test
+	@Test
 	void prova3DH14ITest() {
 		
 		//INIZIALIZZO L'OGGETTO "BANDELLA" E DEFINISCO LE CARATTERISTICHE DI CONFIGURAZIONE
@@ -48,7 +48,7 @@ public class InizialiTest {
 		assertTrue((boolean) assertion);
 	}
 	
-	//@Test
+	@Test
 	void distintaBandelleTest()
 	{
 		// COSTRUISCO LA DISTINTA SFRUTTANDO RULEBOOK
@@ -76,8 +76,9 @@ public class InizialiTest {
 		distintaDefault.get(0).getDistinta().add(new LivelloDistinta(new GenericItem("LB5F3000HA11040MN","LB",null),2,1));
 		distintaDefault.get(0).getDistinta().add(new LivelloDistinta(new GenericItem("IMCARG28L1000","IMCAR",null),2,2));
 		
-		//ORA OCCORRE CONFRONTARE LE DUE DISTINTE(ho già visto che sono uguali, basta fare l'automatismo che controlla)
+		//ORA OCCORRE CONFRONTARE LE DUE DISTINTE(ho giï¿½ visto che sono uguali, basta fare l'automatismo che controlla)
 		//Assert.assertArrayEquals(distintaRuleBook.toArray(), distintaDefault.toArray());
+		assertTrue(distintaRuleBook.toArray().length>0);
 	}
 	
 	@Test
@@ -104,7 +105,8 @@ public class InizialiTest {
 		//COSTRUISCO LA LISTA MACCHINE MANUALE
 		listMacchinaDefault.add(new Macchina("IMBL09"));
 		
-		//ORA OCCORRE CONFRONTARE LE DUE LISTE MACCHINE(ho già visto che sono uguali, basta fare l'automatismo che controlla)
+		assertTrue(listMacchinaRuleBook.toArray().length>0);
+		//ORA OCCORRE CONFRONTARE LE DUE LISTE MACCHINE(ho giï¿½ visto che sono uguali, basta fare l'automatismo che controlla)
 		//Assert.assertArrayEquals(listMacchinaRuleBook.toArray(), listMacchinaDefault.toArray());
 	}
 
