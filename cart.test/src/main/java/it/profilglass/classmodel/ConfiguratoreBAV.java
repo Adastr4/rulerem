@@ -71,6 +71,102 @@ public class ConfiguratoreBAV extends Configuratore {
 		}
 	}
 	
+	public boolean runCaratteristicaDisplayRuleByIndex(int index)
+	{
+		try
+		{
+			RuleBookRunner ruleBook = new RuleBookRunner("it.profilglass.constraint.bav." + this.caratteristiche.get(index).getCaratteristicaId().toUpperCase() + ".vis");
+			NameValueReferableMap<List<Caratteristica>> facts = new FactMap<>();
+			facts.put(new Fact<>(this.caratteristiche));
+			ruleBook.run(facts);
+			
+			if(ruleBook.getResult().isPresent())
+			{
+				return (boolean) ruleBook.getResult().get().getValue();
+			}
+			
+			return true;
+		}
+		catch(Exception ex)
+		{
+			System.out.println("No Visualization Rule defined for caratteristica: " + this.caratteristiche.get(index).getCaratteristicaId().toUpperCase() + " !");
+			return true;
+		}
+	}
+	
+	public boolean runCaratteristicaDisplayRuleByName(String name)
+	{
+		try
+		{
+			RuleBookRunner ruleBook = new RuleBookRunner("it.profilglass.constraint.bav." + name.toUpperCase() + ".vis");
+			NameValueReferableMap<Caratteristica> facts = new FactMap<>();
+			for(Caratteristica cara : this.caratteristiche)
+				facts.put(new Fact<>(cara));
+			
+			ruleBook.run(facts);
+			
+			if(ruleBook.getResult().isPresent())
+			{
+				return (boolean) ruleBook.getResult().get().getValue();
+			}
+			
+			return true;
+		}
+		catch(Exception ex)
+		{
+			System.out.println("No Visualization Rule defined for caratteristica: " + name.toUpperCase() + " !");
+			return true;
+		}
+	}
+	
+	public boolean runCaratteristicaInputRuleByIndex(int index)
+	{
+		try
+		{
+			RuleBookRunner ruleBook = new RuleBookRunner("it.profilglass.constraint.bav." + this.caratteristiche.get(index).getCaratteristicaId().toUpperCase() + ".in");
+			NameValueReferableMap<List<Caratteristica>> facts = new FactMap<>();
+			facts.put(new Fact<>(this.caratteristiche));
+			ruleBook.run(facts);
+			
+			if(ruleBook.getResult().isPresent())
+			{
+				return (boolean) ruleBook.getResult().get().getValue();
+			}
+			
+			return true;
+		}
+		catch(Exception ex)
+		{
+			System.out.println("No Input Rule defined for caratteristica: " + this.caratteristiche.get(index).getCaratteristicaId().toUpperCase() + " !");
+			return true;
+		}
+	}
+	
+	public boolean runCaratteristicaInputRuleByName(String name)
+	{
+		try
+		{
+			RuleBookRunner ruleBook = new RuleBookRunner("it.profilglass.constraint.bav." + name.toUpperCase() + ".in");
+			NameValueReferableMap<Caratteristica> facts = new FactMap<>();
+			for(Caratteristica cara : this.caratteristiche)
+				facts.put(new Fact<>(cara));
+			
+			ruleBook.run(facts);
+			
+			if(ruleBook.getResult().isPresent())
+			{
+				return (boolean) ruleBook.getResult().get().getValue();
+			}
+			
+			return true;
+		}
+		catch(Exception ex)
+		{
+			System.out.println("No Input Rule defined for caratteristica: " + name.toUpperCase() + " !");
+			return true;
+		}
+	}
+	
 	public boolean runCaratteristicaDefaultValueRuleByIndex(int index)
 	{
 		try

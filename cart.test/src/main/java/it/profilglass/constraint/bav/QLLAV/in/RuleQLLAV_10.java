@@ -1,4 +1,4 @@
-package it.profilglass.constraint.bav.SLPCOMP;
+package it.profilglass.constraint.bav.QLLAV.in;
 
 import java.util.List;
 
@@ -12,26 +12,27 @@ import com.deliveredtechnologies.rulebook.annotation.When;
 import it.profilglass.classmodel.Caratteristica;
 import it.profilglass.classmodel.Opzione;
 
-@Rule(order = 10, name = "ruleSLPCOMP_10")
+@Rule(order = 10, name = "RuleQLLAV10")
 
-public class RuleSLPCOMP_10 {
+public class RuleQLLAV_10 {
 	@Given 
 	private List<Caratteristica> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 
 	@Result
-	private Opzione result;
+	private Boolean result = Boolean.FALSE;
 	
 	@When
 	public boolean when()
 	{
-		return true;		   
+		return caratteristiche.stream().filter(caratteristica -> "CLFINI".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("D")
+			|| caratteristiche.stream().filter(caratteristica -> "CLFINI".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("Y");		   
 	}
 	
 	@Then
 	public RuleState then()
 	{
 		//Aggiungo il primo livello di distinta (nodo);
-		result = caratteristiche.stream().filter(caratteristica -> "SLPCOMP".equals(caratteristica.getCaratteristicaId())).findAny().get().getOpzioneFromOpzioneList("2");
+		result = Boolean.TRUE;
 		return RuleState.BREAK;
 	}
 }

@@ -1,4 +1,4 @@
-package it.profilglass.constraint.bav.PROTOTIP;
+package it.profilglass.constraint.bav.DLSNERM.in;
 
 import java.util.List;
 
@@ -10,27 +10,27 @@ import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
 import it.profilglass.classmodel.Caratteristica;
-import it.profilglass.classmodel.Opzione;
 
-@Rule(order = 10, name = "RulePROTOTIP10")
+@Rule(order = 10, name = "RuleDLSNERM_10")
 
-public class RulePROTOTIP_10 {
+public class RuleDLSNERM_10 {
 	@Given 
 	private List<Caratteristica> caratteristiche;
 
 	@Result
-	private Opzione result;
+	private Boolean result = Boolean.FALSE;
 	
 	@When
 	public boolean when()
 	{
-		return true;		   
+		return Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "QLSPEC".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione()) == 1 ;		   
 	}
 	
 	@Then
 	public RuleState then()
 	{
-		result = caratteristiche.stream().filter(caratteristica -> "PROTOTIP".equals(caratteristica.getCaratteristicaId())).findAny().get().getOpzioneFromOpzioneList("2");
+		result = Boolean.TRUE;
 		return RuleState.BREAK;
 	}
+
 }

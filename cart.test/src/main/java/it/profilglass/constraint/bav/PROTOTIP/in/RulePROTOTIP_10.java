@@ -1,4 +1,4 @@
-package it.profilglass.constraint.bav.PROTOTIP;
+package it.profilglass.constraint.bav.PROTOTIP.in;
 
 import java.util.List;
 
@@ -19,7 +19,7 @@ public class RulePROTOTIP_10 {
 	private List<Caratteristica> caratteristiche;
 
 	@Result
-	private Opzione result;
+	private Boolean result = Boolean.TRUE;
 	
 	@When
 	public boolean when()
@@ -30,7 +30,7 @@ public class RulePROTOTIP_10 {
 	@Then
 	public RuleState then()
 	{
-		result = caratteristiche.stream().filter(caratteristica -> "PROTOTIP".equals(caratteristica.getCaratteristicaId())).findAny().get().getOpzioneFromOpzioneList("2");
+		result = Boolean.TRUE;
 		return RuleState.BREAK;
 	}
 }

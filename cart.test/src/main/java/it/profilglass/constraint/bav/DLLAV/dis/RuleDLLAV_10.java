@@ -1,4 +1,4 @@
-package it.profilglass.constraint.bav.PROTOTIP;
+package it.profilglass.constraint.bav.DLLAV.dis;
 
 import java.util.List;
 
@@ -10,27 +10,27 @@ import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
 import it.profilglass.classmodel.Caratteristica;
-import it.profilglass.classmodel.Opzione;
 
-@Rule(order = 10, name = "RulePROTOTIP10")
+@Rule(order = 10, name = "RuleDLLAV10")
 
-public class RulePROTOTIP_10 {
+public class RuleDLLAV_10 {
 	@Given 
-	private List<Caratteristica> caratteristiche;
+	private List<Caratteristica> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 
 	@Result
-	private Opzione result;
+	private Boolean result = Boolean.FALSE;
 	
 	@When
 	public boolean when()
 	{
-		return true;		   
+		return caratteristiche.stream().filter(caratteristica -> "QLLAV".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("C");		   
 	}
 	
 	@Then
 	public RuleState then()
 	{
-		result = caratteristiche.stream().filter(caratteristica -> "PROTOTIP".equals(caratteristica.getCaratteristicaId())).findAny().get().getOpzioneFromOpzioneList("2");
+		//Aggiungo il primo livello di distinta (nodo);
+		result = Boolean.TRUE;
 		return RuleState.BREAK;
 	}
 }
