@@ -71,11 +71,36 @@ public class ConfiguratoreBAV extends Configuratore {
 		}
 	}
 	
+	/*public List<Opzione> getValidatedOptionsByName(String name)
+	{
+		try
+		{
+			RuleBookRunner ruleBook = new RuleBookRunner("it.profilglass.constraint.bav." + name.toUpperCase() + ".val");
+			NameValueReferableMap<Caratteristica> facts = new FactMap<>();
+			for(Caratteristica cara : this.caratteristiche)
+				facts.put(new Fact<>(cara));
+			
+			ruleBook.run(facts);
+			
+			if(ruleBook.getResult().isPresent())
+			{
+				return (boolean) ruleBook.getResult().get().getValue();
+			}
+			
+			return false;
+		}
+		catch(Exception ex)
+		{
+			System.out.println("No Validation Rule defined for caratteristica: " + name.toUpperCase() + " !");
+			return false;
+		}
+	}*/
+	
 	public boolean runCaratteristicaDisplayRuleByIndex(int index)
 	{
 		try
 		{
-			RuleBookRunner ruleBook = new RuleBookRunner("it.profilglass.constraint.bav." + this.caratteristiche.get(index).getCaratteristicaId().toUpperCase() + ".vis");
+			RuleBookRunner ruleBook = new RuleBookRunner("it.profilglass.constraint.bav." + this.caratteristiche.get(index).getCaratteristicaId().toUpperCase() + ".dis");
 			NameValueReferableMap<List<Caratteristica>> facts = new FactMap<>();
 			facts.put(new Fact<>(this.caratteristiche));
 			ruleBook.run(facts);

@@ -10,6 +10,7 @@ import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
 import it.profilglass.classmodel.Caratteristica;
+import it.profilglass.classmodel.ICaratteristica;
 import it.profilglass.classmodel.Opzione;
 
 @Rule(order = 10, name = "ruleCLFINI_10")
