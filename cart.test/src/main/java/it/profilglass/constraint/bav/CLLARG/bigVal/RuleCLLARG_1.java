@@ -1,5 +1,6 @@
-package it.profilglass.constraint.bav.SLLATOLN.val;
+package it.profilglass.constraint.bav.CLLARG.bigVal;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.deliveredtechnologies.rulebook.RuleState;
@@ -10,32 +11,30 @@ import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
 import it.profilglass.classmodel.Caratteristica;
+import it.profilglass.classmodel.Opzione;
 import test.test.CaratteristicaBean;
 
-@Rule(order = 1, name = "ruleCLSPESS1")
+@Rule(order = 1, name = "ruleCLLARG_1")
 
-public class RuleCLSPESS_1 extends it.profilglass.constraint.bav.SLLATOLP.val.RuleCLSPESS_1{
-	/*@Given
-	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type*/
-	@Given
+public class RuleCLLARG_1 {
+	@Given("Caratteristiche") 
 	private List<Caratteristica> caratteristiche;
+	@Given("Opzioni") 
+	private List<Opzione> opzioni;
 
 	@Result
-	private boolean result = Boolean.TRUE;
+	private List<Opzione> result = opzioni;
 
-	@Override
 	@When
 	public boolean when()
 	{
-		return super.when();
+		return (opzioni.stream().anyMatch(opzione -> Integer.parseInt(opzione.getOpzione()) > 2000)); //Da implementare quando diverranno effettive le nuove regole da applicare
 	}
 
-	@Override
 	@Then
 	public RuleState then()
 	{
-		result = Boolean.FALSE;
+		result = opzioni.stream().filter(opzione -> (Integer.parseInt(opzione.getOpzione()) > 2000)).toList();
 		return RuleState.BREAK;
 	}
-
 }

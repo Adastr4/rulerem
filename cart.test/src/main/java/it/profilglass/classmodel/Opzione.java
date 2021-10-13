@@ -1,6 +1,6 @@
 package it.profilglass.classmodel;
 
-public class Opzione {
+public class Opzione implements Comparable<Opzione>{
 	private String opzione;
 	private String descrizione;
 	
@@ -19,6 +19,10 @@ public class Opzione {
 	public String getOpzione() {
 		return opzione;
 	}
+	
+	public int getOpzioneToInt() {
+		return Integer.parseInt(opzione);
+	}
 
 	public void setOpzione(String opzione) {
 		this.opzione = opzione;
@@ -30,6 +34,14 @@ public class Opzione {
 
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
+	}
+
+	@Override
+	public int compareTo(Opzione o) {
+		    if (getOpzione() == null || o.getOpzione() == null) {
+		      return 0;
+		    }
+		    return getOpzione().compareTo(o.getOpzione());
 	}
 	
 	

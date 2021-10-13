@@ -22,7 +22,7 @@ public class RuleCLSPESS_1 {
 	private List<Caratteristica> caratteristiche;
 
 	@Result
-	private boolean result;
+	private boolean result = Boolean.TRUE;
 
 	@When
 	public boolean when()

@@ -8,6 +8,8 @@ import com.deliveredtechnologies.rulebook.FactMap;
 import com.deliveredtechnologies.rulebook.NameValueReferableMap;
 import com.deliveredtechnologies.rulebook.model.runner.RuleBookRunner;
 
+import test.test.ReadDB;
+
 public abstract class Configuratore {
 	protected List<Ciclo> cicli;
 	protected List<Distinta> distinte;
@@ -75,6 +77,31 @@ public abstract class Configuratore {
 	{
 		return true;
 
+	}
+	
+	public boolean runCaratteristicaDisplayRuleByIndex(int index)
+	{
+		return true;
+	}
+	
+	public boolean runCaratteristicaDisplayRuleByName(String name)
+	{
+		return true;
+	}
+	
+	public boolean runCaratteristicaInputRuleByIndex(int index)
+	{
+		return true;
+	}
+	
+	public boolean runCaratteristicaInputRuleByName(String name)
+	{
+		return true;
+	}
+	
+	public List<Opzione> getValidatedOptionsByName(String name)
+	{
+		return null;
 	}
 
 }

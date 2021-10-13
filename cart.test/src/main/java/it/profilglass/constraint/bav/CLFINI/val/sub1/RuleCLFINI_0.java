@@ -7,17 +7,18 @@ import com.deliveredtechnologies.rulebook.annotation.When;
 
 //import test.test.CaratteristicaBean;
 import it.profilglass.classmodel.Caratteristica;
+import it.profilglass.classmodel.Opzione;
 
 public class RuleCLFINI_0 {
-	@Given 
 	//private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
+	@Given
 	private List<Caratteristica> caratteristiche;
 	
 	@When
 	public boolean when()
 	{
 		//return !caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLASSE().equalsIgnoreCase("EDT"));
-		return !caratteristiche.stream().filter(caratteristica -> "CLASSE".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("EDT");
+		return !caratteristiche.stream().filter(caratteristica -> "SCAP".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getDescrizione().equalsIgnoreCase("EDT");
 		//return true;
 	}
 }

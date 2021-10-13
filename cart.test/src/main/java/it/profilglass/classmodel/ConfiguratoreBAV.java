@@ -1,5 +1,6 @@
 package it.profilglass.classmodel;
 
+import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -23,6 +24,7 @@ public class ConfiguratoreBAV extends Configuratore {
 		this.caratteristiche.sort(Comparator.comparingInt(Caratteristica::getCaratteristicaOrder));
 	}
 	
+	@Override
 	public boolean runCaratteristicaValidationRuleByIndex(int index)
 	{
 		try
@@ -48,6 +50,7 @@ public class ConfiguratoreBAV extends Configuratore {
 		}
 	}
 	
+	@Override
 	public boolean runCaratteristicaValidationRuleByName(String name)
 	{
 		try
@@ -73,6 +76,7 @@ public class ConfiguratoreBAV extends Configuratore {
 		}
 	}
 	
+	@Override
 	public List<Opzione> getValidatedOptionsByName(String name)
 	{
 		try
@@ -80,37 +84,74 @@ public class ConfiguratoreBAV extends Configuratore {
 			/*DEVO CARICARE LE OPZIONI DELLA CARATTERISTICA*/
 			List<Opzione> listaReturn = new ArrayList<Opzione>();
 			List<Opzione> lista = ReadDB.getOpzioniList("BAV", name);
-			for(Opzione opz : lista)
+			if(lista.size() < 10)
 			{
-				RuleBookRunner ruleBook = new RuleBookRunner("it.profilglass.constraint.bav." + name.toUpperCase() + ".val");
-				NameValueReferableMap<Caratteristica> facts = new FactMap<>();
-				for(Caratteristica cara : this.caratteristiche)
+				for(Opzione opz : lista)
 				{
-					if(cara.getCaratteristicaId().equalsIgnoreCase(name))
-						cara.setSelectedValue(opz);
-					facts.put(new Fact<>(cara));
-				}
-				
-				ruleBook.run(facts);
-			
-				if(ruleBook.getResult().isPresent())
-				{
-					if((boolean)ruleBook.getResult().get().getValue())
+					RuleBookRunner ruleBook = new RuleBookRunner("it.profilglass.constraint.bav." + name.toUpperCase() + ".val");
+					NameValueReferableMap<Caratteristica> facts = new FactMap<>();
+					for(Caratteristica cara : this.caratteristiche)
 					{
-						listaReturn.add(opz);	
+						if(cara.getCaratteristicaId().equalsIgnoreCase(name))
+							cara.setSelectedValue(opz);
+						facts.put(new Fact<>(cara));
+					}
+					
+					ruleBook.run(facts);
+				
+					if(ruleBook.getResult().isPresent())
+					{
+						if((boolean)ruleBook.getResult().get().getValue())
+						{
+							listaReturn.add(opz);	
+						}
 					}
 				}
+			}
+			else
+			{
+				//IMPLEMENTARE UN CONTROLLO PIU RAPIDO PER I CASI DI OPZIONI NUMEROSE
+				RuleBookRunner ruleBook = new RuleBookRunner("it.profilglass.constraint.bav." + name.toUpperCase() + ".val");
+				lista.parallelStream().forEach((opz) -> 
+				{
+					NameValueReferableMap<Caratteristica> facts = new FactMap<>();
+					this.caratteristiche.parallelStream().forEach((cara) ->
+					{
+						if(cara.getCaratteristicaId().equalsIgnoreCase(name))
+							cara.setSelectedValue(opz);
+						facts.put(new Fact<>(cara));
+					});
+					
+					ruleBook.run(facts);
+				
+					if(ruleBook.getResult().isPresent())
+					{
+						if((boolean)ruleBook.getResult().get().getValue())
+						{
+							listaReturn.add(opz);	
+						}
+					}
+				});
+			}
+			try
+			{
+				listaReturn.sort(Comparator.comparingInt(Opzione::getOpzioneToInt));
+			}
+			catch(Exception ex)
+			{
+				listaReturn.sort(Comparator.comparing(Opzione::getOpzione));
 			}
 			
 			return listaReturn;
 		}
 		catch(Exception ex)
 		{
-			System.out.println("No Validation Rule defined for caratteristica: " + name.toUpperCase() + " !");
+			System.out.println("No Validation Rule defined for caratteristica: " + name.toUpperCase() + " ! " + ex.toString());
 			return null;
 		}
 	}
 	
+	@Override
 	public boolean runCaratteristicaDisplayRuleByIndex(int index)
 	{
 		try
@@ -136,6 +177,7 @@ public class ConfiguratoreBAV extends Configuratore {
 		}
 	}
 	
+	@Override
 	public boolean runCaratteristicaDisplayRuleByName(String name)
 	{
 		try
@@ -161,6 +203,7 @@ public class ConfiguratoreBAV extends Configuratore {
 		}
 	}
 	
+	@Override
 	public boolean runCaratteristicaInputRuleByIndex(int index)
 	{
 		try
@@ -186,6 +229,7 @@ public class ConfiguratoreBAV extends Configuratore {
 		}
 	}
 	
+	@Override
 	public boolean runCaratteristicaInputRuleByName(String name)
 	{
 		try
@@ -211,6 +255,7 @@ public class ConfiguratoreBAV extends Configuratore {
 		}
 	}
 	
+	@Override
 	public boolean runCaratteristicaDefaultValueRuleByIndex(int index)
 	{
 		try
@@ -237,6 +282,7 @@ public class ConfiguratoreBAV extends Configuratore {
 		}
 	}
 	
+	@Override
 	public boolean runCaratteristicaDefaultValueRuleByName(String name)
 	{
 		try
@@ -263,6 +309,7 @@ public class ConfiguratoreBAV extends Configuratore {
 		}
 	}
 	
+	@Override
 	public List<LivelloDistinta> buildDistinta()
 	{
 		try

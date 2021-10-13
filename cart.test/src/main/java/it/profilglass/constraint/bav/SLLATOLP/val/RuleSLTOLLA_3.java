@@ -15,8 +15,6 @@ import test.test.CaratteristicaBean;
 @Rule(order = 3, name = "ruleSLTOLLA3")
 
 public class RuleSLTOLLA_3 {
-	/*@Given
-	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type*/
 	@Given
 	private List<Caratteristica> caratteristiche;
 
@@ -26,16 +24,6 @@ public class RuleSLTOLLA_3 {
 	@When
 	public boolean when()
 	{
-		/*return caratteristiche.stream().anyMatch(caratteristica -> !((caratteristica.getSLTOLLA().equalsIgnoreCase("f")
-															    	 &&  caratteristica.getSLLATOLP().substring(2, 3).equalsIgnoreCase("f")
-															    	 &&  caratteristica.getSLLATOLP().substring(4, caratteristica.getSLLATOLP().length()).equalsIgnoreCase(caratteristica.getDLLATOLP().toString())
-															    	)
-															    	||
-															    	(!caratteristica.getSLTOLLA().equalsIgnoreCase("f")
-															    	 &&  caratteristica.getSLLATOLP().substring(2, 3).equalsIgnoreCase(caratteristica.getSLTOLLA())
-															    	 &&  !caratteristica.getSLLATOLP().substring(2, 3).equalsIgnoreCase("f")
-															    	))
-												);*/
 		return !((   caratteristiche.stream().filter(caratteristica -> "SLTOLLA".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("f")
 				  && caratteristiche.stream().filter(caratteristica -> "SLLATOLP".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().substring(2, 3).equalsIgnoreCase("f")
 				  && caratteristiche.stream().filter(caratteristica -> "SLLATOLP".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().substring(4, caratteristiche.stream().filter(caratteristica -> "SLLATOLP".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().length()).equalsIgnoreCase(caratteristiche.stream().filter(caratteristica -> "DLLATOLP".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().toString())

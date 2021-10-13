@@ -30,9 +30,10 @@ public class Main {
 		//System.out.println(testRuleSLLATOLNStandard(new BigDecimal(620), "500", "F", "0", "BAF.0.1").toString());
 		//ruleMLSTATFTest();
 		//RuleSLLATOLPIterator();
-		CaratteristicaBean cara = new CaratteristicaBean(new BigDecimal(600),"1K","H18","B00957","000000","L","","03450","03750","B","N","N"," ","N","H18","1","002","","P","0","0","ACP","ACP",1,2,"1KB1420","H01","BL","N");
+		/*CaratteristicaBean cara = new CaratteristicaBean(new BigDecimal(600),"1K","H18","B00957","000000","L","","03450","03750","B","N","N"," ","N","H18","1","002","","P","0","0","ACP","ACP",1,2,"1KB1420","H01","BL","N");
 		System.out.println("Valore visualizzato: " + cara.getSLLANASLarg());
-		RuleMacchina(cara);
+		RuleMacchina(cara);*/
+		
 	}
 	
 	private static void withLoopCLLARGSTOLLACLSPESSNew() {

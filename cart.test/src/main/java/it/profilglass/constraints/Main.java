@@ -27,7 +27,8 @@ import test.test.Macchina;
 public class Main {
 
 	public static void main(String[] args) {
-
+		
+		List<Opzione> opz = new ArrayList<Opzione>();
 		//System.out.println("substring(2,3) " + "CBF.0.5".substring(2,3).toString());
 		//System.out.println("substring(2,3) " + "CBF.0.5".substring(4, "CBF.0.5".length()));
 		//withLoopCLLARGSTOLLACLSPESSNew();
@@ -41,20 +42,26 @@ public class Main {
 		//System.out.println("Valore visualizzato: " + cara.getSLLANASLarg());
 		//RuleMacchina(cara);
 		GenericConfItem item = new GenericConfItem(new ConfiguratoreBAV(), "BAV");
-		item.getConf().getCaratteristicaById("CLFINI").setSelectedValueFromOpzioneList("M");
-		item.getConf().getCaratteristicaById("CLLEGA").setSelectedValueFromOpzioneList("5F");
-		item.getConf().getCaratteristicaById("CLSPESS").setSelectedValueFromOpzioneList("3000");
-		item.getConf().getCaratteristicaById("CLSTATF").setSelectedValueFromOpzioneList("HA1");
-		item.getConf().getCaratteristicaById("MLSTATF").setSelectedValueFromOpzioneList("HA1");
-		item.getConf().getCaratteristicaById("CLLARG").setSelectedValueFromOpzioneList("10000");
-		item.getConf().getCaratteristicaById("CLLUNG").setSelectedValueFromOpzioneList("20000");
-		item.getConf().getCaratteristicaById("CLTOLLE").setSelectedValueFromOpzioneList("N");
-		item.getConf().getCaratteristicaById("CLRIVE").setSelectedValueFromOpzioneList("A");
-		item.getConf().getCaratteristicaById("SLLANAS").setSelectedValueFromOpzioneList("5AB1340");
-		item.getConf().getCaratteristicaById("SLMOD").setSelectedValueFromOpzioneList("CP");
-		RunDistintaNew(item);
-		printDistinta(RunDistintaNew(item).get(0));
-		printDistinta(distintaDefault().get(0));
+		//item.getConf().getCaratteristicaById("CLFINI").setSelectedValueFromOpzioneList("M");
+		item.getConf().getCaratteristicaById("CLLEGA").setSelectedValue(new Opzione("4F","4F"));
+		//item.getConf().getCaratteristicaById("CLSPESS").setSelectedValueFromOpzioneList("3000");
+		item.getConf().getCaratteristicaById("CLSTATF").setSelectedValue(new Opzione("HA","HA"));
+		//item.getConf().getCaratteristicaById("MLSTATF").setSelectedValueFromOpzioneList("HA1");
+		//item.getConf().getCaratteristicaById("CLLARG").setSelectedValueFromOpzioneList("10000");
+		//item.getConf().getCaratteristicaById("CLLUNG").setSelectedValueFromOpzioneList("20000");
+		//item.getConf().getCaratteristicaById("CLTOLLE").setSelectedValueFromOpzioneList("N");
+		//item.getConf().getCaratteristicaById("CLRIVE").setSelectedValueFromOpzioneList("A");
+		//item.getConf().getCaratteristicaById("SLLANAS").setSelectedValueFromOpzioneList("5AB1340");
+		//item.getConf().getCaratteristicaById("SLMOD").setSelectedValueFromOpzioneList("CP");
+		item.getConf().getCaratteristicaById("SCAP").setSelectedValue(new Opzione("EDT","EDT"));
+		item.getConf().getCaratteristicaById("SLTOLLA").setSelectedValue(new Opzione("N","Fuori"));
+		item.getConf().getCaratteristicaById("CLLARG").setSelectedValue(new Opzione("07000","07000"));
+		item.getConf().getCaratteristicaById("CLSPESS").setSelectedValue(new Opzione("07000","07000"));
+		item.getConf().getCaratteristicaById("QLSPEC").setSelectedValue(new Opzione("1","1"));
+		opz = item.getConf().getValidatedOptionsByName("SLLATOLP");
+		//printDistinta(RunDistintaNew(item).get(0));
+		//printDistinta(distintaDefault().get(0));
+		printOpzione(opz);
 	}
 	
 	private static void withLoopCLLARGSTOLLACLSPESSNew() {
@@ -1190,4 +1197,12 @@ public class Main {
             System.out.println();
         }
     }
+	
+	private static void printOpzione(List<Opzione> opz)
+	{
+		for(Opzione opzi : opz)
+		{
+			System.out.println(opzi.getOpzione());
+		}
+	}
 }
