@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import test.test.ReadDB;
 
-public class Caratteristica implements ICaratteristica {
+public class Caratteristica {
 	
 	private String caratteristicaId;
 	private String descrizioneCaratteristica;
@@ -47,32 +47,26 @@ public class Caratteristica implements ICaratteristica {
 		this.descrizioneCaratteristica = descrizioneCaratteristica;
 	}
 
-	@Override
 	public int getCaratteristicaOrder() {
 		return caratteristicaOrder;
 	}
 
-	@Override
 	public void setCaratteristicaOrder(int caratteristicaOrder) {
 		this.caratteristicaOrder = caratteristicaOrder;
 	}
 
-	@Override
 	public ArrayList<Opzione> getValori() {
 		return valori;
 	}
 
-	@Override
 	public void setValori(ArrayList<Opzione> valori) {
 		this.valori = valori;
 	}
 
-	@Override
 	public String getCaratteristicaId() {
 		return caratteristicaId;
 	}
 
-	@Override
 	public String getClasse() {
 		return classe;
 	}
@@ -103,17 +97,14 @@ public class Caratteristica implements ICaratteristica {
 		return this.valori.remove(opz);
 	}
 
-	@Override
 	public Opzione getSelectedValue() {
 		return selectedValue;
 	}
 
-	@Override
 	public void setSelectedValue(Opzione selectedValue) {
 		this.selectedValue = selectedValue;
 	}
 	
-	@Override
 	public void setSelectedValueFromOpzioneList(String value) {
 		for(Opzione valore : valori)
 		{
@@ -122,7 +113,6 @@ public class Caratteristica implements ICaratteristica {
 		}
 	}
 	
-	@Override
 	public Opzione getOpzioneFromOpzioneList(String value) {
 		for(Opzione valore : valori)
 		{
@@ -132,27 +122,22 @@ public class Caratteristica implements ICaratteristica {
 		return null;
 	}
 
-	@Override
 	public String getDescrizioneCaratteristica() {
 		return descrizioneCaratteristica;
 	}
 
-	@Override
 	public boolean isEnabled() {
 		return enabled;
 	}
 
-	@Override
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
 	
-	@Override
 	public boolean isVisible() {
 		return visible;
 	}
 
-	@Override
 	public void setVisible(boolean visible) {
 		this.visible = visible;
 	}	
