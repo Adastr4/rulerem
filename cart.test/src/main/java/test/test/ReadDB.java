@@ -281,10 +281,58 @@ public class ReadDB {
 				// broken Java implementations
 
 				stmt = conn.createStatement();
-				query = "SELECT * FROM macchine WHERE idMacchina ='" + idMacchina + "' LIMIT 1";
+				query = "SELECT * FROM conf_macchina WHERE idMacchina ='" + idMacchina + "' LIMIT 1";
 				rs = stmt.executeQuery(query);
 				while(rs.next()) {
-					ret = new it.profilglass.classmodel.Macchina(rs.getString("idMacchina"),rs.getString("Descrizione"),rs.getString("idCentroLavoro"),rs.getInt("capacitaBaseGiorn"),rs.getInt("capacitaBaseSett"));
+					ret = new it.profilglass.classmodel.Macchina(rs.getString("idMacchina"),rs.getString("Descrizione"),getClassmodelCentroLavoroFromId(rs.getString("idCentroLavoro")),rs.getInt("capacitaBaseGiorn"),rs.getInt("capacitaBaseSett"));
+				}
+
+				return ret;
+			} catch (Exception ex) {
+				// handle the error
+				ex.printStackTrace();
+				return ret;
+			}
+			finally {
+				// it is a good idea to release
+				// resources in a finally{} block
+				// in reverse-order of their creation
+				// if they are no-longer needed
+
+				if (rs != null) {
+					try {
+						rs.close();
+					} catch (SQLException sqlEx) { } // ignore
+
+					rs = null;
+				}
+
+				if (stmt != null) {
+					try {
+						stmt.close();
+					} catch (SQLException sqlEx) { } // ignore
+
+					stmt = null;
+				}
+
+			}
+		}
+		
+		public static it.profilglass.classmodel.CentroLavoro getClassmodelCentroLavoroFromId(String idCentro)
+		{
+			Statement stmt = null;
+			String query = null;
+			it.profilglass.classmodel.CentroLavoro ret = null;
+			ResultSet rs = null;
+			try {
+				// The newInstance() call is a work around for some
+				// broken Java implementations
+
+				stmt = conn.createStatement();
+				query = "SELECT * FROM conf_centro_lavoro WHERE idCentro ='" + idCentro + "' LIMIT 1";
+				rs = stmt.executeQuery(query);
+				while(rs.next()) {
+					ret = new it.profilglass.classmodel.CentroLavoro(rs.getString("idCentro"),rs.getString("Descrizione"));
 				}
 
 				return ret;

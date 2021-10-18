@@ -4,11 +4,11 @@ public class Macchina {
 	
 	private String idMacchina;
 	private String descMacchina;
-	private String idCentroLavoro;
+	private CentroLavoro idCentroLavoro;
 	private int capacitaBaseGiornaliera;
 	private int capacitaBaseSettimanale;
 	
-	public Macchina(String idMacchina, String descMacchina, String idCentroLavoro, int capacitaBaseGiornaliera, int capacitaBaseSettimanale)
+	public Macchina(String idMacchina, String descMacchina, CentroLavoro idCentroLavoro, int capacitaBaseGiornaliera, int capacitaBaseSettimanale)
 	{
 		this.idMacchina = idMacchina;
 		this.descMacchina = descMacchina;
@@ -33,11 +33,11 @@ public class Macchina {
 		this.descMacchina = descMacchina;
 	}
 
-	public String getIdCentroLavoro() {
+	public CentroLavoro getIdCentroLavoro() {
 		return idCentroLavoro;
 	}
 
-	public void setIdCentroLavoro(String idCentroLavoro) {
+	public void setIdCentroLavoro(CentroLavoro idCentroLavoro) {
 		this.idCentroLavoro = idCentroLavoro;
 	}
 
