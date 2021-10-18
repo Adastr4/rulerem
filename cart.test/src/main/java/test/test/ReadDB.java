@@ -376,11 +376,13 @@ public class ReadDB {
 			try {
 				// The newInstance() call is a work around for some
 				// broken Java implementations
-		stmt = conn.createStatement();
-				query = "SELECT * FROM attivita WHERE idAttivita ='" + idAttivita + "' LIMIT 1";
+				Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+				conn =  	       DriverManager.getConnection("jdbc:mysql://localhost/profilglassconf?" +
+				"user=root&password=root");
+				query = "SELECT * FROM conf_attivita WHERE Attivita ='" + idAttivita + "' LIMIT 1";
 				rs = stmt.executeQuery(query);
 				while(rs.next()) {
-					ret = new it.profilglass.classmodel.Attivita(rs.getString("idAttivita"),rs.getString("Descrizione"),getClassmodelMacchinaFromId(rs.getString("idMacchinaPred")),rs.getString("idCentroLavPred"));
+					ret = new it.profilglass.classmodel.Attivita(rs.getString("Attivita"),rs.getString("Descrizione"),rs.getString("Famiglia"),rs.getInt("Anima"),rs.getInt("Campione"));
 				}
 
 				return ret;
@@ -540,10 +542,10 @@ public class ReadDB {
 				// broken Java implementations
 
 				Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-				conn =  	       DriverManager.getConnection("jdbc:mysql://localhost/profilglass?" +
+				conn =  	       DriverManager.getConnection("jdbc:mysql://localhost/profilglassconf?" +
 						"user=root&password=root");
 				stmt = conn.createStatement();
-				query = "SELECT opzione, descrizione FROM caratteristiche WHERE trim(articolo) ='" + configuratore + "' AND caratteristica ='" + caratteristica + "'";
+				query = "SELECT Opzione, Descrizione FROM conf_caratteristica_opzioni WHERE trim(Item) ='" + configuratore + "' AND Caratteristica ='" + caratteristica + "'";
 				rs = stmt.executeQuery(query);
 				while(rs.next()) {
 					ret.add(new Opzione(rs.getString("opzione"),rs.getString("descrizione")));
@@ -590,9 +592,11 @@ public class ReadDB {
 				// The newInstance() call is a work around for some
 				// broken Java implementations
 
-			
+				Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+				conn =  	       DriverManager.getConnection("jdbc:mysql://localhost/profilglassconf?" +
+						"user=root&password=root");
 				stmt = conn.createStatement();
-				query = "SELECT Caratteristica, Descrizione, Sequenza FROM caratteristicaconfiguratore WHERE trim(articolo) ='" + articolo + "' AND ExpireDate >= current_date";
+				query = "SELECT Caratteristica, Descrizione, Sequenza FROM conf_caratteristiche WHERE trim(Item) ='" + articolo + "' AND DataFineValidita >= current_date";
 				rs = stmt.executeQuery(query);
 				while(rs.next()) {
 					ret.add(new it.profilglass.classmodel.Caratteristica(rs.getString("Caratteristica"),rs.getString("Descrizione"),rs.getInt("Sequenza"), articolo));
@@ -641,7 +645,7 @@ public class ReadDB {
 
 			
 				stmt = conn.createStatement();
-				query = "SELECT quantitaArticolo FROM caratteristicaconfiguratore WHERE idDefinizioneImballo ='" + packageDef + "' LIMIT 1";
+				query = "SELECT quantitaArticolo FROM definizioniimballo WHERE idDefinizioneImballo ='" + packageDef + "' LIMIT 1";
 				rs = stmt.executeQuery(query);
 				while(rs.next()) {
 					value = rs.getDouble("quantitaArticolo");

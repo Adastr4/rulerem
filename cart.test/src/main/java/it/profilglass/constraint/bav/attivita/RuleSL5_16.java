@@ -9,15 +9,16 @@ import com.deliveredtechnologies.rulebook.annotation.Rule;
 import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
+import it.profilglass.classmodel.Caratteristica;
 import test.test.Attivita;
-import test.test.CaratteristicaBean;
 import test.test.ReadDB;
 
 @Rule(order = 16, name = "ruleSL5_1")
 
 public class RuleSL5_16 extends it.profilglass.constraint.bav.attivita.subrules.SubRuleSL_2{
 	@Given
-	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
+	//private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
+	private List<Caratteristica> caratteristiche;
 
 	@Result
 	private List<Attivita> result;
@@ -26,8 +27,11 @@ public class RuleSL5_16 extends it.profilglass.constraint.bav.attivita.subrules.
 	@When
 	public boolean when()
 	{
-		return super.when() && caratteristiche.stream().anyMatch(caratteristica -> !caratteristica.getSLMOD().toString().equalsIgnoreCase("BP")
-																				 && caratteristica.getQLLAVDET().toString().equalsIgnoreCase("E01"));
+		/*return super.when() && caratteristiche.stream().anyMatch(caratteristica -> !caratteristica.getSLMOD().toString().equalsIgnoreCase("BP")
+																				 && caratteristica.getQLLAVDET().toString().equalsIgnoreCase("E01"));*/
+		return super.when()
+			&& !caratteristiche.stream().filter(caratteristica -> "SLMOD".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("BP")
+			&& caratteristiche.stream().filter(caratteristica -> "QLLAVDET".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("E01");
 	}
 
 	@Then

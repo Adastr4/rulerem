@@ -9,6 +9,7 @@ import com.deliveredtechnologies.rulebook.annotation.Rule;
 import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
+import it.profilglass.classmodel.Caratteristica;
 import test.test.Attivita;
 import test.test.CaratteristicaBean;
 import test.test.ReadDB;
@@ -17,7 +18,8 @@ import test.test.ReadDB;
 
 public class RuleLA3_22 extends it.profilglass.constraint.bav.attivita.subrules.SubRuleLA_2 {
 	@Given
-	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
+	//private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
+	private List<Caratteristica> caratteristiche;
 
 	@Result
 	private List<Attivita> result;
@@ -26,7 +28,9 @@ public class RuleLA3_22 extends it.profilglass.constraint.bav.attivita.subrules.
 	@When
 	public boolean when()
 	{
-		return super.when() && caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSPESS().intValue() <= 240);
+		//return super.when() && caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSPESS().intValue() <= 240);
+		return super.when()
+			&& (Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLSPESS".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione()) <= 240);
 	}
 
 	@Then

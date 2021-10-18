@@ -9,15 +9,16 @@ import com.deliveredtechnologies.rulebook.annotation.Rule;
 import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
+import it.profilglass.classmodel.Caratteristica;
 import test.test.Attivita;
-import test.test.CaratteristicaBean;
 import test.test.ReadDB;
 
 @Rule(order = 27, name = "ruleGO1_1")
 
 public class RuleGO1_27 extends it.profilglass.constraint.bav.attivita.subrules.SubRuleGO_1 {
 	@Given
-	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
+	//private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
+	private List<Caratteristica> caratteristiche;
 
 	@Result
 	private List<Attivita> result;

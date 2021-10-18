@@ -58,7 +58,8 @@ public class Main {
 		item.getConf().getCaratteristicaById("CLLARG").setSelectedValue(new Opzione("07000","07000"));
 		item.getConf().getCaratteristicaById("CLSPESS").setSelectedValue(new Opzione("07000","07000"));
 		item.getConf().getCaratteristicaById("QLSPEC").setSelectedValue(new Opzione("1","1"));
-		opz = item.getConf().getValidatedOptionsByName("SLLATOLP");
+		item.getConf().getCaratteristicaById("SBATIPO").setSelectedValue(new Opzione("0","0"));
+		opz = item.getConf().getValidatedOptionsByName("SLMOD");
 		//printDistinta(RunDistintaNew(item).get(0));
 		//printDistinta(distintaDefault().get(0));
 		printOpzione(opz);

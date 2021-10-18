@@ -9,6 +9,7 @@ import com.deliveredtechnologies.rulebook.annotation.Rule;
 import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
+import it.profilglass.classmodel.Caratteristica;
 import test.test.Attivita;
 import test.test.CaratteristicaBean;
 import test.test.ReadDB;
@@ -17,7 +18,8 @@ import test.test.ReadDB;
 
 public class RuleRF9_29 {
 	@Given
-	private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
+	//private List<CaratteristicaBean> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
+	private List<Caratteristica> caratteristiche;
 
 	@Result
 	private List<Attivita> result;
@@ -25,13 +27,20 @@ public class RuleRF9_29 {
 	@When
 	public boolean when()
 	{
-		return caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getSLMOD().equalsIgnoreCase("BA")
+		/*return caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getSLMOD().equalsIgnoreCase("BA")
 																&& (	caratteristica.getCLFINI().equalsIgnoreCase("B")
 																	 || caratteristica.getCLFINI().equalsIgnoreCase("M") // NON COMPLETA ANCORA; manca la regola dell'SLLANAS
 																	)
 																&& Integer.parseInt(caratteristica.getCLLARG()) >= 8500
 																&& caratteristica.getCLSPESS().intValue() >= 500
-																&& caratteristica.getCLSPESS().intValue() < 1000);
+																&& caratteristica.getCLSPESS().intValue() < 1000);*/
+		return caratteristiche.stream().filter(caratteristica -> "SLMOD".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("BA")
+			&& (   caratteristiche.stream().filter(caratteristica -> "CLFINI".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("B")
+				|| caratteristiche.stream().filter(caratteristica -> "CLFINI".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("M")
+				)
+			&& (Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione()) >= 8500)
+			&& (Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLSPESS".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione()) >= 500)
+			&& (Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLSPESS".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione()) < 1000);
 	}
 
 	@Then

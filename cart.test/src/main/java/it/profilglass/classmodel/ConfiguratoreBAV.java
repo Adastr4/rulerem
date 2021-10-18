@@ -19,7 +19,7 @@ public class ConfiguratoreBAV extends Configuratore {
 	public ConfiguratoreBAV()
 	{
 		//INIZIALIZZO TUTTI I VALORI DI CARATTERISTICA
-		this.caratteristiche = ReadDB.getCaratteristicheFromConfigurator("BAV");
+		this.caratteristiche = ReadDB.getCaratteristicheFromConfigurator("BA");
 		//ORDINO PER INDICE DI CONFIGURAZZOONE
 		this.caratteristiche.sort(Comparator.comparingInt(Caratteristica::getCaratteristicaOrder));
 	}
@@ -83,7 +83,7 @@ public class ConfiguratoreBAV extends Configuratore {
 		{
 			/*DEVO CARICARE LE OPZIONI DELLA CARATTERISTICA*/
 			List<Opzione> listaReturn = new ArrayList<Opzione>();
-			List<Opzione> lista = ReadDB.getOpzioniList("BAV", name);
+			List<Opzione> lista = ReadDB.getOpzioniList("BA", name);
 			if(lista.size() < 10)
 			{
 				for(Opzione opz : lista)
