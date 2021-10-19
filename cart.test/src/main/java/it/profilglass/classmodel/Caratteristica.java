@@ -46,6 +46,17 @@ public class Caratteristica {
 		this.selectedValue = new Opzione("","");
 		this.descrizioneCaratteristica = descrizioneCaratteristica;
 	}
+	
+	public Caratteristica()
+	{
+		this.caratteristicaId = "";
+		this.caratteristicaOrder = 0;
+		this.classe = "";
+		//this.valori = this.setListOfValues();
+		this.valori = new ArrayList<Opzione>();
+		this.selectedValue = new Opzione("","");
+		this.descrizioneCaratteristica = "";
+	}
 
 	public int getCaratteristicaOrder() {
 		return caratteristicaOrder;

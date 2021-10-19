@@ -1,7 +1,22 @@
 package it.profilglass.classmodel;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+import javax.persistence.Table;
+
+@Entity
+@Table(name="conf_centro_lavoro")
 public class CentroLavoro {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="idCentro")
 	private String idCentro;
+	
+	@Column(name="descrizione")
 	private String descrizione;
 	
 	public CentroLavoro(String idCentro, String descrizione)

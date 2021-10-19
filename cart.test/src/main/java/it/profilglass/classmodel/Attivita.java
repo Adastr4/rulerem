@@ -1,12 +1,32 @@
 package it.profilglass.classmodel;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="conf_attivita")
 public class Attivita {
+	@Id
+	@Column(name="Attivita")
 	private String idAttivita;
+	
+	@Column(name="Descrizione")
 	private String descrizioneAttivita;
+	
 	private Macchina macchinaPred;
 	private String centroLavoroPred;
+	
+	@Column(name="Famiglia")
 	private String famiglia;
+	
+	@Column(name="Anima")
 	private int anima;
+	
+	@Column(name="Campione")
 	private int campione;
 	
 	public Attivita(String idAttivita, String descrizioneAttivita, Macchina macchinaPred, String centroLavoroPred, String famiglia, int anima, int campione)
@@ -29,6 +49,17 @@ public class Attivita {
 		this.famiglia = famiglia;
 		this.anima = anima;
 		this.campione = campione;
+	}
+	
+	public Attivita()
+	{
+		this.idAttivita = "";
+		this.descrizioneAttivita = "";
+		this.macchinaPred = null;
+		this.centroLavoroPred = "";
+		this.famiglia = "";
+		this.anima = 0;
+		this.campione = 0;
 	}
 
 	public String getFamiglia() {
@@ -54,20 +85,20 @@ public class Attivita {
 	public void setCampione(int campione) {
 		this.campione = campione;
 	}
-
-	public String getIdAttivita() {
+	
+	public String getAttivita() {
 		return idAttivita;
 	}
 
-	public void setIdAttivita(String idAttivita) {
+	public void setAttivita(String idAttivita) {
 		this.idAttivita = idAttivita;
 	}
 
-	public String getDescrizioneAttivita() {
+	public String getDescrizione() {
 		return descrizioneAttivita;
 	}
 
-	public void setDescrizioneAttivita(String descrizioneAttivita) {
+	public void setDescrizione(String descrizioneAttivita) {
 		this.descrizioneAttivita = descrizioneAttivita;
 	}
 
