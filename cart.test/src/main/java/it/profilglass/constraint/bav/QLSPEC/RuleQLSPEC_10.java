@@ -30,7 +30,7 @@ public class RuleQLSPEC_10 {
 	@Then
 	public RuleState then()
 	{
-		result = caratteristiche.stream().filter(caratteristica -> "QLSPEC".equals(caratteristica.getCaratteristicaId())).findAny().get().getOpzioneFromOpzioneList("2");
+		result = caratteristiche.stream().filter(caratteristica -> "QLSPEC".equals(caratteristica.getCaratteristica())).findAny().get().getOpzioneFromOpzioneList("2");
 		return RuleState.BREAK;
 	}
 

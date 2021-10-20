@@ -32,7 +32,7 @@ public class RuleSLDEFIMB_10 extends it.profilglass.constraint.bav.SLHPILA.RuleS
 	public RuleState then()
 	{
 		//Aggiungo il primo livello di distinta (nodo);
-		result = caratteristiche.stream().filter(caratteristica -> "SBADEFIMB".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue();
+		result = caratteristiche.stream().filter(caratteristica -> "SBADEFIMB".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue();
 		return RuleState.BREAK;
 	}
 

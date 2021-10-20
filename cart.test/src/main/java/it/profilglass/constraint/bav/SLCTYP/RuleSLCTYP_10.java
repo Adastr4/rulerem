@@ -30,7 +30,7 @@ public class RuleSLCTYP_10 {
 	@Then
 	public RuleState then()
 	{
-		result = caratteristiche.stream().filter(caratteristica -> "CLLEGA".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue();
+		result = caratteristiche.stream().filter(caratteristica -> "CLLEGA".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue();
 		return RuleState.BREAK;
 	}
 }

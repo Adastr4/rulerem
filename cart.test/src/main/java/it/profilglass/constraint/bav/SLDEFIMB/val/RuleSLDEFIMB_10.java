@@ -24,7 +24,7 @@ public class RuleSLDEFIMB_10 extends it.profilglass.constraint.bav.SLHPILA.RuleS
 	public boolean when()
 	{
 		return super.when()
-			&& caratteristiche.stream().filter(caratteristica -> "SLDEFIMB".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().substring(0,5).equalsIgnoreCase(caratteristiche.stream().filter(caratteristica -> "SBLDEFIMB".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().substring(0,5));
+			&& caratteristiche.stream().filter(caratteristica -> "SLDEFIMB".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().substring(0,5).equalsIgnoreCase(caratteristiche.stream().filter(caratteristica -> "SBLDEFIMB".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().substring(0,5));
 			   
 	}
 	

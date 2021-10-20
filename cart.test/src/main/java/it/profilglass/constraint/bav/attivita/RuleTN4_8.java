@@ -30,7 +30,7 @@ public class RuleTN4_8 extends it.profilglass.constraint.bav.attivita.subrules.S
 	{
 		//return super.when() && caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSPESS().intValue() <= 400);
 		return super.when()
-			&& (Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLSPESS".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione()) <= 400);
+			&& (Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLSPESS".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione()) <= 400);
 	}
 
 	@Then

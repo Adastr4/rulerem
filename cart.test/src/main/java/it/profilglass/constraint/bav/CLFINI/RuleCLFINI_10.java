@@ -31,7 +31,7 @@ public class RuleCLFINI_10 {
 	@Then
 	public RuleState then()
 	{
-		result = caratteristiche.stream().filter(caratteristica -> "CLFINI".equals(caratteristica.getCaratteristicaId())).findAny().get().getOpzioneFromOpzioneList("M");
+		result = caratteristiche.stream().filter(caratteristica -> "CLFINI".equals(caratteristica.getCaratteristica())).findAny().get().getOpzioneFromOpzioneList("M");
 		return RuleState.BREAK;
 	}
 }

@@ -24,7 +24,7 @@ public class RuleDLSNER_10 {
 	@When
 	public boolean when()
 	{
-		return Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "QLSPEC".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione()) == 1 ;		   
+		return Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "QLSPEC".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione()) == 1 ;		   
 	}
 	
 	@Then

@@ -11,5 +11,7 @@
 	        
 	        <mapping resource = "CentroLavoro.hbm.xml"/>
 	        <mapping resource = "attivita.hbm.xml"/>
+	        <mapping resource = "opzione.hbm.xml"/>
+	        <mapping resource = "caratteristica.hbm.xml"/>
 	    </session-factory>
 	</hibernate-configuration>

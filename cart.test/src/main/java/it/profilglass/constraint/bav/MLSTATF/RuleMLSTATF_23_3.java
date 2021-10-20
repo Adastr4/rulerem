@@ -31,7 +31,7 @@ public class RuleMLSTATF_23_3 extends it.profilglass.constraint.bav.MLSTATF.sub1
 	{
 		//return (caratteristica.getCLLEGA().substring(0,1).equalsIgnoreCase("3")) && super.when();
 		return super.when()
-			&& caratteristiche.stream().filter(caratteristica -> "CLLEGA".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().substring(0,1).equalsIgnoreCase("3");
+			&& caratteristiche.stream().filter(caratteristica -> "CLLEGA".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().substring(0,1).equalsIgnoreCase("3");
 	}
 
 	@Then
@@ -39,7 +39,7 @@ public class RuleMLSTATF_23_3 extends it.profilglass.constraint.bav.MLSTATF.sub1
 	{
 		System.out.println("Rule 22 entered");
 		//result = "H18";
-		result = caratteristiche.stream().filter(caratteristica -> "MLSTATF".equals(caratteristica.getCaratteristicaId())).findAny().get().getOpzioneFromOpzioneList("H18");
+		result = caratteristiche.stream().filter(caratteristica -> "MLSTATF".equals(caratteristica.getCaratteristica())).findAny().get().getOpzioneFromOpzioneList("H18");
 		return RuleState.NEXT;
 	}
 }

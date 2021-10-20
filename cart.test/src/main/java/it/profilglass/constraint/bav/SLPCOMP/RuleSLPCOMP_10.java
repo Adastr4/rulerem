@@ -31,7 +31,7 @@ public class RuleSLPCOMP_10 {
 	public RuleState then()
 	{
 		//Aggiungo il primo livello di distinta (nodo);
-		result = caratteristiche.stream().filter(caratteristica -> "SLPCOMP".equals(caratteristica.getCaratteristicaId())).findAny().get().getOpzioneFromOpzioneList("2");
+		result = caratteristiche.stream().filter(caratteristica -> "SLPCOMP".equals(caratteristica.getCaratteristica())).findAny().get().getOpzioneFromOpzioneList("2");
 		return RuleState.BREAK;
 	}
 }

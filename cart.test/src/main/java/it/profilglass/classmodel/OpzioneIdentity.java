@@ -8,6 +8,11 @@ import com.sun.istack.NotNull;
 
 @Embeddable
 public class OpzioneIdentity implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@NotNull
 	private String item;
 	

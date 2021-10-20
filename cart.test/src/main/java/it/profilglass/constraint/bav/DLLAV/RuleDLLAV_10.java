@@ -24,7 +24,7 @@ public class RuleDLLAV_10 {
 	@When
 	public boolean when()
 	{
-		return !caratteristiche.stream().filter(caratteristica -> "QLLAV".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("C");		   
+		return !caratteristiche.stream().filter(caratteristica -> "QLLAV".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("C");		   
 	}
 	
 	@Then

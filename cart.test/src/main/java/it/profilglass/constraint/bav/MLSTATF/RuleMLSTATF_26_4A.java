@@ -31,7 +31,7 @@ public class RuleMLSTATF_26_4A extends it.profilglass.constraint.bav.MLSTATF.sub
 	{
 		//return super.when() && (caratteristica.getCLSPESS().intValue() >= 2500);
 		return super.when()
-			&& Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLSPESS".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione()) >= 2500;
+			&& Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLSPESS".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione()) >= 2500;
 	}
 
 	@Then
@@ -39,7 +39,7 @@ public class RuleMLSTATF_26_4A extends it.profilglass.constraint.bav.MLSTATF.sub
 	{
 		System.out.println("Rule 25 entered");
 		//result = "H00";
-		result = caratteristiche.stream().filter(caratteristica -> "MLSTATF".equals(caratteristica.getCaratteristicaId())).findAny().get().getOpzioneFromOpzioneList("H00");
+		result = caratteristiche.stream().filter(caratteristica -> "MLSTATF".equals(caratteristica.getCaratteristica())).findAny().get().getOpzioneFromOpzioneList("H00");
 		return RuleState.NEXT;
 	}
 }

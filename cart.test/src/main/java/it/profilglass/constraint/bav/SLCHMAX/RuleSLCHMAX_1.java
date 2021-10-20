@@ -48,7 +48,7 @@ public class RuleSLCHMAX_1 extends it.profilglass.constraint.bav.SLCHMAX.val.Rul
 	{
 		
 		//hImballi = ((Double.parseDouble(caratteristica.getCLLARG())/10000)*(Double.parseDouble(caratteristica.getCLLUNG())/10000));
-		hImballi = ((Double.parseDouble(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione())/10000)*(Double.parseDouble(caratteristiche.stream().filter(caratteristica -> "CLLUNG".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione())/10000));
+		hImballi = ((Double.parseDouble(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione())/10000)*(Double.parseDouble(caratteristiche.stream().filter(caratteristica -> "CLLUNG".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione())/10000));
 		hImballi = (quantKgImballi/(hImballi*pesoSpec));
 		result = hImballi*1000 + hPallet;
 		return RuleState.BREAK;

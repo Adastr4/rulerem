@@ -3,11 +3,22 @@
  "http://hibernate.sourceforge.net/hibernate-mapping-5.3.dtd">
  <hibernate-mapping>
   <class name="it.profilglass.classmodel.Opzione" table="conf_caratteristica_opzioni">
-    <id name="Attivita">
-    </id> 
-    <property name="Famiglia"></property>
+    <composite-id>
+    	<key-property name="item" column="Item" />
+    	<key-property name="caratteristica" column="Caratteristica" />
+    	<key-property name="opzione" column="Opzione" />
+    </composite-id> 
     <property name="Descrizione"></property>
-    <property name="Anima"></property>
-    <property name="Campione"></property>
+    <property name="Annulla"></property>
+    <property name="Desc_Lin1"></property>
+    <property name="Desc_Lin2"></property>
+    <property name="Desc_Lin3"></property>
+    <property name="Desc_Lin4"></property>
+    <property name="Desc_Lin5"></property>
+    <property name="Desc_Lin6"></property>
+    <property name="Desc_Lin7"></property>
+    <property name="Desc_Lin8"></property>
+    <property name="Desc_Lin9"></property>
+    <property name="Desc_Lin10"></property>
   </class>           
  </hibernate-mapping> 

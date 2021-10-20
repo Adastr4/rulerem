@@ -31,7 +31,7 @@ public class RuleSLCARCRI_10 {
 	public RuleState then()
 	{
 		//Aggiungo il primo livello di distinta (nodo);
-		result = caratteristiche.stream().filter(caratteristica -> "SLCARCRI".equals(caratteristica.getCaratteristicaId())).findAny().get().getOpzioneFromOpzioneList("NO");
+		result = caratteristiche.stream().filter(caratteristica -> "SLCARCRI".equals(caratteristica.getCaratteristica())).findAny().get().getOpzioneFromOpzioneList("NO");
 		return RuleState.BREAK;
 	}
 }

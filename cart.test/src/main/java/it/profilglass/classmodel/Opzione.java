@@ -1,5 +1,7 @@
 package it.profilglass.classmodel;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -7,7 +9,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "conf_caratteristica_opzioni")
-public class Opzione implements Comparable<Opzione>{
+public class Opzione implements Comparable<Opzione>, Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@EmbeddedId
 	private OpzioneIdentity opzIdentity;
 	
@@ -20,8 +27,10 @@ public class Opzione implements Comparable<Opzione>{
 	@Column(name="Item")
 	private String item;
 	
-	@Column(name="Caratteristica")
+	@Column(name="caratteristica")
 	private String caratteristica;
+	
+	private int annulla;
 	
 	@Column(name="Desc_lin1")
 	private String descLin1;
@@ -53,6 +62,26 @@ public class Opzione implements Comparable<Opzione>{
 	@Column(name="Desc_lin10")
 	private String descLin10;
 	
+	public Opzione(OpzioneIdentity opzId, String opzione, String caratteristica, String item, String descrizione, String descLin1, String descLin2, String descLin3, String descLin4, String descLin5, String descLin6, String descLin7, String descLin8, String descLin9, String descLin10, int annulla)
+	{
+		this.opzIdentity = opzId;
+		this.opzione = opzione;
+		this.descrizione = descrizione;
+		this.item = item;
+		this.caratteristica = caratteristica;
+		this.descLin1 = descLin1;
+		this.descLin2 = descLin2;
+		this.descLin3 = descLin3;
+		this.descLin4 = descLin4;
+		this.descLin5 = descLin5;
+		this.descLin6 = descLin6;
+		this.descLin7 = descLin7;
+		this.descLin8 = descLin8;
+		this.descLin9 = descLin9;
+		this.descLin10 = descLin10;
+		this.annulla = annulla;
+	}
+	
 	public Opzione(String opzione, String descrizione)
 	{
 		this.opzIdentity = null;
@@ -70,6 +99,7 @@ public class Opzione implements Comparable<Opzione>{
 		this.descLin8 = "";
 		this.descLin9 = "";
 		this.descLin10 = "";
+		this.annulla = 0;
 	}
 	
 	public Opzione(String opzione)
@@ -89,6 +119,7 @@ public class Opzione implements Comparable<Opzione>{
 		this.descLin8 = "";
 		this.descLin9 = "";
 		this.descLin10 = "";
+		this.annulla = 0;
 	}
 	
 	public Opzione()
@@ -108,6 +139,7 @@ public class Opzione implements Comparable<Opzione>{
 		this.descLin8 = "";
 		this.descLin9 = "";
 		this.descLin10 = "";
+		this.annulla = 0;
 	}
 
 	public String getOpzione() {
@@ -153,84 +185,92 @@ public class Opzione implements Comparable<Opzione>{
 	public void setCaratteristica(String caratteristica) {
 		this.caratteristica = caratteristica;
 	}
+	
+	public int getAnnulla() {
+		return annulla;
+	}
 
-	public String getDescLin1() {
+	public void setAnnulla(int annulla) {
+		this.annulla = annulla;
+	}
+
+	public String getDesc_Lin1() {
 		return descLin1;
 	}
 
-	public void setDescLin1(String descLin1) {
+	public void setDesc_Lin1(String descLin1) {
 		this.descLin1 = descLin1;
 	}
 
-	public String getDescLin2() {
+	public String getDesc_Lin2() {
 		return descLin2;
 	}
 
-	public void setDescLin2(String descLin2) {
+	public void setDesc_Lin2(String descLin2) {
 		this.descLin2 = descLin2;
 	}
 
-	public String getDescLin3() {
+	public String getDesc_Lin3() {
 		return descLin3;
 	}
 
-	public void setDescLin3(String descLin3) {
+	public void setDesc_Lin3(String descLin3) {
 		this.descLin3 = descLin3;
 	}
 
-	public String getDescLin4() {
+	public String getDesc_Lin4() {
 		return descLin4;
 	}
 
-	public void setDescLin4(String descLin4) {
+	public void setDesc_Lin4(String descLin4) {
 		this.descLin4 = descLin4;
 	}
 
-	public String getDescLin5() {
+	public String getDesc_Lin5() {
 		return descLin5;
 	}
 
-	public void setDescLin5(String descLin5) {
+	public void setDesc_Lin5(String descLin5) {
 		this.descLin5 = descLin5;
 	}
 
-	public String getDescLin6() {
+	public String getDesc_Lin6() {
 		return descLin6;
 	}
 
-	public void setDescLin6(String descLin6) {
+	public void setDesc_Lin6(String descLin6) {
 		this.descLin6 = descLin6;
 	}
 
-	public String getDescLin7() {
+	public String getDesc_Lin7() {
 		return descLin7;
 	}
 
-	public void setDescLin7(String descLin7) {
+	public void setDesc_Lin7(String descLin7) {
 		this.descLin7 = descLin7;
 	}
 
-	public String getDescLin8() {
+	public String getDesc_Lin8() {
 		return descLin8;
 	}
 
-	public void setDescLin8(String descLin8) {
+	public void setDesc_Lin8(String descLin8) {
 		this.descLin8 = descLin8;
 	}
 
-	public String getDescLin9() {
+	public String getDesc_Lin9() {
 		return descLin9;
 	}
 
-	public void setDescLin9(String descLin9) {
+	public void setDesc_Lin9(String descLin9) {
 		this.descLin9 = descLin9;
 	}
 
-	public String getDescLin10() {
+	public String getDesc_Lin10() {
 		return descLin10;
 	}
 
-	public void setDescLin10(String descLin10) {
+	public void setDesc_Lin10(String descLin10) {
 		this.descLin10 = descLin10;
 	}
 

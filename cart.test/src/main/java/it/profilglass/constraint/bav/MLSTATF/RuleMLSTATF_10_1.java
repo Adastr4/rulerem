@@ -31,9 +31,9 @@ public class RuleMLSTATF_10_1 {
 		/*return (caratteristica.getCLLEGA().substring(0, 1).equalsIgnoreCase("1") &&
 			   (caratteristica.getCLSTATF().toString().equalsIgnoreCase("H26")) &&
 			   (Integer.parseInt(caratteristica.getCLSPESS().toString()) == 3000));*/
-		return caratteristiche.stream().filter(caratteristica -> "CLLEGA".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().substring(0,1).equalsIgnoreCase("1")
-			&& caratteristiche.stream().filter(caratteristica -> "CLSTATF".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("H26")
-			&& Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLEGA".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione()) == 3000;
+		return caratteristiche.stream().filter(caratteristica -> "CLLEGA".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().substring(0,1).equalsIgnoreCase("1")
+			&& caratteristiche.stream().filter(caratteristica -> "CLSTATF".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("H26")
+			&& Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLEGA".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione()) == 3000;
 	}
 
 	@Then
@@ -41,7 +41,7 @@ public class RuleMLSTATF_10_1 {
 	{
 		System.out.println("Rule 10 entered");
 		//result = "H16";
-		result = caratteristiche.stream().filter(caratteristica -> "MLSTATF".equals(caratteristica.getCaratteristicaId())).findAny().get().getOpzioneFromOpzioneList("H16");
+		result = caratteristiche.stream().filter(caratteristica -> "MLSTATF".equals(caratteristica.getCaratteristica())).findAny().get().getOpzioneFromOpzioneList("H16");
 		return RuleState.NEXT;
 	}
 }

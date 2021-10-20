@@ -30,8 +30,8 @@ public class RuleMLSTATF_24_3Q {
 	{
 			/*return  caratteristica.getCLLEGA().equalsIgnoreCase("3Q") &&
 				   (caratteristica.getCLSPESS().intValue() >= 2000);*/
-		return caratteristiche.stream().filter(caratteristica -> "CLLEGA".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("3Q")
-			&& Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLSPESS".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione()) >= 2000;
+		return caratteristiche.stream().filter(caratteristica -> "CLLEGA".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("3Q")
+			&& Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLSPESS".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione()) >= 2000;
 	}
 
 	@Then
@@ -39,7 +39,7 @@ public class RuleMLSTATF_24_3Q {
 	{
 		System.out.println("Rule 23 entered");
 		//result = caratteristica.getCLSTATF();
-		result = caratteristiche.stream().filter(caratteristica -> "CLSTATF".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione();
+		result = caratteristiche.stream().filter(caratteristica -> "CLSTATF".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione();
 		return RuleState.BREAK;
 	}
 }

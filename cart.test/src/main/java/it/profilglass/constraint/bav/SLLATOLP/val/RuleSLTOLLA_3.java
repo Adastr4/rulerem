@@ -24,13 +24,13 @@ public class RuleSLTOLLA_3 {
 	@When
 	public boolean when()
 	{
-		return !((   caratteristiche.stream().filter(caratteristica -> "SLTOLLA".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("f")
-				  && caratteristiche.stream().filter(caratteristica -> "SLLATOLP".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().substring(2, 3).equalsIgnoreCase("f")
-				  && caratteristiche.stream().filter(caratteristica -> "SLLATOLP".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().substring(4, caratteristiche.stream().filter(caratteristica -> "SLLATOLP".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().length()).equalsIgnoreCase(caratteristiche.stream().filter(caratteristica -> "DLLATOLP".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().toString())
+		return !((   caratteristiche.stream().filter(caratteristica -> "SLTOLLA".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("f")
+				  && caratteristiche.stream().filter(caratteristica -> "SLLATOLP".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().substring(2, 3).equalsIgnoreCase("f")
+				  && caratteristiche.stream().filter(caratteristica -> "SLLATOLP".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().substring(4, caratteristiche.stream().filter(caratteristica -> "SLLATOLP".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().length()).equalsIgnoreCase(caratteristiche.stream().filter(caratteristica -> "DLLATOLP".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().toString())
 				   )
-			   || (   !caratteristiche.stream().filter(caratteristica -> "SLTOLLA".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("f")
-				   && caratteristiche.stream().filter(caratteristica -> "SLLATOLP".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().substring(2, 3).equalsIgnoreCase(caratteristiche.stream().filter(caratteristica -> "SLTOLLA".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione())
-				   && !caratteristiche.stream().filter(caratteristica -> "SLLATOLP".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().substring(2, 3).equalsIgnoreCase("f")
+			   || (   !caratteristiche.stream().filter(caratteristica -> "SLTOLLA".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("f")
+				   && caratteristiche.stream().filter(caratteristica -> "SLLATOLP".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().substring(2, 3).equalsIgnoreCase(caratteristiche.stream().filter(caratteristica -> "SLTOLLA".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione())
+				   && !caratteristiche.stream().filter(caratteristica -> "SLLATOLP".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().substring(2, 3).equalsIgnoreCase("f")
 			    ));
 	}
 

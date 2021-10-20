@@ -30,14 +30,14 @@ public class RuleBA_IMCAR_3_2 {
 	@When
 	public boolean when()
 	{
-		return caratteristiche.stream().filter(caratteristica -> "CLRIVE".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("S"); 
+		return caratteristiche.stream().filter(caratteristica -> "CLRIVE".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("S"); 
 	}
 	
 	@Then
 	public RuleState then()
 	{
 		//result.add(ReadDB.getAttivitaFromId("BA1"));
-		result.get(0).getDistinta().add(new LivelloDistinta(new GenericItem("IMCAR" + "G90" + "L" +  caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().substring(0,caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().length()-1) ,"IMCAR",null), 2, 2));
+		result.get(0).getDistinta().add(new LivelloDistinta(new GenericItem("IMCAR" + "G90" + "L" +  caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().substring(0,caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().length()-1) ,"IMCAR",null), 2, 2));
 		return RuleState.BREAK;
 	}
 

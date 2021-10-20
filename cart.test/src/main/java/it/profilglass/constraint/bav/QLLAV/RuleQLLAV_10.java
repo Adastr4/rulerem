@@ -31,7 +31,7 @@ public class RuleQLLAV_10 {
 	public RuleState then()
 	{
 		//Aggiungo il primo livello di distinta (nodo);
-		result = caratteristiche.stream().filter(caratteristica -> "QLLAV".equals(caratteristica.getCaratteristicaId())).findAny().get().getOpzioneFromOpzioneList("N");
+		result = caratteristiche.stream().filter(caratteristica -> "QLLAV".equals(caratteristica.getCaratteristica())).findAny().get().getOpzioneFromOpzioneList("N");
 		return RuleState.BREAK;
 	}
 

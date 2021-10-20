@@ -31,7 +31,7 @@ public class RuleSLCNMAX_20 extends RuleSLCNMAX_10{
 	public boolean when()
 	{
 		return !super.when()
-			&& (getHPallet() < Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "SCLNMAX".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione()));
+			&& (getHPallet() < Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "SCLNMAX".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione()));
 	}
 
 	@Then
@@ -44,9 +44,9 @@ public class RuleSLCNMAX_20 extends RuleSLCNMAX_10{
 	private double getHPallet()
 	{
 		double hImballi = 0;
-		hImballi = ((Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione()) / 10000) * (Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione()) / 10000));
-		hImballi = (ReadDB.getQitmFromPackageDefinition(caratteristiche.stream().filter(caratteristica -> "SLDEFIMB".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione()) / (hImballi * getPesoSpec()));
-		hImballi = Math.round((hImballi*1000000)/Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLSPESS".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione()));
+		hImballi = ((Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione()) / 10000) * (Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione()) / 10000));
+		hImballi = (ReadDB.getQitmFromPackageDefinition(caratteristiche.stream().filter(caratteristica -> "SLDEFIMB".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione()) / (hImballi * getPesoSpec()));
+		hImballi = Math.round((hImballi*1000000)/Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLSPESS".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione()));
 		return hImballi;
 	}
 	

@@ -32,8 +32,8 @@ public class RuleBA12_18 extends it.profilglass.constraint.bav.attivita.subrules
 			&& caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSPESS().intValue() >= 1500
 																				&& caratteristica.getCLSPESS().intValue() < 3000);*/
 		return super.when()
-			&& (Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLSPESS".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione()) >= 1500)
-			&& (Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLSPESS".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione()) < 3000);
+			&& (Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLSPESS".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione()) >= 1500)
+			&& (Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLSPESS".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione()) < 3000);
 	}
 
 	@Then

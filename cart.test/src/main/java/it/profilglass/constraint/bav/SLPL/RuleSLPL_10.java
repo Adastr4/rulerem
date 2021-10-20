@@ -20,18 +20,18 @@ public class RuleSLPL_10 {
 	private List<Caratteristica> caratteristiche;
 
 	@Result
-	private Opzione result = caratteristiche.stream().filter(caratteristica -> "SLPL".equals(caratteristica.getCaratteristicaId())).findAny().get().getOpzioneFromOpzioneList("30");
+	private Opzione result = caratteristiche.stream().filter(caratteristica -> "SLPL".equals(caratteristica.getCaratteristica())).findAny().get().getOpzioneFromOpzioneList("30");
 
 	@When
 	public boolean when()
 	{
-		return ReadDB.getDatsFromAttributiBP(caratteristiche.stream().filter(caratteristica -> "SLBP".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione(), "PLBA").equalsIgnoreCase("Ottima");
+		return ReadDB.getDatsFromAttributiBP(caratteristiche.stream().filter(caratteristica -> "SLBP".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione(), "PLBA").equalsIgnoreCase("Ottima");
 	}
 
 	@Then
 	public RuleState then()
 	{
-		result = caratteristiche.stream().filter(caratteristica -> "SLPL".equals(caratteristica.getCaratteristicaId())).findAny().get().getOpzioneFromOpzioneList("10");
+		result = caratteristiche.stream().filter(caratteristica -> "SLPL".equals(caratteristica.getCaratteristica())).findAny().get().getOpzioneFromOpzioneList("10");
 		return RuleState.BREAK;
 	}
 }

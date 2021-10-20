@@ -23,7 +23,7 @@ public class RuleMLSTATF_10 {
 	@When
 	public boolean when()
 	{
-		return !caratteristiche.stream().filter(caratteristica -> "SLBP".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("000000"); //Da implementare quando diverranno effettive le nuove regole da applicare
+		return !caratteristiche.stream().filter(caratteristica -> "SLBP".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("000000"); //Da implementare quando diverranno effettive le nuove regole da applicare
 	}
 
 	@Then

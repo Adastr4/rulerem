@@ -29,14 +29,14 @@ public class RuleSLMOD_1 {
 	public boolean when()
 	{
 		//return caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getSBATIPO() == 2); //Da implementare quando diverranno effettive le nuove regole da applicare
-		return Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "SBATIPO".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione()) == 2;
+		return Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "SBATIPO".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione()) == 2;
 	}
 
 	@Then
 	public RuleState then()
 	{
 		//result = "BA";
-		result = caratteristiche.stream().filter(caratteristica -> "SLMOD".equals(caratteristica.getCaratteristicaId())).findAny().get().getOpzioneFromOpzioneList("BA");
+		result = caratteristiche.stream().filter(caratteristica -> "SLMOD".equals(caratteristica.getCaratteristica())).findAny().get().getOpzioneFromOpzioneList("BA");
 		return RuleState.NEXT;
 	}
 }

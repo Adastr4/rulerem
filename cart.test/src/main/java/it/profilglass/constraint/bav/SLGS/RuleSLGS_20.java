@@ -25,13 +25,13 @@ public class RuleSLGS_20 {
 	@When
 	public boolean when()
 	{
-		return ReadDB.getDatsFromAttributiBP(caratteristiche.stream().filter(caratteristica -> "SLBP".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione(), "GSBA").equalsIgnoreCase("Base");
+		return ReadDB.getDatsFromAttributiBP(caratteristiche.stream().filter(caratteristica -> "SLBP".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione(), "GSBA").equalsIgnoreCase("Base");
 	}
 
 	@Then
 	public RuleState then()
 	{
-		result = caratteristiche.stream().filter(caratteristica -> "SLGS".equals(caratteristica.getCaratteristicaId())).findAny().get().getOpzioneFromOpzioneList("30");
+		result = caratteristiche.stream().filter(caratteristica -> "SLGS".equals(caratteristica.getCaratteristica())).findAny().get().getOpzioneFromOpzioneList("30");
 		return RuleState.BREAK;
 	}
 }

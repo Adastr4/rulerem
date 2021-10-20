@@ -24,13 +24,13 @@ public class RuleSLCPCL_20 {
 	@When
 	public boolean when()
 	{
-		return caratteristiche.stream().filter(caratteristica -> "CLLEGA".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("5O");
+		return caratteristiche.stream().filter(caratteristica -> "CLLEGA".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("5O");
 	}
 
 	@Then
 	public RuleState then()
 	{
-		result = caratteristiche.stream().filter(caratteristica -> "SLCPCL".equals(caratteristica.getCaratteristicaId())).findAny().get().getOpzioneFromOpzioneList("MF");
+		result = caratteristiche.stream().filter(caratteristica -> "SLCPCL".equals(caratteristica.getCaratteristica())).findAny().get().getOpzioneFromOpzioneList("MF");
 		return RuleState.BREAK;
 	}
 }

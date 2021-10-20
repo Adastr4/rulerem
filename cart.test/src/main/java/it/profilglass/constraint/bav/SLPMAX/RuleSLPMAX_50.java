@@ -29,14 +29,14 @@ public class RuleSLPMAX_50 {
 	@When
 	public boolean when()
 	{
-		return caratteristiche.stream().filter(caratteristica -> "SLTMAX".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione() != "3"
-			&& caratteristiche.stream().filter(caratteristica -> "SLTMAX".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione() != "";
+		return caratteristiche.stream().filter(caratteristica -> "SLTMAX".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione() != "3"
+			&& caratteristiche.stream().filter(caratteristica -> "SLTMAX".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione() != "";
 	}
 
 	@Then
 	public RuleState then()
 	{
-		result = caratteristiche.stream().filter(caratteristica -> "SLCPMAX".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue();
+		result = caratteristiche.stream().filter(caratteristica -> "SLCPMAX".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue();
 		return RuleState.BREAK;
 	}
 

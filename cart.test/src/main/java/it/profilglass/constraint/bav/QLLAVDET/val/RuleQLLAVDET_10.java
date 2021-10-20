@@ -24,7 +24,7 @@ public class RuleQLLAVDET_10 extends it.profilglass.constraint.bav.QLLAVDET.sub1
 	public boolean when()
 	{
 		return super.when()
-			&& caratteristiche.stream().filter(caratteristica -> "QLLAVDET".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().substring(1,2).equalsIgnoreCase("0");
+			&& caratteristiche.stream().filter(caratteristica -> "QLLAVDET".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().substring(1,2).equalsIgnoreCase("0");
 
 	}
 

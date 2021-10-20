@@ -18,7 +18,7 @@ public class RuleCLFINI_0 {
 	public boolean when()
 	{
 		//return !caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLASSE().equalsIgnoreCase("EDT"));
-		return !caratteristiche.stream().filter(caratteristica -> "SCAP".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getDescrizione().equalsIgnoreCase("EDT");
+		return !caratteristiche.stream().filter(caratteristica -> "SCAP".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getDescrizione().equalsIgnoreCase("EDT");
 		//return true;
 	}
 }

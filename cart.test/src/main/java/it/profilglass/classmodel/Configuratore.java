@@ -49,7 +49,7 @@ public abstract class Configuratore {
 	{
 		for(Caratteristica cara : this.caratteristiche)
 		{
-			if(cara.getCaratteristicaId().equalsIgnoreCase(Id))
+			if(cara.getCaratteristica().equalsIgnoreCase(Id))
 			{
 				return cara;
 			}

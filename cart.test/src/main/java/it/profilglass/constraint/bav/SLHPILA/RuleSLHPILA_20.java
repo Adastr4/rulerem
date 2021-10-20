@@ -24,7 +24,7 @@ public class RuleSLHPILA_20 {
 	@When
 	public boolean when()
 	{
-		return Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "SBATIPO".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione()) == 2;
+		return Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "SBATIPO".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione()) == 2;
 			   
 	}
 	
@@ -32,7 +32,7 @@ public class RuleSLHPILA_20 {
 	public RuleState then()
 	{
 		//Aggiungo il primo livello di distinta (nodo);
-		result = caratteristiche.stream().filter(caratteristica -> "SBLDEFIMB".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue();
+		result = caratteristiche.stream().filter(caratteristica -> "SBLDEFIMB".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue();
 		return RuleState.BREAK;
 	}
 

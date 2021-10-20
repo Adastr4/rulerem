@@ -29,7 +29,7 @@ public class RuleDLLATOLP_1 {
 	public boolean when()
 	{
 		//return caratteristica.getSLTOLLA().equalsIgnoreCase("P"); //Da implementare quando diverranno effettive le nuove regole da applicare
-		return caratteristiche.stream().filter(caratteristica -> "SLTOLLA".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("P");
+		return caratteristiche.stream().filter(caratteristica -> "SLTOLLA".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("P");
 	}
 
 	@Then

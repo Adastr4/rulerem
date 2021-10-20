@@ -30,7 +30,7 @@ public class RuleDLLUBRI_10 {
 	@Then
 	public RuleState then()
 	{
-		result = caratteristiche.stream().filter(caratteristica -> "DLLUBRI".equals(caratteristica.getCaratteristicaId())).findAny().get().getOpzioneFromOpzioneList("N");
+		result = caratteristiche.stream().filter(caratteristica -> "DLLUBRI".equals(caratteristica.getCaratteristica())).findAny().get().getOpzioneFromOpzioneList("N");
 		return RuleState.BREAK;
 	}
 }

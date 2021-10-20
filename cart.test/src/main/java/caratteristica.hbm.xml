@@ -1,0 +1,15 @@
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 5.3//EN"  
+ "http://hibernate.sourceforge.net/hibernate-mapping-5.3.dtd">
+ <hibernate-mapping>
+  <class name="it.profilglass.classmodel.Caratteristica" table="conf_caratteristiche">
+    <composite-id>
+    	<key-property name="item" column="Item" />
+    	<key-property name="caratteristica" column="Caratteristica" />
+    	<key-property name="sequenza" column="Sequenza" />
+    </composite-id>
+    <property name="Descrizione"></property>
+    <property name="DataInizioValidita"></property>
+    <property name="DataFineValidita"></property>
+  </class>           
+ </hibernate-mapping> 

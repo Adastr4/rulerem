@@ -26,12 +26,12 @@ public class RuleSBADEFIMB_10 {
 		/*return caratteristiche.stream().anyMatch(caratteristica -> Integer.parseInt(caratteristica.getCLLARG()) <= 10000 &&
 																   Integer.parseInt(caratteristica.getCLLUNG()) <= 10000 &&
 																   caratteristica.getSBATIPO() != 2);*/
-		return !(	(  caratteristiche.stream().filter(caratteristica -> "SLTIPOPAL".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().substring(0,1).equalsIgnoreCase("X")
-					&& caratteristiche.stream().filter(caratteristica -> "SBADEFIMB".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().substring(0,1).equalsIgnoreCase("N")
+		return !(	(  caratteristiche.stream().filter(caratteristica -> "SLTIPOPAL".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().substring(0,1).equalsIgnoreCase("X")
+					&& caratteristiche.stream().filter(caratteristica -> "SBADEFIMB".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().substring(0,1).equalsIgnoreCase("N")
 			        )
 					|| 
-					(  !caratteristiche.stream().filter(caratteristica -> "SLTIPOPAL".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().substring(0,1).equalsIgnoreCase("X")
-					&& caratteristiche.stream().filter(caratteristica -> "SBADEFIMB".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().substring(0,1).equalsIgnoreCase("F")
+					(  !caratteristiche.stream().filter(caratteristica -> "SLTIPOPAL".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().substring(0,1).equalsIgnoreCase("X")
+					&& caratteristiche.stream().filter(caratteristica -> "SBADEFIMB".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().substring(0,1).equalsIgnoreCase("F")
 					)
 				);
 	}

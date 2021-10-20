@@ -29,7 +29,7 @@ public class ConfiguratoreBAV extends Configuratore {
 	{
 		try
 		{
-			RuleBookRunner ruleBook = new RuleBookRunner("it.profilglass.constraint.bav." + this.caratteristiche.get(index).getCaratteristicaId().toUpperCase() + ".val");
+			RuleBookRunner ruleBook = new RuleBookRunner("it.profilglass.constraint.bav." + this.caratteristiche.get(index).getCaratteristica().toUpperCase() + ".val");
 			NameValueReferableMap<Caratteristica> facts = new FactMap<>();
 			for(Caratteristica cara : this.caratteristiche)
 				facts.put(new Fact<>(cara));
@@ -45,7 +45,7 @@ public class ConfiguratoreBAV extends Configuratore {
 		}
 		catch(Exception ex)
 		{
-			System.out.println("No Validation Rule defined for caratteristica: " + this.caratteristiche.get(index).getCaratteristicaId().toUpperCase() + " !");
+			System.out.println("No Validation Rule defined for caratteristica: " + this.caratteristiche.get(index).getCaratteristica().toUpperCase() + " !");
 			return false;
 		}
 	}
@@ -92,7 +92,7 @@ public class ConfiguratoreBAV extends Configuratore {
 					NameValueReferableMap<Caratteristica> facts = new FactMap<>();
 					for(Caratteristica cara : this.caratteristiche)
 					{
-						if(cara.getCaratteristicaId().equalsIgnoreCase(name))
+						if(cara.getCaratteristica().equalsIgnoreCase(name))
 							cara.setSelectedValue(opz);
 						facts.put(new Fact<>(cara));
 					}
@@ -117,7 +117,7 @@ public class ConfiguratoreBAV extends Configuratore {
 					NameValueReferableMap<Caratteristica> facts = new FactMap<>();
 					this.caratteristiche.parallelStream().forEach((cara) ->
 					{
-						if(cara.getCaratteristicaId().equalsIgnoreCase(name))
+						if(cara.getCaratteristica().equalsIgnoreCase(name))
 							cara.setSelectedValue(opz);
 						facts.put(new Fact<>(cara));
 					});
@@ -156,7 +156,7 @@ public class ConfiguratoreBAV extends Configuratore {
 	{
 		try
 		{
-			RuleBookRunner ruleBook = new RuleBookRunner("it.profilglass.constraint.bav." + this.caratteristiche.get(index).getCaratteristicaId().toUpperCase() + ".dis");
+			RuleBookRunner ruleBook = new RuleBookRunner("it.profilglass.constraint.bav." + this.caratteristiche.get(index).getCaratteristica().toUpperCase() + ".dis");
 			NameValueReferableMap<Caratteristica> facts = new FactMap<>();
 			for(Caratteristica cara : this.caratteristiche)
 				facts.put(new Fact<>(cara));
@@ -172,7 +172,7 @@ public class ConfiguratoreBAV extends Configuratore {
 		}
 		catch(Exception ex)
 		{
-			System.out.println("No Visualization Rule defined for caratteristica: " + this.caratteristiche.get(index).getCaratteristicaId().toUpperCase() + " !");
+			System.out.println("No Visualization Rule defined for caratteristica: " + this.caratteristiche.get(index).getCaratteristica().toUpperCase() + " !");
 			return true;
 		}
 	}
@@ -208,7 +208,7 @@ public class ConfiguratoreBAV extends Configuratore {
 	{
 		try
 		{
-			RuleBookRunner ruleBook = new RuleBookRunner("it.profilglass.constraint.bav." + this.caratteristiche.get(index).getCaratteristicaId().toUpperCase() + ".in");
+			RuleBookRunner ruleBook = new RuleBookRunner("it.profilglass.constraint.bav." + this.caratteristiche.get(index).getCaratteristica().toUpperCase() + ".in");
 			NameValueReferableMap<Caratteristica> facts = new FactMap<>();
 			for(Caratteristica cara : this.caratteristiche)
 				facts.put(new Fact<>(cara));
@@ -224,7 +224,7 @@ public class ConfiguratoreBAV extends Configuratore {
 		}
 		catch(Exception ex)
 		{
-			System.out.println("No Input Rule defined for caratteristica: " + this.caratteristiche.get(index).getCaratteristicaId().toUpperCase() + " !");
+			System.out.println("No Input Rule defined for caratteristica: " + this.caratteristiche.get(index).getCaratteristica().toUpperCase() + " !");
 			return true;
 		}
 	}
@@ -260,7 +260,7 @@ public class ConfiguratoreBAV extends Configuratore {
 	{
 		try
 		{
-			RuleBookRunner ruleBook = new RuleBookRunner("it.profilglass.constraint.bav." + this.caratteristiche.get(index).getCaratteristicaId().toUpperCase());
+			RuleBookRunner ruleBook = new RuleBookRunner("it.profilglass.constraint.bav." + this.caratteristiche.get(index).getCaratteristica().toUpperCase());
 			NameValueReferableMap<Caratteristica> facts = new FactMap<>();
 			for(Caratteristica cara : this.caratteristiche)
 				facts.put(new Fact<>(cara));
@@ -277,7 +277,7 @@ public class ConfiguratoreBAV extends Configuratore {
 		}
 		catch(Exception ex)
 		{
-			System.out.println("No Default Rule defined for caratteristica: " + this.caratteristiche.get(index).getCaratteristicaId().toUpperCase().toUpperCase() + " !");
+			System.out.println("No Default Rule defined for caratteristica: " + this.caratteristiche.get(index).getCaratteristica().toUpperCase().toUpperCase() + " !");
 			return false;
 		}
 	}

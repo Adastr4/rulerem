@@ -24,8 +24,8 @@ public class RuleSLTMAX_10 {
 	@When
 	public boolean when()
 	{
-		return Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "SBATIPO".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione()) == 1
-			|| Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "SBATIPO".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione()) == 2;
+		return Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "SBATIPO".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione()) == 1
+			|| Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "SBATIPO".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione()) == 2;
 			   
 	}
 	
@@ -33,7 +33,7 @@ public class RuleSLTMAX_10 {
 	public RuleState then()
 	{
 		//result = 1;
-		result = caratteristiche.stream().filter(caratteristica -> "SLTMAX".equals(caratteristica.getCaratteristicaId())).findAny().get().getOpzioneFromOpzioneList("1");
+		result = caratteristiche.stream().filter(caratteristica -> "SLTMAX".equals(caratteristica.getCaratteristica())).findAny().get().getOpzioneFromOpzioneList("1");
 		return RuleState.BREAK;
 	}
 

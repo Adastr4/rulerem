@@ -31,7 +31,7 @@ public class RuleSCAP_10 {
 	public RuleState then()
 	{
 		//Aggiungo il primo livello di distinta (nodo);
-		result = caratteristiche.stream().filter(caratteristica -> "SCAP".equals(caratteristica.getCaratteristicaId())).findAny().get().getOpzioneFromOpzioneList("N00");
+		result = caratteristiche.stream().filter(caratteristica -> "SCAP".equals(caratteristica.getCaratteristica())).findAny().get().getOpzioneFromOpzioneList("N00");
 		return RuleState.BREAK;
 	}
 

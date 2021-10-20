@@ -35,32 +35,32 @@ public class RuleCLLARG_2 {
 																|| (Integer.parseInt(caratteristica.getCLLARG()) > 10000 && Integer.parseInt(caratteristica.getCLLARG()) <= 12500 && caratteristica.getSLLATOLP().substring(1, 2).equalsIgnoreCase("f"))
 																|| (Integer.parseInt(caratteristica.getCLLARG()) > 12500 && Integer.parseInt(caratteristica.getCLLARG()) <= 16500 && caratteristica.getSLLATOLP().substring(1, 2).equalsIgnoreCase("g"))
 												)));*/
-		return ((   Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione()) <= 1000 
-				&& caratteristiche.stream().filter(caratteristica -> "SLLATOLP".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().substring(1,2).equalsIgnoreCase("a")
+		return ((   Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione()) <= 1000 
+				&& caratteristiche.stream().filter(caratteristica -> "SLLATOLP".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().substring(1,2).equalsIgnoreCase("a")
 			   )
-			|| (   Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione()) > 1000 
-				&& Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione()) <= 3000 
-				&& caratteristiche.stream().filter(caratteristica -> "SLLATOLP".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().substring(1,2).equalsIgnoreCase("b")
+			|| (   Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione()) > 1000 
+				&& Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione()) <= 3000 
+				&& caratteristiche.stream().filter(caratteristica -> "SLLATOLP".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().substring(1,2).equalsIgnoreCase("b")
 			   )
-			|| (   Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione()) > 3000 
-				&& Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione()) <= 5000 
-				&& caratteristiche.stream().filter(caratteristica -> "SLLATOLP".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().substring(1,2).equalsIgnoreCase("c")
+			|| (   Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione()) > 3000 
+				&& Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione()) <= 5000 
+				&& caratteristiche.stream().filter(caratteristica -> "SLLATOLP".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().substring(1,2).equalsIgnoreCase("c")
 			   )
-			|| (   Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione()) > 5000 
-				&& Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione()) <= 9000 
-				&& caratteristiche.stream().filter(caratteristica -> "SLLATOLP".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().substring(1,2).equalsIgnoreCase("d")
+			|| (   Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione()) > 5000 
+				&& Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione()) <= 9000 
+				&& caratteristiche.stream().filter(caratteristica -> "SLLATOLP".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().substring(1,2).equalsIgnoreCase("d")
 			   )
-			|| (   Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione()) > 9000 
-				&& Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione()) <= 10000 
-				&& caratteristiche.stream().filter(caratteristica -> "SLLATOLP".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().substring(1,2).equalsIgnoreCase("e")
+			|| (   Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione()) > 9000 
+				&& Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione()) <= 10000 
+				&& caratteristiche.stream().filter(caratteristica -> "SLLATOLP".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().substring(1,2).equalsIgnoreCase("e")
 			   )
-			|| (   Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione()) > 10000 
-				&& Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione()) <= 12500 
-				&& caratteristiche.stream().filter(caratteristica -> "SLLATOLP".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().substring(1,2).equalsIgnoreCase("f")
+			|| (   Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione()) > 10000 
+				&& Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione()) <= 12500 
+				&& caratteristiche.stream().filter(caratteristica -> "SLLATOLP".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().substring(1,2).equalsIgnoreCase("f")
 				)
-			|| (   Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione()) > 12500 
-				&& Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione()) <= 16500 
-				&& caratteristiche.stream().filter(caratteristica -> "SLLATOLP".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().substring(1,2).equalsIgnoreCase("g")
+			|| (   Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione()) > 12500 
+				&& Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione()) <= 16500 
+				&& caratteristiche.stream().filter(caratteristica -> "SLLATOLP".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().substring(1,2).equalsIgnoreCase("g")
 			));
 	}
 

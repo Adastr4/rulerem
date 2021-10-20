@@ -22,8 +22,8 @@ public class SubRuleMLSTATF_3D_3T extends it.profilglass.constraint.bav.MLSTATF.
 		/*return (caratteristica.getCLLEGA().equalsIgnoreCase("3D") ||
 				caratteristica.getCLLEGA().equalsIgnoreCase("3T")) && super.when();*/
 		return super.when()
-			   && (		caratteristiche.stream().filter(caratteristica -> "CLLEGA".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("3D")
-					 || caratteristiche.stream().filter(caratteristica -> "CLLEGA".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("3T")
+			   && (		caratteristiche.stream().filter(caratteristica -> "CLLEGA".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("3D")
+					 || caratteristiche.stream().filter(caratteristica -> "CLLEGA".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("3T")
 				  );
 	}
 

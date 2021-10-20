@@ -30,7 +30,7 @@ public class RuleMLSTATF_17_3D_3T extends it.profilglass.constraint.bav.MLSTATF.
 	{
 		//return (caratteristica.getCLSTATF().equalsIgnoreCase("H19")) && super.when();
 		return super.when()
-			&& caratteristiche.stream().filter(caratteristica -> "CLSTATF".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("H19");
+			&& caratteristiche.stream().filter(caratteristica -> "CLSTATF".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("H19");
 	}
 
 	@Then
@@ -38,7 +38,7 @@ public class RuleMLSTATF_17_3D_3T extends it.profilglass.constraint.bav.MLSTATF.
 	{
 		System.out.println("Rule 16 entered");
 		//result = "H29";
-		result = caratteristiche.stream().filter(caratteristica -> "MLSTATF".equals(caratteristica.getCaratteristicaId())).findAny().get().getOpzioneFromOpzioneList("H29");
+		result = caratteristiche.stream().filter(caratteristica -> "MLSTATF".equals(caratteristica.getCaratteristica())).findAny().get().getOpzioneFromOpzioneList("H29");
 		return RuleState.NEXT;
 	}
 }

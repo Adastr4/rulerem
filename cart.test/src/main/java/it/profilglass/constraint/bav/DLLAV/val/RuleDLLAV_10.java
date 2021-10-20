@@ -24,7 +24,7 @@ public class RuleDLLAV_10 {
 	@When
 	public boolean when()
 	{
-		return Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "DLLAV".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getDescrizione()) < Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLSPESS".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione());		   
+		return Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "DLLAV".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getDescrizione()) < Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLSPESS".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione());		   
 	}
 	
 	@Then

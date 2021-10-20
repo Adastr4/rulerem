@@ -37,7 +37,7 @@ public class RuleSLLARG_2 extends RuleSLLARG_1 {
 	public RuleState then()
 	{
 		//result = "99999";
-		result = caratteristiche.stream().filter(caratteristica -> "SLLARG".equals(caratteristica.getCaratteristicaId())).findAny().get().getOpzioneFromOpzioneList("99999");
+		result = caratteristiche.stream().filter(caratteristica -> "SLLARG".equals(caratteristica.getCaratteristica())).findAny().get().getOpzioneFromOpzioneList("99999");
 		return RuleState.BREAK;
 	}
 }

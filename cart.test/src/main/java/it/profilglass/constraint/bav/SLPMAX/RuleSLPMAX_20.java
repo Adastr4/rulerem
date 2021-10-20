@@ -29,10 +29,10 @@ public class RuleSLPMAX_20 {
 	@When
 	public boolean when()
 	{
-		return Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "SLTMAX".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione()) == 2
-			&& !(   caratteristiche.stream().filter(caratteristica -> "CLFINI".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("K")
-				|| caratteristiche.stream().filter(caratteristica -> "CLFINI".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("Q")
-				|| caratteristiche.stream().filter(caratteristica -> "CLFINI".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("W")
+		return Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "SLTMAX".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione()) == 2
+			&& !(   caratteristiche.stream().filter(caratteristica -> "CLFINI".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("K")
+				|| caratteristiche.stream().filter(caratteristica -> "CLFINI".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("Q")
+				|| caratteristiche.stream().filter(caratteristica -> "CLFINI".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("W")
 			   );
 	}
 
@@ -59,8 +59,8 @@ public class RuleSLPMAX_20 {
 		{
 			hPallet = 0;
 		}
-		qtaCalc = (Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione())/10000) * (Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLUNG".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione())/10000);
-		qtaCalc = qtaCalc * ((Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "SLCHMAX".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione())-hPallet)/1000) * getPesoSpec();
+		qtaCalc = (Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione())/10000) * (Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLUNG".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione())/10000);
+		qtaCalc = qtaCalc * ((Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "SLCHMAX".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione())-hPallet)/1000) * getPesoSpec();
 		qtaCalc = Math.round(qtaCalc);
 		
 		result = new Opzione(String.valueOf(qtaCalc));

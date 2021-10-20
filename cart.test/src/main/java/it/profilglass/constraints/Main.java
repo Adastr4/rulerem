@@ -64,9 +64,8 @@ public class Main {
 		//printDistinta(RunDistintaNew(item).get(0));
 		//printDistinta(distintaDefault().get(0));
 		//printOpzione(opz);
-		DataManagement dm = new DataManagement();
 		//dm.insertCentroLavoro("TEST", "TEST");
-		dm.readAttivitaById("AC1");
+		DataManagement.readCaratteristicaByIdAndItem("BA", "CLFINI");
 	}
 	
 	private static void withLoopCLLARGSTOLLACLSPESSNew() {

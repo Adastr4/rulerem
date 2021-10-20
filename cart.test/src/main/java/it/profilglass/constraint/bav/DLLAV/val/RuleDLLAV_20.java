@@ -24,9 +24,9 @@ public class RuleDLLAV_20 {
 	@When
 	public boolean when()
 	{
-		return Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "DLLAV".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getDescrizione()) == 9999 
-			&& !(   caratteristiche.stream().filter(caratteristica -> "CLFINI".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("D")
-				|| caratteristiche.stream().filter(caratteristica -> "CLFINI".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("S")
+		return Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "DLLAV".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getDescrizione()) == 9999 
+			&& !(   caratteristiche.stream().filter(caratteristica -> "CLFINI".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("D")
+				|| caratteristiche.stream().filter(caratteristica -> "CLFINI".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("S")
 				);		   
 	}
 	

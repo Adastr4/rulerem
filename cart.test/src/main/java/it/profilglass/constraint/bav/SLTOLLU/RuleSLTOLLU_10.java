@@ -30,7 +30,7 @@ public class RuleSLTOLLU_10 {
 	@Then
 	public RuleState then()
 	{
-		result = caratteristiche.stream().filter(caratteristica -> "SLTOLLU".equals(caratteristica.getCaratteristicaId())).findAny().get().getOpzioneFromOpzioneList("P");
+		result = caratteristiche.stream().filter(caratteristica -> "SLTOLLU".equals(caratteristica.getCaratteristica())).findAny().get().getOpzioneFromOpzioneList("P");
 		return RuleState.BREAK;
 	}
 }

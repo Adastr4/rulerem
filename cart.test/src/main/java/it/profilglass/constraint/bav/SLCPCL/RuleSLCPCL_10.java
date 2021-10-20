@@ -19,19 +19,19 @@ public class RuleSLCPCL_10 {
 	private List<Caratteristica> caratteristiche;
 
 	@Result
-	private Opzione result = caratteristiche.stream().filter(caratteristica -> "CLFINI".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue();
+	private Opzione result = caratteristiche.stream().filter(caratteristica -> "CLFINI".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue();
 
 	@When
 	public boolean when()
 	{
-		return caratteristiche.stream().filter(caratteristica -> "CLLEGA".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("5Z")
-			|| caratteristiche.stream().filter(caratteristica -> "CLLEGA".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("3O");
+		return caratteristiche.stream().filter(caratteristica -> "CLLEGA".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("5Z")
+			|| caratteristiche.stream().filter(caratteristica -> "CLLEGA".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("3O");
 	}
 
 	@Then
 	public RuleState then()
 	{
-		result = caratteristiche.stream().filter(caratteristica -> "SLCPCL".equals(caratteristica.getCaratteristicaId())).findAny().get().getOpzioneFromOpzioneList("AR");
+		result = caratteristiche.stream().filter(caratteristica -> "SLCPCL".equals(caratteristica.getCaratteristica())).findAny().get().getOpzioneFromOpzioneList("AR");
 		return RuleState.BREAK;
 	}
 }

@@ -21,7 +21,7 @@ public class SubRuleMLSTATF_2 extends SubRuleMLSTATF_1 {
 		/*return super.when() && caratteristica.getDLDEST().substring(0, 3).equalsIgnoreCase("PEN") &&
 							   caratteristica.getCLSTATF().toString().equalsIgnoreCase("H00");*/
 		return super.when()
-			&& caratteristiche.stream().filter(caratteristica -> "DLDEST".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().substring(0, 3).equalsIgnoreCase("PEN")
-			&& caratteristiche.stream().filter(caratteristica -> "CLSTATF".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("H00");
+			&& caratteristiche.stream().filter(caratteristica -> "DLDEST".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().substring(0, 3).equalsIgnoreCase("PEN")
+			&& caratteristiche.stream().filter(caratteristica -> "CLSTATF".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("H00");
 	}																
 }

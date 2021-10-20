@@ -29,8 +29,8 @@ public class RuleSLPMAX_70 {
 	@When
 	public boolean when()
 	{
-		return caratteristiche.stream().filter(caratteristica -> "SLTMAX".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione() == ""
-			&& Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "SLPMAX".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione()) <= 0;
+		return caratteristiche.stream().filter(caratteristica -> "SLTMAX".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione() == ""
+			&& Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "SLPMAX".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione()) <= 0;
 	}
 
 	@Then

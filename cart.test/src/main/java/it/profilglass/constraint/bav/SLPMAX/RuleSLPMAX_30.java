@@ -29,15 +29,15 @@ public class RuleSLPMAX_30 {
 	@When
 	public boolean when()
 	{
-		return Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "SLTMAX".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione()) == 3;
+		return Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "SLTMAX".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione()) == 3;
 	}
 
 	@Then
 	public RuleState then()
 	{
 		double qtaCalc = 0;
-		qtaCalc = (Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione())/10000) * (Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLUNG".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione())/10000);
-		qtaCalc = qtaCalc * ((Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "SLCHMAX".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione()) - Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLSPESS".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione())/1000000)) * getPesoSpec();
+		qtaCalc = (Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione())/10000) * (Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLLUNG".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione())/10000);
+		qtaCalc = qtaCalc * ((Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "SLCHMAX".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione()) - Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "CLSPESS".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione())/1000000)) * getPesoSpec();
 		qtaCalc = Math.round(qtaCalc);
 		
 		result = new Opzione(String.valueOf(qtaCalc));

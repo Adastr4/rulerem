@@ -34,7 +34,7 @@ public class ruleSLBP_2 {
 	public RuleState then()
 	{
 		//result = "000000";
-		result = caratteristiche.stream().filter(caratteristica -> "SLBP".equals(caratteristica.getCaratteristicaId())).findAny().get().getOpzioneFromOpzioneList("000000");
+		result = caratteristiche.stream().filter(caratteristica -> "SLBP".equals(caratteristica.getCaratteristica())).findAny().get().getOpzioneFromOpzioneList("000000");
 		return RuleState.BREAK;
 	}
 

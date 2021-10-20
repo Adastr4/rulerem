@@ -29,7 +29,7 @@ public class ruleSLBP_1 {
 	public boolean when()
 	{
 		//return ReadDB.getSLBPSpecial(caratteristica.getSLBPTE().toString(), "BAV"); //Da implementare quando diverr� effettivo il legame tra la lega ed il codice ARTICOLO da configurare
-		return ReadDB.getSLBPSpecial(caratteristiche.stream().filter(caratteristica -> "SLBPTE".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().toString(), "BAV");
+		return ReadDB.getSLBPSpecial(caratteristiche.stream().filter(caratteristica -> "SLBPTE".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().toString(), "BAV");
 	}
 
 	@Then
@@ -37,7 +37,7 @@ public class ruleSLBP_1 {
 	{
 		//result = caratteristica.getSLBPTE().toString();
 		//result = caratteristiche.stream().filter(caratteristica -> "SLBPTE".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().toString();
-		result = caratteristiche.stream().filter(caratteristica -> "SLBPTE".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue();
+		result = caratteristiche.stream().filter(caratteristica -> "SLBPTE".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue();
 		return RuleState.BREAK;
 	}
 

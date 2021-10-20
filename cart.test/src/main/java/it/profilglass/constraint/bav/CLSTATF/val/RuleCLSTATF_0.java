@@ -28,9 +28,9 @@ public class RuleCLSTATF_0 {
 		/*return caratteristiche.stream().anyMatch(caratteristica -> caratteristica.getCLSTATF().substring(0,3).equalsIgnoreCase("T04") ||
 																   caratteristica.getCLSTATF().substring(0,3).equalsIgnoreCase("T06") ||
 																   caratteristica.getCLSTATF().substring(0,3).equalsIgnoreCase("T4P"));*/
-		return caratteristiche.stream().filter(caratteristica -> "CLSTATF".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().substring(0,3).equalsIgnoreCase("T04")
-			|| caratteristiche.stream().filter(caratteristica -> "CLSTATF".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().substring(0,3).equalsIgnoreCase("T06")
-			|| caratteristiche.stream().filter(caratteristica -> "CLSTATF".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().substring(0,3).equalsIgnoreCase("T4P");
+		return caratteristiche.stream().filter(caratteristica -> "CLSTATF".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().substring(0,3).equalsIgnoreCase("T04")
+			|| caratteristiche.stream().filter(caratteristica -> "CLSTATF".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().substring(0,3).equalsIgnoreCase("T06")
+			|| caratteristiche.stream().filter(caratteristica -> "CLSTATF".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().substring(0,3).equalsIgnoreCase("T4P");
 	}
 
 	@Then

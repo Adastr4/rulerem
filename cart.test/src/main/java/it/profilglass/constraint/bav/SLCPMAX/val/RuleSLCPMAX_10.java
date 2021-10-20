@@ -23,8 +23,8 @@ public class RuleSLCPMAX_10 {
 	{
 		
 		//return (caratteristica.getSBATIPO() != 1 && caratteristica.getSBATIPO() != 2 && caratteristica.getSLTMAX() == 2);
-		return Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "SLCPMAX".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione()) > 0
-			&& Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "SLCPMAX".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione()) > ReadDB.getQitmFromPackageDefinition(caratteristiche.stream().filter(caratteristica -> "SLDEFIMB".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione());
+		return Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "SLCPMAX".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione()) > 0
+			&& Integer.parseInt(caratteristiche.stream().filter(caratteristica -> "SLCPMAX".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione()) > ReadDB.getQitmFromPackageDefinition(caratteristiche.stream().filter(caratteristica -> "SLDEFIMB".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione());
 	}
 
 	@Then

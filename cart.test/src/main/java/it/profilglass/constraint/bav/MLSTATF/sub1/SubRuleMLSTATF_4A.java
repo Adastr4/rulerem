@@ -19,6 +19,6 @@ public class SubRuleMLSTATF_4A {
 	public boolean when()
 	{
 		//return caratteristica.getCLLEGA().substring(0,1).equalsIgnoreCase("4A");
-		return caratteristiche.stream().filter(caratteristica -> "CLLEGA".equals(caratteristica.getCaratteristicaId())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("4A");
+		return caratteristiche.stream().filter(caratteristica -> "CLLEGA".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().equalsIgnoreCase("4A");
 	}
 }
