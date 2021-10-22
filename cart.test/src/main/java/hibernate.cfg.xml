@@ -9,9 +9,20 @@
 	        <property name="hibernate.connection.username">root</property>
 	        <property name="hibernate.connection.password">root</property>
 	        
-	        <mapping resource = "CentroLavoro.hbm.xml"/>
+	        <!--<mapping resource = "CentroLavoro.hbm.xml"/>
 	        <mapping resource = "attivita.hbm.xml"/>
 	        <mapping resource = "opzione.hbm.xml"/>
 	        <mapping resource = "caratteristica.hbm.xml"/>
+	        <mapping resource = "businessPartner.hbm.xml"/>
+	        <mapping resource = "anagraficaArticolo.hbm.xml"/>-->
+	        
+            		<mapping class="it.profilglass.classmodel.CentroLavoro"/>
+            		<mapping class="it.profilglass.classmodel.Attivita"/>
+            		<mapping class="it.profilglass.classmodel.Caratteristica"/>
+            		<mapping class="it.profilglass.classmodel.Opzione"/>
+            		<mapping class="it.profilglass.classmodel.BusinessPartner"/>
+            		<mapping class="it.profilglass.classmodel.Macchina"/>
+            		<mapping class="it.profilglass.orm.AnagraficaArticolo"/>
+            		<mapping class="it.profilglass.orm.AttivitaMacchinaRel"/>
 	    </session-factory>
 	</hibernate-configuration>

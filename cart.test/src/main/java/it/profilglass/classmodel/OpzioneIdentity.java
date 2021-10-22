@@ -2,6 +2,7 @@ package it.profilglass.classmodel;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 import com.sun.istack.NotNull;
@@ -14,12 +15,15 @@ public class OpzioneIdentity implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@NotNull
+	@Column(name="Item", insertable = false, updatable = false)
 	private String item;
 	
 	@NotNull
+	@Column(name="Caratteristica", insertable = false, updatable = false)
 	private String caratteristica;
 	
 	@NotNull
+	@Column(name="Opzione", insertable = false, updatable = false)
 	private String opzione;
 	
 	public OpzioneIdentity()

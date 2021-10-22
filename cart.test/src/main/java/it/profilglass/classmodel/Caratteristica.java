@@ -1,16 +1,30 @@
 package it.profilglass.classmodel;
 
+import javax.persistence.Transient;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.jboss.logging.Property;
+
 import test.test.ReadDB;
 
+@Entity
+@Table(name = "conf_caratteristiche")
 public class Caratteristica implements Serializable {
 	
 	/**
@@ -21,19 +35,20 @@ public class Caratteristica implements Serializable {
 	@EmbeddedId
 	private CaratteristicaIdentity caraIdentity;
 	
-	@Column(name="caratteristica")
+	@Column(name="caratteristica", insertable = false, updatable = false)
 	private String caratteristicaId;
 	
 	@Column(name="Descrizione")
 	private String descrizioneCaratteristica;
 	
-	@Column(name="Sequenza")
+	@Column(name="Sequenza", insertable = false, updatable = false)
 	private int caratteristicaOrder;
 	
-	@Column(name="Item")
+	@Column(name="Item", insertable = false, updatable = false)
 	private String item;
 	
-	private ArrayList<Opzione> valori;
+	@OneToMany(mappedBy="caratteristicaObj", fetch = FetchType.LAZY)
+	private List<Opzione> valori;
 	
 	@Temporal(TemporalType.DATE)
 	@Column(name="DataInizioValidita")
@@ -43,9 +58,13 @@ public class Caratteristica implements Serializable {
 	@Column(name="DataFineValidita")
 	private Date dataFineValidita;
 	
-	
+	@Transient
 	private Opzione selectedValue;
+	
+	@Transient
 	private boolean enabled = false;
+	
+	@Transient
 	private boolean visible = false;
 	
 	public Caratteristica(CaratteristicaIdentity caraIdentity, String caratteristicaId, String descrizioneCaratteristica, int caratteristicaOrder, String item, ArrayList<Opzione> valori, Opzione selectedValue, Date dataInizioValidita, Date dataFineValidita)
@@ -142,11 +161,11 @@ public class Caratteristica implements Serializable {
 	}
 
 
-	public ArrayList<Opzione> getValori() {
+	public List<Opzione> getValori() {
 		return valori;
 	}
 
-	public void setValori(ArrayList<Opzione> valori) {
+	public void setValori(List<Opzione> valori) {
 		this.valori = valori;
 	}
 

@@ -1,6 +1,8 @@
-package it.profilglass.classmodel;
+package it.profilglass.orm;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import org.hibernate.HibernateException;
@@ -13,6 +15,13 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
+
+import it.profilglass.classmodel.Attivita;
+import it.profilglass.classmodel.BusinessPartner;
+import it.profilglass.classmodel.Caratteristica;
+import it.profilglass.classmodel.CentroLavoro;
+import it.profilglass.classmodel.Opzione;
+import it.profilglass.classmodel.OpzioneIdentity;
 
 public class DataManagement {
 	
@@ -438,7 +447,6 @@ public class DataManagement {
 	
 	public static void deleteOpzioneByItemCaratteristica(String item, String caratteristica)
 	{
-		Opzione op = null;
 		SessionFactory factory = meta.getSessionFactoryBuilder().build();
 		Session session = factory.openSession();
 		Transaction t = session.beginTransaction();
@@ -459,5 +467,163 @@ public class DataManagement {
 			factory.close();  
 		    session.close();
 		}
+	}
+	
+	public static BusinessPartner readBusinessPartnerByBPCode(String businessPartner)
+	{
+		BusinessPartner bp = null;
+		SessionFactory factory = meta.getSessionFactoryBuilder().build();
+		Session session = factory.openSession();
+		try {
+			Query<BusinessPartner> query = session.createQuery("from BusinessPartner where businessPartner = :bp");
+			query.setParameter("bp", businessPartner);
+			
+			bp = query.list().get(0);
+			
+		} catch (HibernateException e) {
+			e.printStackTrace();
+		} finally
+		{
+			session.clear();
+			factory.close();  
+		    session.close();
+		}
+		
+		return bp;
+	}
+	
+	public static BusinessPartner createBusinessPartner(String BusinessPartner, String descrizione, Date dataInizioValidita, Date dataFineValidita, int clienteFornitore)
+	{
+		BusinessPartner bp = null;
+		SessionFactory factory = meta.getSessionFactoryBuilder().build();
+		Session session = factory.openSession();
+		Transaction t = session.beginTransaction();
+		try {
+			bp = new BusinessPartner(BusinessPartner,descrizione,dataInizioValidita,dataFineValidita,clienteFornitore);
+			
+			session.save(bp);
+			t.commit();
+			
+		} catch (HibernateException e) {
+			t.rollback();
+			e.printStackTrace();
+		} finally
+		{
+			session.clear();
+			factory.close();  
+		    session.close();
+		}
+		return bp;
+	}
+	
+	public static void updateBusinessPartner(String businessPartner, String descrizione, Date dataInizioValidita, Date dataFineValidita, int clienteFornitore)
+	{
+		SessionFactory factory = meta.getSessionFactoryBuilder().build();
+		Session session = factory.openSession();
+		Transaction t = session.beginTransaction();
+		try {
+			Query<BusinessPartner> query = session.createQuery("update BusinessPartner set Descrizione = :dsc, DataInizioValidita = :dataIn, DataFineValidita = :dataFin, ClienteFornitore = :cliFor where businessPartner = :bp");
+			query.setParameter("bp", businessPartner);
+			query.setParameter("dsc", descrizione);
+			query.setParameter("dataIn", dataInizioValidita);
+			query.setParameter("dataFin", dataFineValidita);
+			query.setParameter("cliFor", clienteFornitore);
+			
+			query.executeUpdate();
+			t.commit();
+			
+		} catch (HibernateException e) {
+			t.rollback();
+			e.printStackTrace();
+		} finally
+		{
+			session.clear();
+			factory.close();  
+		    session.close();
+		}
+	}
+	
+	public static void deleteBusinessPartner(String businessPartner)
+	{
+		SessionFactory factory = meta.getSessionFactoryBuilder().build();
+		Session session = factory.openSession();
+		Transaction t = session.beginTransaction();
+		try {
+			Query<BusinessPartner> query = session.createQuery("delete BusinessPartner where businessPartner = :bp");
+			query.setParameter("bp", businessPartner);
+			
+			query.executeUpdate();
+			t.commit();
+			
+		} catch (HibernateException e) {
+			t.rollback();
+			e.printStackTrace();
+		} finally
+		{
+			session.clear();
+			factory.close();  
+		    session.close();
+		}
+	}
+	
+	public static void testJoin()
+	{
+		List<Opzione> cara = null;
+		SessionFactory factory = meta.getSessionFactoryBuilder().build();
+		Session session = factory.openSession();
+		Transaction t = session.beginTransaction();
+		try {
+			Query<Opzione> query = session.createQuery("FROM Opzione o join o.caratteristicaObj cara where cara.caratteristicaId = :id and cara.item = :it");
+			query.setParameter("id", "CLFINI");
+			query.setParameter("it", "BA");
+			cara = query.getResultList();
+			
+		} catch (HibernateException e) {
+			t.rollback();
+			e.printStackTrace();
+		} finally
+		{
+			session.clear();
+			factory.close();  
+		    session.close();
+		}
+		   
+		     List<Opzione> opzList = cara;
+		     Iterator<Opzione> itrOpz = opzList.iterator();
+		     while(itrOpz.hasNext())
+		     {
+		    	 Opzione opz = itrOpz.next();
+		    	 System.out.println(opz.getOpzione());
+		     } 
+	}
+	
+	public static void testAttivitaMacchina()
+	{
+		List<AttivitaMacchinaRel> cara = null;
+		SessionFactory factory = meta.getSessionFactoryBuilder().build();
+		Session session = factory.openSession();
+		Transaction t = session.beginTransaction();
+		try {
+			Query<AttivitaMacchinaRel> query = session.createQuery("SELECT a.attivitaRef FROM AttivitaMacchinaRel a");
+			//query.setParameter("id", "COLD03");
+			cara = query.getResultList();
+			
+		} catch (HibernateException e) {
+			t.rollback();
+			e.printStackTrace();
+		} finally
+		{
+			session.clear();
+			factory.close();  
+		    session.close();
+		}
+		   
+		     List<AttivitaMacchinaRel> opzList = cara;
+		     Iterator<AttivitaMacchinaRel> itrOpz = opzList.iterator();
+		     while(itrOpz.hasNext())
+		     {
+		    	 AttivitaMacchinaRel opz = itrOpz.next();
+		    	 System.out.println(opz.getIdentity().toString());
+		     } 
 	}
 }

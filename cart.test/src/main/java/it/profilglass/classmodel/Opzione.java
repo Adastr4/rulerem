@@ -2,9 +2,15 @@ package it.profilglass.classmodel;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -18,18 +24,18 @@ public class Opzione implements Comparable<Opzione>, Serializable{
 	@EmbeddedId
 	private OpzioneIdentity opzIdentity;
 	
-	@Column(name="Opzione")
+	@Column(name="Opzione", insertable = false, updatable = false)
 	private String opzione;
 	
 	@Column(name="Descrizione")
 	private String descrizione;
 	
-	@Column(name="Item")
+	@Column(name="Item", insertable = false, updatable = false)
 	private String item;
 	
-	@Column(name="caratteristica")
+	@Column(name="Caratteristica", insertable = false, updatable = false)
 	private String caratteristica;
-	
+
 	private int annulla;
 	
 	@Column(name="Desc_lin1")
@@ -62,6 +68,13 @@ public class Opzione implements Comparable<Opzione>, Serializable{
 	@Column(name="Desc_lin10")
 	private String descLin10;
 	
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumns({
+		@JoinColumn(name="caratteristica", referencedColumnName = "Caratteristica", insertable = false, updatable = false),
+		@JoinColumn(name="item", referencedColumnName = "Item", insertable = false, updatable = false),
+	})
+	private Caratteristica caratteristicaObj;
+
 	public Opzione(OpzioneIdentity opzId, String opzione, String caratteristica, String item, String descrizione, String descLin1, String descLin2, String descLin3, String descLin4, String descLin5, String descLin6, String descLin7, String descLin8, String descLin9, String descLin10, int annulla)
 	{
 		this.opzIdentity = opzId;
@@ -282,5 +295,11 @@ public class Opzione implements Comparable<Opzione>, Serializable{
 		    return getOpzione().compareTo(o.getOpzione());
 	}
 	
-	
+	public Caratteristica getCaratteristicaObj() {
+		return caratteristicaObj;
+	}
+
+	public void setCaratteristicaObj(Caratteristica caratteristicaObj) {
+		this.caratteristicaObj = caratteristicaObj;
+	}
 }

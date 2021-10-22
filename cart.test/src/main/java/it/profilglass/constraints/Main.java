@@ -15,12 +15,12 @@ import com.deliveredtechnologies.rulebook.model.Auditor;
 import com.deliveredtechnologies.rulebook.model.runner.RuleBookRunner;
 
 import it.profilglass.classmodel.ConfiguratoreBAV;
-import it.profilglass.classmodel.DataManagement;
 import it.profilglass.classmodel.Distinta;
 import it.profilglass.classmodel.GenericConfItem;
 import it.profilglass.classmodel.GenericItem;
 import it.profilglass.classmodel.LivelloDistinta;
 import it.profilglass.classmodel.Opzione;
+import it.profilglass.orm.DataManagement;
 import test.test.CaratteristicaBean;
 import test.test.Caratteristiche;
 import test.test.Macchina;
@@ -65,7 +65,7 @@ public class Main {
 		//printDistinta(distintaDefault().get(0));
 		//printOpzione(opz);
 		//dm.insertCentroLavoro("TEST", "TEST");
-		DataManagement.readCaratteristicaByIdAndItem("BA", "CLFINI");
+		DataManagement.testAttivitaMacchina();
 	}
 	
 	private static void withLoopCLLARGSTOLLACLSPESSNew() {

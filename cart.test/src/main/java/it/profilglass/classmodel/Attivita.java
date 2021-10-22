@@ -1,11 +1,20 @@
 package it.profilglass.classmodel;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import it.profilglass.orm.AttivitaMacchinaRel;
 
 @Entity
 @Table(name="conf_attivita")
@@ -17,7 +26,11 @@ public class Attivita {
 	@Column(name="Descrizione")
 	private String descrizioneAttivita;
 	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="IdMacchina")
 	private Macchina macchinaPred;
+	
+	@Transient
 	private String centroLavoroPred;
 	
 	@Column(name="Famiglia")
@@ -29,7 +42,10 @@ public class Attivita {
 	@Column(name="Campione")
 	private int campione;
 	
-	public Attivita(String idAttivita, String descrizioneAttivita, Macchina macchinaPred, String centroLavoroPred, String famiglia, int anima, int campione)
+	@OneToMany(mappedBy="attivitaRef")
+	private List<AttivitaMacchinaRel> attivitaMacchina;
+	
+	public Attivita(String idAttivita, String descrizioneAttivita, Macchina macchinaPred, String centroLavoroPred, String famiglia, int anima, int campione, List<AttivitaMacchinaRel> attivitaMacchina)
 	{
 		this.idAttivita = idAttivita;
 		this.descrizioneAttivita = descrizioneAttivita;
@@ -38,6 +54,7 @@ public class Attivita {
 		this.famiglia = famiglia;
 		this.anima = anima;
 		this.campione = campione;
+		this.attivitaMacchina = attivitaMacchina;
 	}
 	
 	public Attivita(String idAttivita, String descrizioneAttivita, String famiglia, int anima, int campione)
@@ -49,6 +66,7 @@ public class Attivita {
 		this.famiglia = famiglia;
 		this.anima = anima;
 		this.campione = campione;
+		this.attivitaMacchina = null;
 	}
 	
 	public Attivita()
@@ -60,6 +78,7 @@ public class Attivita {
 		this.famiglia = "";
 		this.anima = 0;
 		this.campione = 0;
+		this.attivitaMacchina = null;
 	}
 
 	public String getFamiglia() {
@@ -116,5 +135,29 @@ public class Attivita {
 
 	public void setCentroLavoroPred(String centroLavoroPred) {
 		this.centroLavoroPred = centroLavoroPred;
+	}
+
+	public String getIdAttivita() {
+		return idAttivita;
+	}
+
+	public void setIdAttivita(String idAttivita) {
+		this.idAttivita = idAttivita;
+	}
+
+	public String getDescrizioneAttivita() {
+		return descrizioneAttivita;
+	}
+
+	public void setDescrizioneAttivita(String descrizioneAttivita) {
+		this.descrizioneAttivita = descrizioneAttivita;
+	}
+
+	public List<AttivitaMacchinaRel> getAttivitaMacchina() {
+		return attivitaMacchina;
+	}
+
+	public void setAttivitaMacchina(List<AttivitaMacchinaRel> attivitaMacchina) {
+		this.attivitaMacchina = attivitaMacchina;
 	}
 }
