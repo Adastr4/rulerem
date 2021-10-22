@@ -9,7 +9,7 @@ import javax.persistence.TemporalType;
 
 public class BusinessPartner {
 	@Id
-	@Column(name="businessPartner")
+	@Column(name="businessPartner") 
 	private String businessPartner;
 	
 	@Column(name="Descrizione")
