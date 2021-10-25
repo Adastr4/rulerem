@@ -4,7 +4,11 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "conf_anagrafica_rifilo")
 public class AnagraficaRifilo implements Serializable{
 
 	/**

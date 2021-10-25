@@ -65,7 +65,7 @@ public class Main {
 		//printDistinta(distintaDefault().get(0));
 		//printOpzione(opz);
 		//dm.insertCentroLavoro("TEST", "TEST");
-		DataManagement.testAttivitaMacchina();
+		DataManagement.readMacchinaById("COLD01");
 	}
 	
 	private static void withLoopCLLARGSTOLLACLSPESSNew() {

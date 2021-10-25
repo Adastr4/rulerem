@@ -21,6 +21,7 @@ import javax.persistence.TemporalType;
 
 import org.jboss.logging.Property;
 
+import it.profilglass.orm.RichiesteRighe;
 import test.test.ReadDB;
 
 @Entity
@@ -67,7 +68,10 @@ public class Caratteristica implements Serializable {
 	@Transient
 	private boolean visible = false;
 	
-	public Caratteristica(CaratteristicaIdentity caraIdentity, String caratteristicaId, String descrizioneCaratteristica, int caratteristicaOrder, String item, ArrayList<Opzione> valori, Opzione selectedValue, Date dataInizioValidita, Date dataFineValidita)
+	@OneToMany(mappedBy="caratteristicaObj", fetch = FetchType.LAZY)
+	private List<RichiesteRighe> righe;
+	
+	public Caratteristica(CaratteristicaIdentity caraIdentity, String caratteristicaId, String descrizioneCaratteristica, int caratteristicaOrder, String item, ArrayList<Opzione> valori, Opzione selectedValue, Date dataInizioValidita, Date dataFineValidita, List<RichiesteRighe> righe)
 	{
 		this.caratteristicaId = caratteristicaId;
 		this.caratteristicaOrder = caratteristicaOrder;
@@ -78,6 +82,7 @@ public class Caratteristica implements Serializable {
 		this.caraIdentity = caraIdentity;
 		this.dataInizioValidita = dataInizioValidita;
 		this.dataFineValidita = dataFineValidita;
+		this.righe = righe;
 	}
 	
 	public Caratteristica(String caratteristicaId, String descrizioneCaratteristica, int caratteristicaOrder, String item, ArrayList<Opzione> valori, Opzione selectedValue)
@@ -91,6 +96,7 @@ public class Caratteristica implements Serializable {
 		this.caraIdentity = new CaratteristicaIdentity(caratteristicaId, item, caratteristicaOrder);
 		this.dataInizioValidita = new Date(1970,1,1,0,0,0);
 		this.dataFineValidita = new Date(2039,12,31,23,59,59);
+		this.righe = null;
 	}
 	
 	public Caratteristica(String caratteristicaId, String descrizioneCaratteristica, int caratteristicaOrder, String item, Opzione selectedValue)
@@ -104,6 +110,7 @@ public class Caratteristica implements Serializable {
 		this.caraIdentity = new CaratteristicaIdentity(caratteristicaId, item, caratteristicaOrder);
 		this.dataInizioValidita = new Date(1970,1,1,0,0,0);
 		this.dataFineValidita = new Date(2039,12,31,23,59,59);
+		this.righe = null;
 	}
 	
 	public Caratteristica(String caratteristicaId, String descrizioneCaratteristica, int caratteristicaOrder, String item)
@@ -117,6 +124,7 @@ public class Caratteristica implements Serializable {
 		this.caraIdentity = new CaratteristicaIdentity(caratteristicaId, item, caratteristicaOrder);
 		this.dataInizioValidita = new Date(1970,1,1,0,0,0);
 		this.dataFineValidita = new Date(2039,12,31,23,59,59);
+		this.righe = null;
 	}
 	
 	public Caratteristica()
@@ -130,6 +138,19 @@ public class Caratteristica implements Serializable {
 		this.caraIdentity = null;
 		this.dataInizioValidita = new Date(1970,1,1,0,0,0);
 		this.dataFineValidita = new Date(2039,12,31,23,59,59);
+		this.righe = null;
+	}
+
+	public List<RichiesteRighe> getRighe() {
+		return righe;
+	}
+
+	public void setRighe(List<RichiesteRighe> righe) {
+		this.righe = righe;
+	}
+
+	public String getCaratteristicaId() {
+		return caratteristicaId;
 	}
 
 	public int getCaratteristicaOrder() {

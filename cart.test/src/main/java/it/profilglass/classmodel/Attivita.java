@@ -26,10 +26,6 @@ public class Attivita {
 	@Column(name="Descrizione")
 	private String descrizioneAttivita;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="IdMacchina")
-	private Macchina macchinaPred;
-	
 	@Transient
 	private String centroLavoroPred;
 	
@@ -45,11 +41,10 @@ public class Attivita {
 	@OneToMany(mappedBy="attivitaRef")
 	private List<AttivitaMacchinaRel> attivitaMacchina;
 	
-	public Attivita(String idAttivita, String descrizioneAttivita, Macchina macchinaPred, String centroLavoroPred, String famiglia, int anima, int campione, List<AttivitaMacchinaRel> attivitaMacchina)
+	public Attivita(String idAttivita, String descrizioneAttivita, String centroLavoroPred, String famiglia, int anima, int campione, List<AttivitaMacchinaRel> attivitaMacchina)
 	{
 		this.idAttivita = idAttivita;
 		this.descrizioneAttivita = descrizioneAttivita;
-		this.macchinaPred = macchinaPred;
 		this.centroLavoroPred = centroLavoroPred;
 		this.famiglia = famiglia;
 		this.anima = anima;
@@ -61,7 +56,6 @@ public class Attivita {
 	{
 		this.idAttivita = idAttivita;
 		this.descrizioneAttivita = descrizioneAttivita;
-		this.macchinaPred = null;
 		this.centroLavoroPred = "";
 		this.famiglia = famiglia;
 		this.anima = anima;
@@ -73,7 +67,6 @@ public class Attivita {
 	{
 		this.idAttivita = "";
 		this.descrizioneAttivita = "";
-		this.macchinaPred = null;
 		this.centroLavoroPred = "";
 		this.famiglia = "";
 		this.anima = 0;
@@ -119,14 +112,6 @@ public class Attivita {
 
 	public void setDescrizione(String descrizioneAttivita) {
 		this.descrizioneAttivita = descrizioneAttivita;
-	}
-
-	public Macchina getMacchinaPred() {
-		return macchinaPred;
-	}
-
-	public void setMacchinaPred(Macchina macchinaPred) {
-		this.macchinaPred = macchinaPred;
 	}
 
 	public String getCentroLavoroPred() {

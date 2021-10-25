@@ -37,20 +37,16 @@ public class Macchina {
 	@Column(name="CapacitaBaseSett")
 	private int capacitaBaseSettimanale;
 	
-	@OneToMany(mappedBy="macchinaPred", fetch = FetchType.LAZY)
-	private List<Attivita> attAss;
-	
 	@OneToMany(mappedBy="macchinaRef", fetch = FetchType.LAZY)
 	private List<AttivitaMacchinaRel> macchinaAttivita;
 	
-	public Macchina(String idMacchina, String descMacchina, CentroLavoro idCentroLavoro, int capacitaBaseGiornaliera, int capacitaBaseSettimanale, List<Attivita> attAss, List<AttivitaMacchinaRel> attivitaMacchina)
+	public Macchina(String idMacchina, String descMacchina, CentroLavoro idCentroLavoro, int capacitaBaseGiornaliera, int capacitaBaseSettimanale, List<AttivitaMacchinaRel> attivitaMacchina)
 	{
 		this.idMacchina = idMacchina;
 		this.descMacchina = descMacchina;
 		this.idCentroLavoro = idCentroLavoro;
 		this.capacitaBaseGiornaliera = capacitaBaseGiornaliera;
 		this.capacitaBaseSettimanale = capacitaBaseSettimanale;
-		this.attAss = attAss;
 		this.macchinaAttivita = attivitaMacchina;
 	}
 	
@@ -61,7 +57,6 @@ public class Macchina {
 		this.idCentroLavoro = idCentroLavoro;
 		this.capacitaBaseGiornaliera = capacitaBaseGiornaliera;
 		this.capacitaBaseSettimanale = capacitaBaseSettimanale;
-		this.attAss = null;
 		this.macchinaAttivita = null;
 	}
 	
@@ -72,7 +67,6 @@ public class Macchina {
 		this.idCentroLavoro = null;
 		this.capacitaBaseGiornaliera = 0;
 		this.capacitaBaseSettimanale = 0;
-		this.attAss = null;
 		this.macchinaAttivita = null;
 	}
 
@@ -116,14 +110,6 @@ public class Macchina {
 		this.capacitaBaseSettimanale = capacitaBaseSettimanale;
 	}
 
-	public List<Attivita> getAttAss() {
-		return attAss;
-	}
-
-	public void setAttAss(List<Attivita> attAss) {
-		this.attAss = attAss;
-	}
-
 	public List<AttivitaMacchinaRel> getAttivitaMacchina() {
 		return macchinaAttivita;
 	}
@@ -131,5 +117,12 @@ public class Macchina {
 	public void setAttivitaMacchina(List<AttivitaMacchinaRel> attivitaMacchina) {
 		this.macchinaAttivita = attivitaMacchina;
 	}
-	
+
+	public List<AttivitaMacchinaRel> getMacchinaAttivita() {
+		return macchinaAttivita;
+	}
+
+	public void setMacchinaAttivita(List<AttivitaMacchinaRel> macchinaAttivita) {
+		this.macchinaAttivita = macchinaAttivita;
+	}
 }

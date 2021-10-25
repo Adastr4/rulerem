@@ -20,7 +20,7 @@ public class ConfiguratoreBAV extends Configuratore {
 	{
 		//INIZIALIZZO TUTTI I VALORI DI CARATTERISTICA
 		this.caratteristiche = ReadDB.getCaratteristicheFromConfigurator("BA");
-		//ORDINO PER INDICE DI CONFIGURAZZOONE
+		//ORDINO PER INDICE DI CONFIGURAZZONE
 		this.caratteristiche.sort(Comparator.comparingInt(Caratteristica::getCaratteristicaOrder));
 	}
 	

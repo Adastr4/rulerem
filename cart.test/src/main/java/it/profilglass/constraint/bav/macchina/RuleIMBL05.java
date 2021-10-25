@@ -10,8 +10,9 @@ import com.deliveredtechnologies.rulebook.annotation.Rule;
 import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
+import it.profilglass.classmodel.Macchina;
+import it.profilglass.orm.DataManagement;
 import test.test.CaratteristicaBean;
-import test.test.Macchina;
 import test.test.ReadDB;
 
 @Rule(order = 9, name = "ruleIMBL05")
@@ -32,7 +33,7 @@ public class RuleIMBL05 {
 	@Then
 	public RuleState then()
 	{
-		result.add(ReadDB.getMacchinaFromId("IMBL05"));
+		result.add(DataManagement.readMacchinaById("IMBL05"));
 		return RuleState.NEXT;
 	}
 }

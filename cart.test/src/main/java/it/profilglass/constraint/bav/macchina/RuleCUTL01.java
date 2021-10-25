@@ -9,8 +9,9 @@ import com.deliveredtechnologies.rulebook.annotation.Rule;
 import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 
+import it.profilglass.classmodel.Macchina;
+import it.profilglass.orm.DataManagement;
 import test.test.CaratteristicaBean;
-import test.test.Macchina;
 import test.test.ReadDB;
 
 @Rule(order = 5, name = "ruleCUTL01")
@@ -31,7 +32,7 @@ public class RuleCUTL01 {
 	@Then
 	public RuleState then()
 	{
-		result.add(ReadDB.getMacchinaFromId("CUTL01"));
+		result.add(DataManagement.readMacchinaById("CUTL01"));
 		return RuleState.NEXT;
 	}
 

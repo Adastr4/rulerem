@@ -33,14 +33,15 @@ public class AttivitaMacchinaRel implements Serializable {
 	
 	@EmbeddedId
 	private AttivitaMacchineIdentity identity;
-	
-	@MapsId("attivita")
+		
 	@ManyToOne(targetEntity=Attivita.class)
-	@JoinColumn(name="attivita", referencedColumnName = "Attivita", insertable = false, updatable = false)
+	@MapsId("attivita")
+	@JoinColumn(name="attivita", referencedColumnName = "Attivita")
 	private Attivita attivitaRef;
 	
 	@ManyToOne(targetEntity=Macchina.class)
-	@JoinColumn(name="IdMacchina", referencedColumnName = "IdMacchina", insertable = false, updatable = false)
+	@MapsId("idMacchina")
+	@JoinColumn(name="IdMacchina", referencedColumnName = "IdMacchina")
 	private Macchina macchinaRef;
 	
 	@Column(name="Attrezzaggio")

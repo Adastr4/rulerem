@@ -15,6 +15,8 @@ public abstract class Configuratore {
 	protected List<Distinta> distinte;
 	// LISTA CARATTERISTICHE VALIDE PER TUTTI I CONFIGURATORI
 	protected List<Caratteristica> caratteristiche;
+	
+	
 
 	public List<Caratteristica> getCaratteristiche() {
 		return caratteristiche;
@@ -24,7 +26,6 @@ public abstract class Configuratore {
 		this.caratteristiche = caratteristiche;
 	}
 
-	
 	public List<LivelloDistinta> buildDistinta()
 	{
 		return new ArrayList<LivelloDistinta>();

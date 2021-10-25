@@ -5,7 +5,11 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "conf_anagrafica_articolo")
 public class AnagraficaArticolo implements Serializable{
 	/**
 	 * 
@@ -29,7 +33,7 @@ public class AnagraficaArticolo implements Serializable{
 	@Column(name="GruppoArticolo")
 	private String gruppoArticolo;
 	
-	@Column(name="TipoArticolo")
+	@Column(name="TipoProdotto")
 	private String tipoProdotto;
 	
 	@Column(name="ClasseProdotto")

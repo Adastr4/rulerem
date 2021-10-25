@@ -20,6 +20,7 @@ import it.profilglass.classmodel.Attivita;
 import it.profilglass.classmodel.BusinessPartner;
 import it.profilglass.classmodel.Caratteristica;
 import it.profilglass.classmodel.CentroLavoro;
+import it.profilglass.classmodel.Macchina;
 import it.profilglass.classmodel.Opzione;
 import it.profilglass.classmodel.OpzioneIdentity;
 
@@ -566,6 +567,57 @@ public class DataManagement {
 		}
 	}
 	
+	public static CicloTestata readCicloTestataById(String cicloTestata, String codiceArticolo, int revisione)
+	{
+		CicloTestata ct = null;
+		SessionFactory factory = meta.getSessionFactoryBuilder().build();
+		Session session = factory.openSession();
+		Transaction t = session.beginTransaction();
+		try {
+			Query<CicloTestata> query = session.createQuery("from CicloTestata where Ciclo = :ct and CodiceArticolo = :ca and Revisione = :re");
+			query.setParameter("ct", cicloTestata);
+			query.setParameter("ca", codiceArticolo);
+			query.setParameter("re", revisione);
+			
+			ct = query.list().get(0);
+			
+		} catch (HibernateException e) {
+			t.rollback();
+			e.printStackTrace();
+		} finally
+		{
+			session.clear();
+			factory.close();  
+		    session.close();
+		}
+		
+		return ct;
+	}
+	
+	public static Macchina readMacchinaById(String macchina)
+	{
+		Macchina mc = null;
+		SessionFactory factory = meta.getSessionFactoryBuilder().build();
+		Session session = factory.openSession();
+		Transaction t = session.beginTransaction();
+		try {
+			Query<Macchina> query = session.createQuery("from Macchina where IdMacchina = :id");
+			query.setParameter("id", macchina);
+			mc = query.list().get(0);
+			
+		} catch (HibernateException e) {
+			t.rollback();
+			e.printStackTrace();
+		} finally
+		{
+			session.clear();
+			factory.close();  
+		    session.close();
+		}
+		
+		return mc;
+	}
+	
 	public static void testJoin()
 	{
 		List<Opzione> cara = null;
@@ -604,8 +656,8 @@ public class DataManagement {
 		Session session = factory.openSession();
 		Transaction t = session.beginTransaction();
 		try {
-			Query<AttivitaMacchinaRel> query = session.createQuery("SELECT a.attivitaRef FROM AttivitaMacchinaRel a");
-			//query.setParameter("id", "COLD03");
+			Query<AttivitaMacchinaRel> query = session.createQuery("from AttivitaMacchinaRel a JOIN a.attivitaRef att JOIN a.macchinaRef macc WHERE macc.idMacchina = :id");
+			query.setParameter("id", "COLD03");
 			cara = query.getResultList();
 			
 		} catch (HibernateException e) {
