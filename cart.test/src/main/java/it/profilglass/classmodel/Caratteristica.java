@@ -68,7 +68,7 @@ public class Caratteristica implements Serializable {
 	@Transient
 	private boolean visible = false;
 	
-	@OneToMany(mappedBy="caratteristicaObj", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy="caratteristicaObj2", fetch = FetchType.LAZY)
 	private List<RichiesteRighe> righe;
 	
 	public Caratteristica(CaratteristicaIdentity caraIdentity, String caratteristicaId, String descrizioneCaratteristica, int caratteristicaOrder, String item, ArrayList<Opzione> valori, Opzione selectedValue, Date dataInizioValidita, Date dataFineValidita, List<RichiesteRighe> righe)
@@ -119,7 +119,7 @@ public class Caratteristica implements Serializable {
 		this.caratteristicaOrder = caratteristicaOrder;
 		this.item = item;
 		this.valori = new ArrayList<Opzione>();
-		this.selectedValue = new Opzione("","");
+		this.selectedValue = new Opzione("TEST","TEST");
 		this.descrizioneCaratteristica = descrizioneCaratteristica;
 		this.caraIdentity = new CaratteristicaIdentity(caratteristicaId, item, caratteristicaOrder);
 		this.dataInizioValidita = new Date(1970,1,1,0,0,0);
@@ -133,7 +133,7 @@ public class Caratteristica implements Serializable {
 		this.caratteristicaOrder = 0;
 		this.item = "";
 		this.valori = new ArrayList<Opzione>();
-		this.selectedValue = new Opzione("","");
+		this.selectedValue = new Opzione("TEST","TEST");
 		this.descrizioneCaratteristica = "";
 		this.caraIdentity = null;
 		this.dataInizioValidita = new Date(1970,1,1,0,0,0);

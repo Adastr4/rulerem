@@ -1,7 +1,10 @@
 package it.profilglass.orm;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
@@ -14,19 +17,26 @@ import it.profilglass.classmodel.Caratteristica;
 
 @Entity
 @Table(name="conf_richieste_righe")
-public class RichiesteRighe {
+public class RichiesteRighe implements Serializable {
 	
-	@Id
-	@Column(name="IdRichiesta")
-	private int idRichieste;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@EmbeddedId
+	private RichiesteRigheIdentity identity;
 	
-	@Column(name="Item")
+	@Column(name="IdRichiesta", insertable=false, updatable=false)
+	private int idRichiesta;
+	
+	@Column(name="Item", insertable=false, updatable=false)
 	private String item;
 	
-	@Column(name="IdSequenza")
+	@Column(name="idSequenza", insertable=false, updatable=false)
 	private int idSequenza;
 	
-	@Column(name="Caratteristica")
+	@Column(name="Caratteristica", insertable=false, updatable=false)
 	private String caratteristica;
 	
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
@@ -34,7 +44,7 @@ public class RichiesteRighe {
 		@JoinColumn(name="caratteristica", referencedColumnName = "Caratteristica", insertable = false, updatable = false),
 		@JoinColumn(name="item", referencedColumnName = "Item", insertable = false, updatable = false),
 	})
-	private Caratteristica caratteristicaObj;
+	private Caratteristica caratteristicaObj2;
 	
 	@Column(name="Valore")
 	private String valore;
@@ -42,34 +52,36 @@ public class RichiesteRighe {
 	@Column(name="Edit")
 	private String edit;
 	
-	public RichiesteRighe(int idRichieste, String item, int idSequenza, String caratteristica, Caratteristica caratteristicaObj, String valore, String edit)
+	public RichiesteRighe(RichiesteRigheIdentity identity, int idRichieste, String item, int idSequenza, String caratteristica, Caratteristica caratteristicaObj, String valore, String edit)
 	{
-		this.idRichieste = idRichieste;
+		this.idRichiesta = idRichieste;
 		this.item = item;
 		this.idSequenza = idSequenza;
 		this.caratteristica = caratteristica;
-		this.caratteristicaObj = caratteristicaObj;
+		this.caratteristicaObj2 = caratteristicaObj;
 		this.valore = valore;
 		this.edit = edit;
+		this.identity = identity;
 	}
 	
 	public RichiesteRighe()
 	{
-		this.idRichieste = 0;
+		this.idRichiesta = 0;
 		this.item = "";
 		this.idSequenza = 0;
 		this.caratteristica = "";
-		this.caratteristicaObj = null;
+		this.caratteristicaObj2 = null;
 		this.valore = "";
 		this.edit = "";
+		this.identity = null;
 	}
 
-	public int getIdRichieste() {
-		return idRichieste;
+	public int getIdRichiesta() {
+		return idRichiesta;
 	}
 
-	public void setIdRichieste(int idRichieste) {
-		this.idRichieste = idRichieste;
+	public void setIdRichiesta(int idRichiesta) {
+		this.idRichiesta = idRichiesta;
 	}
 
 	public String getItem() {
@@ -97,11 +109,11 @@ public class RichiesteRighe {
 	}
 
 	public Caratteristica getCaratteristicaObj() {
-		return caratteristicaObj;
+		return caratteristicaObj2;
 	}
 
 	public void setCaratteristicaObj(Caratteristica caratteristicaObj) {
-		this.caratteristicaObj = caratteristicaObj;
+		this.caratteristicaObj2 = caratteristicaObj;
 	}
 
 	public String getValore() {
@@ -119,4 +131,21 @@ public class RichiesteRighe {
 	public void setEdit(String edit) {
 		this.edit = edit;
 	}
+
+	public RichiesteRigheIdentity getIdentity() {
+		return identity;
+	}
+
+	public void setIdentity(RichiesteRigheIdentity identity) {
+		this.identity = identity;
+	}
+
+	public Caratteristica getCaratteristicaObj2() {
+		return caratteristicaObj2;
+	}
+
+	public void setCaratteristicaObj2(Caratteristica caratteristicaObj2) {
+		this.caratteristicaObj2 = caratteristicaObj2;
+	}
+	
 }

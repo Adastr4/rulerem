@@ -6,6 +6,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
@@ -40,7 +42,7 @@ public class RichiesteTestata {
 	private String utente;
 	
 	@Column(name="Stato")
-	private String stato;
+	private int stato;
 	
 	@Temporal(TemporalType.DATE)
 	@Column(name="DataCreazione")
@@ -60,7 +62,7 @@ public class RichiesteTestata {
 	private String nota;
 	
 	public RichiesteTestata(int idRichiesta, String item, String descrizione, String businessPartner,
-			BusinessPartner bp, String utente, String stato, Date dataCreazione, Date dataModifica,
+			BusinessPartner bp, String utente, int stato, Date dataCreazione, Date dataModifica,
 			String codiceArticolo, String hash, String nota) {
 		this.idRichiesta = idRichiesta;
 		this.item = item;
@@ -83,7 +85,7 @@ public class RichiesteTestata {
 		this.businessPartner = "";
 		this.bp = null;
 		this.utente = "";
-		this.stato = "";
+		this.stato = 0;
 		this.dataCreazione = new Date(1970,1,1,0,0,0);;
 		this.dataModifica = new Date(2039,12,31,23,59,59);
 		this.codiceArticolo = codiceArticolo;
@@ -139,11 +141,11 @@ public class RichiesteTestata {
 		this.utente = utente;
 	}
 
-	public String getStato() {
+	public int getStato() {
 		return stato;
 	}
 
-	public void setStato(String stato) {
+	public void setStato(int stato) {
 		this.stato = stato;
 	}
 
@@ -185,5 +187,15 @@ public class RichiesteTestata {
 
 	public void setNota(String nota) {
 		this.nota = nota;
+	}
+	
+	public int getMaxId()
+	{
+		return DataManagement.getRichiesteTestataMaxId();
+	}
+	
+	public boolean saveTestata() {
+		this.setIdRichiesta(DataManagement.getRichiesteTestataMaxId());
+		return DataManagement.createRichiesteTestataObject(this);
 	}
 }

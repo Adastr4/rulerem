@@ -8,6 +8,8 @@ import com.deliveredtechnologies.rulebook.FactMap;
 import com.deliveredtechnologies.rulebook.NameValueReferableMap;
 import com.deliveredtechnologies.rulebook.model.runner.RuleBookRunner;
 
+import it.profilglass.orm.RichiesteRighe;
+import it.profilglass.orm.RichiesteTestata;
 import test.test.ReadDB;
 
 public abstract class Configuratore {
@@ -15,9 +17,10 @@ public abstract class Configuratore {
 	protected List<Distinta> distinte;
 	// LISTA CARATTERISTICHE VALIDE PER TUTTI I CONFIGURATORI
 	protected List<Caratteristica> caratteristiche;
+	protected String bp;
+	protected String user;
+	protected String note;
 	
-	
-
 	public List<Caratteristica> getCaratteristiche() {
 		return caratteristiche;
 	}
@@ -103,6 +106,19 @@ public abstract class Configuratore {
 	public List<Opzione> getValidatedOptionsByName(String name)
 	{
 		return null;
+	}
+	
+	public void printCaratteristicheList()
+	{
+		for(Caratteristica cara : this.caratteristiche)
+		{
+			System.out.println("Caratterisitca " + cara.getSequenza() + " : " + cara.getCaratteristicaId());
+		}
+	}
+	
+	public boolean saveRequest()
+	{
+		return true;
 	}
 
 }

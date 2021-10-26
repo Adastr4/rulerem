@@ -14,6 +14,7 @@ import com.deliveredtechnologies.rulebook.NameValueReferableMap;
 import com.deliveredtechnologies.rulebook.model.Auditor;
 import com.deliveredtechnologies.rulebook.model.runner.RuleBookRunner;
 
+import it.profilglass.classmodel.Configuratore;
 import it.profilglass.classmodel.ConfiguratoreBAV;
 import it.profilglass.classmodel.Distinta;
 import it.profilglass.classmodel.GenericConfItem;
@@ -65,7 +66,9 @@ public class Main {
 		//printDistinta(distintaDefault().get(0));
 		//printOpzione(opz);
 		//dm.insertCentroLavoro("TEST", "TEST");
-		DataManagement.readMacchinaById("COLD01");
+		Configuratore c = new ConfiguratoreBAV();
+		c.saveRequest();
+		System.out.println("Finito!");
 	}
 	
 	private static void withLoopCLLARGSTOLLACLSPESSNew() {

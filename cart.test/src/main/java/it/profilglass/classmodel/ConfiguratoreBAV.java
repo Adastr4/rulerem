@@ -3,6 +3,7 @@ package it.profilglass.classmodel;
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 
 import com.deliveredtechnologies.rulebook.Fact;
@@ -13,13 +14,17 @@ import com.deliveredtechnologies.rulebook.model.runner.RuleBookRunner;
 import test.test.CaratteristicaBean;
 import test.test.Macchina;
 import test.test.ReadDB;
+import it.profilglass.orm.DataManagement;
+import it.profilglass.orm.RichiesteRighe;
+import it.profilglass.orm.RichiesteRigheIdentity;
+import it.profilglass.orm.RichiesteTestata;
 
 public class ConfiguratoreBAV extends Configuratore {
 	
 	public ConfiguratoreBAV()
 	{
 		//INIZIALIZZO TUTTI I VALORI DI CARATTERISTICA
-		this.caratteristiche = ReadDB.getCaratteristicheFromConfigurator("BA");
+		this.caratteristiche = DataManagement.readCaratteristicaByItem("BA");
 		//ORDINO PER INDICE DI CONFIGURAZZONE
 		this.caratteristiche.sort(Comparator.comparingInt(Caratteristica::getCaratteristicaOrder));
 	}
@@ -333,5 +338,17 @@ public class ConfiguratoreBAV extends Configuratore {
 			System.out.println("No Distinta defined for BAV Object !");
 			return null;
 		}
+	}
+	
+	@Override
+	public boolean saveRequest()
+	{
+		//Devo creare la riga in testata e le righe in tabella
+		int maxId = DataManagement.getRichiesteTestataMaxId() + 1;
+		RichiesteTestata testata = new RichiesteTestata(maxId, "BA", "Inserimento richiesta test", "B00001",DataManagement.readBusinessPartnerByBPCode("B00001"),"pgced012",1,new Date(),new Date(),"","","");
+		List<RichiesteRighe> righe = new ArrayList<RichiesteRighe>();
+		for(Caratteristica cara : this.caratteristiche)
+			righe.add(new RichiesteRighe(new RichiesteRigheIdentity(maxId,"BA",cara.getSequenza(),cara.getCaratteristicaId()),maxId,"BA",cara.getSequenza(),cara.getCaratteristicaId(),cara,cara.getSelectedValue().getOpzione(),"No"));
+		return DataManagement.saveRichiesta(testata, righe);
 	}
 }

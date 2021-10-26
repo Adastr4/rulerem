@@ -20,6 +20,7 @@ import it.profilglass.classmodel.Attivita;
 import it.profilglass.classmodel.BusinessPartner;
 import it.profilglass.classmodel.Caratteristica;
 import it.profilglass.classmodel.CentroLavoro;
+import it.profilglass.classmodel.Configuratore;
 import it.profilglass.classmodel.Macchina;
 import it.profilglass.classmodel.Opzione;
 import it.profilglass.classmodel.OpzioneIdentity;
@@ -28,17 +29,18 @@ public class DataManagement {
 	
 	private static StandardServiceRegistry ssr;
 	private static Metadata meta;
+	private static SessionFactory factory;
 	
 	static
 	{
 		ssr = new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();
 		meta = new MetadataSources(ssr).getMetadataBuilder().build();
+		factory = meta.getSessionFactoryBuilder().build();
 	}
 	
 	public static CentroLavoro insertCentroLavoro(String centroLavoro, String descrizione)
 	{
 		CentroLavoro cl = null;
-		SessionFactory factory = meta.getSessionFactoryBuilder().build();
 		Session session = factory.openSession();
 		Transaction t = session.beginTransaction();
 		try {			
@@ -52,7 +54,6 @@ public class DataManagement {
 		} finally
 		{
 			session.clear();
-			factory.close();  
 		    session.close();   
 		}
 		
@@ -61,7 +62,6 @@ public class DataManagement {
 	
 	public static void updateDescrizioneCentroLavoro(String centroLavoro, String descrizione)
 	{
-		SessionFactory factory = meta.getSessionFactoryBuilder().build();
 		Session session = factory.openSession();
 		Transaction t = session.beginTransaction();
 		try {
@@ -76,15 +76,13 @@ public class DataManagement {
 			e.printStackTrace();
 		} finally
 		{
-			session.clear();
-			factory.close();  
+			session.clear();  
 		    session.close();   
 		}		
 	}
 	
 	public static void deleteCentroLavoro(String centroLavoro)
 	{
-		SessionFactory factory = meta.getSessionFactoryBuilder().build();
 		Session session = factory.openSession();
 		Transaction t = session.beginTransaction();
 		try {
@@ -98,8 +96,7 @@ public class DataManagement {
 			e.printStackTrace();
 		} finally
 		{
-			session.clear();
-			factory.close();  
+			session.clear(); 
 		    session.close();   
 		}		
 	}
@@ -107,7 +104,6 @@ public class DataManagement {
 	public static CentroLavoro readCentroLavoroById(String centroLavoro)
 	{
 		CentroLavoro cl = null;
-		SessionFactory factory = meta.getSessionFactoryBuilder().build();
 		Session session = factory.openSession();
 		try {
 			Query<CentroLavoro> query = session.createQuery("from CentroLavoro where idCentro = :id");
@@ -119,8 +115,7 @@ public class DataManagement {
 			e.printStackTrace();
 		} finally
 		{
-			session.clear();
-			factory.close();  
+			session.clear(); 
 		    session.close();
 		}
 		return cl;
@@ -129,7 +124,6 @@ public class DataManagement {
 	public static Attivita readAttivitaById(String attivita)
 	{
 		Attivita at = null;
-		SessionFactory factory = meta.getSessionFactoryBuilder().build();
 		Session session = factory.openSession();
 		try {
 			Query<Attivita> query = session.createQuery("from Attivita where Attivita = :id");
@@ -141,8 +135,7 @@ public class DataManagement {
 			e.printStackTrace();
 		} finally
 		{
-			session.clear();
-			factory.close();  
+			session.clear(); 
 		    session.close();
 		}
 		
@@ -152,7 +145,6 @@ public class DataManagement {
 	public static Attivita createAttivita(String attivita, String famiglia, String descrizione, int anima, int campione)
 	{
 		Attivita at = null;
-		SessionFactory factory = meta.getSessionFactoryBuilder().build();
 		Session session = factory.openSession();
 		Transaction t = session.beginTransaction();
 		try {
@@ -165,8 +157,7 @@ public class DataManagement {
 			e.printStackTrace();
 		} finally
 		{
-			session.clear();
-			factory.close();  
+			session.clear(); 
 		    session.close();
 		}	
 		return at;
@@ -174,7 +165,6 @@ public class DataManagement {
 	
 	public static void updateAttivitaById(String attivita, String newAttivita, String famiglia, String descrizione, int anima, int campione)
 	{
-		SessionFactory factory = meta.getSessionFactoryBuilder().build();
 		Session session = factory.openSession();
 		Transaction t = session.beginTransaction();
 		try {
@@ -194,15 +184,13 @@ public class DataManagement {
 			e.printStackTrace();
 		} finally
 		{
-			session.clear();
-			factory.close();  
+			session.clear();  
 		    session.close();
 		}
 	}
 	
 	public static void deleteAttivitaById(String attivita)
 	{
-		SessionFactory factory = meta.getSessionFactoryBuilder().build();
 		Session session = factory.openSession();
 		Transaction t = session.beginTransaction();
 		try {
@@ -218,8 +206,7 @@ public class DataManagement {
 			e.printStackTrace();
 		} finally
 		{
-			session.clear();
-			factory.close();  
+			session.clear(); 
 		    session.close();
 		}
 	}
@@ -228,7 +215,6 @@ public class DataManagement {
 	{
 		Caratteristica car = null;
 		ArrayList<Opzione> opz = null;
-		SessionFactory factory = meta.getSessionFactoryBuilder().build();
 		Session session = factory.openSession();
 		try {
 			Query<Caratteristica> query = session.createQuery("from Caratteristica as s where caratteristica = :id and Item = :item");
@@ -249,16 +235,34 @@ public class DataManagement {
 		} finally
 		{
 			session.clear();
-			factory.close();
 		    session.close();
 		}
 		return car;
 	}
 	
+	public static List<Caratteristica> readCaratteristicaByItem(String item)
+	{
+		List<Caratteristica> cara = null;
+		Session session = factory.openSession();
+		try {
+			Query<Caratteristica> query = session.createQuery("from Caratteristica as c where c.item = :item");
+			query.setParameter("item", item);
+			
+			cara = query.list();
+			
+		} catch (HibernateException e) {
+			e.printStackTrace();
+		} finally
+		{
+			session.clear();
+		    session.close();
+		}
+		return cara;
+	}
+	
 	public static List<Caratteristica> readCaratteristicaById(String caratteristica)
 	{
-		List<Caratteristica> car = null;
-		SessionFactory factory = meta.getSessionFactoryBuilder().build();
+		List<Caratteristica> car = null;;
 		Session session = factory.openSession();
 		try {
 			Query<Caratteristica> query = session.createQuery("from Caratteristica where Caratteristica = :id");
@@ -270,8 +274,7 @@ public class DataManagement {
 			e.printStackTrace();
 		} finally
 		{
-			session.clear(); 
-			factory.close();  
+			session.clear();   
 		    session.close();
 		}
 		
@@ -281,7 +284,6 @@ public class DataManagement {
 	public static void deleteCaratteristicaByIdAndItem(String caratteristica, String item)
 	{
 		List<Caratteristica> car = null;
-		SessionFactory factory = meta.getSessionFactoryBuilder().build();
 		Session session = factory.openSession();
 		Transaction t = session.beginTransaction();
 		try {
@@ -305,8 +307,7 @@ public class DataManagement {
 		}
 		finally
 		{
-			session.clear(); 
-			factory.close();  
+			session.clear();   
 		    session.close();
 		}
 	}
@@ -314,7 +315,6 @@ public class DataManagement {
 	public static Opzione readOpzioneByItemCaratteristicaOpzione(String item, String caratteristica, String opzione)
 	{
 		Opzione op = null;
-		SessionFactory factory = meta.getSessionFactoryBuilder().build();
 		Session session = factory.openSession();
 		try {
 			Query<Opzione> query = session.createQuery("from Opzione where Item = :it and Caratteristica = :cara and Opzione = :opz");
@@ -328,8 +328,7 @@ public class DataManagement {
 			e.printStackTrace();
 		} finally
 		{
-			session.clear();
-			factory.close();  
+			session.clear(); 
 		    session.close();
 		}
 		
@@ -339,7 +338,6 @@ public class DataManagement {
 	public static ArrayList<Opzione> readOpzioneByItemCaratteristica(String item, String caratteristica)
 	{
 		ArrayList<Opzione> op = null;
-		SessionFactory factory = meta.getSessionFactoryBuilder().build();
 		Session session = factory.openSession();
 		try {
 			Query<Opzione> query = session.createQuery("from Opzione where Item = :it and Caratteristica = :cara");
@@ -352,9 +350,8 @@ public class DataManagement {
 			e.printStackTrace();
 		} finally
 		{
-			 session.flush();
-			 factory.close();
-		     session.close();
+			session.clear();
+		    session.close();
 		}
 		
 		return op;
@@ -362,7 +359,6 @@ public class DataManagement {
 	
 	public static void updateOpzioneByItemCaratteristicaOpzione(String item, String caratteristica, String opzione, String opzioneNew, String descrizione, String descLin1, String descLin2, String descLin3, String descLin4, String descLin5, String descLin6, String descLin7, String descLin8, String descLin9, String descLin10)
 	{
-		SessionFactory factory = meta.getSessionFactoryBuilder().build();
 		Session session = factory.openSession();
 		Transaction t = session.beginTransaction();
 		try {
@@ -391,8 +387,7 @@ public class DataManagement {
 			e.printStackTrace();
 		} finally
 		{
-			session.clear();
-			factory.close();  
+			session.clear();  
 		    session.close();
 		}
 	}
@@ -400,7 +395,6 @@ public class DataManagement {
 	public static void createOpzione(String item, String caratteristica, String opzione, String descrizione, String descLin1, String descLin2, String descLin3, String descLin4, String descLin5, String descLin6, String descLin7, String descLin8, String descLin9, String descLin10)
 	{
 		Opzione opz = null;
-		SessionFactory factory = meta.getSessionFactoryBuilder().build();
 		Session session = factory.openSession();
 		Transaction t = session.beginTransaction();
 		try {
@@ -422,8 +416,6 @@ public class DataManagement {
 	
 	public static void deleteOpzioneByItemCaratteristicaOpzione(String item, String caratteristica, String opzione)
 	{
-		Opzione op = null;
-		SessionFactory factory = meta.getSessionFactoryBuilder().build();
 		Session session = factory.openSession();
 		Transaction t = session.beginTransaction();
 		try {
@@ -440,15 +432,13 @@ public class DataManagement {
 			e.printStackTrace();
 		} finally
 		{
-			session.clear();
-			factory.close();  
+			session.clear(); 
 		    session.close();
 		}
 	}
 	
 	public static void deleteOpzioneByItemCaratteristica(String item, String caratteristica)
 	{
-		SessionFactory factory = meta.getSessionFactoryBuilder().build();
 		Session session = factory.openSession();
 		Transaction t = session.beginTransaction();
 		try {
@@ -464,8 +454,7 @@ public class DataManagement {
 			e.printStackTrace();
 		} finally
 		{
-			session.clear();
-			factory.close();  
+			session.clear(); 
 		    session.close();
 		}
 	}
@@ -473,7 +462,6 @@ public class DataManagement {
 	public static BusinessPartner readBusinessPartnerByBPCode(String businessPartner)
 	{
 		BusinessPartner bp = null;
-		SessionFactory factory = meta.getSessionFactoryBuilder().build();
 		Session session = factory.openSession();
 		try {
 			Query<BusinessPartner> query = session.createQuery("from BusinessPartner where businessPartner = :bp");
@@ -485,8 +473,7 @@ public class DataManagement {
 			e.printStackTrace();
 		} finally
 		{
-			session.clear();
-			factory.close();  
+			session.clear(); 
 		    session.close();
 		}
 		
@@ -496,7 +483,6 @@ public class DataManagement {
 	public static BusinessPartner createBusinessPartner(String BusinessPartner, String descrizione, Date dataInizioValidita, Date dataFineValidita, int clienteFornitore)
 	{
 		BusinessPartner bp = null;
-		SessionFactory factory = meta.getSessionFactoryBuilder().build();
 		Session session = factory.openSession();
 		Transaction t = session.beginTransaction();
 		try {
@@ -510,8 +496,7 @@ public class DataManagement {
 			e.printStackTrace();
 		} finally
 		{
-			session.clear();
-			factory.close();  
+			session.clear(); 
 		    session.close();
 		}
 		return bp;
@@ -519,7 +504,6 @@ public class DataManagement {
 	
 	public static void updateBusinessPartner(String businessPartner, String descrizione, Date dataInizioValidita, Date dataFineValidita, int clienteFornitore)
 	{
-		SessionFactory factory = meta.getSessionFactoryBuilder().build();
 		Session session = factory.openSession();
 		Transaction t = session.beginTransaction();
 		try {
@@ -538,15 +522,13 @@ public class DataManagement {
 			e.printStackTrace();
 		} finally
 		{
-			session.clear();
-			factory.close();  
+			session.clear(); 
 		    session.close();
 		}
 	}
 	
 	public static void deleteBusinessPartner(String businessPartner)
 	{
-		SessionFactory factory = meta.getSessionFactoryBuilder().build();
 		Session session = factory.openSession();
 		Transaction t = session.beginTransaction();
 		try {
@@ -562,7 +544,6 @@ public class DataManagement {
 		} finally
 		{
 			session.clear();
-			factory.close();  
 		    session.close();
 		}
 	}
@@ -570,7 +551,6 @@ public class DataManagement {
 	public static CicloTestata readCicloTestataById(String cicloTestata, String codiceArticolo, int revisione)
 	{
 		CicloTestata ct = null;
-		SessionFactory factory = meta.getSessionFactoryBuilder().build();
 		Session session = factory.openSession();
 		Transaction t = session.beginTransaction();
 		try {
@@ -587,7 +567,6 @@ public class DataManagement {
 		} finally
 		{
 			session.clear();
-			factory.close();  
 		    session.close();
 		}
 		
@@ -597,7 +576,6 @@ public class DataManagement {
 	public static Macchina readMacchinaById(String macchina)
 	{
 		Macchina mc = null;
-		SessionFactory factory = meta.getSessionFactoryBuilder().build();
 		Session session = factory.openSession();
 		Transaction t = session.beginTransaction();
 		try {
@@ -610,8 +588,7 @@ public class DataManagement {
 			e.printStackTrace();
 		} finally
 		{
-			session.clear();
-			factory.close();  
+			session.clear();  
 		    session.close();
 		}
 		
@@ -621,7 +598,6 @@ public class DataManagement {
 	public static void testJoin()
 	{
 		List<Opzione> cara = null;
-		SessionFactory factory = meta.getSessionFactoryBuilder().build();
 		Session session = factory.openSession();
 		Transaction t = session.beginTransaction();
 		try {
@@ -636,7 +612,6 @@ public class DataManagement {
 		} finally
 		{
 			session.clear();
-			factory.close();  
 		    session.close();
 		}
 		   
@@ -652,7 +627,6 @@ public class DataManagement {
 	public static void testAttivitaMacchina()
 	{
 		List<AttivitaMacchinaRel> cara = null;
-		SessionFactory factory = meta.getSessionFactoryBuilder().build();
 		Session session = factory.openSession();
 		Transaction t = session.beginTransaction();
 		try {
@@ -666,7 +640,6 @@ public class DataManagement {
 		} finally
 		{
 			session.clear();
-			factory.close();  
 		    session.close();
 		}
 		   
@@ -677,5 +650,97 @@ public class DataManagement {
 		    	 AttivitaMacchinaRel opz = itrOpz.next();
 		    	 System.out.println(opz.getIdentity().toString());
 		     } 
+	}
+	
+	public static RichiesteTestata createRichiesteTestata(String item, String descrizione, String businessPartner, String utente, int stato, Date dataCreazione, Date dataModifica, String codiceArticolo, String hash, String nota)
+	{
+		RichiesteTestata rt = null;
+		Session session = factory.openSession();
+		Transaction t = session.beginTransaction();
+		try {
+			rt = new RichiesteTestata(getRichiesteTestataMaxId(),item,descrizione,businessPartner,readBusinessPartnerByBPCode(businessPartner),utente,stato,new Date(),new Date(),codiceArticolo,hash,nota);
+			
+			session.save(rt);
+			t.commit();
+			
+		} catch (HibernateException e) {
+			t.rollback();
+			e.printStackTrace();
+		} finally
+		{
+			session.clear(); 
+		    session.close();
+		}
+		return rt;
+	}
+	
+	public static boolean createRichiesteTestataObject(RichiesteTestata obj)
+	{
+		Boolean ret = false;
+		Session session = factory.openSession();
+		Transaction t = session.beginTransaction();
+		try {
+			session.save(obj);
+			t.commit();
+			ret = true;
+			
+		} catch (HibernateException e) {
+			t.rollback();
+			e.printStackTrace();
+			ret = false;
+		} finally
+		{
+			session.clear(); 
+		    session.close();
+		}
+		return ret;
+	}
+	
+	public static boolean saveRichiesta(RichiesteTestata testata, List<RichiesteRighe> righe)
+	{
+		//per ogni richiesta devo salvare 
+		Boolean ret = false;
+		//SessionFactory factory = meta.getSessionFactoryBuilder().build();
+		Session session = factory.openSession();
+		Transaction t = session.beginTransaction();
+		try {
+			session.save(testata);
+			
+			for(RichiesteRighe riga : righe)
+				session.save(riga);
+			
+			t.commit();
+			ret = true;
+			
+		} catch (HibernateException e) {
+			t.rollback();
+			e.printStackTrace();
+			ret = false;
+		} finally
+		{
+			session.clear();
+		    session.close();
+		}
+		return ret;
+	}
+	
+	public static int getRichiesteTestataMaxId()
+	{
+		int maxId = 0;
+		Session session = factory.openSession();
+		Transaction t = session.beginTransaction();
+		try {
+			Query query = session.createQuery("select case r.idRichiesta when null then 0 else max(r.idRichiesta) end from RichiesteTestata r");
+			maxId = (query.list().get(0) == null) ? 0 : (int) query.list().get(0);
+		} catch (HibernateException e) {
+			t.rollback();
+			e.printStackTrace();
+		} finally
+		{
+			session.clear(); 
+		    session.close();
+		}
+		
+		return maxId;
 	}
 }
