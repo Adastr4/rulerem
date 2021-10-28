@@ -10,6 +10,10 @@ public class LivelloDistinta {
 	private List<LivelloDistinta> distinta;
 	private int livelloDistinta;
 	private int livelloOrdine;
+	private int revisione;
+	private float qta;
+	private float scarto;
+	private
 	
 	public LivelloDistinta(GenericItem articoloDistinta, List<GenericItem> articoliAlternativi, List<LivelloDistinta> distinta, int livelloDistinta, int livelloOrdine)
 	{
@@ -67,6 +71,13 @@ public class LivelloDistinta {
 
 	public void setDistinta(List<LivelloDistinta> distinta) {
 		this.distinta = distinta;
+	}
+	
+	
+	
+	public boolean saveDistinta()
+	{
+		return true;
 	}
 	
 }

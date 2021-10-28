@@ -22,5 +22,8 @@
          	<mapping class="it.profilglass.orm.BpSpeciali"/>
          	<mapping class="it.profilglass.orm.RichiesteRighe"/>
          	<mapping class="it.profilglass.orm.RichiesteTestata"/>
+         	<mapping class="it.profilglass.orm.DistintaOrm"/>
+         	<mapping class="it.profilglass.orm.MagazzinoOrm"/>
+         	<mapping class="it.profilglass.orm.AlternativiOrm"/>
 	    </session-factory>
 	</hibernate-configuration>
