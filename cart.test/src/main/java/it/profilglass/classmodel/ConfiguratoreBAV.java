@@ -315,7 +315,7 @@ public class ConfiguratoreBAV extends Configuratore {
 	}
 	
 	@Override
-	public List<LivelloDistinta> buildDistinta()
+	public LivelloDistinta buildDistinta()
 	{
 		try
 		{
@@ -328,7 +328,7 @@ public class ConfiguratoreBAV extends Configuratore {
 			
 			if(ruleBook.getResult().isPresent())
 			{
-				return (ArrayList<LivelloDistinta>) ruleBook.getResult().get().getValue();
+				return (LivelloDistinta) ruleBook.getResult().get().getValue();
 			}
 			
 			return null;

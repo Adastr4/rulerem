@@ -3,6 +3,9 @@ package it.profilglass.classmodel;
 import java.util.ArrayList;
 import java.util.List;
 
+import it.profilglass.orm.DistintaOrm;
+import it.profilglass.orm.DistintaOrmIdentity;
+
 public class LivelloDistinta {
 	
 	private GenericItem articoloDistinta;
@@ -13,7 +16,18 @@ public class LivelloDistinta {
 	private int revisione;
 	private float qta;
 	private float scarto;
-	private
+	
+	public LivelloDistinta(GenericItem articoloDistinta, List<GenericItem> articoliAlternativi, List<LivelloDistinta> distinta, int livelloDistinta, int livelloOrdine, int revisione, float qta, float scarto)
+	{
+		this.articoloDistinta = articoloDistinta;
+		this.articoliAlternativi = articoliAlternativi;
+		this.livelloDistinta = livelloDistinta;
+		this.livelloOrdine = livelloOrdine;
+		this.distinta = distinta;
+		this.revisione = revisione;
+		this.qta = qta;
+		this.scarto = scarto;
+	}
 	
 	public LivelloDistinta(GenericItem articoloDistinta, List<GenericItem> articoliAlternativi, List<LivelloDistinta> distinta, int livelloDistinta, int livelloOrdine)
 	{
@@ -22,6 +36,9 @@ public class LivelloDistinta {
 		this.livelloDistinta = livelloDistinta;
 		this.livelloOrdine = livelloOrdine;
 		this.distinta = distinta;
+		this.revisione = 1;
+		this.qta = 0;
+		this.scarto = 0;
 	}
 	
 	public LivelloDistinta(GenericItem articoloDistinta, int livelloDistinta, int livelloOrdine)
@@ -31,6 +48,9 @@ public class LivelloDistinta {
 		this.livelloOrdine = livelloOrdine;
 		this.articoliAlternativi = new ArrayList<GenericItem>();
 		this.distinta = new ArrayList<LivelloDistinta>();
+		this.revisione = 1;
+		this.qta = 0;
+		this.scarto = 0;
 	}
 
 	public GenericItem getArticoloDistinta() {
@@ -73,11 +93,27 @@ public class LivelloDistinta {
 		this.distinta = distinta;
 	}
 	
-	
-	
-	public boolean saveDistinta()
-	{
-		return true;
+	public int getRevisione() {
+		return revisione;
 	}
-	
+
+	public void setRevisione(int revisione) {
+		this.revisione = revisione;
+	}
+
+	public float getQta() {
+		return qta;
+	}
+
+	public void setQta(float qta) {
+		this.qta = qta;
+	}
+
+	public float getScarto() {
+		return scarto;
+	}
+
+	public void setScarto(float scarto) {
+		this.scarto = scarto;
+	}
 }

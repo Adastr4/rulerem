@@ -29,9 +29,9 @@ public abstract class Configuratore {
 		this.caratteristiche = caratteristiche;
 	}
 
-	public List<LivelloDistinta> buildDistinta()
+	public LivelloDistinta buildDistinta()
 	{
-		return new ArrayList<LivelloDistinta>();
+		return null;
 	}
 	
 	public List<Caratteristica> getOrderedCaratteristiche()

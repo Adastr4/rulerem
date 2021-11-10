@@ -25,7 +25,7 @@ public class RuleBA_IMCAR_3_1 {
 	private List<Caratteristica> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 
 	@Result
-	private List<LivelloDistinta> result;
+	private LivelloDistinta result;
 	
 	@When
 	public boolean when()
@@ -37,7 +37,7 @@ public class RuleBA_IMCAR_3_1 {
 	public RuleState then()
 	{
 		//AGIIUNGO IL LIVELLO 2 DI DISTINTA ORDINE 2(IMCAR o IMPVC)
-		result.get(0).getDistinta().add(new LivelloDistinta(new GenericItem("IMCAR" + "G28" + "L" +  caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().substring(0,caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().length()-1) ,"IMCAR",null), 2, 2));
+		result.getDistinta().add(new LivelloDistinta(new GenericItem("IMCAR" + "G28" + "L" +  caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().substring(0,caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().length()-1) ,"IMCAR",null), 2, 20));
 		return RuleState.BREAK;
 	}
 

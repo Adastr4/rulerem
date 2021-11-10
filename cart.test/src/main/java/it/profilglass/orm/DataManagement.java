@@ -1,5 +1,13 @@
 package it.profilglass.orm;
 
+import java.util.List;
+
+import javax.swing.JOptionPane;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -21,11 +29,14 @@ import it.profilglass.classmodel.BusinessPartner;
 import it.profilglass.classmodel.Caratteristica;
 import it.profilglass.classmodel.CentroLavoro;
 import it.profilglass.classmodel.Configuratore;
+import it.profilglass.classmodel.LivelloDistinta;
 import it.profilglass.classmodel.Macchina;
 import it.profilglass.classmodel.Opzione;
 import it.profilglass.classmodel.OpzioneIdentity;
+import test.test.ReadDB;
 
 public class DataManagement {
+	private static Connection conn =null;
 	
 	private static StandardServiceRegistry ssr;
 	private static Metadata meta;
@@ -595,15 +606,15 @@ public class DataManagement {
 		return mc;
 	}
 	
-	public static void testJoin()
+	public static List<Opzione> readOpzioniListByItemCaratteristica(String item, String caratteristica)
 	{
 		List<Opzione> cara = null;
 		Session session = factory.openSession();
 		Transaction t = session.beginTransaction();
 		try {
 			Query<Opzione> query = session.createQuery("FROM Opzione o join o.caratteristicaObj cara where cara.caratteristicaId = :id and cara.item = :it");
-			query.setParameter("id", "CLFINI");
-			query.setParameter("it", "BA");
+			query.setParameter("id", caratteristica);
+			query.setParameter("it", item);
 			cara = query.getResultList();
 			
 		} catch (HibernateException e) {
@@ -615,13 +626,7 @@ public class DataManagement {
 		    session.close();
 		}
 		   
-		     List<Opzione> opzList = cara;
-		     Iterator<Opzione> itrOpz = opzList.iterator();
-		     while(itrOpz.hasNext())
-		     {
-		    	 Opzione opz = itrOpz.next();
-		    	 System.out.println(opz.getOpzione());
-		     } 
+		return cara;
 	}
 	
 	public static void testAttivitaMacchina()
@@ -650,6 +655,118 @@ public class DataManagement {
 		    	 AttivitaMacchinaRel opz = itrOpz.next();
 		    	 System.out.println(opz.getIdentity().toString());
 		     } 
+	}
+	
+	public static boolean saveDistinta(DistintaOrm distinta)
+	{
+		boolean ret = Boolean.FALSE;
+		Session session = factory.openSession();
+		Transaction t = session.beginTransaction();
+		try {
+			session.save(distinta);
+			
+			t.commit();
+			ret = Boolean.TRUE;
+			
+		} catch (HibernateException e) {
+			t.rollback();
+			e.printStackTrace();
+			ret = Boolean.FALSE;
+		} finally
+		{
+			session.clear();
+		    session.close();
+		}
+		
+		return ret;
+	}
+	
+	public static void saveDistinta(LivelloDistinta currentNode, LivelloDistinta dadNode)
+	{
+		if (currentNode != null)
+		{
+			for(LivelloDistinta level : currentNode.getDistinta())
+			{
+				saveDistinta(level,currentNode);
+			}
+			if(dadNode != null)
+			{
+				saveDistintaLine(currentNode,dadNode);			
+			}
+		}
+	}
+	
+	public static void saveDistintaOrm(LivelloDistinta currentNode, LivelloDistinta dadNode, DistintaOrm dadNodeOrm)
+	{
+		if (currentNode != null)
+		{
+			DistintaOrm dadNodeOrmLevel;
+			if(dadNodeOrm != null)
+				dadNodeOrmLevel = new DistintaOrm(new DistintaOrmIdentity(dadNodeOrm.getCodiceArticoloPadre(),currentNode.getRevisione(),currentNode.getLivelloOrdine()),dadNodeOrm.getCodiceArticoloPadre(),currentNode.getRevisione(),currentNode.getLivelloOrdine(),"         " + currentNode.getArticoloDistinta().getCodiceArticolo(),dadNodeOrm,currentNode.getQta(),currentNode.getScarto(),"",currentNode.getLivelloOrdine());
+			else
+				if(dadNode != null)
+					dadNodeOrmLevel = new DistintaOrm(new DistintaOrmIdentity("         " + dadNode.getArticoloDistinta().getCodiceArticolo(),currentNode.getRevisione(),currentNode.getLivelloOrdine()),"         " + dadNode.getArticoloDistinta().getCodiceArticolo(),currentNode.getRevisione(),currentNode.getLivelloOrdine(),"         " + currentNode.getArticoloDistinta().getCodiceArticolo(),null,currentNode.getQta(),currentNode.getScarto(),"",currentNode.getLivelloOrdine());
+				else
+					dadNodeOrmLevel = null;
+			
+			for(LivelloDistinta level : currentNode.getDistinta())
+			{	
+				saveDistintaOrm(level,currentNode,dadNodeOrmLevel);
+			}
+			if(dadNodeOrmLevel != null)
+			{
+				saveDistintaLineOrm(dadNodeOrmLevel);		
+			}
+		}	
+	}
+	
+	public static int saveDistintaLineOrm(DistintaOrm currentNode)
+	{
+		int returnValue = 0;
+		Session session = factory.openSession();
+		Transaction t = session.beginTransaction();
+		try {	
+			session.save(currentNode);
+			t.commit();	
+		} catch (Throwable e) {
+			t.rollback();
+			returnValue = -1;
+		} finally
+		{
+			session.clear(); 
+		    session.close();
+		}
+		return returnValue;
+	}
+	
+	public static void saveDistintaLine(LivelloDistinta currentNode, LivelloDistinta dad) {
+		Statement stmt = null;
+		String query = null;
+		if(dad != null)
+		{
+			try {
+				Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+				conn =  	       DriverManager.getConnection("jdbc:mysql://localhost/profilglassconf?" +
+				"user=root&password=root");
+
+				stmt = conn.createStatement();
+				query = "INSERT INTO conf_distinta (CodiceArticoloPadre, Revisione, Posizione, CodiceArticoloFiglio, Qta, Scarto, Magazzino, Operazione) VALUES ('         " + dad.getArticoloDistinta().getCodiceArticolo() + "', " + currentNode.getRevisione() + " , " + currentNode.getLivelloOrdine() + ", '         " + currentNode.getArticoloDistinta().getCodiceArticolo() + "', " + currentNode.getQta() + ", " + currentNode.getScarto() + ", '', " + currentNode.getLivelloDistinta() + ")";
+				stmt.executeUpdate(query);
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
+			finally {
+
+				if (stmt != null) {
+					try {
+						stmt.close();
+					} catch (SQLException sqlEx) { }
+
+					stmt = null;
+				}
+
+			}
+		}
 	}
 	
 	public static RichiesteTestata createRichiesteTestata(String item, String descrizione, String businessPartner, String utente, int stato, Date dataCreazione, Date dataModifica, String codiceArticolo, String hash, String nota)

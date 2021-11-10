@@ -48,7 +48,7 @@ public class Caratteristica implements Serializable {
 	@Column(name="Item", insertable = false, updatable = false)
 	private String item;
 	
-	@OneToMany(mappedBy="caratteristicaObj", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy="caratteristicaObj", fetch = FetchType.EAGER)
 	private List<Opzione> valori;
 	
 	@Temporal(TemporalType.DATE)

@@ -9,6 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import it.profilglass.classmodel.LivelloDistinta;
 import it.profilglass.classmodel.Opzione;
 
 public class ReadDB {
@@ -168,6 +169,41 @@ public class ReadDB {
 					stmt = null;
 				}
 
+			}
+		}
+		
+		public static void saveDistintaLine(LivelloDistinta currentNode, LivelloDistinta dad) {
+			Statement stmt = null;
+			String query = null;
+			if(dad != null)
+			{
+				try {
+					Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+					conn =  	       DriverManager.getConnection("jdbc:mysql://localhost/profilglassconf?" +
+					"user=root&password=root");
+	
+					stmt = conn.createStatement();
+					query = "INSERT INTO conf_distinta (CodiceArticoloPadre, Revisione, Posizione, CodiceArticoloFiglio, Qta, Scarto, Magazzino, Operazione) VALUES ('         " + dad.getArticoloDistinta().getCodiceArticolo() + "', " + currentNode.getRevisione() + " , " + currentNode.getLivelloOrdine() + ", '         " + currentNode.getArticoloDistinta().getCodiceArticolo() + "', " + currentNode.getQta() + ", " + currentNode.getScarto() + ", '', 0)";
+					stmt.executeUpdate(query);
+				} catch (Exception ex) {
+					// handle the error
+					ex.printStackTrace();
+				}
+				finally {
+					// it is a good idea to release
+					// resources in a finally{} block
+					// in reverse-order of their creation
+					// if they are no-longer needed
+	
+					if (stmt != null) {
+						try {
+							stmt.close();
+						} catch (SQLException sqlEx) { } // ignore
+	
+						stmt = null;
+					}
+	
+				}
 			}
 		}
 

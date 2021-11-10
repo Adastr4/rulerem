@@ -25,7 +25,7 @@ public class RuleBA_LV_2 {
 	private List<Caratteristica> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 
 	@Result
-	private List<LivelloDistinta> result;
+	private LivelloDistinta result;
 	
 	@When
 	public boolean when()
@@ -37,12 +37,12 @@ public class RuleBA_LV_2 {
 	public RuleState then()
 	{
 		//AGIIUNGO IL LIVELLO 2 DI DISTINTA (LB o LV)
-		result.get(0).getDistinta().add(new LivelloDistinta(new GenericItem("LV" + caratteristiche.stream().filter(caratteristica -> "CLLEGA".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione() + 
+		result.getDistinta().add(new LivelloDistinta(new GenericItem("LV" + caratteristiche.stream().filter(caratteristica -> "CLLEGA".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione() + 
 																				caratteristiche.stream().filter(caratteristica -> "CLSPESS".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione() + 
 																				caratteristiche.stream().filter(caratteristica -> "MLSTATF".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione() +
 																				caratteristiche.stream().filter(caratteristica -> "SLLANAS".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().substring(3, 7) +
 																				caratteristiche.stream().filter(caratteristica -> "CLFINI".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione() +
-																				caratteristiche.stream().filter(caratteristica -> "CLTOLLE".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione(),"LV",null), 2, 1));
+																				caratteristiche.stream().filter(caratteristica -> "CLTOLLE".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione(),"LV",null), 2, 10));
 		return RuleState.NEXT;
 	}
 

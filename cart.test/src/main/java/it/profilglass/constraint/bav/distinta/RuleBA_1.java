@@ -15,6 +15,7 @@ import it.profilglass.classmodel.Ciclo;
 import it.profilglass.classmodel.Distinta;
 import it.profilglass.classmodel.GenericItem;
 import it.profilglass.classmodel.LivelloDistinta;
+import it.profilglass.orm.DistintaOrm;
 import test.test.Attivita;
 import test.test.CaratteristicaBean;
 import test.test.ReadDB;
@@ -26,7 +27,7 @@ public class RuleBA_1 {
 	private List<Caratteristica> caratteristiche; //Annotated Lists get injected with all Facts of the declared generic type
 
 	@Result
-	private List<LivelloDistinta> result = new ArrayList<LivelloDistinta>();
+	private LivelloDistinta result = null;
 	
 	@When
 	public boolean when()
@@ -45,14 +46,14 @@ public class RuleBA_1 {
 	public RuleState then()
 	{
 		//Aggiungo il primo livello di distinta (nodo);
-		result.add(new LivelloDistinta(new GenericItem("BA" + caratteristiche.stream().filter(caratteristica -> "CLLEGA".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().toString() + 
-																				caratteristiche.stream().filter(caratteristica -> "CLSPESS".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().toString() + 
-																				caratteristiche.stream().filter(caratteristica -> "CLSTATF".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().toString() +
-																				caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().toString() + 
-																				caratteristiche.stream().filter(caratteristica -> "CLLUNG".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().toString() + 
-																				caratteristiche.stream().filter(caratteristica -> "CLFINI".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().toString() +
-																				caratteristiche.stream().filter(caratteristica -> "CLTOLLE".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().toString() + 
-																				caratteristiche.stream().filter(caratteristica -> "CLRIVE".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().toString(),"BA",null), 1, 1));
+		result = new LivelloDistinta(new GenericItem("BA" + caratteristiche.stream().filter(caratteristica -> "CLLEGA".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().toString() + 
+															caratteristiche.stream().filter(caratteristica -> "CLSPESS".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().toString() + 
+															caratteristiche.stream().filter(caratteristica -> "CLSTATF".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().toString() +
+															caratteristiche.stream().filter(caratteristica -> "CLLARG".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().toString() + 
+															caratteristiche.stream().filter(caratteristica -> "CLLUNG".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().toString() + 
+															caratteristiche.stream().filter(caratteristica -> "CLFINI".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().toString() +
+															caratteristiche.stream().filter(caratteristica -> "CLTOLLE".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().toString() + 
+															caratteristiche.stream().filter(caratteristica -> "CLRIVE".equals(caratteristica.getCaratteristica())).findAny().get().getSelectedValue().getOpzione().toString(),"BA",null), 1, 10);
 		return RuleState.NEXT;
 	}
 

@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Queue;
+import javax.swing.JOptionPane;
 
 import com.deliveredtechnologies.rulebook.Fact;
 import com.deliveredtechnologies.rulebook.FactMap;
@@ -22,9 +23,11 @@ import it.profilglass.classmodel.GenericItem;
 import it.profilglass.classmodel.LivelloDistinta;
 import it.profilglass.classmodel.Opzione;
 import it.profilglass.orm.DataManagement;
+import it.profilglass.orm.DistintaOrm;
 import test.test.CaratteristicaBean;
 import test.test.Caratteristiche;
 import test.test.Macchina;
+import test.test.ReadDB;
 
 public class Main {
 
@@ -43,32 +46,34 @@ public class Main {
 		//CaratteristicaBean cara = new CaratteristicaBean(new BigDecimal(600),"1K","H18","B00957","000000","L","","03450","03750","B","N","N"," ","N","H18","1","002","","P","0","0","ACP","ACP",1,2,"1KB1420","H01","BL","N");
 		//System.out.println("Valore visualizzato: " + cara.getSLLANASLarg());
 		//RuleMacchina(cara);
-		//GenericConfItem item = new GenericConfItem(new ConfiguratoreBAV(), "BAV");
-		//item.getConf().getCaratteristicaById("CLFINI").setSelectedValueFromOpzioneList("M");
-		//item.getConf().getCaratteristicaById("CLLEGA").setSelectedValue(new Opzione("4F","4F"));
-		//item.getConf().getCaratteristicaById("CLSPESS").setSelectedValueFromOpzioneList("3000");
-		//item.getConf().getCaratteristicaById("CLSTATF").setSelectedValue(new Opzione("HA","HA"));
-		//item.getConf().getCaratteristicaById("MLSTATF").setSelectedValueFromOpzioneList("HA1");
-		//item.getConf().getCaratteristicaById("CLLARG").setSelectedValueFromOpzioneList("10000");
-		//item.getConf().getCaratteristicaById("CLLUNG").setSelectedValueFromOpzioneList("20000");
-		//item.getConf().getCaratteristicaById("CLTOLLE").setSelectedValueFromOpzioneList("N");
-		//item.getConf().getCaratteristicaById("CLRIVE").setSelectedValueFromOpzioneList("A");
-		//item.getConf().getCaratteristicaById("SLLANAS").setSelectedValueFromOpzioneList("5AB1340");
-		//item.getConf().getCaratteristicaById("SLMOD").setSelectedValueFromOpzioneList("CP");
-		//item.getConf().getCaratteristicaById("SCAP").setSelectedValue(new Opzione("EDT","EDT"));
-		//item.getConf().getCaratteristicaById("SLTOLLA").setSelectedValue(new Opzione("N","Fuori"));
-		//item.getConf().getCaratteristicaById("CLLARG").setSelectedValue(new Opzione("07000","07000"));
-		//item.getConf().getCaratteristicaById("CLSPESS").setSelectedValue(new Opzione("07000","07000"));
-		//item.getConf().getCaratteristicaById("QLSPEC").setSelectedValue(new Opzione("1","1"));
-		//item.getConf().getCaratteristicaById("SBATIPO").setSelectedValue(new Opzione("0","0"));
+		GenericConfItem item = new GenericConfItem(new ConfiguratoreBAV(), "BAV");
+		item.getConf().getCaratteristicaById("CLFINI").setSelectedValueFromOpzioneList("M");
+		item.getConf().getCaratteristicaById("CLLEGA").setSelectedValue(new Opzione("4F","4F"));
+		item.getConf().getCaratteristicaById("CLSPESS").setSelectedValueFromOpzioneList("3000");
+		item.getConf().getCaratteristicaById("CLSTATF").setSelectedValue(new Opzione("HA","HA"));
+		item.getConf().getCaratteristicaById("MLSTATF").setSelectedValueFromOpzioneList("HA1");
+		item.getConf().getCaratteristicaById("CLLARG").setSelectedValueFromOpzioneList("10000");
+		item.getConf().getCaratteristicaById("CLLUNG").setSelectedValueFromOpzioneList("20000");
+		item.getConf().getCaratteristicaById("CLTOLLE").setSelectedValueFromOpzioneList("N");
+		item.getConf().getCaratteristicaById("CLRIVE").setSelectedValueFromOpzioneList("A");
+		item.getConf().getCaratteristicaById("SLLANAS").setSelectedValue(new Opzione("5AB1340","5AB1340"));
+		item.getConf().getCaratteristicaById("SLMOD").setSelectedValueFromOpzioneList("CP");
+		item.getConf().getCaratteristicaById("SCAP").setSelectedValue(new Opzione("EDT","EDT"));
+		item.getConf().getCaratteristicaById("SLTOLLA").setSelectedValue(new Opzione("N","Fuori"));
+		item.getConf().getCaratteristicaById("CLLARG").setSelectedValue(new Opzione("07000","07000"));
+		item.getConf().getCaratteristicaById("CLSPESS").setSelectedValue(new Opzione("07000","07000"));
+		item.getConf().getCaratteristicaById("QLSPEC").setSelectedValue(new Opzione("1","1"));
+		item.getConf().getCaratteristicaById("SBATIPO").setSelectedValue(new Opzione("0","0"));
+		LivelloDistinta dist = item.getConf().buildDistinta();
+		DataManagement.saveDistintaOrm(dist, null, null);
 		//opz = item.getConf().getValidatedOptionsByName("SLMOD");
 		//printDistinta(RunDistintaNew(item).get(0));
 		//printDistinta(distintaDefault().get(0));
 		//printOpzione(opz);
 		//dm.insertCentroLavoro("TEST", "TEST");
-		Configuratore c = new ConfiguratoreBAV();
-		c.saveRequest();
-		System.out.println("Finito!");
+		//Configuratore c = new ConfiguratoreBAV();
+		//c.saveRequest();
+		//System.out.println("Finito!");
 	}
 	
 	private static void withLoopCLLARGSTOLLACLSPESSNew() {

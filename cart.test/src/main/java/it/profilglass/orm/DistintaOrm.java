@@ -8,6 +8,7 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -41,12 +42,16 @@ public class DistintaOrm implements Serializable {
 	private int posizione;
 	
 	@NotNull
-	@Column(name="CodiceArticoloFiglio", insertable=false, updatable=false)
+	@Column(name="CodiceArticoloFiglio")
 	private String codiceArticoloFiglio;
 	
 	@NotFound(action = NotFoundAction.IGNORE)
 	@ManyToOne
-	@JoinColumn(name = "CodiceArticoloPadre")
+	@JoinColumns({
+		@JoinColumn(name="CodiceArticoloPadre", referencedColumnName = "CodiceArticoloPadre", insertable = false, updatable = false),
+		@JoinColumn(name="Revisione", referencedColumnName = "Revisione", insertable = false, updatable = false),
+		@JoinColumn(name="Posizione", referencedColumnName = "Posizione", insertable = false, updatable = false),
+	})
 	private DistintaOrm fatherObj;
 	
 	@OneToMany(mappedBy = "fatherObj", fetch = FetchType.EAGER)
@@ -79,6 +84,23 @@ public class DistintaOrm implements Serializable {
 		this.codiceArticoloFiglio = codiceArticoloFiglio;
 		this.fatherObj = fatherObj;
 		this.figlioObj = figlioObj;
+		this.qta = qta;
+		this.scarto = scarto;
+		this.magazzino = magazzino;
+		this.operazione = operazione;
+	}
+	
+	public DistintaOrm(DistintaOrmIdentity identity, String codiceArticoloPadre, int revisione, int posizione,
+			String codiceArticoloFiglio, DistintaOrm fatherObj, float qta, float scarto,
+			String magazzino, int operazione) {
+		super();
+		this.identity = identity;
+		this.codiceArticoloPadre = codiceArticoloPadre;
+		this.revisione = revisione;
+		this.posizione = posizione;
+		this.codiceArticoloFiglio = codiceArticoloFiglio;
+		this.fatherObj = fatherObj;
+		this.figlioObj = null;
 		this.qta = qta;
 		this.scarto = scarto;
 		this.magazzino = magazzino;
